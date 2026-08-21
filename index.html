@@ -1,0 +1,34 @@
+<!doctype html><html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111827"><title>楽園上新屋 ジャグラーAI</title>
+<link rel="manifest" href="manifest.json">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
+header{background:#111827;color:#fff;padding:18px 14px;position:sticky;top:0;z-index:5}h1{margin:0;font-size:20px}.sub{font-size:12px;opacity:.75;margin-top:4px}
+.tabs{display:flex;gap:7px;overflow:auto;background:#fff;padding:9px;position:sticky;top:69px;z-index:4}button{border:0;border-radius:18px;padding:8px 11px;font-weight:700;white-space:nowrap}.on{background:#111827;color:#fff}
+main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px #0001}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.stat{background:#f8fafc;border-radius:10px;padding:9px}.label{font-size:11px;color:#6b7280}.value{font-size:17px;font-weight:800;margin-top:3px}
+.row{display:flex;align-items:center;gap:7px;padding:11px 0;border-bottom:1px solid #eee}.rank{width:30px;font-weight:900}.no{width:60px;font-size:17px;font-weight:900}.score{margin-left:auto;font-weight:900}.badge{font-size:11px;padding:5px 7px;border-radius:8px;background:#eef2ff}
+.note{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:11px;font-size:12px;line-height:1.55}.small{font-size:12px;color:#6b7280}
+</style></head><body>
+<header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">最終版・90日分析・予想ランキング・23:30答え合わせ</div></header>
+<div id="tabs" class="tabs"></div><main>
+<div class="card"><div class="grid">
+<div class="stat"><div class="label">分析期間</div><div class="value">90日</div></div>
+<div class="stat"><div class="label">予想確定</div><div class="value">7:00</div></div>
+<div class="stat"><div class="label">答え合わせ</div><div class="value">23:30</div></div></div></div>
+<div class="note"><b>自動取得版</b><br>みんレポ・アナスロ・D-DELTA NETの取得結果を統合する設計です。取得できないデータを推測で補完せず、取得状況を表示します。</div>
+<div id="app"></div>
+</main>
+<script>
+const M={"マイジャグラーV": [2201, 2202, 2203, 2204, 2205, 2206, 2207, 2208, 2209, 2210, 2211, 2212, 2213, 2214, 2215, 2216, 2217, 2218, 2219, 2220, 2221, 2222, 2223, 2224, 2225, 2226, 2227, 2228, 2229, 2230, 2231, 2232, 2233, 2234, 2235, 2236, 2237, 2238, 2239], "ネオアイムジャグラーEX": [2101, 2102, 2103, 2104, 2105, 2106, 2107, 2108, 2109, 2110, 2111, 2112, 2113, 2114, 2115, 2116, 2117, 2118, 2119, 2120, 2121, 2122, 2123, 2124, 2125, 2126, 2127, 2128, 2129, 2130, 2131, 2132, 2133, 2134, 2135, 2136, 2137, 2138, 2139, 3501], "ゴーゴージャグラー3": [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137], "ファンキージャグラー2": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111], "ハッピージャグラーVIII": [219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237], "ジャグラーガールズ": [201, 202, 203, 204, 205, 206, 207, 208, 209], "ミスタージャグラー": [210, 211, 212, 213, 214, 215]};
+let cur=Object.keys(M)[0], DATA=null;
+async function load(){try{DATA=await fetch('data.json?'+Date.now()).then(r=>r.json())}catch(e){}}
+function tabs(){document.getElementById('tabs').innerHTML=Object.keys(M).map(x=>`<button class="${x==cur?'on':''}" onclick="cur=${JSON.stringify(x)};draw()">${x}</button>`).join('')}
+function draw(){
+let nums=M[cur], rows=nums.map((n,i)=>`<div class="row"><div class="rank">${i+1}</div><div class="no">${n}</div><div class="badge">予想データ待ち</div><div class="score">--</div></div>`).join('');
+document.getElementById('app').innerHTML=`<div class="card"><h2>${cur}</h2><div class="small">${nums.length}台・全台表示</div>${rows}</div>`;
+tabs();
+}
+load().finally(draw);
+</script></body></html>

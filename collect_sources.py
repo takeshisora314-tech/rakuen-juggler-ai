@@ -22,3 +22,20 @@ def main():
             out["sources"][name]={"ok":False,"error":str(e),"checked_at":out["updated_at"]}
     Path("data.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf-8")
 if __name__=="__main__": main()
+r = requests.get(
+    "https://www.d-deltanet.com/pc/D3001.do?pmc=22021009&gc=2&tdd=0&urt=-1&dn=2201",
+    timeout=25,
+    headers={
+        "User-Agent": "Mozilla/5.0",
+        "Referer": "https://www.d-deltanet.com/"
+    }
+)
+
+print("STATUS:", r.status_code)
+print("URL:", r.url)
+print("LENGTH:", len(r.text))
+
+Path("d_delta_test.html").write_text(
+    r.text,
+    encoding="utf-8"
+)

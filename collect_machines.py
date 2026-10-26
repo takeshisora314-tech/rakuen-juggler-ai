@@ -115,6 +115,17 @@ def robots_policy():
     return policy
 
 
+async def follow_public_link(page, url):
+    """Click a visible, already-rendered link; never fabricate referrers."""
+    anchors = page.locator('a[href]:visible')
+    hrefs = await anchors.evaluate_all('xs => xs.map(a => a.href)')
+    if url not in hrefs:
+        raise ValueError('Expected public navigation link is not visible')
+    async with page.expect_navigation(wait_until='domcontentloaded', timeout=60000) as navigation:
+        await anchors.nth(hrefs.index(url)).click()
+    return await navigation.value
+
+
 async def scrape(config, today, results):
     from playwright.async_api import async_playwright, TimeoutError as BrowserTimeout
     policy = robots_policy()
@@ -135,10 +146,13 @@ async def scrape(config, today, results):
         page.on('requestfailed', lambda request: failures.append({
             'url': request.url.split('?')[0], 'error': request.failure}))
 
-        async def visit(url, condition):
+        async def visit(url, condition, from_link=False):
             if not public_url(url) or not policy.can_fetch(AGENT, url):
                 raise PermissionError("URL or robots policy does not allow collection")
-            response = await page.goto(url, wait_until="domcontentloaded", timeout=60000)
+            response = (await follow_public_link(page, url) if from_link else
+                        await page.goto(url, wait_until="domcontentloaded", timeout=60000))
+            if not public_url(page.url):
+                raise PermissionError('Navigation left the approved source; stopped')
             if response and response.status >= 400:
                 raise PermissionError(f"HTTP {response.status}; no retry or bypass")
             raw_document = await response.text() if response else ''
@@ -191,7 +205,8 @@ async def scrape(config, today, results):
             day, report = latest_report(await links(), today)
             results["report_date"] = str(day)
             results['report_url'] = report
-            await visit(report, "() => Array.from(document.querySelectorAll('a')).some(a => a.search.includes('kishu='))")
+            report_ready = "() => Array.from(document.querySelectorAll('a')).some(a => a.search.includes('kishu='))"
+            await visit(report, report_ready, from_link=True)
             heading = await page.locator("h1").inner_text()
             if STORE not in heading or report_day(heading.replace(STORE, "").strip(), today) != day:
                 raise ValueError("Report store/date mismatch")
@@ -203,7 +218,9 @@ async def scrape(config, today, results):
                     results["models"][model_id] = {"status": "unavailable", "reason": "Model link not found"}
                     continue
                 try:
-                    await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})")
+                    if page.url != report:
+                        await visit(report, report_ready, from_link=True)
+                    await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})", from_link=True)
                     title = await page.locator("h1").inner_text()
                     if STORE not in title or report_day(title.replace(STORE, "").strip(), today) != day:
                         raise ValueError("Machine page store/date mismatch")

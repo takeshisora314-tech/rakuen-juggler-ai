@@ -1,7 +1,8 @@
 import json
 import unittest
 from datetime import date
-from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day
+from unittest.mock import AsyncMock, MagicMock
+from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
 
 
@@ -59,6 +60,32 @@ class MachineTests(unittest.TestCase):
         self.assertEqual(len(before["myj5"]["numbers"]), 39)
         self.assertEqual(len(after["myj6"]["numbers"]), 20)
         self.assertEqual(len(after["myj5"]["numbers"]), 19)
+
+
+class NavigationTests(unittest.IsolatedAsyncioTestCase):
+    async def test_clicks_observed_link_without_direct_navigation(self):
+        url = 'https://min-repo.com/3431462/'
+        page = MagicMock()
+        anchors = page.locator.return_value
+        anchors.evaluate_all = AsyncMock(return_value=['https://min-repo.com/', url])
+        anchors.nth.return_value.click = AsyncMock()
+        navigation = MagicMock()
+        async def response(): return 'document-response'
+        navigation.value = response()
+        page.expect_navigation.return_value.__aenter__ = AsyncMock(return_value=navigation)
+        page.expect_navigation.return_value.__aexit__ = AsyncMock(return_value=False)
+        self.assertEqual(await follow_public_link(page, url), 'document-response')
+        anchors.nth.assert_called_once_with(1)
+        anchors.nth.return_value.click.assert_awaited_once()
+        page.goto.assert_not_called()
+
+    async def test_missing_link_never_falls_back_to_guessed_url(self):
+        page = MagicMock()
+        page.locator.return_value.evaluate_all = AsyncMock(return_value=[])
+        with self.assertRaises(ValueError):
+            await follow_public_link(page, 'https://min-repo.com/3431462/')
+        page.expect_navigation.assert_not_called()
+        page.goto.assert_not_called()
 
 
 if __name__ == "__main__":

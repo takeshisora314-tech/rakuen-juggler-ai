@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-10-26T11:15:42.637527+00:00",
+  "updated_at": "2026-10-26T11:19:09.142127+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-10-26T11:15:42.637527+00:00"
+      "checked_at": "2026-10-26T11:19:09.142127+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T11:15:42.637527+00:00"
+      "checked_at": "2026-10-26T11:19:09.142127+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T11:15:42.637527+00:00"
+      "checked_at": "2026-10-26T11:19:09.142127+00:00"
     }
   },
   "layout": {
@@ -233,14 +233,32 @@
   "machine_results_available": false,
   "machine_records": [],
   "machine_collection": {
-    "attempted_at": "2026-10-26T11:15:44.842048+00:00",
+    "attempted_at": "2026-10-26T11:19:11.575118+00:00",
     "models": {},
     "report_date": "2026-10-25",
     "report_url": "https://min-repo.com/3431462/",
     "diagnostic": {
       "url": "https://min-repo.com/3431462/",
       "title": "",
-      "body_excerpt": ""
+      "body_excerpt": "",
+      "request_failures": [
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://pagead2.googlesyndication.com/pagead/ping",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://prod.us-east-1.cxm-bcn.publisher-services.amazon.dev/v1/recordVendorsLoaded",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2",
+          "error": "net::ERR_FAILED"
+        }
+      ]
     },
     "status": "error",
     "reason": "Page.wait_for_function: Timeout 45000ms exceeded."

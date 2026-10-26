@@ -16,7 +16,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 </style>
 </head>
 <body>
-<header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">機種別台番・取得状況／台別収集と予想は準備中</div></header>
+<header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">機種別台番・公開実績／予想機能は準備中</div></header>
 <nav id="tabs" class="tabs" aria-label="機種選択"></nav>
 <main>
 <section class="card">
@@ -27,7 +27,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note">2026/10/27から：マイジャグ6は2201〜2220（20台）、マイジャグ5は2221〜2239（19台）。入替前の5と導入後の6は別の機種履歴として扱います。</div>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
-<div class="note"><b>現在の実装範囲</b><br>自動処理はデータ元への接続状況を記録する段階です。接続できても台別の回転数・BB・RB・差枚を取得できたことにはなりません。台別収集・設定推定・予想・答え合わせは未実装です。未取得の数値やランキングは表示しません。</div>
+<div class="note"><b>表示について</b><br>台別実績はみんレポの公開値です（差枚等は独自集計の参考値）。各台に実績日と出典を表示します。未取得は0で補いません。設定推定・予想・答え合わせは未実装で、勝利を保証する情報ではありません。</div>
 </main>
 <script>
 let CONFIG = null, DATA = null, current = null, followToday = true;
@@ -42,6 +42,18 @@ function activeModels(config, day) {
 }
 function safe(value) {
   return String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function latestModelRecords(model, day) {
+  const records = (DATA?.machine_records || []).filter(r => r.model_id === model.id && r.date <= day);
+  const latest = records.reduce((d, r) => r.date > d ? r.date : d, '');
+  return new Map(records.filter(r => r.date === latest).map(r => [r.number, r]));
+}
+function machineRow(number, record) {
+  if (!record) return `<div class="row"><div class="no">${number}</div><span class="badge">台別データ未取得</span></div>`;
+  const value = key => Number.isInteger(record[key]) ? record[key].toLocaleString('ja-JP') : '未取得';
+  let source = '';
+  try { const url = new URL(record.source_url); if (url.protocol === 'https:' && url.hostname === 'min-repo.com') source = `<a href="${safe(url.href)}" target="_blank" rel="noopener noreferrer">出典：みんレポ</a>`; } catch (_) {}
+  return `<div class="row"><div class="no">${number}</div><div class="small">実績日 ${safe(record.date)}<br>G ${value('games')} ／ BB ${value('bb')} ／ RB ${value('rb')}<br>差枚 ${value('difference')}枚 · ${source}</div></div>`;
 }
 function draw() {
   if (!CONFIG || !/^\d{4}-\d{2}-\d{2}$/.test(dateInput.value)) return;
@@ -58,15 +70,25 @@ function draw() {
     tabs.appendChild(button);
   }
   const model = models.find(m => m.id === current);
+  const records = model ? latestModelRecords(model, dateInput.value) : new Map();
   document.getElementById('layout-note').textContent = dateInput.value === todayJST()
     ? '今日の台割です。日付を変えると、入替前・入替後の台番を確認できます。'
     : '選択日の台割プレビューです。当日の実績・予想ではありません。';
   document.getElementById('app').innerHTML = model
-    ? `<section class="card"><h2>${safe(model.name)}</h2><p class="small">${model.numbers.length}台・台番順（予想順位ではありません）${model.id === 'myj6' ? '<br>導入日：2026/10/27。旧マイジャグ5の実績を6の実績として引き継ぎません。' : ''}</p>${model.numbers.map(n => `<div class="row"><div class="no">${n}</div><span class="badge">台別データ未取得</span></div>`).join('')}</section>`
+    ? `<section class="card"><h2>${safe(model.name)}</h2><p class="small">${model.numbers.length}台・台番順（予想順位ではありません）<br>選択日以前の最新取得日を機種ごとに表示。当日のライブデータではありません。${model.id === 'myj6' ? '<br>導入日：2026/10/27。旧マイジャグ5の実績を6の実績として引き継ぎません。' : ''}</p>${model.numbers.map(n => machineRow(n, records.get(n))).join('')}</section>`
     : '<div class="card">この日の台割は登録されていません。</div>';
 }
 function drawSources() {
   let html = '<h3>データ元の接続確認（台別取得とは別）</h3>';
+  const collection = DATA?.machine_collection;
+  if (collection) {
+    const statuses = {complete:'全対象機種を取得', partial:'一部機種のみ取得', blocked:'アクセス制限で停止', error:'取得エラー'};
+    html += `<p class="small">台別収集：${safe(statuses[collection.status] || '状態不明')}<br>対象実績日：${safe(collection.report_date || '未確認')}<br>最終試行：${safe(collection.attempted_at || '不明')}</p>`;
+    for (const [id, result] of Object.entries(collection.models || {})) {
+      const name = CONFIG?.models.find(m => m.id === id)?.name || id;
+      html += `<p class="small">${safe(name)}：${result.status === 'complete' ? safe(result.rows) + '台取得' : '未取得（台割不一致・未公開・取得エラー等）'}</p>`;
+    }
+  }
   if (!DATA?.updated_at) html += '<p class="small">確認結果はまだ読み込めていません。</p>';
   else {
     const updated = new Date(DATA.updated_at);
@@ -93,7 +115,7 @@ async function load() {
     document.getElementById('app').innerHTML = '<div class="card">台割を読み込めませんでした。時間をおいて再読み込みしてください。</div>';
   }
   try { DATA = await fetchJSON('data.json'); } catch (error) { DATA = null; }
-  drawSources();
+  draw(); drawSources();
 }
 dateInput.addEventListener('change', () => {followToday = false; draw();});
 document.getElementById('today').addEventListener('click', () => {followToday = true; dateInput.value = todayJST(); draw();});

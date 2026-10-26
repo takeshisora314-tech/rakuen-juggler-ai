@@ -83,8 +83,8 @@ def collect(data_path=BASE / "data.json", config_path=BASE / "machines.json",
               "models": layout_on(config, day)}
     sources = check_sources(checked_at)
     snapshot = {"updated_at": checked_at, "sources": sources, "layout": layout,
-                "collection_stage": "source_checks_only",
-                "machine_results_available": False}
+                "collection_stage": "machine_results" if out.get("machine_records") else "source_checks_only",
+                "machine_results_available": bool(out.get("machine_records"))}
     stamp = now.astimezone(timezone.utc).strftime("%H%M%S-%fZ")
     snapshot_path = history_root / day / (stamp + ".json")
     if snapshot_path.exists():
@@ -93,7 +93,7 @@ def collect(data_path=BASE / "data.json", config_path=BASE / "machines.json",
     out.update(snapshot)
     write_json(data_path, out)
     print(f"Saved source checks: {snapshot_path.relative_to(history_root)}; "
-          f"layout date: {day}. Machine results/predictions not yet implemented.")
+          f"layout date: {day}. Availability check only; see machine_collection for results.")
     return out
 
 

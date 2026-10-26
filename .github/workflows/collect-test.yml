@@ -4,6 +4,7 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 20 * * *"
+    - cron: "0 14 * * *"
 
 permissions:
   contents: read
@@ -39,11 +40,13 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python -m unittest test_machine_collector -v
+          python -m unittest test_forecast_engine -v
 
       - name: Run collector
         run: |
           python collect_sources.py
           python collect_machines.py
+          python forecast_engine.py
 
       - name: Save collected status and snapshots
         run: |

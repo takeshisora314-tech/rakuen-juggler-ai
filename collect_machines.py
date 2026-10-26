@@ -124,6 +124,9 @@ async def scrape(config, today, results):
         page.set_default_timeout(45000)
         failures = []
         errors, site_responses = [], []
+        console_errors = []
+        page.on('console', lambda message: console_errors.append(message.text[:500])
+                if message.type == 'error' else None)
         page.on('pageerror', lambda error: errors.append(str(error)[:400]))
         page.on('response', lambda response: site_responses.append({
             'url': response.url.split('?')[0], 'status': response.status})
@@ -138,6 +141,11 @@ async def scrape(config, today, results):
             response = await page.goto(url, wait_until="domcontentloaded", timeout=60000)
             if response and response.status >= 400:
                 raise PermissionError(f"HTTP {response.status}; no retry or bypass")
+            raw_document = await response.text() if response else ''
+            document_info = {'bytes': len(raw_document.encode()),
+                             'script_count': raw_document.lower().count('<script'),
+                             'ajax_bootstrap': 'w_scd_n' in raw_document,
+                             'content_type': response.headers.get('content-type') if response else None}
             text = await page.locator("body").inner_text()
             if CHALLENGE.search(text):
                 raise PermissionError("Verification/access restriction; collection stopped")
@@ -164,6 +172,8 @@ async def scrape(config, today, results):
                                          'body_excerpt': (await page.locator('body').inner_text())[:600],
                                          'request_failures': failures[-5:],
                                          'javascript_errors': errors[-5:],
+                                         'console_errors': console_errors[-5:],
+                                         'document': document_info,
                                          'site_responses': site_responses[-10:]}
                 raise
             text = await page.locator("body").inner_text()

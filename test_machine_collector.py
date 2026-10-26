@@ -2,8 +2,15 @@ import json
 import unittest
 from datetime import date
 from unittest.mock import AsyncMock, MagicMock
+from unittest.mock import patch
+from pathlib import Path
+from tempfile import TemporaryDirectory
+from datetime import datetime, timedelta, timezone
+import shutil
 from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
+from collect_sources import write_json
+from collect_machines import run, available_reports
 
 
 class MachineTests(unittest.TestCase):
@@ -60,6 +67,32 @@ class MachineTests(unittest.TestCase):
         self.assertEqual(len(before["myj5"]["numbers"]), 39)
         self.assertEqual(len(after["myj6"]["numbers"]), 20)
         self.assertEqual(len(after["myj5"]["numbers"]), 19)
+
+    def test_report_list_deduplicates_and_orders(self):
+        links = [{'text':'10/25(日)','href':'https://min-repo.com/3431462/'},
+                 {'text':'10/24(土)','href':'https://min-repo.com/3429127/'}]
+        reports = available_reports([*links, links[0]], date(2026,10,26))
+        self.assertEqual([str(day) for day, _ in reports], ['2026-10-25','2026-10-24'])
+
+    def test_each_date_has_its_own_archive(self):
+        days = [str(datetime.now(timezone.utc).date()-timedelta(days=n)) for n in (1,2)]
+        async def fake_scrape(config, today, result, existing):
+            result['records'] = [{**self.parse()[0], 'date': day, 'difference': i}
+                                 for i, day in enumerate(days)]
+            result['models'] = {'myj5': {'status':'complete', 'rows':1}}
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            shutil.copy(BASE/'machines.json', base/'machines.json')
+            write_json(base/'data.json', {'keep':'untouched'})
+            with patch('collect_machines.scrape', fake_scrape): run(base)
+            data = json.loads((base/'data.json').read_text())
+            self.assertEqual(data['keep'], 'untouched')
+            self.assertEqual(len(data['machine_records']),2)
+            for i, day in enumerate(days):
+                rows = json.loads((base/'history'/'machines'/day/'myj5.json').read_text())
+                self.assertEqual(len(rows),1)
+                self.assertEqual(rows[0]['date'],day)
+                self.assertEqual(rows[0]['difference'],i)
 
 
 class NavigationTests(unittest.IsolatedAsyncioTestCase):

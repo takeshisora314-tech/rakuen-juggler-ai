@@ -30,7 +30,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note"><b>表示について</b><br>台別実績はみんレポの公開値です（差枚等は独自集計の参考値）。各台に実績日と出典を表示します。未取得は0で補いません。設定推定・予想・答え合わせは未実装で、勝利を保証する情報ではありません。</div>
 </main>
 <script>
-let CONFIG = null, DATA = null, current = null, followToday = true;
+let CONFIG = null, DATA = null, current = null, followToday = true, selectedResultDay = null;
 const dateInput = document.getElementById('layout-date');
 function todayJST(now = new Date()) {
   return new Intl.DateTimeFormat('sv-SE', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -46,7 +46,20 @@ function safe(value) {
 function latestModelRecords(model, day) {
   const records = (DATA?.machine_records || []).filter(r => r.model_id === model.id && r.date <= day);
   const latest = records.reduce((d, r) => r.date > d ? r.date : d, '');
-  return new Map(records.filter(r => r.date === latest).map(r => [r.number, r]));
+  const selected = records.some(r => r.date === selectedResultDay) ? selectedResultDay : latest;
+  return new Map(records.filter(r => r.date === selected).map(r => [r.number, r]));
+}
+function recentDipSummary(model, targetDay) {
+  const cutoff = new Date(targetDay + 'T00:00:00Z'); cutoff.setUTCDate(cutoff.getUTCDate() - 7);
+  const rows = (DATA?.machine_records || []).filter(r => r.model_id === model.id && r.date < targetDay && r.date >= cutoff.toISOString().slice(0,10));
+  const days = [...new Set(rows.map(r => r.date))].sort().reverse().slice(0,3);
+  if (days.length < 3) return '<p class="small">直近3取得日の比較：履歴不足のため集計しません。新機種に旧機種の実績は流用しません。</p>';
+  const items = model.numbers.flatMap(number => {
+    const history = days.map(day => rows.find(r => r.date === day && r.number === number));
+    if (history.some(r => !r || !Number.isInteger(r.difference) || !Number.isInteger(r.games) || r.games < 3000)) return [];
+    return [{number, total:history.reduce((sum,r)=>sum+r.difference,0)}];
+  }).filter(r=>r.total<0).sort((a,b)=>a.total-b.total || a.number-b.number).slice(0,3);
+  return `<section class="note"><b>直近3取得日の凹み集計（予想ではありません）</b><br>${safe(days.slice().reverse().join('・'))}<br>各日3,000G以上の台で、差枚合計が低い順です。負けた台が次に出ることや、設定が上がることを意味しません。${items.length ? items.map(r=>`<div>${r.number}番：3日合計 ${r.total.toLocaleString('ja-JP')}枚</div>`).join('') : '<div>条件に合う台はありません。</div>'}</section>`;
 }
 function machineRow(number, record) {
   if (!record) return `<div class="row"><div class="no">${number}</div><span class="badge">台別データ未取得</span></div>`;
@@ -66,17 +79,20 @@ function draw() {
     button.type = 'button'; button.textContent = model.name;
     button.className = model.id === current ? 'on' : '';
     button.setAttribute('aria-pressed', String(model.id === current));
-    button.addEventListener('click', () => {current = model.id; draw();});
+    button.addEventListener('click', () => {current = model.id; selectedResultDay = null; draw();});
     tabs.appendChild(button);
   }
   const model = models.find(m => m.id === current);
   const records = model ? latestModelRecords(model, dateInput.value) : new Map();
+  const resultDays = model ? [...new Set((DATA?.machine_records || []).filter(r=>r.model_id===model.id && r.date<=dateInput.value).map(r=>r.date))].sort().reverse() : [];
+  const resultDay = records.values().next().value?.date;
   document.getElementById('layout-note').textContent = dateInput.value === todayJST()
     ? '今日の台割です。日付を変えると、入替前・入替後の台番を確認できます。'
     : '選択日の台割プレビューです。当日の実績・予想ではありません。';
   document.getElementById('app').innerHTML = model
-    ? `<section class="card"><h2>${safe(model.name)}</h2><p class="small">${model.numbers.length}台・台番順（予想順位ではありません）<br>選択日以前の最新取得日を機種ごとに表示。当日のライブデータではありません。${model.id === 'myj6' ? '<br>導入日：2026/10/27。旧マイジャグ5の実績を6の実績として引き継ぎません。' : ''}</p>${model.numbers.map(n => machineRow(n, records.get(n))).join('')}</section>`
+    ? `<section class="card"><h2>${safe(model.name)}</h2><p class="small">${model.numbers.length}台・台番順（予想順位ではありません）<br>選択日以前の取得実績を表示。当日のライブデータではありません。${model.id === 'myj6' ? '<br>導入日：2026/10/27。旧マイジャグ5の実績を6の実績として引き継ぎません。' : ''}</p>${resultDays.length ? `<label class="small" for="result-day">実績日（${resultDays.length}日分）</label> <select id="result-day" style="font:inherit;padding:8px;max-width:100%">${resultDays.map(day=>`<option value="${safe(day)}" ${day===resultDay?'selected':''}>${safe(day)}</option>`).join('')}</select>` : ''}<p class="small">以下の集計は台割の基準日より前のデータを使用し、実績日の選択とは独立しています。</p>${recentDipSummary(model,dateInput.value)}${model.numbers.map(n => machineRow(n, records.get(n))).join('')}</section>`
     : '<div class="card">この日の台割は登録されていません。</div>';
+  document.getElementById('result-day')?.addEventListener('change', event=>{selectedResultDay=event.target.value;draw();});
 }
 function drawSources() {
   let html = '<h3>データ元の接続確認（台別取得とは別）</h3>';
@@ -88,6 +104,8 @@ function drawSources() {
       const name = CONFIG?.models.find(m => m.id === id)?.name || id;
       html += `<p class="small">${safe(name)}：${result.status === 'complete' ? safe(result.rows) + '台取得' : '未取得（台割不一致・未公開・取得エラー等）'}</p>`;
     }
+    const backfill = Object.entries(collection.backfill || {});
+    if (backfill.length) html += `<p class="small">マイジャグ5の過去補完：${backfill.filter(([,r])=>['complete','cached'].includes(r.status)).length}日成功／${backfill.length}日試行。ほかの機種は日次収集で蓄積します。</p>`;
   }
   if (!DATA?.updated_at) html += '<p class="small">確認結果はまだ読み込めていません。</p>';
   else {

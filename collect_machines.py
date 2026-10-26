@@ -42,7 +42,7 @@ def public_url(url):
     return parsed.scheme == "https" and parsed.netloc == "min-repo.com" and not parsed.fragment
 
 
-def latest_report(links, today):
+def available_reports(links, today):
     reports = []
     for link in links:
         day = report_day(link["text"], today)
@@ -51,7 +51,11 @@ def latest_report(links, today):
             reports.append((day, url))
     if not reports:
         raise ValueError("No completed daily report found")
-    return max(reports)
+    return sorted(set(reports), reverse=True)
+
+
+def latest_report(links, today):
+    return available_reports(links, today)[0]
 
 
 def integer(value, nonnegative=False):
@@ -126,7 +130,7 @@ async def follow_public_link(page, url):
     return await navigation.value
 
 
-async def scrape(config, today, results):
+async def scrape(config, today, results, existing=()):
     from playwright.async_api import async_playwright, TimeoutError as BrowserTimeout
     policy = robots_policy()
     async with async_playwright() as playwright:
@@ -202,7 +206,11 @@ async def scrape(config, today, results):
             await visit(SOURCES["min-repo"], "() => document.querySelector('h1') && Array.from(document.querySelectorAll('a')).some(a => /\\/\\d+\\/$/.test(a.pathname))")
             if (await page.locator("h1").inner_text()).strip() != STORE:
                 raise ValueError("Wrong store index")
-            day, report = latest_report(await links(), today)
+            reports = [(day, url) for day, url in available_reports(await links(), today)
+                       if day >= today - timedelta(days=7)][:7]
+            if not reports:
+                raise ValueError('No report within the last seven calendar days')
+            day, report = reports[0]
             results["report_date"] = str(day)
             results['report_url'] = report
             report_ready = "() => Array.from(document.querySelectorAll('a')).some(a => a.search.includes('kishu='))"
@@ -232,6 +240,42 @@ async def scrape(config, today, results):
                     raise  # no alternate routes or retries after access restrictions
                 except (ValueError, BrowserTimeout) as error:
                     results["models"][model_id] = {"status": "error", "reason": str(error)}
+            # Backfill only My Juggler V initially: bounded work and site load.
+            # All other models continue to accumulate through daily collection.
+            results['backfill'] = {}
+            for past_day, past_report in reports[1:]:
+                model = next((m for m in layout_on(config, past_day)
+                              if m['model_id'] == 'myj5'), None)
+                if not model:
+                    continue
+                cached = {r['number'] for r in existing if r['date'] == str(past_day)
+                          and r['model_id'] == 'myj5'}
+                if cached == set(model['numbers']):
+                    results['backfill'][str(past_day)] = {'status': 'cached', 'rows': len(cached)}
+                    continue
+                try:
+                    await visit(SOURCES['min-repo'], "() => document.querySelector('h1') && Array.from(document.querySelectorAll('a')).some(a => /\\/\\d+\\/$/.test(a.pathname))")
+                    await visit(past_report, report_ready, from_link=True)
+                    heading = await page.locator('h1').inner_text()
+                    if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
+                        raise ValueError('Backfill store/date mismatch')
+                    model_links = {normalized(link['text']): link['href'] for link in await links()}
+                    url = model_links.get(normalized(model['name']))
+                    if not url:
+                        raise ValueError('Historical model link not found')
+                    await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})", from_link=True)
+                    heading = await page.locator('h1').inner_text()
+                    if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
+                        raise ValueError('Historical machine page store/date mismatch')
+                    tables = await page.locator('table').evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
+                    rows = parse_tables(tables, model, past_day, url)
+                    results['records'].extend(rows)
+                    results['backfill'][str(past_day)] = {'status': 'complete', 'rows': len(rows)}
+                except PermissionError:
+                    raise
+                except (ValueError, BrowserTimeout) as error:
+                    results['backfill'][str(past_day)] = {'status': 'error', 'reason': str(error)}
+                    break  # do not keep navigating after a failed historical page
         finally:
             await browser.close()
 
@@ -246,15 +290,15 @@ def run(base=BASE):
     today = now.astimezone(ZoneInfo(config["timezone"])).date()
     result = {"attempted_at": now.isoformat(), "records": [], "models": {}}
     try:
-        asyncio.run(scrape(config, today, result))
+        asyncio.run(scrape(config, today, result, data.get('machine_records', [])))
         result["status"] = "complete" if result["models"] and all(m["status"] == "complete" for m in result["models"].values()) else "partial"
     except Exception as error:
         result["status"] = "blocked" if isinstance(error, PermissionError) else "error"
         result["reason"] = str(error)
     incoming = result.pop("records")
-    for model_id in {r["model_id"] for r in incoming}:
-        rows = [r for r in incoming if r["model_id"] == model_id]
-        path = base / "history" / "machines" / rows[0]["date"] / (model_id + ".json")
+    for day, model_id in {(r['date'], r['model_id']) for r in incoming}:
+        rows = [r for r in incoming if r['model_id'] == model_id and r['date'] == day]
+        path = base / "history" / "machines" / day / (model_id + ".json")
         old = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
         write_json(path, merge_records(old, rows))
     data["machine_records"] = merge_records(data.get("machine_records", []), incoming)

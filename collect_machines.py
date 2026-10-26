@@ -132,7 +132,12 @@ async def scrape(config, today, results):
             text = await page.locator("body").inner_text()
             if CHALLENGE.search(text):
                 raise PermissionError("Verification/access restriction; collection stopped")
-            await page.wait_for_function(condition, timeout=45000)
+            try:
+                await page.wait_for_function(condition, timeout=45000)
+            except BrowserTimeout:
+                results['diagnostic'] = {'url': page.url, 'title': await page.title(),
+                                         'body_excerpt': (await page.locator('body').inner_text())[:600]}
+                raise
             text = await page.locator("body").inner_text()
             if CHALLENGE.search(text):
                 raise PermissionError("Verification/access restriction; collection stopped")
@@ -147,6 +152,7 @@ async def scrape(config, today, results):
                 raise ValueError("Wrong store index")
             day, report = latest_report(await links(), today)
             results["report_date"] = str(day)
+            results['report_url'] = report
             await visit(report, "() => Array.from(document.querySelectorAll('a')).some(a => a.search.includes('kishu='))")
             heading = await page.locator("h1").inner_text()
             if STORE not in heading or report_day(heading.replace(STORE, "").strip(), today) != day:

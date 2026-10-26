@@ -287,10 +287,13 @@ def run(base=BASE):
         raise ValueError("Refusing to overwrite invalid data.json")
     config = json.loads((base / "machines.json").read_text(encoding="utf-8"))
     now = datetime.now(timezone.utc)
-    today = now.astimezone(ZoneInfo(config["timezone"])).date()
+    local = now.astimezone(ZoneInfo(config["timezone"]))
+    today = local.date()
     result = {"attempted_at": now.isoformat(), "records": [], "models": {}}
     try:
-        asyncio.run(scrape(config, today, result, data.get('machine_records', [])))
+        # After 23:00 JST, an already published same-day report is completed play.
+        report_cutoff = today + timedelta(days=1) if local.hour >= 23 else today
+        asyncio.run(scrape(config, report_cutoff, result, data.get('machine_records', [])))
         result["status"] = "complete" if result["models"] and all(m["status"] == "complete" for m in result["models"].values()) else "partial"
     except Exception as error:
         result["status"] = "blocked" if isinstance(error, PermissionError) else "error"

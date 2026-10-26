@@ -16,7 +16,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 </style>
 </head>
 <body>
-<header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">機種別台番・公開実績／予想機能は準備中</div></header>
+<header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">実験予想・自動答え合わせ・公開実績</div></header>
 <nav id="tabs" class="tabs" aria-label="機種選択"></nav>
 <main>
 <section class="card">
@@ -25,9 +25,11 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
   <p id="layout-note" class="small"></p>
 </section>
 <div class="note">2026/10/27から：マイジャグ6は2201〜2220（20台）、マイジャグ5は2221〜2239（19台）。入替前の5と導入後の6は別の機種履歴として扱います。</div>
+<section class="card" id="forecast-panel" aria-live="polite"></section>
+<section class="card" id="evaluation-panel" aria-live="polite"></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
-<div class="note"><b>表示について</b><br>台別実績はみんレポの公開値です（差枚等は独自集計の参考値）。各台に実績日と出典を表示します。未取得は0で補いません。設定推定・予想・答え合わせは未実装で、勝利を保証する情報ではありません。</div>
+<div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>
 let CONFIG = null, DATA = null, current = null, followToday = true, selectedResultDay = null;
@@ -68,6 +70,45 @@ function machineRow(number, record) {
   try { const url = new URL(record.source_url); if (url.protocol === 'https:' && url.hostname === 'min-repo.com') source = `<a href="${safe(url.href)}" target="_blank" rel="noopener noreferrer">出典：みんレポ</a>`; } catch (_) {}
   return `<div class="row"><div class="no">${number}</div><div class="small">実績日 ${safe(record.date)}<br>G ${value('games')} ／ BB ${value('bb')} ／ RB ${value('rb')}<br>差枚 ${value('difference')}枚 · ${source}</div></div>`;
 }
+function drawForecast(model) {
+  const panel = document.getElementById('forecast-panel');
+  const evaluationPanel = document.getElementById('evaluation-panel');
+  const forecast = DATA?.forecast;
+  if (!model || !forecast) {
+    panel.innerHTML = '<h3>実験予想</h3><p class="small">初回の自動生成待ちです。</p>';
+    evaluationPanel.innerHTML = '';
+    return;
+  }
+  const labels = {balanced:'バランス型', dip:'凹み重視型', rb:'RB実績重視型'};
+  const item = forecast.models?.[model.id];
+  const reasons = {insufficient_history:'履歴が3日未満のため予想しません。', stale_data:'直近実績が古いため予想しません。', insufficient_eligible_machines:'回転数・欠損条件を満たす台が不足しています。'};
+  const state = forecast.display_status === 'locked' ? '事前保存済み（変更しません）' : '仮表示（朝の収集後に事前保存）';
+  let html = `<h3>実験予想：${safe(forecast.date)} · ${safe(model.name)}</h3><p class="small">${safe(state)}<br>上の台割・実績日選択とは独立した、最新の予想です。未検証の参考候補で、設定上げの確率・勝率ではありません。</p>`;
+  if (!item || item.status !== 'ready') html += `<p>${safe(reasons[item?.status] || 'この予想日の対象機種ではありません。')}</p>`;
+  else {
+    const selection = item.selection;
+    const candidates = item.strategies?.[selection.strategy] || [];
+    html += `<p class="small">最終実績：${safe(item.latest_source_date)}／履歴${safe(item.history_days)}日<br>方式：${safe(labels[selection.strategy] || selection.strategy)} · 事前比較${safe(selection.paired_days)}日（切替判定は30日以上）</p>`;
+    html += candidates.map((r,i)=>`<div class="row"><div class="no">${i+1}. ${safe(r.number)}</div><div class="small">優先度 ${safe(r.score)}点（確率ではありません）<br>直近3有効日：${safe(r.three_day_difference)}枚／履歴${safe(r.history_days)}日・${safe(r.history_games)}G<br>履歴RB：${r.rb_denominator ? '1/'+safe(r.rb_denominator) : '回数0'}／最終日 ${safe(r.latest_games)}G・${safe(r.latest_difference)}枚</div></div>`).join('');
+  }
+  html += '<details class="small"><summary>予想と改善のルール</summary><p>直近14暦日内・最大7取得日を使い、各日3,000G以上の履歴が3日以上、合計12,000G以上の台を対象にします。直近実績が2日超古い場合は見送ります。凹み、RB実績、回転数を固定の重みで比較する実験ルールで、学習済みAIではありません。</p><p>朝5時に収集後、9時前なら当日予想を一度だけ保存。23時に実績公開分を答え合わせし、未公開なら翌朝に再確認します。実行遅延があり得ます。切替は事前保存された3方式の同条件比較が30日以上そろい、平均の相対差枚が100枚以上改善し、プラス台率が悪化しない場合だけです。精度向上を保証しません。</p></details>';
+  panel.innerHTML = html;
+  const actual = (DATA?.evaluation?.prospective || []).filter(e=>e.models?.[model.id]?.status==='complete');
+  const pending = (DATA?.evaluation?.prospective || []).filter(e=>e.models?.[model.id]?.status==='pending_results');
+  const replay = (DATA?.evaluation?.retrospective || []).filter(e=>e.models?.[model.id]?.status==='complete');
+  let evaluationHTML = `<h3>自動答え合わせ · ${safe(model.name)}</h3><p class="small">事前保存分：評価完了${actual.length}日／公開待ち${pending.length}日。実際の設定は不明なので、公開差枚・BB・RB等で成績を記録します。</p>`;
+  for (const e of actual.slice(-5).reverse()) {
+    const result = e.models[model.id]; const s = result.strategies[result.selected_strategy];
+    evaluationHTML += `<p class="small">${safe(e.date)}：プラス${safe(s.positive_count)}/${safe(s.count)}台 · 平均差枚${safe(s.mean_difference)}枚 · 同条件全台平均との差${safe(s.lift_vs_eligible_mean)}枚（3,000G未満${safe(s.low_play_count)}台）</p>`;
+  }
+  if (!actual.length) evaluationHTML += '<p class="small">まだ事前予想の評価実績はありません。仮表示や過去再計算を、的中実績として数えません。</p>';
+  evaluationHTML += `<details class="small"><summary>過去再計算 ${replay.length}日（事前予想ではありません）</summary><p>各対象日より前のデータだけで再計算した参考結果です。方式の自動切替には使いません。少数の結果から将来の精度は判断できません。</p>`;
+  for (const e of replay) {
+    const s=e.models[model.id].strategies.balanced;
+    evaluationHTML += `<p>${safe(e.date)}：プラス${safe(s.positive_count)}/${safe(s.count)}台 · 平均差枚${safe(s.mean_difference)}枚 · 同条件全台平均との差${safe(s.lift_vs_eligible_mean)}枚</p>`;
+  }
+  evaluationPanel.innerHTML = evaluationHTML + '</details>';
+}
 function draw() {
   if (!CONFIG || !/^\d{4}-\d{2}-\d{2}$/.test(dateInput.value)) return;
   const models = activeModels(CONFIG, dateInput.value);
@@ -83,6 +124,7 @@ function draw() {
     tabs.appendChild(button);
   }
   const model = models.find(m => m.id === current);
+  drawForecast(model);
   const records = model ? latestModelRecords(model, dateInput.value) : new Map();
   const resultDays = model ? [...new Set((DATA?.machine_records || []).filter(r=>r.model_id===model.id && r.date<=dateInput.value).map(r=>r.date))].sort().reverse() : [];
   const resultDay = records.values().next().value?.date;

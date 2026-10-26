@@ -1,0 +1,256 @@
+{
+  "version": "experimental-v1",
+  "date": "2026-10-27",
+  "created_at": "2026-10-26T19:48:44.381095+00:00",
+  "kind": "prospective",
+  "policy": {
+    "min_history_days": 3,
+    "min_daily_games": 3000,
+    "min_total_games": 12000,
+    "max_source_age_days": 2,
+    "comparison_days": 30,
+    "switch_min_lift_gain": 100,
+    "forecast_lock_before_jst_hour": 9
+  },
+  "models": {
+    "myj6": {
+      "status": "insufficient_history",
+      "history_days": 0,
+      "latest_source_date": null,
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "myj5": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-10-25",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 2235,
+            "history_days": 5,
+            "latest_date": "2026-10-25",
+            "latest_games": 5340,
+            "latest_difference": -2269,
+            "three_day_difference": -1575,
+            "history_games": 33054,
+            "history_rb": 95,
+            "rb_denominator": 347.9,
+            "score": 55.76
+          },
+          {
+            "number": 2229,
+            "history_days": 5,
+            "latest_date": "2026-10-25",
+            "latest_games": 6313,
+            "latest_difference": -370,
+            "three_day_difference": -2823,
+            "history_games": 32908,
+            "history_rb": 67,
+            "rb_denominator": 491.2,
+            "score": 51.92
+          },
+          {
+            "number": 2225,
+            "history_days": 4,
+            "latest_date": "2026-10-25",
+            "latest_games": 6049,
+            "latest_difference": -926,
+            "three_day_difference": 5324,
+            "history_games": 26277,
+            "history_rb": 92,
+            "rb_denominator": 285.6,
+            "score": 48.48
+          }
+        ],
+        "dip": [
+          {
+            "number": 2229,
+            "history_days": 5,
+            "latest_date": "2026-10-25",
+            "latest_games": 6313,
+            "latest_difference": -370,
+            "three_day_difference": -2823,
+            "history_games": 32908,
+            "history_rb": 67,
+            "rb_denominator": 491.2,
+            "score": 66.51
+          },
+          {
+            "number": 2235,
+            "history_days": 5,
+            "latest_date": "2026-10-25",
+            "latest_games": 5340,
+            "latest_difference": -2269,
+            "three_day_difference": -1575,
+            "history_games": 33054,
+            "history_rb": 95,
+            "rb_denominator": 347.9,
+            "score": 46.65
+          },
+          {
+            "number": 2237,
+            "history_days": 6,
+            "latest_date": "2026-10-25",
+            "latest_games": 8488,
+            "latest_difference": -1250,
+            "three_day_difference": -278,
+            "history_games": 41364,
+            "history_rb": 128,
+            "rb_denominator": 323.2,
+            "score": 22.1
+          }
+        ],
+        "rb": [
+          {
+            "number": 2225,
+            "history_days": 4,
+            "latest_date": "2026-10-25",
+            "latest_games": 6049,
+            "latest_difference": -926,
+            "three_day_difference": 5324,
+            "history_games": 26277,
+            "history_rb": 92,
+            "rb_denominator": 285.6,
+            "score": 70.69
+          },
+          {
+            "number": 2227,
+            "history_days": 5,
+            "latest_date": "2026-10-25",
+            "latest_games": 9435,
+            "latest_difference": 2222,
+            "three_day_difference": 2037,
+            "history_games": 32544,
+            "history_rb": 106,
+            "rb_denominator": 307.0,
+            "score": 62.39
+          },
+          {
+            "number": 2234,
+            "history_days": 4,
+            "latest_date": "2026-10-25",
+            "latest_games": 8756,
+            "latest_difference": 3056,
+            "three_day_difference": 3380,
+            "history_games": 25311,
+            "history_rb": 83,
+            "rb_denominator": 305.0,
+            "score": 61.1
+          }
+        ]
+      },
+      "eligible_numbers": [
+        2221,
+        2222,
+        2223,
+        2224,
+        2225,
+        2226,
+        2227,
+        2229,
+        2230,
+        2231,
+        2232,
+        2233,
+        2234,
+        2235,
+        2236,
+        2237,
+        2238,
+        2239
+      ]
+    },
+    "neoim": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "gogo3": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "funky2": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "happy8": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "girls": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    },
+    "mr": {
+      "status": "insufficient_history",
+      "history_days": 2,
+      "latest_source_date": "2026-10-26",
+      "selection": {
+        "paired_days": 0,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "eligible_numbers": []
+    }
+  },
+  "snapshot_id": "8cc838f4c4c0ed6fb65eeb73fb4c4703dfd405d3db4a844e4108181a3d7681ed"
+}

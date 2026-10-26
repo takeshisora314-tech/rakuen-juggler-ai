@@ -122,6 +122,9 @@ async def scrape(config, today, results):
         browser = await playwright.chromium.launch()
         page = await browser.new_page()
         page.set_default_timeout(45000)
+        failures = []
+        page.on('requestfailed', lambda request: failures.append({
+            'url': request.url.split('?')[0], 'error': request.failure}))
 
         async def visit(url, condition):
             if not public_url(url) or not policy.can_fetch(AGENT, url):
@@ -135,8 +138,25 @@ async def scrape(config, today, results):
             try:
                 await page.wait_for_function(condition, timeout=45000)
             except BrowserTimeout:
+                # A blank document is not evidence of bot detection. One ordinary
+                # reload is allowed; never loop, change identity, or solve checks.
+                if not (await page.locator('body').inner_text()).strip():
+                    response = await page.reload(wait_until='domcontentloaded', timeout=60000)
+                    if response and response.status >= 400:
+                        raise PermissionError(f'HTTP {response.status}; collection stopped')
+                    text = await page.locator('body').inner_text()
+                    if CHALLENGE.search(text):
+                        raise PermissionError('Verification/access restriction; collection stopped')
+                    try:
+                        await page.wait_for_function(condition, timeout=45000)
+                        if CHALLENGE.search(await page.locator('body').inner_text()):
+                            raise PermissionError('Verification/access restriction; collection stopped')
+                        return await asyncio.sleep(max(1, policy.crawl_delay(AGENT) or 0))
+                    except BrowserTimeout:
+                        pass
                 results['diagnostic'] = {'url': page.url, 'title': await page.title(),
-                                         'body_excerpt': (await page.locator('body').inner_text())[:600]}
+                                         'body_excerpt': (await page.locator('body').inner_text())[:600],
+                                         'request_failures': failures[-5:]}
                 raise
             text = await page.locator("body").inner_text()
             if CHALLENGE.search(text):

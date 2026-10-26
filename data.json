@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-10-26T03:16:32.088988+00:00",
+  "updated_at": "2026-10-26T11:02:46.068800+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-10-26T03:16:32.088988+00:00"
+      "checked_at": "2026-10-26T11:02:46.068800+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T03:16:32.088988+00:00"
+      "checked_at": "2026-10-26T11:02:46.068800+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T03:16:32.088988+00:00"
+      "checked_at": "2026-10-26T11:02:46.068800+00:00"
     }
   },
   "layout": {
@@ -230,5 +230,13 @@
     ]
   },
   "collection_stage": "source_checks_only",
-  "machine_results_available": false
+  "machine_results_available": false,
+  "machine_records": [],
+  "machine_collection": {
+    "attempted_at": "2026-10-26T11:02:48.583953+00:00",
+    "models": {},
+    "report_date": "2026-10-25",
+    "status": "error",
+    "reason": "Page.wait_for_function: Timeout 45000ms exceeded."
+  }
 }

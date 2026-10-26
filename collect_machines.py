@@ -123,6 +123,12 @@ async def scrape(config, today, results):
         page = await browser.new_page()
         page.set_default_timeout(45000)
         failures = []
+        errors, site_responses = [], []
+        page.on('pageerror', lambda error: errors.append(str(error)[:400]))
+        page.on('response', lambda response: site_responses.append({
+            'url': response.url.split('?')[0], 'status': response.status})
+            if urlparse(response.url).netloc == 'min-repo.com'
+            and response.request.resource_type in ('document', 'xhr', 'fetch') else None)
         page.on('requestfailed', lambda request: failures.append({
             'url': request.url.split('?')[0], 'error': request.failure}))
 
@@ -156,7 +162,9 @@ async def scrape(config, today, results):
                         pass
                 results['diagnostic'] = {'url': page.url, 'title': await page.title(),
                                          'body_excerpt': (await page.locator('body').inner_text())[:600],
-                                         'request_failures': failures[-5:]}
+                                         'request_failures': failures[-5:],
+                                         'javascript_errors': errors[-5:],
+                                         'site_responses': site_responses[-10:]}
                 raise
             text = await page.locator("body").inner_text()
             if CHALLENGE.search(text):

@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-10-26T11:19:09.142127+00:00",
+  "updated_at": "2026-10-26T11:34:31.332524+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-10-26T11:19:09.142127+00:00"
+      "checked_at": "2026-10-26T11:34:31.332524+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T11:19:09.142127+00:00"
+      "checked_at": "2026-10-26T11:34:31.332524+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-26T11:19:09.142127+00:00"
+      "checked_at": "2026-10-26T11:34:31.332524+00:00"
     }
   },
   "layout": {
@@ -233,7 +233,7 @@
   "machine_results_available": false,
   "machine_records": [],
   "machine_collection": {
-    "attempted_at": "2026-10-26T11:19:11.575118+00:00",
+    "attempted_at": "2026-10-26T11:34:33.251181+00:00",
     "models": {},
     "report_date": "2026-10-25",
     "report_url": "https://min-repo.com/3431462/",
@@ -251,12 +251,29 @@
           "error": "net::ERR_ABORTED"
         },
         {
-          "url": "https://prod.us-east-1.cxm-bcn.publisher-services.amazon.dev/v1/recordVendorsLoaded",
-          "error": "net::ERR_ABORTED"
-        },
-        {
           "url": "https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2",
           "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "https://securepubads.g.doubleclick.net/pcs/view",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "javascript_errors": [
+        "Failed to execute 'browsingTopics' on 'Document': document.browsingTopics() is deprecated and has been removed."
+      ],
+      "site_responses": [
+        {
+          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3431462/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3431462/",
+          "status": 200
         }
       ]
     },

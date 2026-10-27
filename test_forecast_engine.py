@@ -1,4 +1,5 @@
 import copy
+import math
 import json
 import unittest
 from datetime import date, datetime, timedelta, timezone
@@ -6,6 +7,8 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from collect_sources import write_json
+from collect_sources import BASE
+from setting_model import infer_day, REQUIRED_CONTRACT
 from forecast_engine import (VERSION, WEIGHTS, evaluate, make_forecast,
                              choose_strategy, run, save_snapshot, snapshot_id)
 
@@ -165,6 +168,53 @@ class ForecastTests(unittest.TestCase):
 
     def test_naive_clock_rejected(self):
         with self.assertRaises(ValueError): run(now=datetime(2026,10,26))
+
+
+class ConditionalSettingTests(unittest.TestCase):
+    def setUp(self):
+        self.config=json.loads((BASE/'machines.json').read_text())
+        self.row={'date':'2026-10-26','model_id':'myj5','number':2221,'games':8000,'bb':30,'rb':24}
+        self.contract={k:True for k in REQUIRED_CONTRACT}
+
+    def infer(self, row=None, prior=None):
+        return infer_day(self.row if row is None else row,self.config,[1]*6 if prior is None else prior,self.contract)
+
+    def test_contract_not_assumed(self):
+        result=infer_day(self.row,self.config,[1]*6)
+        self.assertEqual(result['status'],'unverified_observation_semantics')
+        self.assertNotIn('conditional_mass_4_6',result)
+
+    def test_normalization_and_not_calibrated(self):
+        result=self.infer()
+        self.assertAlmostEqual(sum(result['conditional_setting_distribution']),1)
+        self.assertFalse(result['calibrated'])
+        self.assertEqual(result['date'],self.row['date'])
+
+    def test_more_rb_supports_higher_settings_under_same_prior(self):
+        self.assertGreater(self.infer({**self.row,'rb':40})['conditional_mass_4_6'],self.infer()['conditional_mass_4_6'])
+
+    def test_prior_matters_and_zero_prior_remains_zero(self):
+        result=self.infer(prior=[1,1,1,0,0,0])
+        self.assertEqual(result['conditional_mass_4_6'],0)
+        self.assertGreater(self.infer()['conditional_mass_4_6'],0)
+
+    def test_invalid_prior_rejected(self):
+        for prior in ([0]*6,[1]*5,[1,1,1,1,1,math.nan],[1,1,1,1,1,-1]):
+            with self.assertRaises(ValueError): self.infer(prior=prior)
+
+    def test_layout_and_unsupported_model(self):
+        self.assertEqual(self.infer({**self.row,'date':'2026-10-27','number':2201})['status'],'installation_mismatch')
+        self.assertEqual(self.infer({**self.row,'model_id':'neoim'})['status'],'unsupported_model')
+        self.assertEqual(self.infer({**self.row,'date':'2026-10-27','number':2201,'model_id':'myj6'})['status'],'conditional_result')
+
+    def test_missing_low_games_and_impossible_counts_abstain(self):
+        for row,status in (({**self.row,'rb':None},'invalid_record'),({**self.row,'games':1000},'insufficient_games'),({**self.row,'bb':9000},'invalid_record')):
+            self.assertEqual(self.infer(row)['status'],status)
+
+    def test_difference_not_double_counted_and_numerical_stability(self):
+        self.assertEqual(self.infer(),self.infer({**self.row,'difference':99999}))
+        result=self.infer({**self.row,'games':10000000,'bb':40000,'rb':30000})
+        self.assertAlmostEqual(sum(result['conditional_setting_distribution']),1)
 
 
 if __name__ == '__main__':

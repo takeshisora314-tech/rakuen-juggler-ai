@@ -165,6 +165,24 @@ async def follow_public_link(page, url):
     return await navigation.value
 
 
+async def collect_history_models(models, reader, records, outcome):
+    """Isolate a model's parse/layout error; access blocks/timeouts still escape."""
+    for model in models:
+        model_id = model['model_id']
+        try:
+            rows = await reader(model)
+            if rows is None:
+                item = {'status': 'unavailable', 'reason': 'Model link not found'}
+            else:
+                records.extend(rows)
+                item = collection_result(rows, model)
+        except ValueError as error:
+            item = {'status': 'error', 'reason': str(error)}
+        outcome['models'][model_id] = item
+        if item['status'] != 'complete':
+            outcome['status'] = 'partial'
+
+
 async def scrape(config, today, results, existing=()):
     from playwright.async_api import async_playwright, TimeoutError as BrowserTimeout
     policy = robots_policy()
@@ -304,13 +322,11 @@ async def scrape(config, today, results, existing=()):
                     model_links = {normalized(link['text']): link['href'] for link in await links()}
                     outcome = {'status': 'complete', 'models': {}}
                     results['backfill'][str(past_day)] = outcome
-                    for model in needed:
+                    async def read_historical_model(model):
                         model_id = model['model_id']
                         url = model_links.get(normalized(ALIASES.get(model_id, model['name'])))
                         if not url:
-                            outcome['models'][model_id] = {'status': 'unavailable'}
-                            outcome['status'] = 'partial'
-                            continue
+                            return None
                         if page.url != past_report:
                             await visit(past_report, report_ready, from_link=True)
                         await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})", from_link=True)
@@ -318,11 +334,8 @@ async def scrape(config, today, results, existing=()):
                         if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
                             raise ValueError('Historical machine page store/date mismatch')
                         tables = await page.locator('table').evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
-                        rows = parse_tables(tables, model, past_day, url, allow_partial=True)
-                        results['records'].extend(rows)
-                        outcome['models'][model_id] = collection_result(rows, model)
-                        if outcome['models'][model_id]['status'] != 'complete':
-                            outcome['status'] = 'partial'
+                        return parse_tables(tables, model, past_day, url, allow_partial=True)
+                    await collect_history_models(needed,read_historical_model,results['records'],outcome)
                     checkpoint[str(past_day)]={'status':outcome['status'],'attempted_on':str(today)}
                 except PermissionError:
                     raise

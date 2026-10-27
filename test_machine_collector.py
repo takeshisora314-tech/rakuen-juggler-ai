@@ -10,7 +10,7 @@ import shutil
 from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
 from collect_sources import write_json
-from collect_machines import run, available_reports, collection_result, backfill_models, history_reports, ordered_backfill, backfill_due
+from collect_machines import run, available_reports, collection_result, backfill_models, history_reports, ordered_backfill, backfill_due, collect_history_models
 
 
 class MachineTests(unittest.TestCase):
@@ -154,6 +154,41 @@ class MachineTests(unittest.TestCase):
 
 
 class NavigationTests(unittest.IsolatedAsyncioTestCase):
+    async def test_one_layout_error_does_not_block_other_models(self):
+        models=[{'model_id':key,'numbers':[1]} for key in ('bad','good','missing')]
+        async def reader(model):
+            if model['model_id']=='bad': raise ValueError('Installation layout mismatch')
+            if model['model_id']=='missing': return None
+            return [{'number':1,'model_id':'good'}]
+        records=[];outcome={'status':'complete','models':{}}
+        await collect_history_models(models,reader,records,outcome)
+        self.assertEqual(records,[{'number':1,'model_id':'good'}])
+        self.assertEqual(outcome['status'],'partial')
+        self.assertEqual(outcome['models']['bad']['status'],'error')
+        self.assertEqual(outcome['models']['good']['status'],'complete')
+        self.assertEqual(outcome['models']['missing']['status'],'unavailable')
+
+    async def test_access_block_and_timeout_do_not_continue_to_other_models(self):
+        for error in (PermissionError('Forbidden'),TimeoutError('Timed out')):
+            models=[{'model_id':key,'numbers':[1]} for key in ('good','blocked','later')]
+            calls=[]
+            async def reader(model):
+                calls.append(model['model_id'])
+                if model['model_id']=='blocked': raise error
+                return [{'number':1}]
+            records=[];outcome={'status':'complete','models':{}}
+            with self.assertRaises(type(error)):
+                await collect_history_models(models,reader,records,outcome)
+            self.assertEqual(calls,['good','blocked'])
+            self.assertEqual(records,[{'number':1}])
+
+    async def test_partial_verified_rows_remain_partial(self):
+        async def reader(model): return [{'number':1}]
+        records=[];outcome={'status':'complete','models':{}}
+        await collect_history_models([{'model_id':'partial','numbers':[1,2]}],reader,records,outcome)
+        self.assertEqual(outcome['models']['partial']['missing_numbers'],[2])
+        self.assertEqual(outcome['status'],'partial')
+
     async def test_clicks_observed_link_without_direct_navigation(self):
         url = 'https://min-repo.com/3431462/'
         page = MagicMock()

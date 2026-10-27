@@ -65,3 +65,15 @@ assert.match(element('evaluation-panel').innerHTML,/3方式の同条件比較：
 assert.match(element('evaluation-panel').innerHTML,/成績を0%とは表示しません/);
 assert.match(element('evaluation-panel').innerHTML,/プラス台率は設定4〜6の的中率ではありません/);
 console.log('Paired strategy comparison: 10 assertions passed.');
+const manifest=JSON.parse(fs.readFileSync('manifest.json','utf8'));
+assert.equal(manifest.display,'standalone');
+assert.equal(manifest.scope,'./');
+assert.equal(manifest.start_url,'./index.html');
+assert.match(html,/name="apple-mobile-web-app-capable" content="yes"/);
+assert.match(html,/rel="apple-touch-icon" href="app-icon.png"/);
+assert.match(html,/閲覧には通信が必要/);
+const icon=fs.readFileSync(manifest.icons[0].src);
+assert.equal(icon.subarray(1,4).toString(),'PNG');
+assert.equal(icon.readUInt32BE(16),512);
+assert.equal(icon.readUInt32BE(20),512);
+console.log('Home Screen configuration: 9 assertions passed.');

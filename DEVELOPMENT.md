@@ -2,6 +2,13 @@
 
 更新日: 2026-10-27 JST
 
+## iPhoneホーム画面起動の設定
+
+- 既存manifestのstandaloneに加え、アプリID/スコープ、512px PNGアイコン、Apple用起動メタ情報・アイコン指定を追加。アイコンはbuild_app_icon.pyから再生成可能（開発時Pillow使用、Actionsでは生成不要）。
+- 画面下部にSafariの共有メニューからホーム画面へ追加する案内を追加。通信必須であり、App Storeアプリ・オフライン対応とは案内しない。既存アイコンの削除は求めず、新規追加して確認する。
+- ローカルPython71件、画面/ホーム画面設定34項目成功。manifestの相対パス、PNG形式/512px、Appleメタ情報を検査。利用者のiPhoneへの追加・実際の独立画面起動は未確認。
+- 参照: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html および https://support.apple.com/guide/iphone/open-as-web-app-iphea86e5236/27/ios/27
+
 ## 実験設定モデルの全8機種向け公式表
 
 - 残る6機種の北電子公式ページを確認し、機種ID別のBB/RB確率表と出典をsetting_model.pyへ追加。V/VIを含む8機種で別表を選択する。

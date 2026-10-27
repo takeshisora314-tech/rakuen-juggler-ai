@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111827">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="ジャグラーAI">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>楽園上新屋 ジャグラーAI</title>
 <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="app-icon.png">
+<link rel="icon" type="image/png" href="app-icon.png">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#f3f4f6;color:#111827;font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif}
 header{background:#111827;color:#fff;padding:18px 14px;position:sticky;top:0;z-index:5}h1{margin:0;font-size:20px}.sub{font-size:12px;opacity:.8;margin-top:4px}
@@ -31,6 +36,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <section class="card" id="evaluation-panel" aria-live="polite"></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
+<section class="card"><details class="small"><summary>iPhoneのホーム画面から使うには</summary><p>Safariの共有メニューから「ホーム画面に追加」を選びます。「Webアプリとして開く」が表示されたらオンにして追加してください。名前は「ジャグラーAI」です。既存のアイコンの表示が変わらない場合は、まず新しいアイコンを追加して動作を確認してください。</p><p>ホーム画面から独立した画面で開くための設定です。App Storeアプリではなく、閲覧には通信が必要です。開いていなくてもGitHub側の予定処理は実行されますが、実行遅延や取得失敗はあり得ます。画面が古い場合は一度閉じて開き直してください。端末への追加操作・Safari実機での最終確認は利用者側で必要です。</p></details></section>
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>

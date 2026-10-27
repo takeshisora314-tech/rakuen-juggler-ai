@@ -17,7 +17,7 @@ WEIGHTS = {
 POLICY = {'min_history_days': 3, 'min_daily_games': 3000,
           'min_total_games': 12000, 'max_source_age_days': 2,
           'comparison_days': 30, 'switch_min_lift_gain': 100,
-          'forecast_lock_before_jst_hour': 7}
+          'forecast_lock_from_jst_hour': 5, 'forecast_lock_before_jst_hour': 7}
 
 
 def integer(value):
@@ -228,9 +228,10 @@ def run(base=BASE, now=None):
         if evaluation != old:
             write_json(result_path, evaluation)
         evaluations.append(evaluation)
-    before_deadline = local.hour < POLICY['forecast_lock_before_jst_hour']
+    before_deadline = (POLICY['forecast_lock_from_jst_hour'] <= local.hour
+                       < POLICY['forecast_lock_before_jst_hour'])
     show_locked_today = same_day.exists() and local.hour < 23
-    target = today if before_deadline or show_locked_today else str(local.date()+timedelta(days=1))
+    target = today if local.hour < POLICY['forecast_lock_before_jst_hour'] or show_locked_today else str(local.date()+timedelta(days=1))
     live_path = forecast_root/(target+'.json')
     if before_deadline or show_locked_today:
         if live_path.exists():

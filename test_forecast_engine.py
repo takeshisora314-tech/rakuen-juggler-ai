@@ -166,6 +166,31 @@ class ForecastTests(unittest.TestCase):
             self.assertEqual(settled['evaluation']['prospective'][0]['status'],'complete')
             self.assertEqual(settled['keep'],'untouched')
 
+    def test_before_five_is_today_preview_then_five_locks(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory)
+            write_json(base/'machines.json',self.config)
+            write_json(base/'data.json',{'machine_records':self.rows})
+            path=base/'history'/'forecasts'/'2026-10-27.json'
+            for hour,minute in ((15,0),(19,59)):
+                early=run(base,datetime(2026,10,26,hour,minute,tzinfo=timezone.utc))
+                self.assertEqual(early['forecast']['date'],'2026-10-27')
+                self.assertEqual(early['forecast']['display_status'],'preview')
+                self.assertFalse(path.exists())
+            locked=run(base,datetime(2026,10,26,20,tzinfo=timezone.utc))
+            self.assertTrue(path.exists())
+            self.assertEqual(locked['forecast']['display_status'],'locked')
+
+    def test_at_seven_does_not_create_late_morning_forecast(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory)
+            write_json(base/'machines.json',self.config)
+            write_json(base/'data.json',{'machine_records':self.rows})
+            late=run(base,datetime(2026,10,26,22,tzinfo=timezone.utc))
+            self.assertEqual(late['forecast']['display_status'],'preview')
+            self.assertEqual(late['forecast']['date'],'2026-10-28')
+            self.assertFalse((base/'history'/'forecasts'/'2026-10-27.json').exists())
+
     def test_naive_clock_rejected(self):
         with self.assertRaises(ValueError): run(now=datetime(2026,10,26))
 

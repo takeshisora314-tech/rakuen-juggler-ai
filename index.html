@@ -20,6 +20,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">実験予想・自動答え合わせ・公開実績</div></header>
 <nav id="tabs" class="tabs" aria-label="機種選択"></nav>
 <main>
+<section class="card" id="publication-panel" aria-live="polite"><h3>朝の公開監視</h3><p class="small">監視結果を読み込んでいます。</p></section>
 <section class="card">
   <label for="layout-date">台割の基準日（日本時間）</label>
   <div class="date-controls"><input id="layout-date" type="date"><button id="today" type="button">今日</button></div>
@@ -33,7 +34,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>
-let CONFIG = null, DATA = null, current = null, followToday = true, selectedResultDay = null;
+let CONFIG = null, DATA = null, PUBLICATION = null, current = null, followToday = true, selectedResultDay = null;
 const dateInput = document.getElementById('layout-date');
 function todayJST(now = new Date()) {
   return new Intl.DateTimeFormat('sv-SE', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -164,6 +165,24 @@ function drawSources() {
   }
   document.getElementById('source-status').innerHTML = html;
 }
+function drawPublication() {
+  const panel=document.getElementById('publication-panel');
+  const status=PUBLICATION;
+  let html='<h3>朝の公開監視</h3>';
+  if(!status) {panel.innerHTML=html+'<p class="small">監視記録はまだ読み込めません。予想の生成時刻だけでは、7時までの公開成功とは判定しません。</p>';return;}
+  const date=todayJST();
+  const labels={available:'公開データを確認',missing_forecast:'当日の固定予想が未公開',unreachable:'公開先に接続できません',invalid_payload:'公開データの整合性エラー',late_generated:'7時以降の生成を検出'};
+  const deadline={verified_on_time:'7時前に公開先で確認済み',unverified:'7時までの公開は未確認（生成時刻から推測しません）',not_yet_due:'7時の期限前です',missed:'生成が7時の期限を過ぎています'};
+  const format=value=>{const d=new Date(value);return Number.isNaN(d.getTime())?'不明':d.toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'});};
+  html+=`<p class="small">監視対象日：${safe(status.date)}<br>最終確認：${safe(format(status.checked_at))}（日本時間）</p>`;
+  const current=status.date===date;
+  const matches=status.snapshot_id && status.snapshot_id===DATA?.forecast?.snapshot_id;
+  if(!current) html+='<p>過去日の監視記録です。今日の公開状態は未確認です。</p>';
+  else if(status.status==='available' && !matches) html+='<p>監視結果と現在の予想が一致しません。最新の公開確認待ちです。</p>';
+  else html+=`<p>${safe(labels[status.status] || '確認待ち')}<br>${safe(deadline[status.deadline_status] || '期限内公開は未確認')}</p>`;
+  if(current && matches) html+=`<p class="small">予想あり${safe((status.ready_models||[]).length)}機種／履歴不足等で見送り${safe((status.abstained_models||[]).length)}機種。公開確認と全機種の予想成立は別です。</p>`;
+  panel.innerHTML=html+'<p class="small">6:45・7:05に公開JSONを監視します（実行遅延あり）。Safari実機での表示確認・高設定予想の的中確認ではありません。</p>';
+}
 async function fetchJSON(path) {
   const response = await fetch(path, {cache:'no-store'});
   if (!response.ok) throw new Error('読み込み失敗');
@@ -179,12 +198,13 @@ async function load() {
     document.getElementById('app').innerHTML = '<div class="card">台割を読み込めませんでした。時間をおいて再読み込みしてください。</div>';
   }
   try { DATA = await fetchJSON('data.json'); } catch (error) { DATA = null; }
-  draw(); drawSources();
+  try { PUBLICATION = await fetchJSON('publication_status.json'); } catch(error) { PUBLICATION=null; }
+  draw(); drawSources(); drawPublication();
 }
 dateInput.addEventListener('change', () => {followToday = false; draw();});
 document.getElementById('today').addEventListener('click', () => {followToday = true; dateInput.value = todayJST(); draw();});
 setInterval(() => {
-  if (followToday && dateInput.value !== todayJST()) {dateInput.value = todayJST(); draw();}
+  if (followToday && dateInput.value !== todayJST()) {dateInput.value = todayJST(); draw(); drawPublication();}
 }, 60000);
 load();
 </script>

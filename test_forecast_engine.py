@@ -8,7 +8,7 @@ from tempfile import TemporaryDirectory
 
 from collect_sources import write_json
 from collect_sources import BASE
-from setting_model import infer_day, REQUIRED_CONTRACT
+from setting_model import infer_day, REQUIRED_CONTRACT, SPECS, SOURCES
 from forecast_engine import (VERSION, WEIGHTS, evaluate, make_forecast,
                              choose_strategy, run, save_snapshot, snapshot_id)
 
@@ -204,7 +204,7 @@ class ConditionalSettingTests(unittest.TestCase):
 
     def test_layout_and_unsupported_model(self):
         self.assertEqual(self.infer({**self.row,'date':'2026-10-27','number':2201})['status'],'installation_mismatch')
-        self.assertEqual(self.infer({**self.row,'model_id':'neoim'})['status'],'unsupported_model')
+        self.assertEqual(self.infer({**self.row,'model_id':'unknown'})['status'],'unsupported_model')
         self.assertEqual(self.infer({**self.row,'date':'2026-10-27','number':2201,'model_id':'myj6'})['status'],'conditional_result')
 
     def test_missing_low_games_and_impossible_counts_abstain(self):
@@ -215,6 +215,31 @@ class ConditionalSettingTests(unittest.TestCase):
         self.assertEqual(self.infer(),self.infer({**self.row,'difference':99999}))
         result=self.infer({**self.row,'games':10000000,'bb':40000,'rb':30000})
         self.assertAlmostEqual(sum(result['conditional_setting_distribution']),1)
+
+    def test_all_eight_official_tables_are_separate_and_valid(self):
+        self.assertEqual(set(SPECS),set(SOURCES))
+        self.assertEqual(len(SPECS),8)
+        for table in SPECS.values():
+            self.assertEqual(len(table),6)
+            for bb,rb in table:
+                self.assertGreater(bb,1);self.assertGreater(rb,1)
+                self.assertLess(1/bb+1/rb,1)
+        self.assertEqual(SPECS['neoim'][0],(273.1,439.8))
+        self.assertEqual(SPECS['happy8'][-1],(226.0,256.0))
+        self.assertNotEqual(SPECS['funky2'],SPECS['myj5'])
+
+    def test_each_model_uses_its_own_layout_and_official_table(self):
+        for model,number in (('myj5',2221),('myj6',2201),('neoim',2101),('gogo3',112),('funky2',101),('girls',201),('mr',210),('happy8',219)):
+            row={**self.row,'date':'2026-10-27','model_id':model,'number':number}
+            result=self.infer(row)
+            self.assertEqual(result['status'],'conditional_result')
+            self.assertEqual(result['source'],SOURCES[model])
+            self.assertAlmostEqual(sum(result['conditional_setting_distribution']),1)
+
+    def test_model_identity_is_not_assumed_from_short_name(self):
+        contract={**self.contract,'model_identity_confirmed':False}
+        result=infer_day(self.row,self.config,[1]*6,contract)
+        self.assertEqual(result['status'],'unverified_observation_semantics')
 
 
 if __name__ == '__main__':

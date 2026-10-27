@@ -9,8 +9,113 @@
       "strategies": {}
     },
     "myj5": {
-      "status": "pending_results",
-      "strategies": {}
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": -216.33,
+          "lift_vs_eligible_mean": -398.89,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2235,
+              "games": 7848,
+              "bb": 31,
+              "rb": 28,
+              "difference": 833,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2229,
+              "games": 6792,
+              "bb": 26,
+              "rb": 15,
+              "difference": -417,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2225,
+              "games": 5181,
+              "bb": 15,
+              "rb": 12,
+              "difference": -1065,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 262,
+          "lift_vs_eligible_mean": 79.44,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2229,
+              "games": 6792,
+              "bb": 26,
+              "rb": 15,
+              "difference": -417,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2235,
+              "games": 7848,
+              "bb": 31,
+              "rb": 28,
+              "difference": 833,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2237,
+              "games": 9043,
+              "bb": 32,
+              "rb": 36,
+              "difference": 370,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -987.67,
+          "lift_vs_eligible_mean": -1170.22,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2225,
+              "games": 5181,
+              "bb": 15,
+              "rb": 12,
+              "difference": -1065,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2227,
+              "games": 5082,
+              "bb": 16,
+              "rb": 8,
+              "difference": -1435,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2234,
+              "games": 9297,
+              "bb": 32,
+              "rb": 30,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3435523/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        }
+      },
+      "eligible_mean_difference": 182.56,
+      "selected_strategy": "balanced"
     },
     "neoim": {
       "status": "no_prediction",
@@ -37,5 +142,5 @@
       "strategies": {}
     }
   },
-  "status": "pending"
+  "status": "complete"
 }

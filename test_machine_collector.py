@@ -10,7 +10,7 @@ import shutil
 from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
 from collect_sources import write_json
-from collect_machines import run, available_reports, collection_result, backfill_models, history_reports, ordered_backfill, backfill_due, collect_history_models
+from collect_machines import run, available_reports, collection_result, backfill_models, history_reports, ordered_backfill, backfill_due, collect_history_models, history_coverage
 
 
 class MachineTests(unittest.TestCase):
@@ -63,6 +63,33 @@ class MachineTests(unittest.TestCase):
     def test_changed_columns_rejected(self):
         self.table[0] = ["台番", "G数"]
         with self.assertRaises(ValueError): self.parse()
+
+    def test_coverage_separates_complete_partial_and_missing_days(self):
+        config={'models':[{'id':'myj5','name':'V','installations':[{'from':None,'until':None,'numbers':[2201,2202]}]}]}
+        rows=self.parse()
+        rows += [{**rows[0],'date':'2026-10-24'}]
+        rows += [{**rows[0],'date':'2026-10-27'}]  # current day is not historical coverage
+        coverage=history_coverage(config,rows,date(2026,10,27),3)
+        self.assertEqual((coverage['complete_days'],coverage['partial_days'],coverage['missing_days']),(1,1,1))
+        self.assertEqual(coverage['days'][1]['verified_rows'],2)
+        self.assertEqual(coverage['days'][2]['incomplete_models'],['myj5'])
+
+    def test_invalid_or_duplicate_numbers_do_not_complete_coverage(self):
+        config={'models':[{'id':'myj5','name':'V','installations':[{'from':None,'until':None,'numbers':[2201,2202]}]}]}
+        rows=self.parse()
+        for broken in ([rows[0],rows[0],rows[1]], [{**rows[0],'games':1},rows[1]],
+                       [{**rows[0],'rb':True},rows[1]], [{**rows[0],'difference':None},rows[1]]):
+            coverage=history_coverage(config,broken,date(2026,10,26),1)
+            self.assertEqual(coverage['complete_days'],0)
+            self.assertEqual(coverage['partial_days'],1)
+            self.assertTrue(backfill_models(config,'2026-10-25',broken))
+
+    def test_coverage_keeps_replaced_models_separate(self):
+        config=json.loads((BASE/'machines.json').read_text())
+        rows=[{'date':'2026-10-27','model_id':'myj5','number':2201,'games':5000,'bb':20,'rb':10,'difference':0}]
+        coverage=history_coverage(config,rows,date(2026,10,28),1)
+        self.assertEqual(coverage['days'][0]['verified_rows'],0)
+        self.assertIn('myj6',coverage['days'][0]['incomplete_models'])
 
     def test_impossible_counts_rejected(self):
         self.table[1][2] = "2"

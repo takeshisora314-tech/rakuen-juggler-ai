@@ -216,7 +216,16 @@ function drawSources() {
       html += `<p class="small">${safe(name)}：${['complete','partial'].includes(result.status) ? safe(result.rows) + '台取得' : '未取得（台割不一致・未公開・取得エラー等）'}${result.status==='partial' ? '／未取得台番 '+safe((result.missing_numbers||[]).join('・')) : ''}</p>`;
     }
     const backfill = Object.entries(collection.backfill || {});
-    if (backfill.length) html += `<p class="small">全機種の過去補完：${backfill.filter(([,r])=>['complete','cached'].includes(r.status)).length}日完了／${backfill.filter(([,r])=>r.status==='deferred').length}日次回以降。1実行あたり最大2営業日を補完します。</p>`;
+    if (backfill.length && !DATA?.history_coverage) html += '<p class="small">過去補完の集計更新待ちです。実行状態だけでは全期間の取得完了と判断しません。</p>';
+  }
+  const coverage=DATA?.history_coverage;
+  if(coverage) {
+    html+=`<h3>過去${safe(coverage.window_days)}日分の保存状況</h3><p class="small">集計基準日：${safe(coverage.as_of_date)}（当日を除く）<br>全台の数値あり：${safe(coverage.complete_days)}日／一部不足：${safe(coverage.partial_days)}日／数値未取得：${safe(coverage.missing_days)}日</p><p class="small">日付ごとの設定台割と、保存済みの回転数・BB・RB・差枚を照合した集計です。未取得を休業や実績0とは扱いません。全台数値ありでも、予想精度の検証完了を意味しません。</p><details class="small"><summary>日別の不足機種を確認</summary>`;
+    for(const day of coverage.days||[]) {
+      const names=(day.incomplete_models||[]).map(id=>CONFIG?.models.find(m=>m.id===id)?.name||id);
+      html+=`<p>${safe(day.date)}：${safe(day.verified_rows)}/${safe(day.expected_rows)}台の数値あり${names.length?'／不足 '+safe(names.join('・')):'／全台数値あり'}</p>`;
+    }
+    html+='</details>';
   }
   if (!DATA?.updated_at) html += '<p class="small">確認結果はまだ読み込めていません。</p>';
   else {

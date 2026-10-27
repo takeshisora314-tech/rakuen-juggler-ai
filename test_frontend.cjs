@@ -80,6 +80,12 @@ context.answerFixture.models.myj5.strategies={balanced:{results:[{number:2221,ga
 assert.match(answers(),/2221番/);
 assert.match(answers(),/差枚 -100枚/);
 console.log('Prediction versus actuals: 8 assertions passed.');
+vm.runInContext("DATA.history_coverage={as_of_date:'2026-10-28',window_days:90,complete_days:20,partial_days:16,missing_days:54,days:[{date:'2026-10-26',expected_rows:150,verified_rows:130,incomplete_models:['myj5']}]};drawSources();",context);
+assert.match(element('source-status').innerHTML,/全台の数値あり：20日／一部不足：16日／数値未取得：54日/);
+assert.match(element('source-status').innerHTML,/130\/150台/);
+assert.match(element('source-status').innerHTML,/未取得を休業や実績0とは扱いません/);
+assert.doesNotMatch(element('source-status').innerHTML,/最大2営業日/);
+console.log('Historical numeric coverage: 4 assertions passed.');
 const manifest=JSON.parse(fs.readFileSync('manifest.json','utf8'));
 assert.equal(manifest.display,'standalone');
 assert.equal(manifest.scope,'./');

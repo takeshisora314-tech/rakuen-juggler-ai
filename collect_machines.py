@@ -120,15 +120,47 @@ def collection_result(rows, model):
             'expected_rows': len(model['numbers']), 'missing_numbers': missing}
 
 
+def valid_measurement(row):
+    return (all(type(row.get(k)) is int for k in ('number','games','bb','rb','difference'))
+            and min(row['games'],row['bb'],row['rb']) >= 0
+            and row['bb']+row['rb'] <= row['games'])
+
+
+def history_coverage(config, records, today, window=90):
+    """Count numeric completeness against dated layouts, not inferred source uptime."""
+    index = {}
+    for row in records:
+        key=(row.get('date'),row.get('model_id'),row.get('number'))
+        index.setdefault(key,[]).append(row)
+    days=[]
+    for offset in range(1,window+1):
+        day=str(today-timedelta(days=offset))
+        expected=verified=0
+        incomplete=[]
+        for model in layout_on(config,day):
+            expected+=len(model['numbers'])
+            valid=0
+            for number in model['numbers']:
+                rows=index.get((day,model['model_id'],number),[])
+                valid+=int(len(rows)==1 and valid_measurement(rows[0]))
+            verified+=valid
+            if valid != len(model['numbers']): incomplete.append(model['model_id'])
+        status='complete' if expected and verified==expected else 'partial' if verified else 'missing'
+        days.append({'date':day,'status':status,'expected_rows':expected,
+                     'verified_rows':verified,'incomplete_models':incomplete})
+    return {'as_of_date':str(today),'window_days':window,
+            **{status+'_days':sum(d['status']==status for d in days) for status in ('complete','partial','missing')},
+            'days':days,'note':'Numeric completeness against configured layouts only; missing does not imply closure or no source report.'}
+
+
 def backfill_models(config, day, existing):
     """Only complete, numeric cached model-days may skip collection."""
     needed = []
     for model in layout_on(config, day):
         cached = [r for r in existing if r['date'] == str(day)
                   and r['model_id'] == model['model_id']]
-        valid = {r['number'] for r in cached if all(type(r.get(k)) is int
-                 for k in ('games', 'bb', 'rb', 'difference'))}
-        if valid != set(model['numbers']):
+        valid = {r['number'] for r in cached if valid_measurement(r)}
+        if valid != set(model['numbers']) or len(cached) != len(model['numbers']):
             needed.append(model)
     return needed
 
@@ -373,6 +405,8 @@ def save_collection_progress(base, result, today, incoming):
     data['history_backfill' if result.get('backfill_only') else 'machine_collection'] = state
     data['machine_results_available'] = bool(data['machine_records'])
     data['collection_stage'] = 'machine_results' if data['machine_records'] else 'source_checks_only'
+    config=json.loads((base/'machines.json').read_text(encoding='utf-8'))
+    data['history_coverage']=history_coverage(config,data['machine_records'],today)
     write_json(data_path, data)
 
 

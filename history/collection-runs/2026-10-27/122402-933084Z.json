@@ -1,0 +1,107 @@
+{
+  "started_at": "2026-10-27T12:24:02.933084+00:00",
+  "finished_at": "2026-10-27T12:24:46.346215+00:00",
+  "process_failed": false,
+  "result": {
+    "attempted_at": "2026-10-27T12:24:03.062591+00:00",
+    "models": {
+      "myj5": {
+        "status": "partial",
+        "rows": 19,
+        "expected_rows": 39,
+        "missing_numbers": [
+          2201,
+          2202,
+          2203,
+          2204,
+          2205,
+          2206,
+          2207,
+          2208,
+          2209,
+          2210,
+          2211,
+          2212,
+          2213,
+          2214,
+          2215,
+          2216,
+          2217,
+          2218,
+          2219,
+          2220
+        ]
+      },
+      "neoim": {
+        "status": "complete",
+        "rows": 40,
+        "expected_rows": 40,
+        "missing_numbers": []
+      },
+      "gogo3": {
+        "status": "complete",
+        "rows": 26,
+        "expected_rows": 26,
+        "missing_numbers": []
+      },
+      "funky2": {
+        "status": "complete",
+        "rows": 11,
+        "expected_rows": 11,
+        "missing_numbers": []
+      },
+      "happy8": {
+        "status": "complete",
+        "rows": 19,
+        "expected_rows": 19,
+        "missing_numbers": []
+      },
+      "girls": {
+        "status": "complete",
+        "rows": 9,
+        "expected_rows": 9,
+        "missing_numbers": []
+      },
+      "mr": {
+        "status": "complete",
+        "rows": 6,
+        "expected_rows": 6,
+        "missing_numbers": []
+      }
+    },
+    "report_date": "2026-10-26",
+    "report_url": "https://min-repo.com/3433404/",
+    "backfill": {
+      "2026-10-25": {
+        "status": "cached"
+      },
+      "2026-10-24": {
+        "status": "cached"
+      },
+      "2026-10-23": {
+        "status": "cached"
+      },
+      "2026-10-22": {
+        "status": "partial",
+        "models": {
+          "happy8": {
+            "status": "partial",
+            "rows": 18,
+            "expected_rows": 19,
+            "missing_numbers": [
+              219
+            ]
+          }
+        }
+      },
+      "2026-10-21": {
+        "status": "cached"
+      },
+      "2026-10-20": {
+        "status": "cached"
+      }
+    },
+    "status": "partial"
+  },
+  "saved_record_count": 1068
+}

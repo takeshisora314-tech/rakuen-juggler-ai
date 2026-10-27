@@ -70,7 +70,7 @@ def integer(value, nonnegative=False):
     return number
 
 
-def parse_tables(tables, model, day, source_url):
+def parse_tables(tables, model, day, source_url, allow_partial=False):
     matching = [t for t in tables if t and [normalized(x) for x in t[0]] == HEADERS]
     if len(matching) != 1:
         raise ValueError("Expected one BB/RB machine table")
@@ -93,9 +93,28 @@ def parse_tables(tables, model, day, source_url):
                      "number": number, "games": games, "bb": bb, "rb": rb,
                      "difference": integer(cells[1]), "source": "min-repo",
                      "source_url": source_url})
-    if seen != set(model["numbers"]):
+    if not rows or (not allow_partial and seen != set(model["numbers"])):
         raise ValueError("Missing machines; refusing to save an incomplete table")
     return sorted(rows, key=lambda row: row["number"])
+
+
+def collection_result(rows, model):
+    missing = sorted(set(model['numbers']) - {row['number'] for row in rows})
+    return {'status': 'partial' if missing else 'complete', 'rows': len(rows),
+            'expected_rows': len(model['numbers']), 'missing_numbers': missing}
+
+
+def backfill_models(config, day, existing):
+    """Only complete, numeric cached model-days may skip collection."""
+    needed = []
+    for model in layout_on(config, day):
+        cached = [r for r in existing if r['date'] == str(day)
+                  and r['model_id'] == model['model_id']]
+        valid = {r['number'] for r in cached if all(type(r.get(k)) is int
+                 for k in ('games', 'bb', 'rb', 'difference'))}
+        if valid != set(model['numbers']):
+            needed.append(model)
+    return needed
 
 
 def merge_records(existing, incoming):
@@ -233,26 +252,26 @@ async def scrape(config, today, results, existing=()):
                     if STORE not in title or report_day(title.replace(STORE, "").strip(), today) != day:
                         raise ValueError("Machine page store/date mismatch")
                     tables = await page.locator("table").evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
-                    rows = parse_tables(tables, model, day, url)
+                    rows = parse_tables(tables, model, day, url, allow_partial=True)
                     results["records"].extend(rows)
-                    results["models"][model_id] = {"status": "complete", "rows": len(rows)}
+                    results["models"][model_id] = collection_result(rows, model)
                 except PermissionError:
                     raise  # no alternate routes or retries after access restrictions
                 except (ValueError, BrowserTimeout) as error:
                     results["models"][model_id] = {"status": "error", "reason": str(error)}
-            # Backfill only My Juggler V initially: bounded work and site load.
-            # All other models continue to accumulate through daily collection.
+            # At most two older report-days per run, all missing models together.
+            # Follow only public rendered links and preserve every cached fact.
             results['backfill'] = {}
+            attempted_days = 0
             for past_day, past_report in reports[1:]:
-                model = next((m for m in layout_on(config, past_day)
-                              if m['model_id'] == 'myj5'), None)
-                if not model:
+                needed = backfill_models(config, past_day, existing)
+                if not needed:
+                    results['backfill'][str(past_day)] = {'status': 'cached'}
                     continue
-                cached = {r['number'] for r in existing if r['date'] == str(past_day)
-                          and r['model_id'] == 'myj5'}
-                if cached == set(model['numbers']):
-                    results['backfill'][str(past_day)] = {'status': 'cached', 'rows': len(cached)}
+                if attempted_days >= 2:
+                    results['backfill'][str(past_day)] = {'status': 'deferred'}
                     continue
+                attempted_days += 1
                 try:
                     await visit(SOURCES['min-repo'], "() => document.querySelector('h1') && Array.from(document.querySelectorAll('a')).some(a => /\\/\\d+\\/$/.test(a.pathname))")
                     await visit(past_report, report_ready, from_link=True)
@@ -260,17 +279,27 @@ async def scrape(config, today, results, existing=()):
                     if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
                         raise ValueError('Backfill store/date mismatch')
                     model_links = {normalized(link['text']): link['href'] for link in await links()}
-                    url = model_links.get(normalized(model['name']))
-                    if not url:
-                        raise ValueError('Historical model link not found')
-                    await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})", from_link=True)
-                    heading = await page.locator('h1').inner_text()
-                    if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
-                        raise ValueError('Historical machine page store/date mismatch')
-                    tables = await page.locator('table').evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
-                    rows = parse_tables(tables, model, past_day, url)
-                    results['records'].extend(rows)
-                    results['backfill'][str(past_day)] = {'status': 'complete', 'rows': len(rows)}
+                    outcome = {'status': 'complete', 'models': {}}
+                    results['backfill'][str(past_day)] = outcome
+                    for model in needed:
+                        model_id = model['model_id']
+                        url = model_links.get(normalized(ALIASES.get(model_id, model['name'])))
+                        if not url:
+                            outcome['models'][model_id] = {'status': 'unavailable'}
+                            outcome['status'] = 'partial'
+                            continue
+                        if page.url != past_report:
+                            await visit(past_report, report_ready, from_link=True)
+                        await visit(url, "() => Array.from(document.querySelectorAll('table')).some(t => {const r=t.querySelector('tr');return r && r.textContent.includes('台番') && r.textContent.includes('BB') && r.textContent.includes('RB');})", from_link=True)
+                        heading = await page.locator('h1').inner_text()
+                        if STORE not in heading or report_day(heading.replace(STORE, '').strip(), today) != past_day:
+                            raise ValueError('Historical machine page store/date mismatch')
+                        tables = await page.locator('table').evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
+                        rows = parse_tables(tables, model, past_day, url, allow_partial=True)
+                        results['records'].extend(rows)
+                        outcome['models'][model_id] = collection_result(rows, model)
+                        if outcome['models'][model_id]['status'] != 'complete':
+                            outcome['status'] = 'partial'
                 except PermissionError:
                     raise
                 except (ValueError, BrowserTimeout) as error:

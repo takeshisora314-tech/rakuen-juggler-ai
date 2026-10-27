@@ -17,7 +17,7 @@ WEIGHTS = {
 POLICY = {'min_history_days': 3, 'min_daily_games': 3000,
           'min_total_games': 12000, 'max_source_age_days': 2,
           'comparison_days': 30, 'switch_min_lift_gain': 100,
-          'forecast_lock_before_jst_hour': 9}
+          'forecast_lock_before_jst_hour': 7}
 
 
 def integer(value):
@@ -84,7 +84,7 @@ def make_forecast(config, records, target_day, evaluations=(), created_at=None):
         out = {'status': 'insufficient_history', 'history_days': len(days),
                'latest_source_date': days[0] if days else None,
                'selection': choose_strategy(evaluations, model_id, target_day),
-               'strategies': {}, 'eligible_numbers': []}
+               'strategies': {}, 'rankings': {}, 'eligible_numbers': []}
         result['models'][model_id] = out
         if len(days) < POLICY['min_history_days']:
             continue
@@ -128,7 +128,9 @@ def make_forecast(config, records, target_day, evaluations=(), created_at=None):
             ranked = [{**{k:v for k,v in row.items() if k != '_components'},
                        'score': round(100 * sum(w*x for w,x in zip(weights, row['_components'])), 2)}
                       for row in features]
-            out['strategies'][strategy] = sorted(ranked, key=lambda r:(-r['score'],r['number']))[:3]
+            ordered = sorted(ranked, key=lambda r:(-r['score'],r['number']))
+            out['rankings'][strategy] = ordered
+            out['strategies'][strategy] = ordered[:3]  # retain the original top-3 evaluation protocol
     return result
 
 
@@ -220,13 +222,17 @@ def run(base=BASE, now=None):
             raise ValueError('Same-day forecast integrity mismatch')
         result_path = evaluation_root/(today+'.json')
         old = json.loads(result_path.read_text(encoding='utf-8')) if result_path.exists() else None
+        if old and old.get('snapshot_id') != snap['snapshot_id']:
+            raise ValueError('Same-day evaluation references a different forecast')
         evaluation = old if old and old.get('status') == 'complete' else evaluate(snap, records)
         if evaluation != old:
             write_json(result_path, evaluation)
         evaluations.append(evaluation)
-    target = today if local.hour < 9 else str(local.date()+timedelta(days=1))
+    before_deadline = local.hour < POLICY['forecast_lock_before_jst_hour']
+    show_locked_today = same_day.exists() and local.hour < 23
+    target = today if before_deadline or show_locked_today else str(local.date()+timedelta(days=1))
     live_path = forecast_root/(target+'.json')
-    if local.hour < 9:
+    if before_deadline or show_locked_today:
         if live_path.exists():
             forecast = json.loads(live_path.read_text(encoding='utf-8'))
             if snapshot_id(forecast) != forecast['snapshot_id']:
@@ -235,6 +241,9 @@ def run(base=BASE, now=None):
             forecast = save_snapshot(live_path, make_forecast(
                 config, records, target, evaluations, now.isoformat()))
         forecast['display_status'] = 'locked'
+        forecast['delivery'] = {'deadline_jst': target+'T07:00:00+09:00',
+            'generated_before_deadline': datetime.fromisoformat(forecast['created_at']).astimezone(
+                ZoneInfo(config['timezone'])).hour < 7}
     else:
         forecast = make_forecast(config, records, target, evaluations, now.isoformat())
         forecast['display_status'] = 'preview'

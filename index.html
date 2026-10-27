@@ -13,6 +13,7 @@ header{background:#111827;color:#fff;padding:18px 14px;position:sticky;top:0;z-i
 main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radius:16px;padding:14px;margin-bottom:12px;box-shadow:0 2px 10px #0001}
 .row{display:flex;align-items:center;gap:7px;padding:11px 0;border-bottom:1px solid #eee}.no{width:60px;font-size:17px;font-weight:900}.badge{margin-left:auto;font-size:11px;padding:5px 7px;border-radius:8px;background:#eef2ff}
 .note{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:11px;font-size:12px;line-height:1.65;margin-bottom:12px}.small{font-size:12px;color:#4b5563;line-height:1.65}input{max-width:100%;padding:8px;border:1px solid #d1d5db;border-radius:8px;font:inherit}h2{font-size:19px}h3{font-size:15px;margin-top:0}a{color:#1d4ed8}.date-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.row .no{flex:0 0 72px}.row>div{min-width:0}button,summary,select{min-height:44px}summary{cursor:pointer;padding:10px 0}.small{overflow-wrap:anywhere}.rank-list{margin-top:10px} @media(max-width:420px){main{padding:9px}.card{padding:12px}.row .no{flex-basis:66px;font-size:15px}}
 </style>
 </head>
 <body>
@@ -87,11 +88,14 @@ function drawForecast(model) {
   if (!item || item.status !== 'ready') html += `<p>${safe(reasons[item?.status] || 'この予想日の対象機種ではありません。')}</p>`;
   else {
     const selection = item.selection;
-    const candidates = item.strategies?.[selection.strategy] || [];
+    const candidates = item.rankings?.[selection.strategy] || item.strategies?.[selection.strategy] || [];
     html += `<p class="small">最終実績：${safe(item.latest_source_date)}／履歴${safe(item.history_days)}日<br>方式：${safe(labels[selection.strategy] || selection.strategy)} · 事前比較${safe(selection.paired_days)}日（切替判定は30日以上）</p>`;
-    html += candidates.map((r,i)=>`<div class="row"><div class="no">${i+1}. ${safe(r.number)}</div><div class="small">優先度 ${safe(r.score)}点（確率ではありません）<br>直近3有効日：${safe(r.three_day_difference)}枚／履歴${safe(r.history_days)}日・${safe(r.history_games)}G<br>履歴RB：${r.rb_denominator ? '1/'+safe(r.rb_denominator) : '回数0'}／最終日 ${safe(r.latest_games)}G・${safe(r.latest_difference)}枚</div></div>`).join('');
+    const row = (r,i)=>`<div class="row"><div class="no">${i+1}位<br>${safe(r.number)}</div><div class="small">優先度 ${safe(r.score)}点（確率ではありません）<br>直近3有効日：${safe(r.three_day_difference)}枚／履歴${safe(r.history_days)}日・${safe(r.history_games)}G<br>履歴RB：${r.rb_denominator ? '1/'+safe(r.rb_denominator) : '回数0'}／最終日 ${safe(r.latest_games)}G・${safe(r.latest_difference)}枚</div></div>`;
+    html += candidates.slice(0,3).map(row).join('');
+    if(candidates.length>3) html += `<details class="rank-list"><summary>条件を満たす全${candidates.length}台の順位を見る</summary>${candidates.slice(3).map((r,i)=>row(r,i+3)).join('')}</details>`;
+    html += `<p class="small">判定対象${safe(item.eligible_numbers.length)}台。条件未達の台は順位を付けません。成績比較は従来どおり上位3台で固定します。</p>`;
   }
-  html += '<details class="small"><summary>予想と改善のルール</summary><p>直近14暦日内・最大7取得日を使い、各日3,000G以上の履歴が3日以上、合計12,000G以上の台を対象にします。直近実績が2日超古い場合は見送ります。凹み、RB実績、回転数を固定の重みで比較する実験ルールで、学習済みAIではありません。</p><p>朝5時に収集後、9時前なら当日予想を一度だけ保存。23時に実績公開分を答え合わせし、未公開なら翌朝に再確認します。実行遅延があり得ます。切替は事前保存された3方式の同条件比較が30日以上そろい、平均の相対差枚が100枚以上改善し、プラス台率が悪化しない場合だけです。精度向上を保証しません。</p></details>';
+  html += '<p class="small">設定4〜6期待度モデルは未完成です。現在の優先度を設定確率や的中率として読み替えることはできません。</p><details class="small"><summary>予想と改善のルール</summary><p>直近14暦日内・最大7取得日を使い、各日3,000G以上の履歴が3日以上、合計12,000G以上の台を対象にします。直近実績が2日超古い場合は見送ります。凹み、RB実績、回転数を固定の重みで比較する実験ルールで、学習済みAIではありません。</p><p>朝5時に収集後、7時前なら当日予想を一度だけ保存。6時17分に再実行しますが、保存済み予想は変更しません。23時30分に実績公開分を答え合わせし、未公開なら翌朝に再確認します。GitHubの実行・公開遅延があり、7時の公開保証はありません。切替は事前保存された3方式の同条件比較が30日以上そろい、平均の相対差枚が100枚以上改善し、プラス台率が悪化しない場合だけです。精度向上を保証しません。</p></details>';
   panel.innerHTML = html;
   const actual = (DATA?.evaluation?.prospective || []).filter(e=>e.models?.[model.id]?.status==='complete');
   const pending = (DATA?.evaluation?.prospective || []).filter(e=>e.models?.[model.id]?.status==='pending_results');
@@ -144,10 +148,10 @@ function drawSources() {
     html += `<p class="small">台別収集：${safe(statuses[collection.status] || '状態不明')}<br>対象実績日：${safe(collection.report_date || '未確認')}<br>最終試行：${safe(collection.attempted_at || '不明')}</p>`;
     for (const [id, result] of Object.entries(collection.models || {})) {
       const name = CONFIG?.models.find(m => m.id === id)?.name || id;
-      html += `<p class="small">${safe(name)}：${result.status === 'complete' ? safe(result.rows) + '台取得' : '未取得（台割不一致・未公開・取得エラー等）'}</p>`;
+      html += `<p class="small">${safe(name)}：${['complete','partial'].includes(result.status) ? safe(result.rows) + '台取得' : '未取得（台割不一致・未公開・取得エラー等）'}${result.status==='partial' ? '／未取得台番 '+safe((result.missing_numbers||[]).join('・')) : ''}</p>`;
     }
     const backfill = Object.entries(collection.backfill || {});
-    if (backfill.length) html += `<p class="small">マイジャグ5の過去補完：${backfill.filter(([,r])=>['complete','cached'].includes(r.status)).length}日成功／${backfill.length}日試行。ほかの機種は日次収集で蓄積します。</p>`;
+    if (backfill.length) html += `<p class="small">全機種の過去補完：${backfill.filter(([,r])=>['complete','cached'].includes(r.status)).length}日完了／${backfill.filter(([,r])=>r.status==='deferred').length}日次回以降。1実行あたり最大2営業日を補完します。</p>`;
   }
   if (!DATA?.updated_at) html += '<p class="small">確認結果はまだ読み込めていません。</p>';
   else {

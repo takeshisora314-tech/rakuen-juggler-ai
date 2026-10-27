@@ -10,7 +10,7 @@ import shutil
 from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
 from collect_sources import write_json
-from collect_machines import run, available_reports
+from collect_machines import run, available_reports, collection_result, backfill_models
 
 
 class MachineTests(unittest.TestCase):
@@ -39,6 +39,26 @@ class MachineTests(unittest.TestCase):
     def test_duplicate_rejected(self):
         self.table[2][0] = "2201"
         with self.assertRaises(ValueError): self.parse()
+
+    def test_partial_keeps_verified_rows_and_lists_missing(self):
+        self.table.pop()
+        rows = parse_tables([self.table], self.model, '2026-10-26', 'https://min-repo.com/3433404/', allow_partial=True)
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(collection_result(rows,self.model), {'status':'partial','rows':1,'expected_rows':2,'missing_numbers':[2202]})
+
+    def test_partial_still_rejects_foreign_number_and_empty_table(self):
+        self.table[2][0] = '9999'
+        with self.assertRaises(ValueError):
+            parse_tables([self.table],self.model,'2026-10-26','https://min-repo.com/3433404/',allow_partial=True)
+        with self.assertRaises(ValueError):
+            parse_tables([[HEADERS]],self.model,'2026-10-26','https://min-repo.com/3433404/',allow_partial=True)
+
+    def test_all_model_backfill_requires_numeric_complete_cache(self):
+        config={'models':[{'id':'myj5','name':'V','installations':[{'from':None,'until':None,'numbers':[2201,2202]}]}]}
+        rows=self.parse()
+        self.assertEqual(backfill_models(config,'2026-10-25',rows),[])
+        rows[0]['rb']=None
+        self.assertEqual(len(backfill_models(config,'2026-10-25',rows)),1)
 
     def test_changed_columns_rejected(self):
         self.table[0] = ["台番", "G数"]

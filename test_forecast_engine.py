@@ -39,6 +39,28 @@ class ForecastTests(unittest.TestCase):
         future = [{**self.row('2026-10-27',n),'difference':99999} for n in range(2201,2205)]
         self.assertEqual(self.forecast()['models'],self.forecast(self.rows+future)['models'])
 
+    def test_full_rankings_preserve_top_three_evaluation(self):
+        model=self.forecast()['models']['myj5']
+        for strategy in WEIGHTS:
+            self.assertEqual(len(model['rankings'][strategy]),4)
+            self.assertEqual(model['rankings'][strategy][:3],model['strategies'][strategy])
+
+    def test_late_run_never_backdates_and_daytime_retains_locked_forecast(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory)
+            write_json(base/'machines.json',self.config)
+            write_json(base/'data.json',{'machine_records':self.rows})
+            late=run(base,datetime(2026,10,26,22,tzinfo=timezone.utc))  # 07:00 JST
+            self.assertEqual(late['forecast']['display_status'],'preview')
+            self.assertFalse((base/'history'/'forecasts'/'2026-10-27.json').exists())
+            run(base,datetime(2026,10,26,20,tzinfo=timezone.utc))
+            path=base/'history'/'forecasts'/'2026-10-27.json'
+            saved=path.read_bytes()
+            daytime=run(base,datetime(2026,10,27,3,tzinfo=timezone.utc))
+            self.assertEqual(daytime['forecast']['date'],'2026-10-27')
+            self.assertEqual(daytime['forecast']['display_status'],'locked')
+            self.assertEqual(path.read_bytes(),saved)
+
     def test_insufficient_history_abstains(self):
         result = self.forecast(self.rows[4:])['models']['myj5']
         self.assertEqual(result['status'],'insufficient_history')

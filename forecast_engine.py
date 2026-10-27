@@ -195,6 +195,18 @@ def evaluate(snapshot, records):
             continue
         actual = {number: index.get((snapshot['date'], model_id, number))
                   for number in forecast['eligible_numbers']}
+        selected = forecast['selection']['strategy']
+        candidates = forecast.get('rankings', {}).get(selected, forecast['strategies'][selected])
+        item['selected_strategy'] = selected
+        item['prediction_results'] = []
+        for rank, candidate in enumerate(candidates, 1):
+            row = actual.get(candidate['number'])
+            available = bool(row and valid_record(row))
+            item['prediction_results'].append({
+                'rank': rank, 'number': candidate['number'], 'score': candidate.get('score'),
+                'status': 'available' if available else 'pending_results',
+                'actual': {k:row[k] for k in ('games','bb','rb','difference','source_url') if k in row}
+                          if available else None})
         if not actual or any(not row or not valid_record(row) for row in actual.values()):
             item['status'] = 'pending_results'
             continue

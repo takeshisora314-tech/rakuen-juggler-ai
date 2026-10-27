@@ -65,6 +65,21 @@ assert.match(element('evaluation-panel').innerHTML,/3方式の同条件比較：
 assert.match(element('evaluation-panel').innerHTML,/成績を0%とは表示しません/);
 assert.match(element('evaluation-panel').innerHTML,/プラス台率は設定4〜6の的中率ではありません/);
 console.log('Paired strategy comparison: 10 assertions passed.');
+context.answerFixture={date:'2026-10-27',models:{myj5:{selected_strategy:'balanced',prediction_results:[
+  {rank:1,number:2237,score:80,status:'available',actual:{games:2000,bb:8,rb:3,difference:0}},
+  {rank:2,number:2235,score:70,status:'pending_results',actual:null}]}}};
+const answers=()=>vm.runInContext("predictionResultHTML(answerFixture,'myj5')",context);
+assert.match(answers(),/2026-10-27 朝の予想順位と当日の実績/);
+assert.match(answers(),/予想1位/);
+assert.ok(answers().indexOf('2237番')<answers().indexOf('2235番'));
+assert.match(answers(),/差枚 0枚/);
+assert.match(answers(),/当日実績：取得待ち/);
+assert.match(answers(),/低稼働/);
+delete context.answerFixture.models.myj5.prediction_results;
+context.answerFixture.models.myj5.strategies={balanced:{results:[{number:2221,games:5000,bb:20,rb:15,difference:-100}]}};
+assert.match(answers(),/2221番/);
+assert.match(answers(),/差枚 -100枚/);
+console.log('Prediction versus actuals: 8 assertions passed.');
 const manifest=JSON.parse(fs.readFileSync('manifest.json','utf8'));
 assert.equal(manifest.display,'standalone');
 assert.equal(manifest.scope,'./');

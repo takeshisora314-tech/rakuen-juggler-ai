@@ -111,6 +111,29 @@ class ForecastTests(unittest.TestCase):
         rows=[self.row('2026-10-27',n) for n in range(2201,2204)]
         self.assertEqual(evaluate(self.forecast(),rows)['status'],'pending')
 
+    def test_prediction_rows_preserve_saved_order_and_partial_actuals(self):
+        snap=self.forecast()
+        original=copy.deepcopy(snap)
+        ordered=snap['models']['myj5']['rankings']['balanced']
+        number=ordered[0]['number']
+        result=evaluate(snap,[self.row('2026-10-27',number)])['models']['myj5']
+        rows=result['prediction_results']
+        self.assertEqual([r['number'] for r in rows],[r['number'] for r in ordered])
+        self.assertEqual([r['rank'] for r in rows],list(range(1,len(ordered)+1)))
+        self.assertEqual(rows[0]['status'],'available')
+        self.assertTrue(all(r['actual'] is None for r in rows[1:]))
+        self.assertEqual(result['status'],'pending_results')
+        self.assertEqual(result['strategies'],{})
+        self.assertEqual(snap,original)
+        wrong_day=evaluate(snap,[self.row('2026-10-26',number)])['models']['myj5']
+        self.assertTrue(all(r['actual'] is None for r in wrong_day['prediction_results']))
+
+    def test_legacy_snapshot_uses_its_original_top_three(self):
+        snap=self.forecast();del snap['models']['myj5']['rankings']
+        rows=evaluate(snap,self.rows)['models']['myj5']['prediction_results']
+        self.assertEqual(len(rows),3)
+        self.assertEqual([r['number'] for r in rows],[r['number'] for r in snap['models']['myj5']['strategies']['balanced']])
+
     def test_snapshot_is_write_once_and_hash_checked(self):
         with TemporaryDirectory() as directory:
             path=Path(directory)/'forecast.json'

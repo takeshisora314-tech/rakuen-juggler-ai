@@ -106,6 +106,25 @@ function pairedPerformance(evaluations, modelId, version, targetDay) {
   }
   return {days:paired.length,first_date:paired[0]?.date,last_date:paired.at(-1)?.date,summaries};
 }
+function predictionResultHTML(e, modelId) {
+  const m=e.models?.[modelId];
+  if(!m) return '';
+  const rows=m.prediction_results || (m.strategies?.[m.selected_strategy]?.results || []).map((r,i)=>({rank:i+1,number:r.number,status:'available',actual:r}));
+  let html=`<details class="small"><summary>${safe(e.date)} 朝の予想順位と当日の実績</summary><p>朝に保存した順位・台番に、同じ営業日・機種・台番の実績を照合します。結果で順位を並べ替えません。プラス・マイナスは設定的中の判定ではありません。</p>`;
+  if(!rows.length) html+='<p>この記録には予想台別の照合一覧がありません。未取得を0として表示しません。</p>';
+  for(const r of rows) {
+    html+=`<div class="row"><div class="no">予想${safe(r.rank)}位<br>${safe(r.number)}番</div><div class="small">`;
+    if(r.score!=null) html+=`朝の優先度 ${safe(r.score)}点<br>`;
+    if(r.status!=='available' || !r.actual) html+='当日実績：取得待ち';
+    else {
+      const a=r.actual;
+      html+=`当日 ${safe(a.games ?? '未取得')}G／BB ${safe(a.bb ?? '未取得')}／RB ${safe(a.rb ?? '未取得')}<br>差枚 ${safe(a.difference ?? '未取得')}枚`;
+      if(Number.isInteger(a.games) && a.games<3000) html+='<br>低稼働：3,000G未満';
+    }
+    html+='</div></div>';
+  }
+  return html+'</details>';
+}
 function drawForecast(model) {
   const panel = document.getElementById('forecast-panel');
   const evaluationPanel = document.getElementById('evaluation-panel');
@@ -139,7 +158,9 @@ function drawForecast(model) {
   for (const e of actual.slice(-5).reverse()) {
     const result = e.models[model.id]; const s = result.strategies[result.selected_strategy];
     evaluationHTML += `<p class="small">${safe(e.date)}：プラス${safe(s.positive_count)}/${safe(s.count)}台 · 平均差枚${safe(s.mean_difference)}枚 · 同条件全台平均との差${safe(s.lift_vs_eligible_mean)}枚（3,000G未満${safe(s.low_play_count)}台）</p>`;
+    evaluationHTML += predictionResultHTML(e,model.id);
   }
+  for(const e of pending.slice(-5).reverse()) evaluationHTML+=predictionResultHTML(e,model.id);
   if (!actual.length) evaluationHTML += '<p class="small">まだ事前予想の評価実績はありません。仮表示や過去再計算を、的中実績として数えません。</p>';
   const paired=pairedPerformance(DATA?.evaluation?.prospective,model.id,forecast.version,forecast.date);
   evaluationHTML+=`<details class="small"><summary>3方式の同条件比較：${paired.days}日</summary><p>事前保存・同一ルール版・3方式すべて評価済みの同じ日だけを比較します。直近最大60評価日、各方式上位3台。公開待ち、過去再計算、別バージョン、重複日は除外します。</p>`;

@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 20 * * *"
-    - cron: "0 14 * * *"
+    - cron: "17 21 * * *"
+    - cron: "30 14 * * *"
 
 permissions:
   contents: read
@@ -32,6 +33,11 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Install Chromium
         timeout-minutes: 2
         run: python -m playwright install chromium --only-shell
@@ -41,12 +47,18 @@ jobs:
           python -m unittest discover -s tests -v
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
+          node test_frontend.cjs
 
-      - name: Run collector
-        run: |
-          python collect_sources.py
-          python collect_machines.py
-          python forecast_engine.py
+      - name: Check source availability
+        run: python collect_sources.py
+
+      - name: Collect machine results
+        timeout-minutes: 5
+        continue-on-error: true
+        run: python collect_machines.py
+
+      - name: Generate immutable forecast and evaluate
+        run: python forecast_engine.py
 
       - name: Save collected status and snapshots
         run: |

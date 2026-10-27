@@ -165,7 +165,7 @@ async def follow_public_link(page, url):
     return await navigation.value
 
 
-async def collect_history_models(models, reader, records, outcome):
+async def collect_history_models(models, reader, records, outcome, persist=None):
     """Isolate a model's parse/layout error; access blocks/timeouts still escape."""
     for model in models:
         model_id = model['model_id']
@@ -181,9 +181,11 @@ async def collect_history_models(models, reader, records, outcome):
         outcome['models'][model_id] = item
         if item['status'] != 'complete':
             outcome['status'] = 'partial'
+        if persist:
+            persist()
 
 
-async def scrape(config, today, results, existing=()):
+async def scrape(config, today, results, existing=(), persist=None):
     from playwright.async_api import async_playwright, TimeoutError as BrowserTimeout
     policy = robots_policy()
     async with async_playwright() as playwright:
@@ -291,6 +293,8 @@ async def scrape(config, today, results, existing=()):
                     rows = parse_tables(tables, model, day, url, allow_partial=True)
                     results["records"].extend(rows)
                     results["models"][model_id] = collection_result(rows, model)
+                    if persist:
+                        persist()
                 except PermissionError:
                     raise  # no alternate routes or retries after access restrictions
                 except (ValueError, BrowserTimeout) as error:
@@ -335,8 +339,10 @@ async def scrape(config, today, results, existing=()):
                             raise ValueError('Historical machine page store/date mismatch')
                         tables = await page.locator('table').evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
                         return parse_tables(tables, model, past_day, url, allow_partial=True)
-                    await collect_history_models(needed,read_historical_model,results['records'],outcome)
+                    await collect_history_models(needed,read_historical_model,results['records'],outcome,persist)
                     checkpoint[str(past_day)]={'status':outcome['status'],'attempted_on':str(today)}
+                    if persist:
+                        persist()
                 except PermissionError:
                     raise
                 except (ValueError, BrowserTimeout) as error:
@@ -346,6 +352,28 @@ async def scrape(config, today, results, existing=()):
                     # Continue only within the two-day budget; PermissionError stops above.
         finally:
             await browser.close()
+
+
+def save_collection_progress(base, result, today, incoming):
+    """Atomically persist verified model rows; never serialize the live buffer."""
+    data_path = base/'data.json'
+    data = json.loads(data_path.read_text(encoding='utf-8'))
+    if not isinstance(data, dict):
+        raise ValueError('Refusing to overwrite invalid data.json')
+    for day, model_id in {(r['date'], r['model_id']) for r in incoming}:
+        rows = [r for r in incoming if r['model_id'] == model_id and r['date'] == day]
+        path = base/'history'/'machines'/day/(model_id+'.json')
+        old = json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
+        write_json(path, merge_records(old, rows))
+    data['machine_records'] = merge_records(data.get('machine_records', []), incoming)
+    cutoff = str(today-timedelta(days=90))
+    data['machine_records'] = [r for r in data['machine_records'] if r['date'] >= cutoff]
+    data['backfill_checkpoint'] = result.get('checkpoint', {})
+    state = {'status':'in_progress', **{k:v for k,v in result.items() if k not in ('records','checkpoint')}}
+    data['history_backfill' if result.get('backfill_only') else 'machine_collection'] = state
+    data['machine_results_available'] = bool(data['machine_records'])
+    data['collection_stage'] = 'machine_results' if data['machine_records'] else 'source_checks_only'
+    write_json(data_path, data)
 
 
 def run(base=BASE, backfill_only=False):
@@ -360,30 +388,25 @@ def run(base=BASE, backfill_only=False):
     result = {"attempted_at": now.isoformat(), "records": [], "models": {},
               'backfill_only':backfill_only,
               'checkpoint':dict(data.get('backfill_checkpoint',{}))}
+    saved_count = 0
+    def persist():
+        nonlocal saved_count
+        result['progress_saves'] = result.get('progress_saves',0)+1
+        result['progress_record_count'] = len(result['records'])
+        save_collection_progress(base,result,today,result['records'][saved_count:])
+        saved_count = len(result['records'])
     try:
         # After 23:00 JST, an already published same-day report is completed play.
         report_cutoff = today + timedelta(days=1) if local.hour >= 23 else today
-        asyncio.run(scrape(config, report_cutoff, result, data.get('machine_records', [])))
+        asyncio.run(scrape(config, report_cutoff, result, data.get('machine_records', []),persist))
         statuses=list(result.get('backfill',{}).values()) if backfill_only else list(result['models'].values())
         result['status']='complete' if statuses and all(m['status'] in ('complete','cached') for m in statuses) else 'partial'
     except Exception as error:
         result["status"] = "blocked" if isinstance(error, PermissionError) else "error"
         result["reason"] = str(error)
-    incoming = result.pop("records")
-    data['backfill_checkpoint']=result.pop('checkpoint',{})
-    for day, model_id in {(r['date'], r['model_id']) for r in incoming}:
-        rows = [r for r in incoming if r['model_id'] == model_id and r['date'] == day]
-        path = base / "history" / "machines" / day / (model_id + ".json")
-        old = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-        write_json(path, merge_records(old, rows))
-    data["machine_records"] = merge_records(data.get("machine_records", []), incoming)
-    # The UI payload holds 90 days; older files remain in history, never deleted.
-    cutoff = str(today - timedelta(days=90))
-    data["machine_records"] = [r for r in data["machine_records"] if r["date"] >= cutoff]
-    data['history_backfill' if backfill_only else 'machine_collection'] = result
-    data["machine_results_available"] = bool(data["machine_records"])
-    data["collection_stage"] = "machine_results" if data["machine_records"] else "source_checks_only"
-    write_json(data_path, data)
+    persist()
+    incoming = result.pop('records')
+    result.pop('checkpoint',None)
     print(json.dumps({**result, "new_records": len(incoming)}, ensure_ascii=False))
     return result
 

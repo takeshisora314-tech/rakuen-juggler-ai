@@ -119,7 +119,7 @@ class MachineTests(unittest.TestCase):
 
     def test_each_date_has_its_own_archive(self):
         days = [str(datetime.now(timezone.utc).date()-timedelta(days=n)) for n in (1,2)]
-        async def fake_scrape(config, today, result, existing):
+        async def fake_scrape(config, today, result, existing, persist=None):
             result['records'] = [{**self.parse()[0], 'date': day, 'difference': i}
                                  for i, day in enumerate(days)]
             result['models'] = {'myj5': {'status':'complete', 'rows':1}}
@@ -138,7 +138,7 @@ class MachineTests(unittest.TestCase):
                 self.assertEqual(rows[0]['difference'],i)
 
     def test_backfill_only_preserves_daily_status_and_forecast(self):
-        async def fake_scrape(config,today,result,existing):
+        async def fake_scrape(config,today,result,existing,persist=None):
             self.assertTrue(result['backfill_only'])
             result['records']=[self.parse()[0]]
             result['backfill']={'2026-10-25':{'status':'complete'}}
@@ -151,6 +151,70 @@ class MachineTests(unittest.TestCase):
             actual=json.loads((base/'data.json').read_text())
             for key in original: self.assertEqual(actual[key],original[key])
             self.assertEqual(actual['history_backfill']['status'],'complete')
+
+
+class ProgressTests(unittest.TestCase):
+    def prepare(self,base):
+        shutil.copy(BASE/'machines.json',base/'machines.json')
+        original={'machine_records':[], 'forecast':{'snapshot_id':'fixed'},
+                  'evaluation':{'keep':True}, 'machine_collection':{'status':'complete'},'keep':'user'}
+        write_json(base/'data.json',original)
+        return original
+
+    def row(self):
+        return {'date':str(datetime.now(timezone.utc).date()-timedelta(days=1)),
+                'model_id':'myj5','number':2221,'games':5000,'bb':20,'rb':15,'difference':-100}
+
+    def test_hard_interruption_keeps_verified_model_and_daily_state(self):
+        async def interrupted(config,today,result,existing,persist):
+            result['records'].append(self.row())
+            result['backfill']={self.row()['date']:{'status':'partial'}}
+            persist()
+            raise SystemExit('Simulated child termination')
+        with TemporaryDirectory() as directory:
+            base=Path(directory);original=self.prepare(base)
+            with patch('collect_machines.scrape',interrupted),self.assertRaises(SystemExit):
+                run(base,backfill_only=True)
+            actual=json.loads((base/'data.json').read_text())
+            self.assertEqual(actual['machine_records'],[self.row()])
+            for key in ('forecast','evaluation','machine_collection','keep'):
+                self.assertEqual(actual[key],original[key])
+            self.assertEqual(actual['history_backfill']['status'],'in_progress')
+            archived=json.loads((base/'history'/'machines'/self.row()['date']/'myj5.json').read_text())
+            self.assertEqual(archived,[self.row()])
+
+    def test_repeated_progress_is_idempotent_and_final_status_is_complete(self):
+        async def scrape_twice(config,today,result,existing,persist):
+            result['records'].append(self.row())
+            result['backfill']={self.row()['date']:{'status':'complete'}}
+            persist();persist()
+        with TemporaryDirectory() as directory:
+            base=Path(directory);self.prepare(base)
+            with patch('collect_machines.scrape',scrape_twice): run(base,backfill_only=True)
+            actual=json.loads((base/'data.json').read_text())
+            self.assertEqual(actual['machine_records'],[self.row()])
+            self.assertEqual(actual['history_backfill']['status'],'complete')
+            self.assertNotIn('records',actual['history_backfill'])
+
+    def test_wrapper_timeout_keeps_incremental_save(self):
+        import subprocess
+        from run_collection import run as guarded_run
+        async def interrupted(config,today,result,existing,persist):
+            result['records'].append(self.row());persist()
+            raise SystemExit('Simulated killed child')
+        with TemporaryDirectory() as directory:
+            base=Path(directory);self.prepare(base)
+            def runner(command,**kwargs):
+                try:
+                    with patch('collect_machines.scrape',interrupted): run(base,backfill_only=True)
+                except SystemExit:
+                    raise subprocess.TimeoutExpired(command,240)
+            result=guarded_run(base,runner,backfill_only=True)
+            self.assertTrue(result['process_failed'])
+            actual=json.loads((base/'data.json').read_text())
+            self.assertEqual(actual['machine_records'],[self.row()])
+            self.assertEqual(actual['history_backfill']['status'],'error')
+            self.assertEqual(actual['forecast'],{'snapshot_id':'fixed'})
 
 
 class NavigationTests(unittest.IsolatedAsyncioTestCase):

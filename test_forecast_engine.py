@@ -124,7 +124,9 @@ class ForecastTests(unittest.TestCase):
     def paired(self, count, kind='prospective', gain=200):
         return [{'date':str(date(2026,9,1)+timedelta(days=i)), 'kind':kind,'version':VERSION,
                  'models':{'myj5':{'status':'complete','strategies':{
-                     s:{'lift_vs_eligible_mean':gain if s=='dip' else 0,'positive_rate':0.5}
+                     s:{'count':3,'positive_count':2,'low_play_count':0,
+                        'mean_difference':gain if s=='dip' else 0,
+                        'lift_vs_eligible_mean':gain if s=='dip' else 0,'positive_rate':2/3}
                      for s in WEIGHTS}}}} for i in range(count)]
 
     def test_no_daily_chasing_with_small_sample(self):
@@ -142,6 +144,50 @@ class ForecastTests(unittest.TestCase):
 
     def test_future_evaluations_cannot_select_strategy(self):
         self.assertEqual(choose_strategy(self.paired(30),'myj5','2026-09-02')['paired_days'],1)
+
+    def test_duplicate_dates_cannot_create_thirty_comparison_days(self):
+        comparisons=self.paired(29)
+        comparisons.append(copy.deepcopy(comparisons[0]))
+        result=choose_strategy(comparisons,'myj5','2026-10-27')
+        self.assertEqual(result['paired_days'],28)
+        self.assertEqual(result['strategy'],'balanced')
+        self.assertEqual(choose_strategy(comparisons[::-1],'myj5','2026-10-27'),result)
+
+    def test_invalid_comparison_metrics_cannot_switch(self):
+        for field,value in [('count',2),('count',True),('positive_count',4),
+                            ('positive_count',True),('low_play_count',-1),
+                            ('positive_rate',math.nan),('positive_rate',0.5),
+                            ('mean_difference',math.inf),('mean_difference','100'),
+                            ('lift_vs_eligible_mean',math.nan),('lift_vs_eligible_mean',True)]:
+            with self.subTest(field=field,value=value):
+                comparisons=self.paired(30)
+                comparisons[0]['models']['myj5']['strategies']['rb'][field]=value
+                result=choose_strategy(comparisons,'myj5','2026-10-27')
+                self.assertEqual(result['paired_days'],29)
+                self.assertEqual(result['strategy'],'balanced')
+
+    def test_missing_strategy_and_pending_results_are_not_paired(self):
+        for change in ('missing','pending'):
+            comparisons=self.paired(30)
+            model=comparisons[0]['models']['myj5']
+            if change=='missing': del model['strategies']['rb']
+            else: model['status']='pending_results'
+            self.assertEqual(choose_strategy(comparisons,'myj5','2026-10-27')['paired_days'],29)
+
+    def test_invalid_dates_and_shapes_are_ignored(self):
+        comparisons=self.paired(1)
+        for bad in (None,42,{}, {'kind':'prospective','version':VERSION},
+                    {**comparisons[0],'date':'2026-02-30'},
+                    {**comparisons[0],'date':'20260902'},
+                    {**comparisons[0],'date':'2026-09-02','models':None},
+                    {**comparisons[0],'date':'2026-09-03','models':{'myj5':None}}):
+            result=choose_strategy([*comparisons,bad],'myj5','2026-10-27')
+            self.assertEqual(result['paired_days'],1)
+
+    def test_only_latest_sixty_valid_unique_days_are_compared(self):
+        result=choose_strategy(self.paired(70),'myj5','2026-12-01')
+        self.assertEqual(result['paired_days'],60)
+        self.assertEqual(result['strategy'],'dip')
 
     def test_preview_is_not_archived_and_morning_forecast_is_immutable(self):
         with TemporaryDirectory() as directory:

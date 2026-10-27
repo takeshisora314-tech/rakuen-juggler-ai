@@ -1,6 +1,7 @@
 """Experimental, preregistered rules; no claim of true settings or win probability."""
 import hashlib
 import json
+import math
 from datetime import date, datetime, timedelta, timezone
 from statistics import mean
 from zoneinfo import ZoneInfo
@@ -40,17 +41,48 @@ def record_index(records):
     return index
 
 
+def comparison_metrics_valid(metrics):
+    """Require the fixed top-three protocol, finite metrics and consistent counts."""
+    if not isinstance(metrics, dict) or type(metrics.get('count')) is not int or metrics['count'] != 3:
+        return False
+    for field in ('positive_count', 'low_play_count'):
+        if type(metrics.get(field)) is not int or not 0 <= metrics[field] <= 3:
+            return False
+    for field in ('positive_rate', 'mean_difference', 'lift_vs_eligible_mean'):
+        value = metrics.get(field)
+        if type(value) not in (int, float) or not math.isfinite(value):
+            return False
+    return math.isclose(metrics['positive_rate'], metrics['positive_count']/3,
+                        rel_tol=0, abs_tol=1e-9)
+
+
 def choose_strategy(evaluations, model_id, target_day):
     """Only prospective, already completed, paired evaluations may change rules."""
-    pairs = []
+    dates = {}
     for evaluation in evaluations:
-        if (evaluation.get('kind') != 'prospective' or evaluation.get('version') != VERSION
-                or evaluation['date'] >= target_day):
+        if (not isinstance(evaluation, dict) or evaluation.get('kind') != 'prospective'
+                or evaluation.get('version') != VERSION):
             continue
-        model = evaluation.get('models', {}).get(model_id, {})
+        day = evaluation.get('date')
+        try:
+            if not isinstance(day, str) or date.fromisoformat(day).isoformat() != day or day >= target_day:
+                continue
+        except ValueError:
+            continue
+        dates.setdefault(day, []).append(evaluation)
+    pairs = []
+    for day, entries in dates.items():
+        # Reject every copy of an ambiguous date, rather than picking a favorable one.
+        if len(entries) != 1:
+            continue
+        models = entries[0].get('models', {})
+        model = models.get(model_id, {}) if isinstance(models, dict) else {}
+        if not isinstance(model, dict):
+            continue
         strategies = model.get('strategies', {})
-        if model.get('status') == 'complete' and all(s in strategies for s in WEIGHTS):
-            pairs.append((evaluation['date'], strategies))
+        if (model.get('status') == 'complete' and isinstance(strategies, dict)
+                and all(comparison_metrics_valid(strategies.get(s)) for s in WEIGHTS)):
+            pairs.append((day, strategies))
     pairs = sorted(pairs)[-60:]
     info = {'paired_days': len(pairs), 'minimum_days': POLICY['comparison_days'],
             'status': 'insufficient_evaluation', 'strategy': DEFAULT}

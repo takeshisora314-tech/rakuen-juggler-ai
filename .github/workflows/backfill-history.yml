@@ -11,7 +11,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     permissions:
       contents: write
     steps:
@@ -24,9 +24,24 @@ jobs:
         timeout-minutes: 2
       - name: Test preservation and resume rules
         run: python -m unittest test_machine_collector test_collection_runner -v
-      - name: Backfill at most two historical report days
-        run: python run_collection.py --backfill-only
-        timeout-minutes: 5
+      # 2026-10-28: reuse setup for two sequential, saved two-day batches.
+      # Next: measure yield/duration; do not increase concurrency or bypass blocks.
+      - name: Backfill up to four historical report days in saved batches
+        timeout-minutes: 9
+        run: |
+          python - <<'PY'
+          import time
+          from run_collection import run
+          for batch in range(2):
+              evidence = run(backfill_only=True)
+              result = evidence['result']
+              outcomes = result.get('backfill', {}).values()
+              progressed = any(item.get('status') in ('complete', 'partial') for item in outcomes)
+              if evidence['process_failed'] or result.get('status') in ('blocked', 'error') or not progressed:
+                  break
+              if batch == 0:
+                  time.sleep(10)
+          PY
       - name: Save historical results without regenerating forecasts
         run: |
           git config user.name "github-actions[bot]"

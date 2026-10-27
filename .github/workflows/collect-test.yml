@@ -51,6 +51,7 @@ jobs:
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
           python -m unittest test_publication -v
+          python -m unittest test_collection_runner -v
           node test_frontend.cjs
 
       - name: Check source availability
@@ -59,7 +60,7 @@ jobs:
       - name: Collect machine results
         timeout-minutes: 5
         continue-on-error: true
-        run: python collect_machines.py
+        run: python run_collection.py
 
       - name: Generate immutable forecast and evaluate
         run: python forecast_engine.py

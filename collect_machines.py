@@ -58,6 +58,22 @@ def latest_report(links, today):
     return available_reports(links, today)[0]
 
 
+def history_reports(links, today):
+    return [(day,url) for day,url in available_reports(links,today)
+            if day >= today-timedelta(days=90)][:90]
+
+
+def ordered_backfill(reports, checkpoint, today):
+    # Never-attempted dates first; failed/partial dates cannot starve older days.
+    # Dates are still newest-first inside each group.
+    return sorted(reports,key=lambda item:(str(item[0]) in checkpoint,-item[0].toordinal()))
+
+
+def backfill_due(checkpoint, day, today):
+    previous=checkpoint.get(str(day),{})
+    return previous.get('attempted_on') != str(today)
+
+
 def integer(value, nonnegative=False):
     value = unicodedata.normalize("NFKC", value).replace(",", "").replace("−", "-").strip()
     if value in ("", "-", "―", "—"):
@@ -225,10 +241,12 @@ async def scrape(config, today, results, existing=()):
             await visit(SOURCES["min-repo"], "() => document.querySelector('h1') && Array.from(document.querySelectorAll('a')).some(a => /\\/\\d+\\/$/.test(a.pathname))")
             if (await page.locator("h1").inner_text()).strip() != STORE:
                 raise ValueError("Wrong store index")
-            reports = [(day, url) for day, url in available_reports(await links(), today)
-                       if day >= today - timedelta(days=7)][:7]
+            reports = history_reports(await links(), today)
             if not reports:
-                raise ValueError('No report within the last seven calendar days')
+                raise ValueError('No report within the last ninety calendar days')
+            results['history_window']={'days':90,'discovered_report_days':len(reports),
+                'earliest_discovered':str(reports[-1][0]),'latest_discovered':str(reports[0][0]),
+                'note':'Discovered reports are not proof of complete machine results'}
             day, report = reports[0]
             results["report_date"] = str(day)
             results['report_url'] = report
@@ -262,16 +280,21 @@ async def scrape(config, today, results, existing=()):
             # At most two older report-days per run, all missing models together.
             # Follow only public rendered links and preserve every cached fact.
             results['backfill'] = {}
+            checkpoint=results.setdefault('checkpoint',{})
             attempted_days = 0
-            for past_day, past_report in reports[1:]:
+            for past_day, past_report in ordered_backfill(reports[1:],checkpoint,today):
                 needed = backfill_models(config, past_day, existing)
                 if not needed:
                     results['backfill'][str(past_day)] = {'status': 'cached'}
+                    continue
+                if not backfill_due(checkpoint,past_day,today):
+                    results['backfill'][str(past_day)] = {'status':'cooldown'}
                     continue
                 if attempted_days >= 2:
                     results['backfill'][str(past_day)] = {'status': 'deferred'}
                     continue
                 attempted_days += 1
+                checkpoint[str(past_day)]={'status':'attempting','attempted_on':str(today)}
                 try:
                     await visit(SOURCES['min-repo'], "() => document.querySelector('h1') && Array.from(document.querySelectorAll('a')).some(a => /\\/\\d+\\/$/.test(a.pathname))")
                     await visit(past_report, report_ready, from_link=True)
@@ -300,11 +323,14 @@ async def scrape(config, today, results, existing=()):
                         outcome['models'][model_id] = collection_result(rows, model)
                         if outcome['models'][model_id]['status'] != 'complete':
                             outcome['status'] = 'partial'
+                    checkpoint[str(past_day)]={'status':outcome['status'],'attempted_on':str(today)}
                 except PermissionError:
                     raise
                 except (ValueError, BrowserTimeout) as error:
                     results['backfill'][str(past_day)] = {'status': 'error', 'reason': str(error)}
-                    break  # do not keep navigating after a failed historical page
+                    checkpoint[str(past_day)]={'status':'error','attempted_on':str(today),'reason':str(error)}
+                    # Ordinary parse/time-out failure is not an access block.
+                    # Continue only within the two-day budget; PermissionError stops above.
         finally:
             await browser.close()
 
@@ -318,7 +344,8 @@ def run(base=BASE):
     now = datetime.now(timezone.utc)
     local = now.astimezone(ZoneInfo(config["timezone"]))
     today = local.date()
-    result = {"attempted_at": now.isoformat(), "records": [], "models": {}}
+    result = {"attempted_at": now.isoformat(), "records": [], "models": {},
+              'checkpoint':dict(data.get('backfill_checkpoint',{}))}
     try:
         # After 23:00 JST, an already published same-day report is completed play.
         report_cutoff = today + timedelta(days=1) if local.hour >= 23 else today
@@ -328,6 +355,7 @@ def run(base=BASE):
         result["status"] = "blocked" if isinstance(error, PermissionError) else "error"
         result["reason"] = str(error)
     incoming = result.pop("records")
+    data['backfill_checkpoint']=result.pop('checkpoint',{})
     for day, model_id in {(r['date'], r['model_id']) for r in incoming}:
         rows = [r for r in incoming if r['model_id'] == model_id and r['date'] == day]
         path = base / "history" / "machines" / day / (model_id + ".json")

@@ -10,7 +10,7 @@ import shutil
 from collect_machines import HEADERS, latest_report, merge_records, parse_tables, report_day, follow_public_link
 from collect_sources import BASE, layout_on
 from collect_sources import write_json
-from collect_machines import run, available_reports, collection_result, backfill_models
+from collect_machines import run, available_reports, collection_result, backfill_models, history_reports, ordered_backfill, backfill_due
 
 
 class MachineTests(unittest.TestCase):
@@ -93,6 +93,29 @@ class MachineTests(unittest.TestCase):
                  {'text':'10/24(土)','href':'https://min-repo.com/3429127/'}]
         reports = available_reports([*links, links[0]], date(2026,10,26))
         self.assertEqual([str(day) for day, _ in reports], ['2026-10-25','2026-10-24'])
+
+    def test_ninety_day_window_excludes_older_and_today(self):
+        today=date(2026,10,27)
+        links=[{'text':'2026/7/29(水)','href':'https://min-repo.com/1/'},
+               {'text':'2026/7/28(火)','href':'https://min-repo.com/2/'},
+               {'text':'2026/10/26(月)','href':'https://min-repo.com/3/'},
+               {'text':'2026/10/27(火)','href':'https://min-repo.com/4/'}]
+        self.assertEqual([str(d) for d,u in history_reports(links,today)],['2026-10-26','2026-07-29'])
+
+    def test_failed_day_cannot_starve_untouched_older_days(self):
+        reports=[(date(2026,10,n),'https://min-repo.com/1/') for n in (25,24,23)]
+        checkpoint={'2026-10-25':{'status':'partial','attempted_on':'2026-10-27'}}
+        self.assertEqual([d.day for d,u in ordered_backfill(reports,checkpoint,date(2026,10,27))],[24,23,25])
+
+    def test_failed_date_retries_next_day_not_every_run(self):
+        checkpoint={'2026-10-25':{'status':'error','attempted_on':'2026-10-27'}}
+        self.assertFalse(backfill_due(checkpoint,date(2026,10,25),date(2026,10,27)))
+        self.assertTrue(backfill_due(checkpoint,date(2026,10,25),date(2026,10,28)))
+
+    def test_resume_order_is_stable_after_serialization(self):
+        checkpoint=json.loads(json.dumps({'2026-10-25':{'status':'error','attempted_on':'2026-10-27'}}))
+        reports=[(date(2026,10,n),'https://min-repo.com/1/') for n in (25,24)]
+        self.assertEqual(ordered_backfill(reports,checkpoint,date(2026,10,27))[0][0].day,24)
 
     def test_each_date_has_its_own_archive(self):
         days = [str(datetime.now(timezone.utc).date()-timedelta(days=n)) for n in (1,2)]

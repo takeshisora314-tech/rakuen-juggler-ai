@@ -256,7 +256,7 @@ async def scrape(config, today, results, existing=()):
             if STORE not in heading or report_day(heading.replace(STORE, "").strip(), today) != day:
                 raise ValueError("Report store/date mismatch")
             model_links = {normalized(link["text"]): link["href"] for link in await links() if "kishu=" in link["href"]}
-            for model in layout_on(config, day):
+            for model in ([] if results.get('backfill_only') else layout_on(config, day)):
                 model_id = model["model_id"]
                 url = model_links.get(normalized(ALIASES.get(model_id, model["name"])))
                 if not url:
@@ -335,7 +335,7 @@ async def scrape(config, today, results, existing=()):
             await browser.close()
 
 
-def run(base=BASE):
+def run(base=BASE, backfill_only=False):
     data_path = base / "data.json"
     data = json.loads(data_path.read_text(encoding="utf-8"))
     if not isinstance(data, dict):
@@ -345,12 +345,14 @@ def run(base=BASE):
     local = now.astimezone(ZoneInfo(config["timezone"]))
     today = local.date()
     result = {"attempted_at": now.isoformat(), "records": [], "models": {},
+              'backfill_only':backfill_only,
               'checkpoint':dict(data.get('backfill_checkpoint',{}))}
     try:
         # After 23:00 JST, an already published same-day report is completed play.
         report_cutoff = today + timedelta(days=1) if local.hour >= 23 else today
         asyncio.run(scrape(config, report_cutoff, result, data.get('machine_records', [])))
-        result["status"] = "complete" if result["models"] and all(m["status"] == "complete" for m in result["models"].values()) else "partial"
+        statuses=list(result.get('backfill',{}).values()) if backfill_only else list(result['models'].values())
+        result['status']='complete' if statuses and all(m['status'] in ('complete','cached') for m in statuses) else 'partial'
     except Exception as error:
         result["status"] = "blocked" if isinstance(error, PermissionError) else "error"
         result["reason"] = str(error)
@@ -365,7 +367,7 @@ def run(base=BASE):
     # The UI payload holds 90 days; older files remain in history, never deleted.
     cutoff = str(today - timedelta(days=90))
     data["machine_records"] = [r for r in data["machine_records"] if r["date"] >= cutoff]
-    data["machine_collection"] = result
+    data['history_backfill' if backfill_only else 'machine_collection'] = result
     data["machine_results_available"] = bool(data["machine_records"])
     data["collection_stage"] = "machine_results" if data["machine_records"] else "source_checks_only"
     write_json(data_path, data)
@@ -374,4 +376,7 @@ def run(base=BASE):
 
 
 if __name__ == "__main__":
-    run()
+    import argparse
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--backfill-only',action='store_true')
+    run(backfill_only=parser.parse_args().backfill_only)

@@ -60,5 +60,17 @@ class RunnerTests(unittest.TestCase):
             with self.assertRaises(ValueError): run(base,lambda *a,**k:None)
             self.assertEqual(json.loads((base/'data.json').read_text()),[])
 
+    def test_backfill_timeout_does_not_replace_daily_status(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory);old=self.prepare(base)
+            def timeout(command,**kwargs):
+                self.assertIn('--backfill-only',command)
+                raise subprocess.TimeoutExpired(command,240)
+            run(base,timeout,backfill_only=True)
+            data=json.loads((base/'data.json').read_text())
+            self.assertEqual(data['machine_collection'],old['machine_collection'])
+            self.assertEqual(data['forecast'],old['forecast'])
+            self.assertEqual(data['history_backfill']['status'],'error')
+
 
 if __name__=='__main__': unittest.main()

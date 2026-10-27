@@ -137,6 +137,21 @@ class MachineTests(unittest.TestCase):
                 self.assertEqual(rows[0]['date'],day)
                 self.assertEqual(rows[0]['difference'],i)
 
+    def test_backfill_only_preserves_daily_status_and_forecast(self):
+        async def fake_scrape(config,today,result,existing):
+            self.assertTrue(result['backfill_only'])
+            result['records']=[self.parse()[0]]
+            result['backfill']={'2026-10-25':{'status':'complete'}}
+        with TemporaryDirectory() as directory:
+            base=Path(directory);shutil.copy(BASE/'machines.json',base/'machines.json')
+            original={'machine_collection':{'status':'complete','attempted_at':'daily'},
+                      'forecast':{'snapshot_id':'fixed'},'evaluation':{'keep':True}}
+            write_json(base/'data.json',original)
+            with patch('collect_machines.scrape',fake_scrape): run(base,backfill_only=True)
+            actual=json.loads((base/'data.json').read_text())
+            for key in original: self.assertEqual(actual[key],original[key])
+            self.assertEqual(actual['history_backfill']['status'],'complete')
+
 
 class NavigationTests(unittest.IsolatedAsyncioTestCase):
     async def test_clicks_observed_link_without_direct_navigation(self):

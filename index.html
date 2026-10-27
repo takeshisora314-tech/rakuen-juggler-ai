@@ -72,6 +72,34 @@ function machineRow(number, record) {
   try { const url = new URL(record.source_url); if (url.protocol === 'https:' && url.hostname === 'min-repo.com') source = `<a href="${safe(url.href)}" target="_blank" rel="noopener noreferrer">出典：みんレポ</a>`; } catch (_) {}
   return `<div class="row"><div class="no">${number}</div><div class="small">実績日 ${safe(record.date)}<br>G ${value('games')} ／ BB ${value('bb')} ／ RB ${value('rb')}<br>差枚 ${value('difference')}枚 · ${source}</div></div>`;
 }
+function pairedPerformance(evaluations, modelId, version, targetDay) {
+  const strategies=['balanced','dip','rb'];
+  const dates=new Map();
+  for(const e of evaluations || []) {
+    if(e.kind!=='prospective' || e.version!==version || !/^\d{4}-\d{2}-\d{2}$/.test(e.date) || e.date>=targetDay) continue;
+    if(!dates.has(e.date)) dates.set(e.date,[]);
+    dates.get(e.date).push(e);
+  }
+  const paired=[...dates.values()].filter(rows=>rows.length===1).map(rows=>rows[0]).filter(e=>{
+    const m=e.models?.[modelId];
+    return m?.status==='complete' && strategies.every(key=>{
+      const s=m.strategies?.[key];
+      return s && s.count===3 && Number.isInteger(s.positive_count) && s.positive_count>=0 && s.positive_count<=3
+        && Number.isInteger(s.low_play_count) && s.low_play_count>=0 && s.low_play_count<=3
+        && Number.isFinite(s.mean_difference) && Number.isFinite(s.lift_vs_eligible_mean);
+    });
+  }).sort((a,b)=>a.date.localeCompare(b.date)).slice(-60);
+  const summaries={};
+  for(const key of strategies) {
+    const items=paired.map(e=>e.models[modelId].strategies[key]);
+    if(!items.length) continue;
+    const sum=field=>items.reduce((total,s)=>total+s[field],0);
+    summaries[key]={days:items.length,count:sum('count'),positive:sum('positive_count'),
+      positive_rate:sum('positive_count')/sum('count'),low_play:sum('low_play_count'),
+      mean_difference:sum('mean_difference')/items.length,lift:sum('lift_vs_eligible_mean')/items.length};
+  }
+  return {days:paired.length,first_date:paired[0]?.date,last_date:paired.at(-1)?.date,summaries};
+}
 function drawForecast(model) {
   const panel = document.getElementById('forecast-panel');
   const evaluationPanel = document.getElementById('evaluation-panel');
@@ -107,6 +135,15 @@ function drawForecast(model) {
     evaluationHTML += `<p class="small">${safe(e.date)}：プラス${safe(s.positive_count)}/${safe(s.count)}台 · 平均差枚${safe(s.mean_difference)}枚 · 同条件全台平均との差${safe(s.lift_vs_eligible_mean)}枚（3,000G未満${safe(s.low_play_count)}台）</p>`;
   }
   if (!actual.length) evaluationHTML += '<p class="small">まだ事前予想の評価実績はありません。仮表示や過去再計算を、的中実績として数えません。</p>';
+  const paired=pairedPerformance(DATA?.evaluation?.prospective,model.id,forecast.version,forecast.date);
+  evaluationHTML+=`<details class="small"><summary>3方式の同条件比較：${paired.days}日</summary><p>事前保存・同一ルール版・3方式すべて評価済みの同じ日だけを比較します。直近最大60評価日、各方式上位3台。公開待ち、過去再計算、別バージョン、重複日は除外します。</p>`;
+  if(!paired.days) evaluationHTML+='<p>比較可能な事前評価はまだありません。成績を0%とは表示しません。</p>';
+  else {
+    evaluationHTML+=`<p>対象：${safe(paired.first_date)}〜${safe(paired.last_date)}。${paired.days<30 ? '30日未満のため方式の自動切替は行いません。' : '切替の判定は次回の予想生成時に行います。'}</p>`;
+    const number=n=>n.toLocaleString('ja-JP',{maximumFractionDigits:1});
+    for(const [key,s] of Object.entries(paired.summaries)) evaluationHTML+=`<p><b>${safe(labels[key])}</b><br>プラス ${s.positive}/${s.count}台（${number(s.positive_rate*100)}%）<br>平均差枚 ${number(s.mean_difference)}枚／同条件全台平均との差 ${number(s.lift)}枚<br>3,000G未満 ${s.low_play}台</p>`;
+  }
+  evaluationHTML+='<p>プラス台率は設定4〜6の的中率ではありません。同じ台の繰り返しや日ごとの関連があるため、台数を独立した検証回数とは扱いません。この表示だけで予想方式を変更しません。</p></details>';
   evaluationHTML += `<details class="small"><summary>過去再計算 ${replay.length}日（事前予想ではありません）</summary><p>各対象日より前のデータだけで再計算した参考結果です。方式の自動切替には使いません。少数の結果から将来の精度は判断できません。</p>`;
   for (const e of replay) {
     const s=e.models[model.id].strategies.balanced;

@@ -1,6 +1,12 @@
 name: backfill history
 on:
   workflow_dispatch:
+    inputs:
+      batches:
+        description: "Sequential two-day batches (scheduled runs always use 2)"
+        type: choice
+        default: "2"
+        options: ["2", "4", "6"]
   schedule:
     - cron: "35 0,3,6,9,12,15,18 * * *"
 permissions:
@@ -11,7 +17,7 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 30
     permissions:
       contents: write
     steps:
@@ -23,32 +29,28 @@ jobs:
       - run: python -m playwright install chromium --only-shell
         timeout-minutes: 2
       - name: Test preservation and resume rules
-        run: python -m unittest test_machine_collector test_collection_runner -v
-      # 2026-10-28: reuse setup for two sequential, saved two-day batches.
-      # Next: measure yield/duration; do not increase concurrency or bypass blocks.
-      - name: Backfill up to four historical report days in saved batches
-        timeout-minutes: 9
+        run: python -m unittest test_machine_collector test_collection_runner test_backfill_batches -v
+      - name: Backfill bounded history batches and commit each batch
+        timeout-minutes: 26
+        env:
+          BATCH_LIMIT: ${{ inputs.batches || '2' }}
         run: |
           python - <<'PY'
-          import time
-          from run_collection import run
-          for batch in range(2):
-              evidence = run(backfill_only=True)
-              result = evidence['result']
-              outcomes = result.get('backfill', {}).values()
-              progressed = any(item.get('status') in ('complete', 'partial') for item in outcomes)
-              if evidence['process_failed'] or result.get('status') in ('blocked', 'error') or not progressed:
-                  break
-              if batch == 0:
-                  time.sleep(10)
+          import os
+          import subprocess
+          from backfill_batches import run_batches
+          def git(*args):
+              return subprocess.run(['git',*args],check=True)
+          git('config','user.name','github-actions[bot]')
+          git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          def save():
+              git('add','data.json','history')
+              changed=subprocess.run(['git','diff','--cached','--quiet']).returncode
+              if changed not in (0,1):
+                  raise RuntimeError('Cannot inspect staged changes')
+              if changed:
+                  git('commit','-m','Backfill historical machine results')
+                  git('pull','--rebase','origin',os.environ['GITHUB_REF_NAME'])
+                  git('push','origin','HEAD:'+os.environ['GITHUB_REF_NAME'])
+          run_batches(limit=int(os.environ['BATCH_LIMIT']),save=save)
           PY
-      - name: Save historical results without regenerating forecasts
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json history
-          if ! git diff --cached --quiet; then
-            git commit -m "Backfill historical machine results"
-            git pull --rebase origin "$GITHUB_REF_NAME"
-            git push origin "HEAD:$GITHUB_REF_NAME"
-          fi

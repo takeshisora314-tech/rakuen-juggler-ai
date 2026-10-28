@@ -1,0 +1,85 @@
+{
+  "started_at": "2026-10-28T19:47:45.476653+00:00",
+  "finished_at": "2026-10-28T19:49:20.607386+00:00",
+  "mode": "daily",
+  "process_failed": false,
+  "result": {
+    "status": "error",
+    "attempted_at": "2026-10-28T19:47:45.604846+00:00",
+    "models": {},
+    "backfill_only": false,
+    "history_window": {
+      "days": 90,
+      "discovered_report_days": 90,
+      "earliest_discovered": "2026-07-31",
+      "latest_discovered": "2026-10-28",
+      "note": "Discovered reports are not proof of complete machine results"
+    },
+    "report_date": "2026-10-28",
+    "report_url": "https://min-repo.com/3437420/",
+    "diagnostic": {
+      "url": "https://min-repo.com/3437420/",
+      "title": "",
+      "body_excerpt": "",
+      "request_failures": [
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://pagead2.googlesyndication.com/pagead/ping",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "https://cpt.geniee.jp/hb/v1/probe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://pagead2.googlesyndication.com/pagead/ping",
+          "error": "net::ERR_ABORTED"
+        }
+      ],
+      "javascript_errors": [],
+      "console_errors": [
+        "Access to fetch at 'https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2?zoneid=1599948&cb=6601979885&charset=UTF-8&loc=https%3A%2F%2Fmin-repo.com%2Ftag%2F%25E6%25A5%25BD%25E5%259C%2592%25E4%25B8%258A%25E6%2596%25B0%25E5%25B1%258B%25E5%25BA%2597%2F&ct0=&referer=&topframe=1&cur=JPY&requestid=de8f21fa-6d2a-4406-b6ec-6596d7863e69&ua=Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20HeadlessChrome%2F153.0.8010.12%20Safari%2F537.36&tpaf=1&cks=1&ib=0&tmpval=",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "document": {
+        "bytes": 409,
+        "script_count": 1,
+        "ajax_bootstrap": true,
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "site_responses": [
+        {
+          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/wp-admin/admin-ajax.php",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
+        }
+      ]
+    },
+    "reason": "Page.wait_for_function: Timeout 45000ms exceeded.",
+    "progress_saves": 1,
+    "progress_record_count": 0
+  },
+  "saved_record_count": 9227
+}

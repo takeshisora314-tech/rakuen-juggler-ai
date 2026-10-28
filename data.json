@@ -1,24 +1,24 @@
 {
-  "updated_at": "2026-10-28T00:32:40.634186+00:00",
+  "updated_at": "2026-10-28T19:47:43.224604+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-10-28T00:32:40.634186+00:00"
+      "checked_at": "2026-10-28T19:47:43.224604+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-28T00:32:40.634186+00:00"
+      "checked_at": "2026-10-28T19:47:43.224604+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-10-28T00:32:40.634186+00:00"
+      "checked_at": "2026-10-28T19:47:43.224604+00:00"
     }
   },
   "layout": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "timezone": "Asia/Tokyo",
     "models": [
       {
@@ -101739,432 +101739,87 @@
     }
   ],
   "machine_collection": {
-    "status": "complete",
-    "attempted_at": "2026-10-28T00:32:43.586543+00:00",
-    "models": {
-      "myj6": {
-        "status": "complete",
-        "rows": 20,
-        "expected_rows": 20,
-        "missing_numbers": []
-      },
-      "myj5": {
-        "status": "complete",
-        "rows": 19,
-        "expected_rows": 19,
-        "missing_numbers": []
-      },
-      "neoim": {
-        "status": "complete",
-        "rows": 40,
-        "expected_rows": 40,
-        "missing_numbers": []
-      },
-      "gogo3": {
-        "status": "complete",
-        "rows": 26,
-        "expected_rows": 26,
-        "missing_numbers": []
-      },
-      "funky2": {
-        "status": "complete",
-        "rows": 11,
-        "expected_rows": 11,
-        "missing_numbers": []
-      },
-      "happy8": {
-        "status": "complete",
-        "rows": 19,
-        "expected_rows": 19,
-        "missing_numbers": []
-      },
-      "girls": {
-        "status": "complete",
-        "rows": 9,
-        "expected_rows": 9,
-        "missing_numbers": []
-      },
-      "mr": {
-        "status": "complete",
-        "rows": 6,
-        "expected_rows": 6,
-        "missing_numbers": []
-      }
-    },
+    "status": "error",
+    "attempted_at": "2026-10-28T19:47:45.604846+00:00",
+    "models": {},
     "backfill_only": false,
     "history_window": {
       "days": 90,
       "discovered_report_days": 90,
-      "earliest_discovered": "2026-07-30",
-      "latest_discovered": "2026-10-27",
+      "earliest_discovered": "2026-07-31",
+      "latest_discovered": "2026-10-28",
       "note": "Discovered reports are not proof of complete machine results"
     },
-    "report_date": "2026-10-27",
-    "report_url": "https://min-repo.com/3435523/",
-    "progress_saves": 25,
-    "progress_record_count": 450,
-    "backfill": {
-      "2026-10-25": {
-        "status": "cached"
-      },
-      "2026-10-24": {
-        "status": "cached"
-      },
-      "2026-10-23": {
-        "status": "cached"
-      },
-      "2026-10-21": {
-        "status": "cached"
-      },
-      "2026-10-20": {
-        "status": "cached"
-      },
-      "2026-09-17": {
-        "status": "complete",
-        "models": {
-          "myj5": {
-            "status": "complete",
-            "rows": 39,
-            "expected_rows": 39,
-            "missing_numbers": []
-          },
-          "neoim": {
-            "status": "complete",
-            "rows": 40,
-            "expected_rows": 40,
-            "missing_numbers": []
-          },
-          "gogo3": {
-            "status": "complete",
-            "rows": 26,
-            "expected_rows": 26,
-            "missing_numbers": []
-          },
-          "funky2": {
-            "status": "complete",
-            "rows": 11,
-            "expected_rows": 11,
-            "missing_numbers": []
-          },
-          "happy8": {
-            "status": "complete",
-            "rows": 19,
-            "expected_rows": 19,
-            "missing_numbers": []
-          },
-          "girls": {
-            "status": "complete",
-            "rows": 9,
-            "expected_rows": 9,
-            "missing_numbers": []
-          },
-          "mr": {
-            "status": "complete",
-            "rows": 6,
-            "expected_rows": 6,
-            "missing_numbers": []
-          }
+    "report_date": "2026-10-28",
+    "report_url": "https://min-repo.com/3437420/",
+    "diagnostic": {
+      "url": "https://min-repo.com/3437420/",
+      "title": "",
+      "body_excerpt": "",
+      "request_failures": [
+        {
+          "url": "https://www.google-analytics.com/g/collect",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://pagead2.googlesyndication.com/pagead/ping",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "https://cpt.geniee.jp/hb/v1/probe",
+          "error": "net::ERR_ABORTED"
+        },
+        {
+          "url": "https://pagead2.googlesyndication.com/pagead/ping",
+          "error": "net::ERR_ABORTED"
         }
+      ],
+      "javascript_errors": [],
+      "console_errors": [
+        "Access to fetch at 'https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2?zoneid=1599948&cb=6601979885&charset=UTF-8&loc=https%3A%2F%2Fmin-repo.com%2Ftag%2F%25E6%25A5%25BD%25E5%259C%2592%25E4%25B8%258A%25E6%2596%25B0%25E5%25B1%258B%25E5%25BA%2597%2F&ct0=&referer=&topframe=1&cur=JPY&requestid=de8f21fa-6d2a-4406-b6ec-6596d7863e69&ua=Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20HeadlessChrome%2F153.0.8010.12%20Safari%2F537.36&tpaf=1&cks=1&ib=0&tmpval=",
+        "Failed to load resource: net::ERR_FAILED"
+      ],
+      "document": {
+        "bytes": 409,
+        "script_count": 1,
+        "ajax_bootstrap": true,
+        "content_type": "text/html; charset=UTF-8"
       },
-      "2026-09-16": {
-        "status": "complete",
-        "models": {
-          "myj5": {
-            "status": "complete",
-            "rows": 39,
-            "expected_rows": 39,
-            "missing_numbers": []
-          },
-          "neoim": {
-            "status": "complete",
-            "rows": 40,
-            "expected_rows": 40,
-            "missing_numbers": []
-          },
-          "gogo3": {
-            "status": "complete",
-            "rows": 26,
-            "expected_rows": 26,
-            "missing_numbers": []
-          },
-          "funky2": {
-            "status": "complete",
-            "rows": 11,
-            "expected_rows": 11,
-            "missing_numbers": []
-          },
-          "happy8": {
-            "status": "complete",
-            "rows": 19,
-            "expected_rows": 19,
-            "missing_numbers": []
-          },
-          "girls": {
-            "status": "complete",
-            "rows": 9,
-            "expected_rows": 9,
-            "missing_numbers": []
-          },
-          "mr": {
-            "status": "complete",
-            "rows": 6,
-            "expected_rows": 6,
-            "missing_numbers": []
-          }
+      "site_responses": [
+        {
+          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/wp-admin/admin-ajax.php",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/3437420/",
+          "status": 200
         }
-      },
-      "2026-09-15": {
-        "status": "deferred"
-      },
-      "2026-09-14": {
-        "status": "deferred"
-      },
-      "2026-09-13": {
-        "status": "deferred"
-      },
-      "2026-09-12": {
-        "status": "deferred"
-      },
-      "2026-09-11": {
-        "status": "deferred"
-      },
-      "2026-09-10": {
-        "status": "deferred"
-      },
-      "2026-09-09": {
-        "status": "deferred"
-      },
-      "2026-09-08": {
-        "status": "deferred"
-      },
-      "2026-09-07": {
-        "status": "deferred"
-      },
-      "2026-09-06": {
-        "status": "deferred"
-      },
-      "2026-09-05": {
-        "status": "deferred"
-      },
-      "2026-09-04": {
-        "status": "deferred"
-      },
-      "2026-09-03": {
-        "status": "deferred"
-      },
-      "2026-09-02": {
-        "status": "deferred"
-      },
-      "2026-09-01": {
-        "status": "deferred"
-      },
-      "2026-08-31": {
-        "status": "deferred"
-      },
-      "2026-08-30": {
-        "status": "deferred"
-      },
-      "2026-08-29": {
-        "status": "deferred"
-      },
-      "2026-08-28": {
-        "status": "deferred"
-      },
-      "2026-08-27": {
-        "status": "deferred"
-      },
-      "2026-08-26": {
-        "status": "deferred"
-      },
-      "2026-08-25": {
-        "status": "deferred"
-      },
-      "2026-08-24": {
-        "status": "deferred"
-      },
-      "2026-08-23": {
-        "status": "deferred"
-      },
-      "2026-08-22": {
-        "status": "deferred"
-      },
-      "2026-08-21": {
-        "status": "deferred"
-      },
-      "2026-08-20": {
-        "status": "deferred"
-      },
-      "2026-08-19": {
-        "status": "deferred"
-      },
-      "2026-08-18": {
-        "status": "deferred"
-      },
-      "2026-08-17": {
-        "status": "deferred"
-      },
-      "2026-08-16": {
-        "status": "deferred"
-      },
-      "2026-08-15": {
-        "status": "deferred"
-      },
-      "2026-08-14": {
-        "status": "deferred"
-      },
-      "2026-08-13": {
-        "status": "deferred"
-      },
-      "2026-08-12": {
-        "status": "deferred"
-      },
-      "2026-08-11": {
-        "status": "deferred"
-      },
-      "2026-08-10": {
-        "status": "deferred"
-      },
-      "2026-08-09": {
-        "status": "deferred"
-      },
-      "2026-08-08": {
-        "status": "deferred"
-      },
-      "2026-08-07": {
-        "status": "deferred"
-      },
-      "2026-08-06": {
-        "status": "deferred"
-      },
-      "2026-08-05": {
-        "status": "deferred"
-      },
-      "2026-08-04": {
-        "status": "deferred"
-      },
-      "2026-08-03": {
-        "status": "deferred"
-      },
-      "2026-08-02": {
-        "status": "deferred"
-      },
-      "2026-08-01": {
-        "status": "deferred"
-      },
-      "2026-07-31": {
-        "status": "deferred"
-      },
-      "2026-07-30": {
-        "status": "deferred"
-      },
-      "2026-10-26": {
-        "status": "cooldown"
-      },
-      "2026-10-22": {
-        "status": "deferred"
-      },
-      "2026-10-19": {
-        "status": "cached"
-      },
-      "2026-10-18": {
-        "status": "cached"
-      },
-      "2026-10-17": {
-        "status": "cached"
-      },
-      "2026-10-16": {
-        "status": "cached"
-      },
-      "2026-10-15": {
-        "status": "cached"
-      },
-      "2026-10-14": {
-        "status": "cached"
-      },
-      "2026-10-13": {
-        "status": "cached"
-      },
-      "2026-10-12": {
-        "status": "cached"
-      },
-      "2026-10-11": {
-        "status": "cached"
-      },
-      "2026-10-10": {
-        "status": "cached"
-      },
-      "2026-10-09": {
-        "status": "cached"
-      },
-      "2026-10-08": {
-        "status": "cached"
-      },
-      "2026-10-07": {
-        "status": "cached"
-      },
-      "2026-10-06": {
-        "status": "cached"
-      },
-      "2026-10-05": {
-        "status": "cached"
-      },
-      "2026-10-04": {
-        "status": "cached"
-      },
-      "2026-10-03": {
-        "status": "cached"
-      },
-      "2026-10-02": {
-        "status": "cached"
-      },
-      "2026-10-01": {
-        "status": "cooldown"
-      },
-      "2026-09-30": {
-        "status": "cached"
-      },
-      "2026-09-29": {
-        "status": "cached"
-      },
-      "2026-09-28": {
-        "status": "cached"
-      },
-      "2026-09-27": {
-        "status": "cached"
-      },
-      "2026-09-26": {
-        "status": "cached"
-      },
-      "2026-09-25": {
-        "status": "cached"
-      },
-      "2026-09-24": {
-        "status": "cooldown"
-      },
-      "2026-09-23": {
-        "status": "cached"
-      },
-      "2026-09-22": {
-        "status": "cached"
-      },
-      "2026-09-21": {
-        "status": "cached"
-      },
-      "2026-09-20": {
-        "status": "cached"
-      },
-      "2026-09-19": {
-        "status": "cached"
-      },
-      "2026-09-18": {
-        "status": "cached"
-      }
-    }
+      ]
+    },
+    "reason": "Page.wait_for_function: Timeout 45000ms exceeded.",
+    "progress_saves": 1,
+    "progress_record_count": 0
   },
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-10-29",
-    "created_at": "2026-10-28T00:35:14.404493+00:00",
+    "created_at": "2026-10-28T19:49:20.720508+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -133227,12 +132882,28 @@
     "progress_record_count": 300
   },
   "history_coverage": {
-    "as_of_date": "2026-10-28",
+    "as_of_date": "2026-10-29",
     "window_days": 90,
     "complete_days": 58,
     "partial_days": 4,
     "missing_days": 28,
     "days": [
+      {
+        "date": "2026-10-28",
+        "status": "missing",
+        "expected_rows": 150,
+        "verified_rows": 0,
+        "incomplete_models": [
+          "myj6",
+          "myj5",
+          "neoim",
+          "gogo3",
+          "funky2",
+          "happy8",
+          "girls",
+          "mr"
+        ]
+      },
       {
         "date": "2026-10-27",
         "status": "complete",
@@ -134068,21 +133739,6 @@
       },
       {
         "date": "2026-07-31",
-        "status": "missing",
-        "expected_rows": 150,
-        "verified_rows": 0,
-        "incomplete_models": [
-          "myj5",
-          "neoim",
-          "gogo3",
-          "funky2",
-          "happy8",
-          "girls",
-          "mr"
-        ]
-      },
-      {
-        "date": "2026-07-30",
         "status": "missing",
         "expected_rows": 150,
         "verified_rows": 0,

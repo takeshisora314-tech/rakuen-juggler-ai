@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync, existsSync} from 'node:fs';
 import worker,{trigger} from './external_morning_trigger.mjs';
 const now=Date.parse('2026-10-29T20:03:00Z'); // 10/30 05:03 JST
 const env={GITHUB_ACTIONS_TOKEN:'unit-test-only'};
@@ -32,4 +33,16 @@ test('HTTP failure and transport failure are not reported as success',async()=>{
 });
 test('public HTTP endpoint cannot dispatch a workflow',async()=>{
   assert.equal((await worker.fetch()).status,404);
+});
+test('Git integration uses the existing Worker and no public URLs or embedded secrets',()=>{
+  const config=JSON.parse(readFileSync(new URL('./wrangler.jsonc',import.meta.url),'utf8'));
+  assert.equal(config.name,'deploy');
+  assert.equal(config.main,'external_morning_trigger.mjs');
+  assert.ok(existsSync(new URL(config.main,import.meta.url)));
+  assert.equal(config.workers_dev,false);
+  assert.equal(config.preview_urls,false);
+  assert.equal(config.vars,undefined);
+  // No cron is enabled by the preparation commit. Existing dashboard triggers
+  // are left untouched, not removed with an empty crons array.
+  assert.equal(config.triggers,undefined);
 });

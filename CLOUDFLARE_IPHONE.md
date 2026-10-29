@@ -10,6 +10,12 @@
 
 ## 操作手順（長いコードの貼り付け不要）
 
+### 接続後のチェックポイント（2026-10-29）
+
+利用者の画面でGit repositoryが対象repo、Production branchがmain、Deploy commandがnpx wrangler deploy、Root directoryが/になったことを確認した。GitHub Appは対象1repoを選び、利用者が本人確認・許可した。CloudflareのWorkers Builds tokenは画面上で自動作成済み。利用者はInclude pathsの変更を保存したと報告。初回ビルドを開始するためentry pointの説明コメントを更新する。
+
+**初回ビルドの成否は未確認。runtime SecretとCronは未設定。** 次はWorkerのDeploymentsでこのコメント更新コミットのBuildログを確認する。失敗ならログのエラーを確認して修正し、成功扱いにしない。自動配備が開始されなければwatch pathsの2項目が別々に保存されたかも確認する。runtime用GitHub Actions tokenはまだ作成・登録していない。
+
 1. エディター左上の `deploy` でWorker概要へ戻る。未配備の空コードを保存・Deployしない。破棄確認があれば、このHello World編集だけを破棄する。
 2. `Settings` → `Builds` → `Connect`。GitHub連携の権限画面では止まり、表示された権限を確認する。GitHub Appの新規インストール・権限付与は利用者の確認後に行う。選択可能なら `Only select repositories` で `takeshisora314-tech/rakuen-juggler-ai` のみに絞る。
 3. Worker名 `deploy`、リポジトリ上記、Production branch `main`、Root directory リポジトリ直下、Build command 空欄、Deploy command `npx wrangler deploy`。自動検出によるアプリ全体の移行やフレームワーク変換はしない。料金・生成されるCloudflare API tokenの権限も確認し、未承認の課金や権限追加はしない。

@@ -1,5 +1,5 @@
 // Cloudflare Git integration entry point for Worker "deploy".
-// Git connection is configured; deployment success still needs build-log evidence.
+// Retry Git-connected build; verify Cloudflare logs separately.
 // Runtime secret and cron activation are separate, explicitly approved steps.
 const ENDPOINT = 'https://api.github.com/repos/takeshisora314-tech/rakuen-juggler-ai/actions/workflows/morning-forecast.yml/dispatches';
 export async function trigger(event, env, fetcher = fetch, now = Date.now()) {

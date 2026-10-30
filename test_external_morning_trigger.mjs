@@ -8,7 +8,7 @@ test('fixed workflow and branch; acceptance is not publication',async()=>{
   let calls=0;
   const result=await trigger({scheduledTime:now},env,async(url,options)=>{
     calls++; assert.equal(url,'https://api.github.com/repos/takeshisora314-tech/rakuen-juggler-ai/actions/workflows/morning-forecast.yml/dispatches');
-    assert.equal(options.redirect,'error'); assert.equal(options.method,'POST');
+    assert.equal(options.redirect,'manual'); assert.equal(options.method,'POST');
     assert.deepEqual(JSON.parse(options.body),{ref:'main'});
     assert.equal(options.headers.Authorization,'Bearer unit-test-only');
     return {status:204};
@@ -45,4 +45,16 @@ test('Git integration uses the existing Worker and no public URLs or embedded se
   // No cron is enabled by the preparation commit. Existing dashboard triggers
   // are left untouched, not removed with an empty crons array.
   assert.equal(config.triggers,undefined);
+});
+
+
+test('Workers-compatible request rejects redirects without following or forwarding the token',async()=>{
+  let calls=0;
+  await assert.rejects(trigger({scheduledTime:now},env,async(url,options)=>{
+    calls++;
+    if (!['follow','manual'].includes(options.redirect)) throw new TypeError('Invalid redirect value');
+    assert.equal(options.redirect,'manual');
+    return new Response(null,{status:302,headers:{Location:'https://example.invalid/'}});
+  },now),/GitHub dispatch failed: HTTP 302/);
+  assert.equal(calls,1);
 });

@@ -14,7 +14,7 @@ export async function trigger(event, env, fetcher = fetch, now = Date.now()) {
   }
   if (!env.GITHUB_ACTIONS_TOKEN) throw new Error('Missing GitHub secret');
   const response = await fetcher(ENDPOINT, {
-    method:'POST', redirect:'error', signal:AbortSignal.timeout(15000),
+    method:'POST', redirect:'manual', signal:AbortSignal.timeout(15000),
     headers:{Authorization:`Bearer ${env.GITHUB_ACTIONS_TOKEN}`,
       Accept:'application/vnd.github+json', 'User-Agent':'rakuen-morning-trigger',
       'X-GitHub-Api-Version':'2026-03-10'},
@@ -30,3 +30,4 @@ export default {
   },
   async fetch() { return new Response('Not found',{status:404}); }
 };
+

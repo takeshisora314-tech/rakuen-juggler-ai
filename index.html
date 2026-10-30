@@ -34,6 +34,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note">2026/10/27から：マイジャグ6は2201〜2220（20台）、マイジャグ5は2221〜2239（19台）。入替前の5と導入後の6は別の機種履歴として扱います。</div>
 <section class="card" id="forecast-panel" aria-live="polite"></section>
 <section class="card" id="evaluation-panel" aria-live="polite"></section>
+<section class="card" id="answer-panel" aria-live="polite"></section>
 <section class="card" id="research-panel" aria-live="polite"></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
@@ -41,7 +42,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>
-let CONFIG = null, DATA = null, PUBLICATION = null, REPORT = null, current = null, followToday = true, selectedResultDay = null;
+let CONFIG = null, DATA = null, PUBLICATION = null, REPORT = null, ANSWERS = null, current = null, followToday = true, selectedResultDay = null;
 const dateInput = document.getElementById('layout-date');
 function todayJST(now = new Date()) {
   return new Intl.DateTimeFormat('sv-SE', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -179,6 +180,32 @@ function drawForecast(model) {
   }
   evaluationPanel.innerHTML = evaluationHTML + '</details>';
 }
+function expectedAnswerDay(now = new Date()) {
+  const hour = Number(new Intl.DateTimeFormat('en-GB', {timeZone:'Asia/Tokyo',hour:'2-digit',hourCycle:'h23'}).format(now));
+  return todayJST(hour >= 23 ? now : new Date(now.getTime() - 86400000));
+}
+function drawAnswers() {
+  const panel = document.getElementById('answer-panel');
+  let html = '<h3>夜の答え合わせの状態</h3>';
+  const s = ANSWERS;
+  const labels = {missing_forecast:'朝予想が未保存のため、答え合わせできません。',no_predictions:'朝予想は保存されていますが、全機種が見送りです。',pending_results:'予想対象の実績公開を待っています。',partial_results:'一部機種は照合済みで、残りは実績待ちです。',complete:'予想がある機種の照合が完了しています。'};
+  const counts = ['predicted_models','complete_models','pending_models','abstained_models'];
+  if (!s || s.schema_version !== 1 || s.policy_version !== DATA?.forecast?.version || !labels[s.status]
+      || !/^\d{4}-\d{2}-\d{2}$/.test(s.date || '') || s.date > expectedAnswerDay()
+      || !counts.every(k=>Number.isInteger(s[k]) && s[k] >= 0)
+      || s.complete_models + s.pending_models !== s.predicted_models
+      || (s.status === 'complete' && (!s.predicted_models || s.pending_models))) {
+    panel.innerHTML = html + '<p class="small">確認記録は未取得、または現在の予想と一致しません。確認できるまで完了とは表示しません。</p>'; return;
+  }
+  html += `<p class="small">対象日：${safe(s.date)}<br>最終確認：${safe(s.checked_at)}</p>`;
+  if (s.date !== expectedAnswerDay()) html += '<p>最新対象日の確認記録がまだありません。以下は過去の確認結果です。</p>';
+  html += `<p>${labels[s.status]}</p><p class="small">予想あり${s.predicted_models}機種／照合済み${s.complete_models}機種／実績待ち${s.pending_models}機種／予想なし${s.abstained_models}機種</p>`;
+  const names = Object.fromEntries((CONFIG?.models || []).map(m=>[m.id,m.name]));
+  const states = {complete:'照合済み',pending_results:'実績待ち',no_prediction:'予想なし'};
+  html += '<details class="small"><summary>機種ごとの状態</summary>';
+  for (const [id, model] of Object.entries(s.models || {})) html += `<p>${safe(names[id] || id)}：${safe(states[model.status] || '未確認')}</p>`;
+  panel.innerHTML = html + '</details><p class="small">23:30に照合し、未公開分は翌朝の取得後に再確認します。実行遅延あり。予想なしを外れ、未取得を実績0には数えません。</p>';
+}
 function drawResearch(model) {
   const panel = document.getElementById('research-panel');
   if (!model) {panel.innerHTML = ''; return;}
@@ -308,11 +335,13 @@ async function load() {
   try { DATA = await fetchJSON('data.json'); } catch (error) { DATA = null; }
   try { PUBLICATION = await fetchJSON('publication_status.json'); } catch(error) { PUBLICATION=null; }
   try { REPORT = await fetchJSON('evaluation_report.json'); } catch(error) { REPORT=null; }
-  draw(); drawSources(); drawPublication();
+  try { ANSWERS = await fetchJSON('answer_status.json'); } catch(error) { ANSWERS=null; }
+  draw(); drawSources(); drawPublication(); drawAnswers();
 }
 dateInput.addEventListener('change', () => {followToday = false; draw();});
 document.getElementById('today').addEventListener('click', () => {followToday = true; dateInput.value = todayJST(); draw();});
 setInterval(() => {
+  drawAnswers();
   if (followToday && dateInput.value !== todayJST()) {dateInput.value = todayJST(); draw(); drawPublication();}
 }, 60000);
 load();

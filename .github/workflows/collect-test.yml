@@ -50,11 +50,12 @@ jobs:
           python -m unittest discover -s tests -v
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
-          python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history -v
+          python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history test_answer_status -v
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
           node test_research_frontend.cjs
+          node test_answer_frontend.cjs
           node --test test_external_morning_trigger.mjs
 
       - name: Check source availability
@@ -67,6 +68,10 @@ jobs:
 
       - name: Generate immutable forecast and evaluate
         run: python forecast_engine.py
+
+      - name: Record explicit answer-check status
+        continue-on-error: true
+        run: python check_answers.py
 
       - name: Refresh historical evaluation report
         continue-on-error: true
@@ -85,7 +90,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json history evaluation_report.json
+          git add data.json history evaluation_report.json answer_status.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

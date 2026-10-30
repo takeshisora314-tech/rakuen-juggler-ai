@@ -117,3 +117,42 @@ def infer_day(record, config, prior, observation_contract=None):
             'conditional_mass_4_6':sum(distribution[3:]),
             'warning':'Depends on asserted game semantics, constant setting, rounded factory rates and prior; not verified setting accuracy or next-day probability.'}
 
+
+def score_count_prediction(record, config, prediction, observation_contract=None):
+    """Score BB/RB counts under weights fixed before the target business day.
+
+    This evaluates observed counts without claiming a true setting label. It
+    cannot verify historical availability or that the caller really froze weights.
+    """
+    out = {'version': VERSION, 'purpose': 'count_prediction_validation',
+           'calibrated': False}
+    if not isinstance(record, dict) or not isinstance(prediction, Mapping):
+        return {**out, 'status': 'invalid_prediction'}
+    try:
+        target = date.fromisoformat(prediction['target_date'])
+        cutoff = date.fromisoformat(prediction['trained_through'])
+        if (cutoff >= target or str(target) != record.get('date') or
+                prediction['model_id'] != record.get('model_id') or
+                type(prediction['number']) is not int or prediction['number'] != record.get('number')):
+            return {**out, 'status': 'invalid_prediction'}
+        prior = prediction['setting_weights']
+        if not isinstance(prior, (list, tuple)):
+            return {**out, 'status': 'invalid_prediction'}
+        checked = infer_day(record, config, prior, observation_contract)
+    except (KeyError, TypeError, ValueError):
+        return {**out, 'status': 'invalid_prediction'}
+    if checked['status'] != 'conditional_result':
+        return {**out, 'status': checked['status']}
+    games, bb, rb = (record[k] for k in ('games','bb','rb'))
+    terms = []
+    for (bd, rd), weight in zip(SPECS[record['model_id']], checked['prior']):
+        if weight:
+            terms.append(math.log(weight) + bb*math.log(1/bd) + rb*math.log(1/rd)
+                         + (games-bb-rb)*math.log1p(-1/bd-1/rd))
+    peak = max(terms)
+    coefficient = math.lgamma(games+1)-math.lgamma(bb+1)-math.lgamma(rb+1)-math.lgamma(games-bb-rb+1)
+    return {**out, 'status': 'conditional_score', 'date':str(target),
+            'trained_through':str(cutoff), 'model_id':record['model_id'],
+            'number':record['number'], 'games':games,
+            'log_predictive_probability': coefficient + peak + math.log(sum(math.exp(t-peak) for t in terms)),
+            'warning': 'Conditional count-model score; not setting accuracy or profit prediction. Caller timestamps are assertions.'}

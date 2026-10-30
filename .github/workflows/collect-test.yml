@@ -51,6 +51,7 @@ jobs:
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
           python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history test_answer_status -v
+          python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction -v
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
@@ -130,4 +131,5 @@ jobs:
       - name: Flag missing or invalid forecast after deadline
         run: |
           python -c "import json; s=json.load(open('publication_status.json')); print(s['status'], s['deadline_status']); raise SystemExit(1 if s['require_attention'] else 0)"
+
 

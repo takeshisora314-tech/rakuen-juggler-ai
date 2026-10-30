@@ -1,0 +1,2604 @@
+{
+  "kind": "retrospective_paired_strategies",
+  "version": "experimental-v1",
+  "as_of": "2026-10-31",
+  "days": 90,
+  "recent_period_from": "2026-10-01",
+  "record_count": 13483,
+  "data_sha256": "c516bed158ff311b92fe3e2e0fa8c7c0a32686d640b0b9f551018166c6470086",
+  "config_sha256": "027a32e78d042f214f3cb3305823136d85eecbf22546412e7c5d78d11e9d8d98",
+  "changes_live_strategy": false,
+  "limitations": [
+    "All strategies use identical eligible machines and complete outcome dates.",
+    "Daily rankings use only earlier dates; historical publication time is unknown.",
+    "Recent 30 days are a chronological diagnostic, not an untouched holdout.",
+    "Past replay cannot satisfy the 30 prospective day switching requirement.",
+    "Final machine difference is not personal profit or setting accuracy."
+  ],
+  "models": {
+    "myj5": {
+      "excluded": {
+        "insufficient_history": 3,
+        "incomplete_outcomes": 1
+      },
+      "evaluated_dates": [
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-04",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-19",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 125,
+              "positive_rate": 0.4844961240310077,
+              "total_difference": 22510,
+              "mean_difference": 87.24806201550388,
+              "low_play_count": 41,
+              "mean_daily_lift": 126.73833825172906,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 86
+            },
+            "backup": {
+              "days": 86,
+              "count": 600,
+              "positive_count": 268,
+              "positive_rate": 0.44666666666666666,
+              "total_difference": 31010,
+              "mean_difference": 51.68333333333333,
+              "low_play_count": 109,
+              "mean_daily_lift": 88.6636981631355,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 86
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 119,
+              "positive_rate": 0.46124031007751937,
+              "total_difference": 28761,
+              "mean_difference": 111.47674418604652,
+              "low_play_count": 41,
+              "mean_daily_lift": 150.9670204222717,
+              "paired_mean_gain_vs_balanced": 24.228682170542644,
+              "days_better_than_balanced": 25,
+              "days_tied_with_balanced": 40
+            },
+            "backup": {
+              "days": 86,
+              "count": 600,
+              "positive_count": 280,
+              "positive_rate": 0.4666666666666667,
+              "total_difference": 58050,
+              "mean_difference": 96.75,
+              "low_play_count": 102,
+              "mean_daily_lift": 134.50356527277006,
+              "paired_mean_gain_vs_balanced": 45.839867109634554,
+              "days_better_than_balanced": 40,
+              "days_tied_with_balanced": 6
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 108,
+              "positive_rate": 0.4186046511627907,
+              "total_difference": -3100,
+              "mean_difference": -12.015503875968992,
+              "low_play_count": 57,
+              "mean_daily_lift": 27.474772360256217,
+              "paired_mean_gain_vs_balanced": -99.26356589147285,
+              "days_better_than_balanced": 31,
+              "days_tied_with_balanced": 5
+            },
+            "backup": {
+              "days": 86,
+              "count": 600,
+              "positive_count": 255,
+              "positive_rate": 0.425,
+              "total_difference": -45091,
+              "mean_difference": -75.15166666666667,
+              "low_play_count": 120,
+              "mean_daily_lift": -37.74992309932297,
+              "paired_mean_gain_vs_balanced": -126.41362126245848,
+              "days_better_than_balanced": 39,
+              "days_tied_with_balanced": 2
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 88,
+              "positive_rate": 0.5146198830409356,
+              "total_difference": 24687,
+              "mean_difference": 144.3684210526316,
+              "low_play_count": 25,
+              "mean_daily_lift": 200.92012466092854,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 57
+            },
+            "backup": {
+              "days": 57,
+              "count": 397,
+              "positive_count": 189,
+              "positive_rate": 0.4760705289672544,
+              "total_difference": 38518,
+              "mean_difference": 97.02267002518892,
+              "low_play_count": 72,
+              "mean_daily_lift": 149.5602249115551,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 57
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 86,
+              "positive_rate": 0.5029239766081871,
+              "total_difference": 35981,
+              "mean_difference": 210.41520467836258,
+              "low_play_count": 24,
+              "mean_daily_lift": 266.96690828665953,
+              "paired_mean_gain_vs_balanced": 66.04678362573101,
+              "days_better_than_balanced": 19,
+              "days_tied_with_balanced": 25
+            },
+            "backup": {
+              "days": 57,
+              "count": 397,
+              "positive_count": 188,
+              "positive_rate": 0.473551637279597,
+              "total_difference": 34774,
+              "mean_difference": 87.59193954659949,
+              "low_play_count": 67,
+              "mean_daily_lift": 141.5692474679461,
+              "paired_mean_gain_vs_balanced": -7.990977443609024,
+              "days_better_than_balanced": 27,
+              "days_tied_with_balanced": 0
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 76,
+              "positive_rate": 0.4444444444444444,
+              "total_difference": 9310,
+              "mean_difference": 54.44444444444444,
+              "low_play_count": 36,
+              "mean_daily_lift": 110.9961480527414,
+              "paired_mean_gain_vs_balanced": -89.92397660818713,
+              "days_better_than_balanced": 20,
+              "days_tied_with_balanced": 4
+            },
+            "backup": {
+              "days": 57,
+              "count": 397,
+              "positive_count": 171,
+              "positive_rate": 0.43073047858942065,
+              "total_difference": -38560,
+              "mean_difference": -97.12846347607054,
+              "low_play_count": 79,
+              "mean_daily_lift": -43.61771995060027,
+              "paired_mean_gain_vs_balanced": -193.17794486215539,
+              "days_better_than_balanced": 24,
+              "days_tied_with_balanced": 2
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 29,
+              "count": 87,
+              "positive_count": 37,
+              "positive_rate": 0.42528735632183906,
+              "total_difference": -2177,
+              "mean_difference": -25.022988505747126,
+              "low_play_count": 16,
+              "mean_daily_lift": -19.06724193186989,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 29
+            },
+            "backup": {
+              "days": 29,
+              "count": 203,
+              "positive_count": 79,
+              "positive_rate": 0.3891625615763547,
+              "total_difference": -7508,
+              "mean_difference": -36.98522167487685,
+              "low_play_count": 37,
+              "mean_daily_lift": -31.029475100999598,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 29
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 29,
+              "count": 87,
+              "positive_count": 33,
+              "positive_rate": 0.3793103448275862,
+              "total_difference": -7220,
+              "mean_difference": -82.98850574712644,
+              "low_play_count": 17,
+              "mean_daily_lift": -77.03275917324919,
+              "paired_mean_gain_vs_balanced": -57.96551724137931,
+              "days_better_than_balanced": 6,
+              "days_tied_with_balanced": 15
+            },
+            "backup": {
+              "days": 29,
+              "count": 203,
+              "positive_count": 92,
+              "positive_rate": 0.45320197044334976,
+              "total_difference": 23276,
+              "mean_difference": 114.66009852216749,
+              "low_play_count": 35,
+              "mean_daily_lift": 120.61584509604474,
+              "paired_mean_gain_vs_balanced": 151.64532019704433,
+              "days_better_than_balanced": 13,
+              "days_tied_with_balanced": 6
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 29,
+              "count": 87,
+              "positive_count": 32,
+              "positive_rate": 0.367816091954023,
+              "total_difference": -12410,
+              "mean_difference": -142.64367816091954,
+              "low_play_count": 21,
+              "mean_daily_lift": -136.68793158704227,
+              "paired_mean_gain_vs_balanced": -117.62068965517238,
+              "days_better_than_balanced": 11,
+              "days_tied_with_balanced": 1
+            },
+            "backup": {
+              "days": 29,
+              "count": 203,
+              "positive_count": 84,
+              "positive_rate": 0.41379310344827586,
+              "total_difference": -6531,
+              "mean_difference": -32.172413793103445,
+              "low_play_count": 41,
+              "mean_daily_lift": -26.216667219226203,
+              "paired_mean_gain_vs_balanced": 4.812807881773393,
+              "days_better_than_balanced": 15,
+              "days_tied_with_balanced": 0
+            }
+          }
+        }
+      }
+    },
+    "neoim": {
+      "excluded": {
+        "insufficient_history": 3,
+        "insufficient_eligible_machines": 1
+      },
+      "evaluated_dates": [
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-04",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-19",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 120,
+              "positive_rate": 0.46511627906976744,
+              "total_difference": 57588,
+              "mean_difference": 223.2093023255814,
+              "low_play_count": 68,
+              "mean_daily_lift": 170.0394477866438,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 86
+            },
+            "backup": {
+              "days": 85,
+              "count": 588,
+              "positive_count": 259,
+              "positive_rate": 0.44047619047619047,
+              "total_difference": 52782,
+              "mean_difference": 89.76530612244898,
+              "low_play_count": 159,
+              "mean_daily_lift": 25.441648572929246,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 85
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 122,
+              "positive_rate": 0.4728682170542636,
+              "total_difference": 55508,
+              "mean_difference": 215.14728682170542,
+              "low_play_count": 65,
+              "mean_daily_lift": 161.97743228276784,
+              "paired_mean_gain_vs_balanced": -8.062015503875969,
+              "days_better_than_balanced": 37,
+              "days_tied_with_balanced": 28
+            },
+            "backup": {
+              "days": 85,
+              "count": 588,
+              "positive_count": 258,
+              "positive_rate": 0.4387755102040816,
+              "total_difference": 41300,
+              "mean_difference": 70.23809523809524,
+              "low_play_count": 151,
+              "mean_daily_lift": 5.926354455282182,
+              "paired_mean_gain_vs_balanced": -19.515294117647066,
+              "days_better_than_balanced": 33,
+              "days_tied_with_balanced": 9
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 86,
+              "count": 258,
+              "positive_count": 107,
+              "positive_rate": 0.41472868217054265,
+              "total_difference": 24119,
+              "mean_difference": 93.48449612403101,
+              "low_play_count": 82,
+              "mean_daily_lift": 40.31464158509341,
+              "paired_mean_gain_vs_balanced": -129.7248062015504,
+              "days_better_than_balanced": 33,
+              "days_tied_with_balanced": 4
+            },
+            "backup": {
+              "days": 85,
+              "count": 588,
+              "positive_count": 259,
+              "positive_rate": 0.44047619047619047,
+              "total_difference": 54636,
+              "mean_difference": 92.91836734693878,
+              "low_play_count": 171,
+              "mean_daily_lift": 28.05946369897966,
+              "paired_mean_gain_vs_balanced": 2.6178151260504174,
+              "days_better_than_balanced": 40,
+              "days_tied_with_balanced": 2
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 56,
+              "count": 168,
+              "positive_count": 76,
+              "positive_rate": 0.4523809523809524,
+              "total_difference": 36243,
+              "mean_difference": 215.73214285714286,
+              "low_play_count": 40,
+              "mean_daily_lift": 186.55216230440766,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 56
+            },
+            "backup": {
+              "days": 55,
+              "count": 380,
+              "positive_count": 156,
+              "positive_rate": 0.4105263157894737,
+              "total_difference": 25791,
+              "mean_difference": 67.87105263157895,
+              "low_play_count": 91,
+              "mean_daily_lift": 20.66826222509388,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 55
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 56,
+              "count": 168,
+              "positive_count": 76,
+              "positive_rate": 0.4523809523809524,
+              "total_difference": 32545,
+              "mean_difference": 193.7202380952381,
+              "low_play_count": 39,
+              "mean_daily_lift": 164.54025754250293,
+              "paired_mean_gain_vs_balanced": -22.011904761904763,
+              "days_better_than_balanced": 21,
+              "days_tied_with_balanced": 24
+            },
+            "backup": {
+              "days": 55,
+              "count": 380,
+              "positive_count": 157,
+              "positive_rate": 0.4131578947368421,
+              "total_difference": 15971,
+              "mean_difference": 42.02894736842105,
+              "low_play_count": 85,
+              "mean_daily_lift": -4.838231281399633,
+              "paired_mean_gain_vs_balanced": -25.506493506493513,
+              "days_better_than_balanced": 23,
+              "days_tied_with_balanced": 9
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 56,
+              "count": 168,
+              "positive_count": 68,
+              "positive_rate": 0.40476190476190477,
+              "total_difference": 20503,
+              "mean_difference": 122.04166666666667,
+              "low_play_count": 54,
+              "mean_daily_lift": 92.86168611393148,
+              "paired_mean_gain_vs_balanced": -93.69047619047619,
+              "days_better_than_balanced": 22,
+              "days_tied_with_balanced": 4
+            },
+            "backup": {
+              "days": 55,
+              "count": 380,
+              "positive_count": 158,
+              "positive_rate": 0.41578947368421054,
+              "total_difference": 18621,
+              "mean_difference": 49.002631578947366,
+              "low_play_count": 102,
+              "mean_daily_lift": 2.0448856017172496,
+              "paired_mean_gain_vs_balanced": -18.623376623376625,
+              "days_better_than_balanced": 24,
+              "days_tied_with_balanced": 2
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 44,
+              "positive_rate": 0.4888888888888889,
+              "total_difference": 21345,
+              "mean_difference": 237.16666666666666,
+              "low_play_count": 28,
+              "mean_daily_lift": 139.2157140201512,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 30
+            },
+            "backup": {
+              "days": 30,
+              "count": 208,
+              "positive_count": 103,
+              "positive_rate": 0.4951923076923077,
+              "total_difference": 26991,
+              "mean_difference": 129.76442307692307,
+              "low_play_count": 68,
+              "mean_daily_lift": 34.192856877294076,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 30
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 46,
+              "positive_rate": 0.5111111111111111,
+              "total_difference": 22963,
+              "mean_difference": 255.14444444444445,
+              "low_play_count": 26,
+              "mean_daily_lift": 157.193491797929,
+              "paired_mean_gain_vs_balanced": 17.977777777777778,
+              "days_better_than_balanced": 16,
+              "days_tied_with_balanced": 4
+            },
+            "backup": {
+              "days": 30,
+              "count": 208,
+              "positive_count": 101,
+              "positive_rate": 0.4855769230769231,
+              "total_difference": 25329,
+              "mean_difference": 121.77403846153847,
+              "low_play_count": 66,
+              "mean_daily_lift": 25.66142830586551,
+              "paired_mean_gain_vs_balanced": -8.531428571428577,
+              "days_better_than_balanced": 10,
+              "days_tied_with_balanced": 0
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 39,
+              "positive_rate": 0.43333333333333335,
+              "total_difference": 3616,
+              "mean_difference": 40.17777777777778,
+              "low_play_count": 28,
+              "mean_daily_lift": -57.77317486873767,
+              "paired_mean_gain_vs_balanced": -196.98888888888888,
+              "days_better_than_balanced": 11,
+              "days_tied_with_balanced": 0
+            },
+            "backup": {
+              "days": 30,
+              "count": 208,
+              "positive_count": 101,
+              "positive_rate": 0.4855769230769231,
+              "total_difference": 36015,
+              "mean_difference": 173.14903846153845,
+              "low_play_count": 69,
+              "mean_daily_lift": 75.75285687729408,
+              "paired_mean_gain_vs_balanced": 41.559999999999995,
+              "days_better_than_balanced": 16,
+              "days_tied_with_balanced": 0
+            }
+          }
+        }
+      }
+    },
+    "gogo3": {
+      "excluded": {
+        "insufficient_history": 3
+      },
+      "evaluated_dates": [
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-04",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-19",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 87,
+              "count": 261,
+              "positive_count": 121,
+              "positive_rate": 0.46360153256704983,
+              "total_difference": 19162,
+              "mean_difference": 73.4176245210728,
+              "low_play_count": 58,
+              "mean_daily_lift": 90.99480827799619,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 87
+            },
+            "backup": {
+              "days": 86,
+              "count": 561,
+              "positive_count": 230,
+              "positive_rate": 0.40998217468805703,
+              "total_difference": -10004,
+              "mean_difference": -17.832442067736185,
+              "low_play_count": 145,
+              "mean_daily_lift": 12.792948352103572,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 86
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 87,
+              "count": 261,
+              "positive_count": 120,
+              "positive_rate": 0.45977011494252873,
+              "total_difference": 16296,
+              "mean_difference": 62.4367816091954,
+              "low_play_count": 60,
+              "mean_daily_lift": 80.01396536611881,
+              "paired_mean_gain_vs_balanced": -10.980842911877392,
+              "days_better_than_balanced": 24,
+              "days_tied_with_balanced": 42
+            },
+            "backup": {
+              "days": 86,
+              "count": 561,
+              "positive_count": 235,
+              "positive_rate": 0.41889483065953653,
+              "total_difference": 10690,
+              "mean_difference": 19.055258467023172,
+              "low_play_count": 148,
+              "mean_daily_lift": 49.443059094074776,
+              "paired_mean_gain_vs_balanced": 36.650110741971204,
+              "days_better_than_balanced": 43,
+              "days_tied_with_balanced": 11
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 87,
+              "count": 261,
+              "positive_count": 110,
+              "positive_rate": 0.421455938697318,
+              "total_difference": -7225,
+              "mean_difference": -27.68199233716475,
+              "low_play_count": 65,
+              "mean_daily_lift": -10.104808580241349,
+              "paired_mean_gain_vs_balanced": -101.09961685823754,
+              "days_better_than_balanced": 28,
+              "days_tied_with_balanced": 13
+            },
+            "backup": {
+              "days": 86,
+              "count": 561,
+              "positive_count": 242,
+              "positive_rate": 0.43137254901960786,
+              "total_difference": 15139,
+              "mean_difference": 26.98573975044563,
+              "low_play_count": 142,
+              "mean_daily_lift": 50.05357958133945,
+              "paired_mean_gain_vs_balanced": 37.26063122923588,
+              "days_better_than_balanced": 44,
+              "days_tied_with_balanced": 10
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 76,
+              "positive_rate": 0.4444444444444444,
+              "total_difference": 1759,
+              "mean_difference": 10.286549707602338,
+              "low_play_count": 40,
+              "mean_daily_lift": 29.52979542391172,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 57
+            },
+            "backup": {
+              "days": 56,
+              "count": 365,
+              "positive_count": 148,
+              "positive_rate": 0.4054794520547945,
+              "total_difference": -10419,
+              "mean_difference": -28.545205479452054,
+              "low_play_count": 90,
+              "mean_daily_lift": 17.248057076889726,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 56
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 78,
+              "positive_rate": 0.45614035087719296,
+              "total_difference": 2687,
+              "mean_difference": 15.713450292397662,
+              "low_play_count": 41,
+              "mean_daily_lift": 34.956696008707034,
+              "paired_mean_gain_vs_balanced": 5.426900584795321,
+              "days_better_than_balanced": 15,
+              "days_tied_with_balanced": 30
+            },
+            "backup": {
+              "days": 56,
+              "count": 365,
+              "positive_count": 148,
+              "positive_rate": 0.4054794520547945,
+              "total_difference": 2774,
+              "mean_difference": 7.6,
+              "low_play_count": 97,
+              "mean_daily_lift": 53.61123734899858,
+              "paired_mean_gain_vs_balanced": 36.36318027210884,
+              "days_better_than_balanced": 26,
+              "days_tied_with_balanced": 9
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 57,
+              "count": 171,
+              "positive_count": 70,
+              "positive_rate": 0.4093567251461988,
+              "total_difference": -16203,
+              "mean_difference": -94.75438596491227,
+              "low_play_count": 41,
+              "mean_daily_lift": -75.5111402486029,
+              "paired_mean_gain_vs_balanced": -105.04093567251462,
+              "days_better_than_balanced": 19,
+              "days_tied_with_balanced": 7
+            },
+            "backup": {
+              "days": 56,
+              "count": 365,
+              "positive_count": 156,
+              "positive_rate": 0.4273972602739726,
+              "total_difference": 18104,
+              "mean_difference": 49.6,
+              "low_play_count": 92,
+              "mean_daily_lift": 83.09218972995096,
+              "paired_mean_gain_vs_balanced": 65.84413265306122,
+              "days_better_than_balanced": 32,
+              "days_tied_with_balanced": 4
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 45,
+              "positive_rate": 0.5,
+              "total_difference": 17403,
+              "mean_difference": 193.36666666666667,
+              "low_play_count": 18,
+              "mean_daily_lift": 207.77833270075672,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 30
+            },
+            "backup": {
+              "days": 30,
+              "count": 196,
+              "positive_count": 82,
+              "positive_rate": 0.41836734693877553,
+              "total_difference": 415,
+              "mean_difference": 2.11734693877551,
+              "low_play_count": 55,
+              "mean_daily_lift": 4.476745399169414,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 30
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 42,
+              "positive_rate": 0.4666666666666667,
+              "total_difference": 13609,
+              "mean_difference": 151.2111111111111,
+              "low_play_count": 19,
+              "mean_daily_lift": 165.62277714520118,
+              "paired_mean_gain_vs_balanced": -42.155555555555544,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 12
+            },
+            "backup": {
+              "days": 30,
+              "count": 196,
+              "positive_count": 87,
+              "positive_rate": 0.44387755102040816,
+              "total_difference": 7916,
+              "mean_difference": 40.38775510204081,
+              "low_play_count": 51,
+              "mean_daily_lift": 41.6624596848837,
+              "paired_mean_gain_vs_balanced": 37.18571428571429,
+              "days_better_than_balanced": 17,
+              "days_tied_with_balanced": 2
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 40,
+              "positive_rate": 0.4444444444444444,
+              "total_difference": 8978,
+              "mean_difference": 99.75555555555556,
+              "low_play_count": 24,
+              "mean_daily_lift": 114.1672215896456,
+              "paired_mean_gain_vs_balanced": -93.6111111111111,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 6
+            },
+            "backup": {
+              "days": 30,
+              "count": 196,
+              "positive_count": 86,
+              "positive_rate": 0.4387755102040816,
+              "total_difference": -2965,
+              "mean_difference": -15.127551020408163,
+              "low_play_count": 50,
+              "mean_daily_lift": -11.618492696068694,
+              "paired_mean_gain_vs_balanced": -16.095238095238106,
+              "days_better_than_balanced": 12,
+              "days_tied_with_balanced": 6
+            }
+          }
+        }
+      }
+    },
+    "funky2": {
+      "excluded": {
+        "insufficient_history": 3,
+        "insufficient_eligible_machines": 13
+      },
+      "evaluated_dates": [
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-02",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 74,
+              "count": 222,
+              "positive_count": 99,
+              "positive_rate": 0.44594594594594594,
+              "total_difference": 32175,
+              "mean_difference": 144.93243243243242,
+              "low_play_count": 63,
+              "mean_daily_lift": 154.9633185133185,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 74
+            },
+            "backup": {
+              "days": 68,
+              "count": 348,
+              "positive_count": 139,
+              "positive_rate": 0.3994252873563218,
+              "total_difference": -17963,
+              "mean_difference": -51.617816091954026,
+              "low_play_count": 81,
+              "mean_daily_lift": -106.95511416687887,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 68
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 74,
+              "count": 222,
+              "positive_count": 92,
+              "positive_rate": 0.4144144144144144,
+              "total_difference": 22731,
+              "mean_difference": 102.39189189189189,
+              "low_play_count": 63,
+              "mean_daily_lift": 112.42277797277798,
+              "paired_mean_gain_vs_balanced": -42.54054054054054,
+              "days_better_than_balanced": 13,
+              "days_tied_with_balanced": 41
+            },
+            "backup": {
+              "days": 68,
+              "count": 348,
+              "positive_count": 146,
+              "positive_rate": 0.41954022988505746,
+              "total_difference": -8241,
+              "mean_difference": -23.68103448275862,
+              "low_play_count": 81,
+              "mean_daily_lift": -59.55486906883966,
+              "paired_mean_gain_vs_balanced": 47.400245098039214,
+              "days_better_than_balanced": 21,
+              "days_tied_with_balanced": 33
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 74,
+              "count": 222,
+              "positive_count": 101,
+              "positive_rate": 0.45495495495495497,
+              "total_difference": 40837,
+              "mean_difference": 183.95045045045046,
+              "low_play_count": 67,
+              "mean_daily_lift": 193.98133653133652,
+              "paired_mean_gain_vs_balanced": 39.01801801801801,
+              "days_better_than_balanced": 30,
+              "days_tied_with_balanced": 21
+            },
+            "backup": {
+              "days": 68,
+              "count": 348,
+              "positive_count": 139,
+              "positive_rate": 0.3994252873563218,
+              "total_difference": -24124,
+              "mean_difference": -69.32183908045977,
+              "low_play_count": 77,
+              "mean_daily_lift": -101.20108755623461,
+              "paired_mean_gain_vs_balanced": 5.754026610644259,
+              "days_better_than_balanced": 23,
+              "days_tied_with_balanced": 15
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 50,
+              "count": 150,
+              "positive_count": 61,
+              "positive_rate": 0.4066666666666667,
+              "total_difference": 19260,
+              "mean_difference": 128.4,
+              "low_play_count": 41,
+              "mean_daily_lift": 138.3833492063492,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 50
+            },
+            "backup": {
+              "days": 45,
+              "count": 245,
+              "positive_count": 104,
+              "positive_rate": 0.42448979591836733,
+              "total_difference": -12503,
+              "mean_difference": -51.03265306122449,
+              "low_play_count": 53,
+              "mean_daily_lift": -47.346860670194,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 45
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 50,
+              "count": 150,
+              "positive_count": 59,
+              "positive_rate": 0.3933333333333333,
+              "total_difference": 12360,
+              "mean_difference": 82.4,
+              "low_play_count": 39,
+              "mean_daily_lift": 92.38334920634921,
+              "paired_mean_gain_vs_balanced": -45.99999999999999,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 28
+            },
+            "backup": {
+              "days": 45,
+              "count": 245,
+              "positive_count": 105,
+              "positive_rate": 0.42857142857142855,
+              "total_difference": -8797,
+              "mean_difference": -35.906122448979595,
+              "low_play_count": 55,
+              "mean_daily_lift": -20.09622574955909,
+              "paired_mean_gain_vs_balanced": 27.250634920634916,
+              "days_better_than_balanced": 13,
+              "days_tied_with_balanced": 22
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 50,
+              "count": 150,
+              "positive_count": 65,
+              "positive_rate": 0.43333333333333335,
+              "total_difference": 27735,
+              "mean_difference": 184.9,
+              "low_play_count": 42,
+              "mean_daily_lift": 194.88334920634918,
+              "paired_mean_gain_vs_balanced": 56.49999999999999,
+              "days_better_than_balanced": 22,
+              "days_tied_with_balanced": 13
+            },
+            "backup": {
+              "days": 45,
+              "count": 245,
+              "positive_count": 102,
+              "positive_rate": 0.4163265306122449,
+              "total_difference": -18477,
+              "mean_difference": -75.41632653061224,
+              "low_play_count": 52,
+              "mean_daily_lift": -112.20850088183421,
+              "paired_mean_gain_vs_balanced": -64.8616402116402,
+              "days_better_than_balanced": 15,
+              "days_tied_with_balanced": 8
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 24,
+              "count": 72,
+              "positive_count": 38,
+              "positive_rate": 0.5277777777777778,
+              "total_difference": 12915,
+              "mean_difference": 179.375,
+              "low_play_count": 22,
+              "mean_daily_lift": 189.5049212361712,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 24
+            },
+            "backup": {
+              "days": 23,
+              "count": 103,
+              "positive_count": 35,
+              "positive_rate": 0.33980582524271846,
+              "total_difference": -5460,
+              "mean_difference": -53.00970873786408,
+              "low_play_count": 28,
+              "mean_daily_lift": -223.57995796474057,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 23
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 24,
+              "count": 72,
+              "positive_count": 33,
+              "positive_rate": 0.4583333333333333,
+              "total_difference": 10371,
+              "mean_difference": 144.04166666666666,
+              "low_play_count": 24,
+              "mean_daily_lift": 154.1715879028379,
+              "paired_mean_gain_vs_balanced": -35.333333333333336,
+              "days_better_than_balanced": 4,
+              "days_tied_with_balanced": 13
+            },
+            "backup": {
+              "days": 23,
+              "count": 103,
+              "positive_count": 41,
+              "positive_rate": 0.39805825242718446,
+              "total_difference": 556,
+              "mean_difference": 5.398058252427185,
+              "low_play_count": 26,
+              "mean_daily_lift": -136.756562519606,
+              "paired_mean_gain_vs_balanced": 86.82339544513458,
+              "days_better_than_balanced": 8,
+              "days_tied_with_balanced": 11
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 24,
+              "count": 72,
+              "positive_count": 36,
+              "positive_rate": 0.5,
+              "total_difference": 13102,
+              "mean_difference": 181.97222222222223,
+              "low_play_count": 25,
+              "mean_daily_lift": 192.10214345839344,
+              "paired_mean_gain_vs_balanced": 2.5972222222222108,
+              "days_better_than_balanced": 8,
+              "days_tied_with_balanced": 8
+            },
+            "backup": {
+              "days": 23,
+              "count": 103,
+              "positive_count": 37,
+              "positive_rate": 0.3592233009708738,
+              "total_difference": -5647,
+              "mean_difference": -54.8252427184466,
+              "low_play_count": 25,
+              "mean_daily_lift": -79.66484409310496,
+              "paired_mean_gain_vs_balanced": 143.9151138716356,
+              "days_better_than_balanced": 8,
+              "days_tied_with_balanced": 7
+            }
+          }
+        }
+      }
+    },
+    "happy8": {
+      "excluded": {
+        "insufficient_history": 3,
+        "insufficient_eligible_machines": 8
+      },
+      "evaluated_dates": [
+        "2026-08-06",
+        "2026-08-08",
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-18",
+        "2026-08-19",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-10",
+        "2026-09-11",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-15",
+        "2026-09-16",
+        "2026-09-17",
+        "2026-09-18",
+        "2026-09-19",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-25",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-03",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-09",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-14",
+        "2026-10-15",
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 79,
+              "count": 237,
+              "positive_count": 95,
+              "positive_rate": 0.4008438818565401,
+              "total_difference": 9397,
+              "mean_difference": 39.64978902953587,
+              "low_play_count": 69,
+              "mean_daily_lift": 87.06993240759014,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 79
+            },
+            "backup": {
+              "days": 76,
+              "count": 424,
+              "positive_count": 155,
+              "positive_rate": 0.36556603773584906,
+              "total_difference": -11895,
+              "mean_difference": -28.05424528301887,
+              "low_play_count": 143,
+              "mean_daily_lift": -24.641937428451094,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 76
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 79,
+              "count": 237,
+              "positive_count": 95,
+              "positive_rate": 0.4008438818565401,
+              "total_difference": 463,
+              "mean_difference": 1.9535864978902953,
+              "low_play_count": 74,
+              "mean_daily_lift": 49.373729875944576,
+              "paired_mean_gain_vs_balanced": -37.696202531645575,
+              "days_better_than_balanced": 18,
+              "days_tied_with_balanced": 39
+            },
+            "backup": {
+              "days": 76,
+              "count": 424,
+              "positive_count": 153,
+              "positive_rate": 0.3608490566037736,
+              "total_difference": -2594,
+              "mean_difference": -6.117924528301887,
+              "low_play_count": 133,
+              "mean_daily_lift": 5.377862070295777,
+              "paired_mean_gain_vs_balanced": 30.019799498746867,
+              "days_better_than_balanced": 27,
+              "days_tied_with_balanced": 23
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 79,
+              "count": 237,
+              "positive_count": 88,
+              "positive_rate": 0.37130801687763715,
+              "total_difference": -2546,
+              "mean_difference": -10.742616033755274,
+              "low_play_count": 78,
+              "mean_daily_lift": 36.67752734429901,
+              "paired_mean_gain_vs_balanced": -50.39240506329114,
+              "days_better_than_balanced": 26,
+              "days_tied_with_balanced": 22
+            },
+            "backup": {
+              "days": 76,
+              "count": 424,
+              "positive_count": 155,
+              "positive_rate": 0.36556603773584906,
+              "total_difference": 1762,
+              "mean_difference": 4.15566037735849,
+              "low_play_count": 135,
+              "mean_daily_lift": 10.304961067789504,
+              "paired_mean_gain_vs_balanced": 34.9468984962406,
+              "days_better_than_balanced": 31,
+              "days_tied_with_balanced": 15
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 52,
+              "count": 156,
+              "positive_count": 71,
+              "positive_rate": 0.4551282051282051,
+              "total_difference": 15785,
+              "mean_difference": 101.18589743589743,
+              "low_play_count": 45,
+              "mean_daily_lift": 147.0366996811701,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 52
+            },
+            "backup": {
+              "days": 51,
+              "count": 284,
+              "positive_count": 103,
+              "positive_rate": 0.3626760563380282,
+              "total_difference": -10369,
+              "mean_difference": -36.51056338028169,
+              "low_play_count": 91,
+              "mean_daily_lift": -30.254877636005844,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 51
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 52,
+              "count": 156,
+              "positive_count": 73,
+              "positive_rate": 0.46794871794871795,
+              "total_difference": 9072,
+              "mean_difference": 58.15384615384615,
+              "low_play_count": 46,
+              "mean_daily_lift": 104.0046483991188,
+              "paired_mean_gain_vs_balanced": -43.03205128205129,
+              "days_better_than_balanced": 8,
+              "days_tied_with_balanced": 30
+            },
+            "backup": {
+              "days": 51,
+              "count": 284,
+              "positive_count": 100,
+              "positive_rate": 0.352112676056338,
+              "total_difference": -10418,
+              "mean_difference": -36.683098591549296,
+              "low_play_count": 86,
+              "mean_daily_lift": -14.108425721906867,
+              "paired_mean_gain_vs_balanced": 16.146451914098975,
+              "days_better_than_balanced": 17,
+              "days_tied_with_balanced": 18
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 52,
+              "count": 156,
+              "positive_count": 64,
+              "positive_rate": 0.41025641025641024,
+              "total_difference": 10138,
+              "mean_difference": 64.98717948717949,
+              "low_play_count": 50,
+              "mean_daily_lift": 110.83798173245215,
+              "paired_mean_gain_vs_balanced": -36.198717948717956,
+              "days_better_than_balanced": 17,
+              "days_tied_with_balanced": 13
+            },
+            "backup": {
+              "days": 51,
+              "count": 284,
+              "positive_count": 104,
+              "positive_rate": 0.36619718309859156,
+              "total_difference": -7684,
+              "mean_difference": -27.056338028169016,
+              "low_play_count": 87,
+              "mean_daily_lift": -4.8685564408611235,
+              "paired_mean_gain_vs_balanced": 25.38632119514472,
+              "days_better_than_balanced": 23,
+              "days_tied_with_balanced": 8
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 27,
+              "count": 81,
+              "positive_count": 24,
+              "positive_rate": 0.2962962962962963,
+              "total_difference": -6388,
+              "mean_difference": -78.8641975308642,
+              "low_play_count": 24,
+              "mean_daily_lift": -28.42161937856383,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 27
+            },
+            "backup": {
+              "days": 25,
+              "count": 140,
+              "positive_count": 52,
+              "positive_rate": 0.37142857142857144,
+              "total_difference": -1526,
+              "mean_difference": -10.9,
+              "low_play_count": 52,
+              "mean_daily_lift": -13.191539405039407,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 25
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 27,
+              "count": 81,
+              "positive_count": 22,
+              "positive_rate": 0.2716049382716049,
+              "total_difference": -8609,
+              "mean_difference": -106.28395061728395,
+              "low_play_count": 28,
+              "mean_daily_lift": -55.84137246498358,
+              "paired_mean_gain_vs_balanced": -27.419753086419753,
+              "days_better_than_balanced": 10,
+              "days_tied_with_balanced": 9
+            },
+            "backup": {
+              "days": 25,
+              "count": 140,
+              "positive_count": 53,
+              "positive_rate": 0.37857142857142856,
+              "total_difference": 7824,
+              "mean_difference": 55.885714285714286,
+              "low_play_count": 47,
+              "mean_daily_lift": 45.12988916638917,
+              "paired_mean_gain_vs_balanced": 58.32142857142857,
+              "days_better_than_balanced": 10,
+              "days_tied_with_balanced": 5
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 27,
+              "count": 81,
+              "positive_count": 24,
+              "positive_rate": 0.2962962962962963,
+              "total_difference": -12684,
+              "mean_difference": -156.59259259259258,
+              "low_play_count": 28,
+              "mean_daily_lift": -106.15001444029221,
+              "paired_mean_gain_vs_balanced": -77.72839506172839,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 9
+            },
+            "backup": {
+              "days": 25,
+              "count": 140,
+              "positive_count": 51,
+              "positive_rate": 0.36428571428571427,
+              "total_difference": 9446,
+              "mean_difference": 67.47142857142858,
+              "low_play_count": 48,
+              "mean_daily_lift": 41.25893678543678,
+              "paired_mean_gain_vs_balanced": 54.45047619047619,
+              "days_better_than_balanced": 8,
+              "days_tied_with_balanced": 7
+            }
+          }
+        }
+      }
+    },
+    "girls": {
+      "excluded": {
+        "insufficient_history": 3,
+        "insufficient_eligible_machines": 27
+      },
+      "evaluated_dates": [
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-11",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-21",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-28",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-04",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-08",
+        "2026-09-10",
+        "2026-09-12",
+        "2026-09-13",
+        "2026-09-14",
+        "2026-09-16",
+        "2026-09-20",
+        "2026-09-21",
+        "2026-09-22",
+        "2026-09-23",
+        "2026-09-24",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-09-29",
+        "2026-09-30",
+        "2026-10-01",
+        "2026-10-02",
+        "2026-10-03",
+        "2026-10-04",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-10",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-13",
+        "2026-10-17",
+        "2026-10-18",
+        "2026-10-23",
+        "2026-10-24",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 60,
+              "count": 180,
+              "positive_count": 67,
+              "positive_rate": 0.37222222222222223,
+              "total_difference": 15420,
+              "mean_difference": 85.66666666666667,
+              "low_play_count": 45,
+              "mean_daily_lift": 57.819325396825406,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 60
+            },
+            "backup": {
+              "days": 50,
+              "count": 213,
+              "positive_count": 83,
+              "positive_rate": 0.38967136150234744,
+              "total_difference": 6065,
+              "mean_difference": 28.474178403755868,
+              "low_play_count": 56,
+              "mean_daily_lift": -38.73114285714285,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 50
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 60,
+              "count": 180,
+              "positive_count": 70,
+              "positive_rate": 0.3888888888888889,
+              "total_difference": 18987,
+              "mean_difference": 105.48333333333333,
+              "low_play_count": 46,
+              "mean_daily_lift": 77.63599206349207,
+              "paired_mean_gain_vs_balanced": 19.816666666666663,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 46
+            },
+            "backup": {
+              "days": 50,
+              "count": 213,
+              "positive_count": 80,
+              "positive_rate": 0.3755868544600939,
+              "total_difference": 2498,
+              "mean_difference": 11.727699530516432,
+              "low_play_count": 55,
+              "mean_daily_lift": -59.483142857142845,
+              "paired_mean_gain_vs_balanced": -20.752,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 36
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 60,
+              "count": 180,
+              "positive_count": 64,
+              "positive_rate": 0.35555555555555557,
+              "total_difference": 5697,
+              "mean_difference": 31.65,
+              "low_play_count": 48,
+              "mean_daily_lift": 3.802658730158732,
+              "paired_mean_gain_vs_balanced": -54.016666666666666,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 37
+            },
+            "backup": {
+              "days": 50,
+              "count": 213,
+              "positive_count": 86,
+              "positive_rate": 0.40375586854460094,
+              "total_difference": 15788,
+              "mean_difference": 74.12206572769954,
+              "low_play_count": 53,
+              "mean_daily_lift": 12.114190476190482,
+              "paired_mean_gain_vs_balanced": 50.84533333333333,
+              "days_better_than_balanced": 14,
+              "days_tied_with_balanced": 27
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 40,
+              "count": 120,
+              "positive_count": 41,
+              "positive_rate": 0.3416666666666667,
+              "total_difference": 3242,
+              "mean_difference": 27.016666666666666,
+              "low_play_count": 27,
+              "mean_daily_lift": 34.5350396825397,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 40
+            },
+            "backup": {
+              "days": 35,
+              "count": 155,
+              "positive_count": 63,
+              "positive_rate": 0.4064516129032258,
+              "total_difference": 12871,
+              "mean_difference": 83.03870967741935,
+              "low_play_count": 38,
+              "mean_daily_lift": -12.247097505668924,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 35
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 40,
+              "count": 120,
+              "positive_count": 44,
+              "positive_rate": 0.36666666666666664,
+              "total_difference": 6299,
+              "mean_difference": 52.49166666666667,
+              "low_play_count": 28,
+              "mean_daily_lift": 60.0100396825397,
+              "paired_mean_gain_vs_balanced": 25.474999999999998,
+              "days_better_than_balanced": 5,
+              "days_tied_with_balanced": 28
+            },
+            "backup": {
+              "days": 35,
+              "count": 155,
+              "positive_count": 60,
+              "positive_rate": 0.3870967741935484,
+              "total_difference": 9814,
+              "mean_difference": 63.31612903225806,
+              "low_play_count": 37,
+              "mean_daily_lift": -38.58090702947845,
+              "paired_mean_gain_vs_balanced": -26.333809523809524,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 23
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 40,
+              "count": 120,
+              "positive_count": 40,
+              "positive_rate": 0.3333333333333333,
+              "total_difference": -4166,
+              "mean_difference": -34.71666666666667,
+              "low_play_count": 29,
+              "mean_daily_lift": -27.198293650793648,
+              "paired_mean_gain_vs_balanced": -61.733333333333334,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 24
+            },
+            "backup": {
+              "days": 35,
+              "count": 155,
+              "positive_count": 64,
+              "positive_rate": 0.4129032258064516,
+              "total_difference": 20279,
+              "mean_difference": 130.83225806451614,
+              "low_play_count": 36,
+              "mean_daily_lift": 31.510521541950116,
+              "paired_mean_gain_vs_balanced": 43.757619047619045,
+              "days_better_than_balanced": 9,
+              "days_tied_with_balanced": 19
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 20,
+              "count": 60,
+              "positive_count": 26,
+              "positive_rate": 0.43333333333333335,
+              "total_difference": 12178,
+              "mean_difference": 202.96666666666667,
+              "low_play_count": 18,
+              "mean_daily_lift": 104.38789682539682,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 20
+            },
+            "backup": {
+              "days": 15,
+              "count": 58,
+              "positive_count": 20,
+              "positive_rate": 0.3448275862068966,
+              "total_difference": -6806,
+              "mean_difference": -117.34482758620689,
+              "low_play_count": 18,
+              "mean_daily_lift": -100.52724867724868,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 15
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 20,
+              "count": 60,
+              "positive_count": 26,
+              "positive_rate": 0.43333333333333335,
+              "total_difference": 12688,
+              "mean_difference": 211.46666666666667,
+              "low_play_count": 18,
+              "mean_daily_lift": 112.8878968253968,
+              "paired_mean_gain_vs_balanced": 8.499999999999995,
+              "days_better_than_balanced": 2,
+              "days_tied_with_balanced": 18
+            },
+            "backup": {
+              "days": 15,
+              "count": 58,
+              "positive_count": 20,
+              "positive_rate": 0.3448275862068966,
+              "total_difference": -7316,
+              "mean_difference": -126.13793103448276,
+              "low_play_count": 18,
+              "mean_daily_lift": -108.25502645502645,
+              "paired_mean_gain_vs_balanced": -7.727777777777777,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 13
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 20,
+              "count": 60,
+              "positive_count": 24,
+              "positive_rate": 0.4,
+              "total_difference": 9863,
+              "mean_difference": 164.38333333333333,
+              "low_play_count": 19,
+              "mean_daily_lift": 65.80456349206348,
+              "paired_mean_gain_vs_balanced": -38.583333333333336,
+              "days_better_than_balanced": 2,
+              "days_tied_with_balanced": 13
+            },
+            "backup": {
+              "days": 15,
+              "count": 58,
+              "positive_count": 22,
+              "positive_rate": 0.3793103448275862,
+              "total_difference": -4491,
+              "mean_difference": -77.43103448275862,
+              "low_play_count": 17,
+              "mean_daily_lift": -33.14391534391533,
+              "paired_mean_gain_vs_balanced": 67.38333333333333,
+              "days_better_than_balanced": 5,
+              "days_tied_with_balanced": 8
+            }
+          }
+        }
+      }
+    },
+    "mr": {
+      "excluded": {
+        "insufficient_history": 3,
+        "insufficient_eligible_machines": 46
+      },
+      "evaluated_dates": [
+        "2026-08-09",
+        "2026-08-10",
+        "2026-08-12",
+        "2026-08-13",
+        "2026-08-14",
+        "2026-08-15",
+        "2026-08-16",
+        "2026-08-17",
+        "2026-08-21",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-26",
+        "2026-08-27",
+        "2026-08-29",
+        "2026-08-30",
+        "2026-08-31",
+        "2026-09-01",
+        "2026-09-02",
+        "2026-09-03",
+        "2026-09-04",
+        "2026-09-05",
+        "2026-09-06",
+        "2026-09-07",
+        "2026-09-10",
+        "2026-09-13",
+        "2026-09-16",
+        "2026-09-23",
+        "2026-09-26",
+        "2026-09-27",
+        "2026-09-28",
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-11",
+        "2026-10-12",
+        "2026-10-23",
+        "2026-10-25",
+        "2026-10-26",
+        "2026-10-27",
+        "2026-10-28",
+        "2026-10-29",
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 41,
+              "count": 123,
+              "positive_count": 46,
+              "positive_rate": 0.37398373983739835,
+              "total_difference": 8285,
+              "mean_difference": 67.35772357723577,
+              "low_play_count": 47,
+              "mean_daily_lift": -7.505691056910559,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 41
+            },
+            "backup": {
+              "days": 33,
+              "count": 74,
+              "positive_count": 34,
+              "positive_rate": 0.4594594594594595,
+              "total_difference": 13751,
+              "mean_difference": 185.82432432432432,
+              "low_play_count": 25,
+              "mean_daily_lift": 47.54343434343435,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 33
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 41,
+              "count": 123,
+              "positive_count": 44,
+              "positive_rate": 0.35772357723577236,
+              "total_difference": 1990,
+              "mean_difference": 16.178861788617887,
+              "low_play_count": 46,
+              "mean_daily_lift": -58.684552845528444,
+              "paired_mean_gain_vs_balanced": -51.17886178861789,
+              "days_better_than_balanced": 3,
+              "days_tied_with_balanced": 33
+            },
+            "backup": {
+              "days": 33,
+              "count": 74,
+              "positive_count": 36,
+              "positive_rate": 0.4864864864864865,
+              "total_difference": 20046,
+              "mean_difference": 270.8918918918919,
+              "low_play_count": 26,
+              "mean_daily_lift": 123.98282828282828,
+              "paired_mean_gain_vs_balanced": 76.43939393939394,
+              "days_better_than_balanced": 5,
+              "days_tied_with_balanced": 25
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 41,
+              "count": 123,
+              "positive_count": 45,
+              "positive_rate": 0.36585365853658536,
+              "total_difference": 5323,
+              "mean_difference": 43.27642276422764,
+              "low_play_count": 54,
+              "mean_daily_lift": -31.58699186991869,
+              "paired_mean_gain_vs_balanced": -24.081300813008127,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 24
+            },
+            "backup": {
+              "days": 33,
+              "count": 74,
+              "positive_count": 35,
+              "positive_rate": 0.47297297297297297,
+              "total_difference": 16713,
+              "mean_difference": 225.85135135135135,
+              "low_play_count": 18,
+              "mean_daily_lift": 121.87676767676768,
+              "paired_mean_gain_vs_balanced": 74.33333333333334,
+              "days_better_than_balanced": 10,
+              "days_tied_with_balanced": 16
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 30,
+              "positive_rate": 0.3333333333333333,
+              "total_difference": -2038,
+              "mean_difference": -22.644444444444446,
+              "low_play_count": 35,
+              "mean_daily_lift": -46.43555555555554,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 30
+            },
+            "backup": {
+              "days": 25,
+              "count": 57,
+              "positive_count": 27,
+              "positive_rate": 0.47368421052631576,
+              "total_difference": 13056,
+              "mean_difference": 229.05263157894737,
+              "low_play_count": 19,
+              "mean_daily_lift": 134.13066666666668,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 25
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 31,
+              "positive_rate": 0.34444444444444444,
+              "total_difference": -2408,
+              "mean_difference": -26.755555555555556,
+              "low_play_count": 35,
+              "mean_daily_lift": -50.546666666666646,
+              "paired_mean_gain_vs_balanced": -4.111111111111111,
+              "days_better_than_balanced": 2,
+              "days_tied_with_balanced": 26
+            },
+            "backup": {
+              "days": 25,
+              "count": 57,
+              "positive_count": 26,
+              "positive_rate": 0.45614035087719296,
+              "total_difference": 13426,
+              "mean_difference": 235.5438596491228,
+              "low_play_count": 19,
+              "mean_daily_lift": 137.824,
+              "paired_mean_gain_vs_balanced": 3.6933333333333325,
+              "days_better_than_balanced": 2,
+              "days_tied_with_balanced": 21
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 30,
+              "count": 90,
+              "positive_count": 29,
+              "positive_rate": 0.32222222222222224,
+              "total_difference": -6205,
+              "mean_difference": -68.94444444444444,
+              "low_play_count": 39,
+              "mean_daily_lift": -92.73555555555554,
+              "paired_mean_gain_vs_balanced": -46.300000000000004,
+              "days_better_than_balanced": 4,
+              "days_tied_with_balanced": 19
+            },
+            "backup": {
+              "days": 25,
+              "count": 57,
+              "positive_count": 28,
+              "positive_rate": 0.49122807017543857,
+              "total_difference": 17223,
+              "mean_difference": 302.1578947368421,
+              "low_play_count": 15,
+              "mean_daily_lift": 222.3906666666667,
+              "paired_mean_gain_vs_balanced": 88.26,
+              "days_better_than_balanced": 7,
+              "days_tied_with_balanced": 14
+            }
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 11,
+              "count": 33,
+              "positive_count": 16,
+              "positive_rate": 0.48484848484848486,
+              "total_difference": 10323,
+              "mean_difference": 312.8181818181818,
+              "low_play_count": 12,
+              "mean_daily_lift": 98.66666666666666,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 11
+            },
+            "backup": {
+              "days": 8,
+              "count": 17,
+              "positive_count": 7,
+              "positive_rate": 0.4117647058823529,
+              "total_difference": 695,
+              "mean_difference": 40.88235294117647,
+              "low_play_count": 6,
+              "mean_daily_lift": -223.04166666666669,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 8
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 11,
+              "count": 33,
+              "positive_count": 13,
+              "positive_rate": 0.3939393939393939,
+              "total_difference": 4398,
+              "mean_difference": 133.27272727272728,
+              "low_play_count": 11,
+              "mean_daily_lift": -80.87878787878789,
+              "paired_mean_gain_vs_balanced": -179.54545454545453,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 7
+            },
+            "backup": {
+              "days": 8,
+              "count": 17,
+              "positive_count": 10,
+              "positive_rate": 0.5882352941176471,
+              "total_difference": 6620,
+              "mean_difference": 389.4117647058824,
+              "low_play_count": 7,
+              "mean_daily_lift": 80.72916666666664,
+              "paired_mean_gain_vs_balanced": 303.7708333333333,
+              "days_better_than_balanced": 3,
+              "days_tied_with_balanced": 4
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 11,
+              "count": 33,
+              "positive_count": 16,
+              "positive_rate": 0.48484848484848486,
+              "total_difference": 11528,
+              "mean_difference": 349.3333333333333,
+              "low_play_count": 15,
+              "mean_daily_lift": 135.18181818181816,
+              "paired_mean_gain_vs_balanced": 36.51515151515153,
+              "days_better_than_balanced": 3,
+              "days_tied_with_balanced": 5
+            },
+            "backup": {
+              "days": 8,
+              "count": 17,
+              "positive_count": 7,
+              "positive_rate": 0.4117647058823529,
+              "total_difference": -510,
+              "mean_difference": -30.0,
+              "low_play_count": 3,
+              "mean_daily_lift": -192.22916666666669,
+              "paired_mean_gain_vs_balanced": 30.812499999999996,
+              "days_better_than_balanced": 3,
+              "days_tied_with_balanced": 2
+            }
+          }
+        }
+      }
+    },
+    "myj6": {
+      "excluded": {
+        "insufficient_history": 3
+      },
+      "evaluated_dates": [
+        "2026-10-30"
+      ],
+      "periods": {
+        "all": {
+          "balanced": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 3,
+              "positive_rate": 1.0,
+              "total_difference": 3379,
+              "mean_difference": 1126.3333333333333,
+              "low_play_count": 0,
+              "mean_daily_lift": 1024.5333333333333,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 1
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 4,
+              "positive_rate": 0.5714285714285714,
+              "total_difference": -2362,
+              "mean_difference": -337.42857142857144,
+              "low_play_count": 0,
+              "mean_daily_lift": -439.22857142857146,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 1
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 3,
+              "positive_rate": 1.0,
+              "total_difference": 3611,
+              "mean_difference": 1203.6666666666667,
+              "low_play_count": 0,
+              "mean_daily_lift": 1101.8666666666668,
+              "paired_mean_gain_vs_balanced": 77.33333333333348,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 5,
+              "positive_rate": 0.7142857142857143,
+              "total_difference": -1899,
+              "mean_difference": -271.2857142857143,
+              "low_play_count": 0,
+              "mean_daily_lift": -373.0857142857143,
+              "paired_mean_gain_vs_balanced": 66.14285714285717,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 2,
+              "positive_rate": 0.6666666666666666,
+              "total_difference": -1899,
+              "mean_difference": -633.0,
+              "low_play_count": 0,
+              "mean_daily_lift": -734.8,
+              "paired_mean_gain_vs_balanced": -1759.3333333333333,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 0
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 5,
+              "positive_rate": 0.7142857142857143,
+              "total_difference": 1851,
+              "mean_difference": 264.42857142857144,
+              "low_play_count": 0,
+              "mean_daily_lift": 162.62857142857143,
+              "paired_mean_gain_vs_balanced": 601.8571428571429,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            }
+          }
+        },
+        "earlier": {
+          "balanced": {
+            "primary": null,
+            "backup": null
+          },
+          "dip": {
+            "primary": null,
+            "backup": null
+          },
+          "rb": {
+            "primary": null,
+            "backup": null
+          }
+        },
+        "recent_30": {
+          "balanced": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 3,
+              "positive_rate": 1.0,
+              "total_difference": 3379,
+              "mean_difference": 1126.3333333333333,
+              "low_play_count": 0,
+              "mean_daily_lift": 1024.5333333333333,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 1
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 4,
+              "positive_rate": 0.5714285714285714,
+              "total_difference": -2362,
+              "mean_difference": -337.42857142857144,
+              "low_play_count": 0,
+              "mean_daily_lift": -439.22857142857146,
+              "paired_mean_gain_vs_balanced": 0.0,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 1
+            }
+          },
+          "dip": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 3,
+              "positive_rate": 1.0,
+              "total_difference": 3611,
+              "mean_difference": 1203.6666666666667,
+              "low_play_count": 0,
+              "mean_daily_lift": 1101.8666666666668,
+              "paired_mean_gain_vs_balanced": 77.33333333333348,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 5,
+              "positive_rate": 0.7142857142857143,
+              "total_difference": -1899,
+              "mean_difference": -271.2857142857143,
+              "low_play_count": 0,
+              "mean_daily_lift": -373.0857142857143,
+              "paired_mean_gain_vs_balanced": 66.14285714285717,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            }
+          },
+          "rb": {
+            "primary": {
+              "days": 1,
+              "count": 3,
+              "positive_count": 2,
+              "positive_rate": 0.6666666666666666,
+              "total_difference": -1899,
+              "mean_difference": -633.0,
+              "low_play_count": 0,
+              "mean_daily_lift": -734.8,
+              "paired_mean_gain_vs_balanced": -1759.3333333333333,
+              "days_better_than_balanced": 0,
+              "days_tied_with_balanced": 0
+            },
+            "backup": {
+              "days": 1,
+              "count": 7,
+              "positive_count": 5,
+              "positive_rate": 0.7142857142857143,
+              "total_difference": 1851,
+              "mean_difference": 264.42857142857144,
+              "low_play_count": 0,
+              "mean_daily_lift": 162.62857142857143,
+              "paired_mean_gain_vs_balanced": 601.8571428571429,
+              "days_better_than_balanced": 1,
+              "days_tied_with_balanced": 0
+            }
+          }
+        }
+      }
+    }
+  }
+}

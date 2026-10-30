@@ -50,9 +50,11 @@ jobs:
           python -m unittest discover -s tests -v
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
+          python -m unittest test_historical_layout test_setting_sensitivity -v
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
+          node --test test_external_morning_trigger.mjs
 
       - name: Check source availability
         run: python collect_sources.py

@@ -1,6 +1,7 @@
 """Offline conditional model only: not a next-day forecast or calibrated setting probability."""
 import math
 from datetime import date
+from collections.abc import Mapping
 from collect_sources import model_for_number
 
 VERSION = 'conditional-counts-v1'
@@ -30,6 +31,38 @@ SPECS = {
 REQUIRED_CONTRACT = ('normal_game_trials', 'exclusive_bb_rb',
                      'completed_business_day', 'constant_setting_assumed',
                      'model_identity_confirmed')
+
+
+def compare_priors(record, config, scenarios, observation_contract=None):
+    """Compare explicit hypothetical priors for the same single-day record.
+
+    No default store setting allocation is assumed. The range describes only
+    the supplied scenarios; it is not a confidence interval or calibration.
+    This function does not save results or participate in public rankings.
+    """
+    if not isinstance(scenarios, Mapping) or len(scenarios) < 2:
+        raise ValueError('At least two named prior scenarios required')
+    for name, prior in scenarios.items():
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError('Scenario names must be nonempty strings')
+        if (not isinstance(prior, (list, tuple)) or len(prior) != 6 or
+                any(type(p) not in (int, float) or not math.isfinite(p) or p < 0 for p in prior)):
+            raise ValueError('Six finite nonnegative prior weights required per scenario')
+        total = sum(prior)
+        if not math.isfinite(total) or total <= 0:
+            raise ValueError('Prior weight sum must be finite and positive')
+    results = {name: infer_day(record, config, prior, observation_contract)
+               for name, prior in scenarios.items()}
+    out = {'version': VERSION, 'purpose': 'prior_sensitivity_comparison',
+           'calibrated': False, 'scenarios': results,
+           'warning': 'Scenario range is not a confidence interval, verified setting probability or next-day forecast.'}
+    if any(result['status'] != 'conditional_result' for result in results.values()):
+        return {**out, 'status': 'inference_unavailable'}
+    masses = [result['conditional_mass_4_6'] for result in results.values()]
+    return {**out, 'status': 'conditional_comparison',
+            'conditional_mass_4_6_range': {'minimum': min(masses),
+                                        'maximum': max(masses),
+                                        'span': max(masses) - min(masses)}}
 
 
 def infer_day(record, config, prior, observation_contract=None):
@@ -83,3 +116,4 @@ def infer_day(record, config, prior, observation_contract=None):
             'conditional_setting_distribution':distribution,
             'conditional_mass_4_6':sum(distribution[3:]),
             'warning':'Depends on asserted game semantics, constant setting, rounded factory rates and prior; not verified setting accuracy or next-day probability.'}
+

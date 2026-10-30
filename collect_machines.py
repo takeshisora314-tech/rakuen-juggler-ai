@@ -116,8 +116,12 @@ def parse_tables(tables, model, day, source_url, allow_partial=False):
 
 def collection_result(rows, model):
     missing = sorted(set(model['numbers']) - {row['number'] for row in rows})
-    return {'status': 'partial' if missing else 'complete', 'rows': len(rows),
-            'expected_rows': len(model['numbers']), 'missing_numbers': missing}
+    incomplete = sorted({r['number'] for r in rows if not valid_measurement(r)})
+    result = {'status': 'partial' if missing or incomplete else 'complete', 'rows': len(rows),
+              'expected_rows': len(model['numbers']), 'missing_numbers': missing}
+    if incomplete:
+        result['incomplete_numeric_numbers'] = incomplete
+    return result
 
 
 def valid_measurement(row):
@@ -450,3 +454,4 @@ if __name__ == "__main__":
     parser=argparse.ArgumentParser()
     parser.add_argument('--backfill-only',action='store_true')
     run(backfill_only=parser.parse_args().backfill_only)
+

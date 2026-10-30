@@ -32,6 +32,24 @@ class MachineTests(unittest.TestCase):
         self.table[1][4] = "-"
         self.assertIsNone(self.parse()[0]["bb"])
 
+    def test_unknown_numeric_values_mark_full_table_partial(self):
+        for column in (1, 2, 4, 5):
+            with self.subTest(column=column):
+                original=self.table[1][column]
+                self.table[1][column]='-'
+                rows=self.parse()
+                result=collection_result(rows,self.model)
+                self.assertEqual(result['status'],'partial')
+                self.assertEqual(result['missing_numbers'],[])
+                self.assertEqual(result['incomplete_numeric_numbers'],[2201])
+                self.table[1][column]=original
+
+    def test_zero_is_valid_complete_measurement(self):
+        self.table[1][1]='0'
+        result=collection_result(self.parse(),self.model)
+        self.assertEqual(result['status'],'complete')
+        self.assertNotIn('incomplete_numeric_numbers',result)
+
     def test_missing_number_rejected(self):
         self.table.pop()
         with self.assertRaises(ValueError): self.parse()
@@ -250,10 +268,10 @@ class NavigationTests(unittest.IsolatedAsyncioTestCase):
         async def reader(model):
             if model['model_id']=='bad': raise ValueError('Installation layout mismatch')
             if model['model_id']=='missing': return None
-            return [{'number':1,'model_id':'good'}]
+            return [{'number':1,'model_id':'good','games':5000,'bb':20,'rb':15,'difference':0}]
         records=[];outcome={'status':'complete','models':{}}
         await collect_history_models(models,reader,records,outcome)
-        self.assertEqual(records,[{'number':1,'model_id':'good'}])
+        self.assertEqual(records,[{'number':1,'model_id':'good','games':5000,'bb':20,'rb':15,'difference':0}])
         self.assertEqual(outcome['status'],'partial')
         self.assertEqual(outcome['models']['bad']['status'],'error')
         self.assertEqual(outcome['models']['good']['status'],'complete')
@@ -307,3 +325,4 @@ class NavigationTests(unittest.IsolatedAsyncioTestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

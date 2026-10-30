@@ -34,13 +34,14 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <div class="note">2026/10/27から：マイジャグ6は2201〜2220（20台）、マイジャグ5は2221〜2239（19台）。入替前の5と導入後の6は別の機種履歴として扱います。</div>
 <section class="card" id="forecast-panel" aria-live="polite"></section>
 <section class="card" id="evaluation-panel" aria-live="polite"></section>
+<section class="card" id="research-panel" aria-live="polite"></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
 <section class="card"><details class="small"><summary>iPhoneのホーム画面から使うには</summary><p>Safariの共有メニューから「ホーム画面に追加」を選びます。「Webアプリとして開く」が表示されたらオンにして追加してください。名前は「ジャグラーAI」です。既存のアイコンの表示が変わらない場合は、まず新しいアイコンを追加して動作を確認してください。</p><p>ホーム画面から独立した画面で開くための設定です。App Storeアプリではなく、閲覧には通信が必要です。開いていなくてもGitHub側の予定処理は実行されますが、実行遅延や取得失敗はあり得ます。画面が古い場合は一度閉じて開き直してください。端末への追加操作・Safari実機での最終確認は利用者側で必要です。</p></details></section>
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>
-let CONFIG = null, DATA = null, PUBLICATION = null, current = null, followToday = true, selectedResultDay = null;
+let CONFIG = null, DATA = null, PUBLICATION = null, REPORT = null, current = null, followToday = true, selectedResultDay = null;
 const dateInput = document.getElementById('layout-date');
 function todayJST(now = new Date()) {
   return new Intl.DateTimeFormat('sv-SE', {timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);
@@ -178,6 +179,39 @@ function drawForecast(model) {
   }
   evaluationPanel.innerHTML = evaluationHTML + '</details>';
 }
+function drawResearch(model) {
+  const panel = document.getElementById('research-panel');
+  if (!model) {panel.innerHTML = ''; return;}
+  let html = `<h3>90日検証の集計 · ${safe(model.name)}</h3>`;
+  if (!REPORT || REPORT.schema_version !== 1 || REPORT.policy_version !== DATA?.forecast?.version
+      || !/^\d{4}-\d{2}-\d{2}$/.test(REPORT.as_of_date || '') || REPORT.as_of_date > todayJST()) {
+    panel.innerHTML = html + '<p class="small">検証集計は未取得、または現在のルール版と一致しません。成績を0%とは表示しません。</p>'; return;
+  }
+  const changed = Array.isArray(DATA?.machine_records) && DATA.machine_records.length !== REPORT.record_count;
+  html += `<p class="small">集計基準日：${safe(REPORT.as_of_date)}（当日を除く${safe(REPORT.calendar_days)}日）<br>対象：${safe(REPORT.window_start)}〜${safe(REPORT.window_end_exclusive)}未満</p>`;
+  if (REPORT.as_of_date < todayJST() || changed) html += '<p class="small">最新の実績に対する集計更新は未確認です。以下は記載の基準日時点の結果です。</p>';
+  for (const [kind, label] of [['prospective','実際の事前保存予想'],['retrospective','過去再計算（事前予想ではありません）']]) {
+    const item = REPORT[kind]?.models?.[model.id];
+    const days = Number.isInteger(item?.paired_days) && item.paired_days >= 0 ? item.paired_days : 0;
+    html += `<details class="small"><summary>${label}：比較可能${days}日</summary>`;
+    if (!days) html += '<p>比較できる結果がありません。履歴不足・予想なし・実績未取得は、外れや実績0として数えません。</p>';
+    else {
+      html += `<p>評価対象：${safe(item.first_date)}〜${safe(item.last_date)}。各方式上位3台を同じ日で比較します。</p>`;
+      const labels = {balanced:'バランス型',dip:'凹み重視型',rb:'RB実績重視型'};
+      for (const [key, label] of Object.entries(labels)) {
+        const s = item.strategies?.[key];
+        if (!s || !['count','positive_count','positive_rate','mean_difference','lift_vs_eligible_mean','low_play_count'].every(k=>Number.isFinite(s[k]))
+            || s.count !== days * 3 || !Number.isInteger(s.positive_count) || s.positive_count < 0 || s.positive_count > s.count
+            || Math.abs(s.positive_rate - s.positive_count / s.count) > 1e-9) continue;
+        html += `<p><b>${label}</b><br>プラス ${s.positive_count}/${s.count}台（${(s.positive_rate*100).toFixed(1)}%）<br>平均差枚 ${s.mean_difference.toFixed(1)}枚<br>同条件全台平均との差 ${s.lift_vs_eligible_mean.toFixed(1)}枚<br>3,000G未満 ${s.low_play_count}台</p>`;
+      }
+    }
+    if (kind === 'prospective') html += '<p>30日以上の事前評価がそろうまで方式切替は行いません。作成時刻の確認と期限内の公開確認は別です。</p>';
+    else html += '<p>現在のルールを過去データで再計算した参考値です。当時のデータ取得状況を完全に再現した検証ではなく、方式切替には使いません。</p>';
+    html += '</details>';
+  }
+  panel.innerHTML = html + '<p class="small">プラス台率は設定4〜6の的中率ではありません。同じ台や日を独立した検証回数とは扱いません。</p>';
+}
 function draw() {
   if (!CONFIG || !/^\d{4}-\d{2}-\d{2}$/.test(dateInput.value)) return;
   const models = activeModels(CONFIG, dateInput.value);
@@ -194,6 +228,7 @@ function draw() {
   }
   const model = models.find(m => m.id === current);
   drawForecast(model);
+  drawResearch(model);
   const records = model ? latestModelRecords(model, dateInput.value) : new Map();
   const resultDays = model ? [...new Set((DATA?.machine_records || []).filter(r=>r.model_id===model.id && r.date<=dateInput.value).map(r=>r.date))].sort().reverse() : [];
   const resultDay = records.values().next().value?.date;
@@ -272,6 +307,7 @@ async function load() {
   }
   try { DATA = await fetchJSON('data.json'); } catch (error) { DATA = null; }
   try { PUBLICATION = await fetchJSON('publication_status.json'); } catch(error) { PUBLICATION=null; }
+  try { REPORT = await fetchJSON('evaluation_report.json'); } catch(error) { REPORT=null; }
   draw(); drawSources(); drawPublication();
 }
 dateInput.addEventListener('change', () => {followToday = false; draw();});
@@ -283,3 +319,4 @@ load();
 </script>
 </body>
 </html>
+

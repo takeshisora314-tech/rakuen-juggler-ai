@@ -1,4 +1,9 @@
 import copy
+import json
+import subprocess
+import sys
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 
 from evaluate_history import build_report, summarize
@@ -90,3 +95,21 @@ class HistoryReportTests(unittest.TestCase):
                 build_report(self.config, self.rows, '2026-10-27', days)
         with self.assertRaises(ValueError):
             build_report(self.config, self.rows + [self.rows[0]], '2026-10-27', 7)
+
+    def test_explicit_report_output_preserves_inputs_and_rejects_archive_paths(self):
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            config_path = base / 'machines.json'
+            data_path = base / 'data.json'
+            config_path.write_text(json.dumps(self.config))
+            data_path.write_text(json.dumps({'machine_records': self.rows}))
+            before = (config_path.read_bytes(), data_path.read_bytes())
+            script = str(Path(__file__).with_name('evaluate_history.py'))
+            command = [sys.executable, script, '--base', str(base), '--as-of', '2026-10-27', '--days', '7', '--output']
+            report_path = base / 'evaluation_report.json'
+            subprocess.run(command + [str(report_path)], check=True, capture_output=True)
+            self.assertEqual(json.loads(report_path.read_text())['calendar_days'], 7)
+            for protected in (data_path, config_path, base / 'history/forecasts/x.json', base / 'history/evaluations/x.json'):
+                result = subprocess.run(command + [str(protected)], capture_output=True)
+                self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(before, (config_path.read_bytes(), data_path.read_bytes()))

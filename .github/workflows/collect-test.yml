@@ -54,6 +54,7 @@ jobs:
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
+          node test_research_frontend.cjs
           node --test test_external_morning_trigger.mjs
 
       - name: Check source availability
@@ -67,11 +68,24 @@ jobs:
       - name: Generate immutable forecast and evaluate
         run: python forecast_engine.py
 
+      - name: Refresh historical evaluation report
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          import subprocess
+          import sys
+          day = str(datetime.now(ZoneInfo('Asia/Tokyo')).date())
+          subprocess.run([sys.executable, 'evaluate_history.py', '--as-of', day,
+                          '--output', 'evaluation_report.json'], check=True)
+          PY
+
       - name: Save collected status and snapshots
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json history
+          git add data.json history evaluation_report.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

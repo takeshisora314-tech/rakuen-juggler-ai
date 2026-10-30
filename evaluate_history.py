@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 
 from forecast_engine import (VERSION, WEIGHTS, comparison_metrics_valid, evaluate,
                              make_forecast, record_index, snapshot_id)
+from collect_sources import write_json
 
 
 def summarize(evaluations, model_ids, kind, start, end):
@@ -106,12 +107,24 @@ def main():
     parser.add_argument('--data', type=Path)
     parser.add_argument('--as-of', required=True, help='Exclusive end date in Japan, YYYY-MM-DD')
     parser.add_argument('--days', type=int, default=90)
+    parser.add_argument('--output', type=Path, help='Explicit report destination; inputs remain unchanged')
     args = parser.parse_args()
+    data_path = args.data or args.base / 'data.json'
+    if args.output:
+        output = args.output.resolve()
+        protected = [args.base / 'machines.json', data_path]
+        archives = [args.base / 'history/forecasts', args.base / 'history/evaluations']
+        if (output in [p.resolve() for p in protected]
+                or any(p.resolve() == output or p.resolve() in output.parents for p in archives)):
+            parser.error('Report output must not overwrite source data or forecast/evaluation archives')
     config = json.loads((args.base / 'machines.json').read_text())
-    data = json.loads((args.data or args.base / 'data.json').read_text())
+    data = json.loads(data_path.read_text())
     snapshots = [json.loads(p.read_text()) for p in sorted((args.base / 'history/forecasts').glob('*.json'))]
     report = build_report(config, data.get('machine_records', []), args.as_of, args.days, snapshots)
-    print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
+    if args.output:
+        write_json(args.output, report)
+    else:
+        print(json.dumps(report, ensure_ascii=False, indent=2, allow_nan=False))
 
 
 if __name__ == '__main__':

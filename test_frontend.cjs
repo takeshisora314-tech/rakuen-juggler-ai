@@ -22,7 +22,7 @@ context.fixture = {forecast:{date:'2026-10-28',display_status:'preview',models:{
   evaluation:{prospective:[],retrospective:[]}, machine_collection:{status:'partial',
   models:{myj5:{status:'partial',rows:19,missing_numbers:[2201,2202]}}}};
 vm.runInContext("DATA=fixture;drawForecast({id:'myj5',name:'V'});",context);
-assert.match(element('forecast-panel').innerHTML,/全5台/);
+assert.match(element('forecast-panel').innerHTML,/空いていないときの候補：4〜10位/);
 assert.match(element('forecast-panel').innerHTML,/2225/);
 assert.match(element('forecast-panel').innerHTML,/設定4〜6期待度モデルは未完成/);
 assert.match(element('evaluation-panel').innerHTML,/まだ事前予想の評価実績はありません/);
@@ -98,3 +98,23 @@ assert.equal(icon.subarray(1,4).toString(),'PNG');
 assert.equal(icon.readUInt32BE(16),512);
 assert.equal(icon.readUInt32BE(20),512);
 console.log('Home Screen configuration: 9 assertions passed.');
+
+// Candidate capacity, immutable ranking order, and incomplete result summaries.
+context.tenRows=Array.from({length:12},(_,i)=>({...candidate,number:2201+i}));
+vm.runInContext("DATA.forecast.models.myj5.rankings={balanced:tenRows};drawForecast({id:'myj5',name:'V'});",context);
+const forecastHTML=element('forecast-panel').innerHTML;
+assert.match(forecastHTML,/10位<br>2210/);
+assert.ok(forecastHTML.indexOf('10位<br>2210')<forecastHTML.indexOf('<details class="rank-list">'));
+assert.ok(forecastHTML.indexOf('11位<br>2211')>forecastHTML.indexOf('<details class="rank-list">'));
+context.groupFixture={date:'2026-10-30',models:{myj5:{prediction_results:Array.from({length:12},(_,i)=>({rank:i+1,number:2201+i,status:'available',actual:{games:5000,bb:20,rb:15,difference:i===0?100:i===1?-50:0}}))}}};
+let grouped=vm.runInContext("predictionResultHTML(groupFixture,'myj5')",context);
+assert.match(grouped,/プラス率 33％（1\/3台）/);
+assert.match(grouped,/合計差枚 50枚／平均差枚 17枚/);
+assert.match(grouped,/プラス率 0％（0\/7台）/);
+assert.doesNotMatch(grouped,/予想11位/);
+context.groupFixture.models.myj5.prediction_results[3].status='pending_results';
+grouped=vm.runInContext("predictionResultHTML(groupFixture,'myj5')",context);
+assert.match(grouped,/実績待ち：6\/7台取得/);
+assert.doesNotMatch(grouped,/0％（0\/7台）/);
+assert.match(grouped,/33％（1\/3台）/);
+console.log('Top ten candidates: 10 assertions passed.');

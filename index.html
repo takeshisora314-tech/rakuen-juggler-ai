@@ -114,7 +114,18 @@ function predictionResultHTML(e, modelId) {
   const rows=m.prediction_results || (m.strategies?.[m.selected_strategy]?.results || []).map((r,i)=>({rank:i+1,number:r.number,status:'available',actual:r}));
   let html=`<details class="small"><summary>${safe(e.date)} 朝の予想順位と当日の実績</summary><p>朝に保存した順位・台番に、同じ営業日・機種・台番の実績を照合します。結果で順位を並べ替えません。プラス・マイナスは設定的中の判定ではありません。</p>`;
   if(!rows.length) html+='<p>この記録には予想台別の照合一覧がありません。未取得を0として表示しません。</p>';
-  for(const r of rows) {
+  const groups=[['本命：1〜3位',rows.filter(r=>r.rank>=1 && r.rank<=3)],['追加候補：4〜10位',rows.filter(r=>r.rank>=4 && r.rank<=10)]];
+  for(const [label,group] of groups) {
+    if(!group.length) continue;
+    html+=`<h4>${label}</h4>`;
+    const available=group.filter(r=>r.status==='available' && r.actual && Number.isFinite(r.actual.difference));
+    if(available.length!==group.length) html+=`<p>実績待ち：${available.length}/${group.length}台取得。集計は全候補の実績がそろってから表示します。</p>`;
+    else {
+      const positive=available.filter(r=>r.actual.difference>0).length;
+      const total=available.reduce((sum,r)=>sum+r.actual.difference,0);
+      html+=`<p>プラス率 ${Math.round(positive/group.length*100)}％（${positive}/${group.length}台）<br>合計差枚 ${total.toLocaleString('ja-JP')}枚／平均差枚 ${Math.round(total/group.length).toLocaleString('ja-JP')}枚</p>`;
+    }
+    for(const r of group) {
     html+=`<div class="row"><div class="no">予想${safe(r.rank)}位<br>${safe(r.number)}番</div><div class="small">`;
     if(r.score!=null) html+=`朝の優先度 ${safe(r.score)}点<br>`;
     if(r.status!=='available' || !r.actual) html+='当日実績：取得待ち';
@@ -124,6 +135,7 @@ function predictionResultHTML(e, modelId) {
       if(Number.isInteger(a.games) && a.games<3000) html+='<br>低稼働：3,000G未満';
     }
     html+='</div></div>';
+  }
   }
   return html+'</details>';
 }
@@ -147,9 +159,10 @@ function drawForecast(model) {
     const candidates = item.rankings?.[selection.strategy] || item.strategies?.[selection.strategy] || [];
     html += `<p class="small">最終実績：${safe(item.latest_source_date)}／履歴${safe(item.history_days)}日<br>方式：${safe(labels[selection.strategy] || selection.strategy)} · 事前比較${safe(selection.paired_days)}日（切替判定は30日以上）</p>`;
     const row = (r,i)=>`<div class="row"><div class="no">${i+1}位<br>${safe(r.number)}</div><div class="small">優先度 ${safe(r.score)}点（確率ではありません）<br>直近3有効日：${safe(r.three_day_difference)}枚／履歴${safe(r.history_days)}日・${safe(r.history_games)}G<br>履歴RB：${r.rb_denominator ? '1/'+safe(r.rb_denominator) : '回数0'}／最終日 ${safe(r.latest_games)}G・${safe(r.latest_difference)}枚</div></div>`;
-    html += candidates.slice(0,3).map(row).join('');
-    if(candidates.length>3) html += `<details class="rank-list"><summary>条件を満たす全${candidates.length}台の順位を見る</summary>${candidates.slice(3).map((r,i)=>row(r,i+3)).join('')}</details>`;
-    html += `<p class="small">判定対象${safe(item.eligible_numbers.length)}台。条件未達の台は順位を付けません。成績比較は従来どおり上位3台で固定します。</p>`;
+    html += '<h4>本命：1〜3位</h4>' + candidates.slice(0,3).map(row).join('');
+    if(candidates.length>3) html += '<h4>空いていないときの候補：4〜10位</h4>' + candidates.slice(3,10).map((r,i)=>row(r,i+3)).join('');
+    if(candidates.length>10) html += `<details class="rank-list"><summary>条件を満たす全${candidates.length}台の順位を見る</summary>${candidates.slice(10).map((r,i)=>row(r,i+10)).join('')}</details>`;
+    html += `<p class="small">判定対象${safe(item.eligible_numbers.length)}台。条件未達の台は順位を付けません。候補は最大10台です（条件を満たす台数まで）。方式の成績比較は上位3台で固定します。</p>`;
   }
   html += '<p class="small">設定4〜6期待度モデルは未完成です。現在の優先度を設定確率や的中率として読み替えることはできません。</p><details class="small"><summary>予想と改善のルール</summary><p>直近14暦日内・最大7取得日を使い、各日3,000G以上の履歴が3日以上、合計12,000G以上の台を対象にします。直近実績が2日超古い場合は見送ります。凹み、RB実績、回転数を固定の重みで比較する実験ルールで、学習済みAIではありません。</p><p>朝5時に収集後、7時前なら当日予想を一度だけ保存。6時17分に再実行しますが、保存済み予想は変更しません。23時30分に実績公開分を答え合わせし、未公開なら翌朝に再確認します。GitHubの実行・公開遅延があり、7時の公開保証はありません。切替は事前保存された3方式の同条件比較が30日以上そろい、平均の相対差枚が100枚以上改善し、プラス台率が悪化しない場合だけです。精度向上を保証しません。</p></details>';
   panel.innerHTML = html;
@@ -348,4 +361,5 @@ load();
 </script>
 </body>
 </html>
+
 

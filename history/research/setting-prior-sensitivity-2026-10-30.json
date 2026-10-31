@@ -1,0 +1,1981 @@
+{
+  "kind": "exploratory_single_day_prior_sensitivity",
+  "date": "2026-10-30",
+  "generated_on": "2026-10-31",
+  "calibrated": false,
+  "normal_games_basis": "User reported on 2026-10-31 that the compared store data excludes bonus games; not independent verification of every historical row.",
+  "assumptions": [
+    "For this exploratory calculation only: normal game trials, exclusive BB/RB, completed day, constant setting, model identity follows dated config.",
+    "No inferred setting labels or next-day forecasts are produced.",
+    "Three prior distributions are hypothetical sensitivity scenarios, not estimates of store allocation.",
+    "Records under 3000 games are excluded."
+  ],
+  "prior_weights": {
+    "equal": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "low_heavy": [
+      60,
+      20,
+      10,
+      5,
+      3,
+      2
+    ],
+    "high_heavy": [
+      5,
+      5,
+      10,
+      20,
+      30,
+      30
+    ]
+  },
+  "data_sha256": "27fd31d42775b37bf050c3a9726876cca11001903d546579fd125970ca288e0e",
+  "config_sha256": "98e80fb3480b606e4d1245e475d26ef28f7f44dde219f1e2a3996461915784ff",
+  "summaries": {
+    "funky2": {
+      "records": 11,
+      "evaluated": 2,
+      "excluded": 9,
+      "mean_span": 0.6534165648380827,
+      "max_span": 0.6591877581335844,
+      "crosses_half": 2
+    },
+    "girls": {
+      "records": 9,
+      "evaluated": 2,
+      "excluded": 7,
+      "mean_span": 0.6725572384415393,
+      "max_span": 0.6852031158933252,
+      "crosses_half": 2
+    },
+    "gogo3": {
+      "records": 26,
+      "evaluated": 16,
+      "excluded": 10,
+      "mean_span": 0.615119285657679,
+      "max_span": 0.6857616059342989,
+      "crosses_half": 15
+    },
+    "happy8": {
+      "records": 19,
+      "evaluated": 9,
+      "excluded": 10,
+      "mean_span": 0.5810534472660973,
+      "max_span": 0.6748599382867937,
+      "crosses_half": 7
+    },
+    "mr": {
+      "records": 6,
+      "evaluated": 1,
+      "excluded": 5,
+      "mean_span": 0.4265885582636263,
+      "max_span": 0.4265885582636263,
+      "crosses_half": 0
+    },
+    "myj5": {
+      "records": 19,
+      "evaluated": 16,
+      "excluded": 3,
+      "mean_span": 0.48080115976744087,
+      "max_span": 0.661622282550883,
+      "crosses_half": 9
+    },
+    "myj6": {
+      "records": 20,
+      "evaluated": 20,
+      "excluded": 0,
+      "mean_span": 0.42905690689903,
+      "max_span": 0.6412272103223045,
+      "crosses_half": 10
+    },
+    "neoim": {
+      "records": 40,
+      "evaluated": 21,
+      "excluded": 19,
+      "mean_span": 0.5475448934833347,
+      "max_span": 0.6620079811219233,
+      "crosses_half": 16
+    }
+  },
+  "records": [
+    {
+      "model_id": "funky2",
+      "number": 101,
+      "games": 2020,
+      "bb": 10,
+      "rb": 7,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 102,
+      "games": 4617,
+      "bb": 14,
+      "rb": 15,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5060859120693817,
+        "low_heavy": 0.12719321395604044,
+        "high_heavy": 0.7863809720896249
+      },
+      "span": 0.6591877581335844
+    },
+    {
+      "model_id": "funky2",
+      "number": 103,
+      "games": 1033,
+      "bb": 2,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 104,
+      "games": 852,
+      "bb": 1,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 105,
+      "games": 1799,
+      "bb": 4,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 106,
+      "games": 1090,
+      "bb": 1,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 107,
+      "games": 1728,
+      "bb": 5,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 108,
+      "games": 1749,
+      "bb": 2,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 109,
+      "games": 3927,
+      "bb": 13,
+      "rb": 15,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6771457521085338,
+        "low_heavy": 0.23426015446056755,
+        "high_heavy": 0.8819055260031486
+      },
+      "span": 0.6476453715425811
+    },
+    {
+      "model_id": "funky2",
+      "number": 110,
+      "games": 1590,
+      "bb": 2,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "funky2",
+      "number": 111,
+      "games": 1940,
+      "bb": 3,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 201,
+      "games": 3009,
+      "bb": 11,
+      "rb": 11,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5474427485273823,
+        "low_heavy": 0.13488829148846682,
+        "high_heavy": 0.820091407381792
+      },
+      "span": 0.6852031158933252
+    },
+    {
+      "model_id": "girls",
+      "number": 202,
+      "games": 946,
+      "bb": 4,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 203,
+      "games": 8763,
+      "bb": 41,
+      "rb": 28,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.613433597060424,
+        "low_heavy": 0.18914093584624805,
+        "high_heavy": 0.8490522968360013
+      },
+      "span": 0.6599113609897532
+    },
+    {
+      "model_id": "girls",
+      "number": 204,
+      "games": 302,
+      "bb": 0,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 205,
+      "games": 555,
+      "bb": 2,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 206,
+      "games": 2717,
+      "bb": 10,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 207,
+      "games": 2126,
+      "bb": 7,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 208,
+      "games": 2103,
+      "bb": 3,
+      "rb": 7,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "girls",
+      "number": 209,
+      "games": 2106,
+      "bb": 3,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 112,
+      "games": 5549,
+      "bb": 25,
+      "rb": 22,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6954155354995661,
+        "low_heavy": 0.2366594228958333,
+        "high_heavy": 0.8934124772589458
+      },
+      "span": 0.6567530543631125
+    },
+    {
+      "model_id": "gogo3",
+      "number": 113,
+      "games": 5808,
+      "bb": 22,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.341691875385282,
+        "low_heavy": 0.06188780502044159,
+        "high_heavy": 0.6622005030111499
+      },
+      "span": 0.6003126979907083
+    },
+    {
+      "model_id": "gogo3",
+      "number": 114,
+      "games": 6364,
+      "bb": 25,
+      "rb": 27,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.769863704998003,
+        "low_heavy": 0.33501671278360956,
+        "high_heavy": 0.921866088755825
+      },
+      "span": 0.5868493759722154
+    },
+    {
+      "model_id": "gogo3",
+      "number": 115,
+      "games": 3034,
+      "bb": 9,
+      "rb": 12,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5554003027732877,
+        "low_heavy": 0.13856570614362088,
+        "high_heavy": 0.8243273120779198
+      },
+      "span": 0.6857616059342989
+    },
+    {
+      "model_id": "gogo3",
+      "number": 116,
+      "games": 2817,
+      "bb": 12,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 117,
+      "games": 3263,
+      "bb": 15,
+      "rb": 9,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.36294449428780445,
+        "low_heavy": 0.06151821268070211,
+        "high_heavy": 0.6924930329478383
+      },
+      "span": 0.6309748202671361
+    },
+    {
+      "model_id": "gogo3",
+      "number": 118,
+      "games": 1147,
+      "bb": 3,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 119,
+      "games": 5795,
+      "bb": 18,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.42805289548890185,
+        "low_heavy": 0.0927756049973255,
+        "high_heavy": 0.7323750938692928
+      },
+      "span": 0.6395994888719673
+    },
+    {
+      "model_id": "gogo3",
+      "number": 120,
+      "games": 8284,
+      "bb": 31,
+      "rb": 37,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.8719173320853322,
+        "low_heavy": 0.5422576679809556,
+        "high_heavy": 0.9579934749783063
+      },
+      "span": 0.4157358069973507
+    },
+    {
+      "model_id": "gogo3",
+      "number": 121,
+      "games": 1890,
+      "bb": 8,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 122,
+      "games": 5169,
+      "bb": 16,
+      "rb": 15,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.26918993472885683,
+        "low_heavy": 0.04424698664557185,
+        "high_heavy": 0.5823465703470461
+      },
+      "span": 0.5380995837014743
+    },
+    {
+      "model_id": "gogo3",
+      "number": 123,
+      "games": 2447,
+      "bb": 4,
+      "rb": 7,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 124,
+      "games": 2593,
+      "bb": 7,
+      "rb": 9,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 125,
+      "games": 2264,
+      "bb": 10,
+      "rb": 8,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 126,
+      "games": 5971,
+      "bb": 28,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.49058740395712497,
+        "low_heavy": 0.10829732398101662,
+        "high_heavy": 0.7851489643978418
+      },
+      "span": 0.6768516404168251
+    },
+    {
+      "model_id": "gogo3",
+      "number": 127,
+      "games": 3874,
+      "bb": 10,
+      "rb": 13,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.40396104065068056,
+        "low_heavy": 0.08026806587523377,
+        "high_heavy": 0.7178015888832502
+      },
+      "span": 0.6375335230080164
+    },
+    {
+      "model_id": "gogo3",
+      "number": 128,
+      "games": 2048,
+      "bb": 4,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 129,
+      "games": 3185,
+      "bb": 9,
+      "rb": 10,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.38340657242567056,
+        "low_heavy": 0.07110960224664675,
+        "high_heavy": 0.7043225987436035
+      },
+      "span": 0.6332129964969567
+    },
+    {
+      "model_id": "gogo3",
+      "number": 130,
+      "games": 7374,
+      "bb": 35,
+      "rb": 28,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6999212193385089,
+        "low_heavy": 0.2449387180955339,
+        "high_heavy": 0.894568832457232
+      },
+      "span": 0.649630114361698
+    },
+    {
+      "model_id": "gogo3",
+      "number": 131,
+      "games": 2046,
+      "bb": 5,
+      "rb": 8,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 132,
+      "games": 5917,
+      "bb": 21,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.426873311354908,
+        "low_heavy": 0.09040661574517059,
+        "high_heavy": 0.7336421141887814
+      },
+      "span": 0.6432354984436108
+    },
+    {
+      "model_id": "gogo3",
+      "number": 133,
+      "games": 1697,
+      "bb": 9,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "gogo3",
+      "number": 134,
+      "games": 5984,
+      "bb": 27,
+      "rb": 17,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.2889472053674386,
+        "low_heavy": 0.04643222350692014,
+        "high_heavy": 0.612081385409382
+      },
+      "span": 0.5656491619024618
+    },
+    {
+      "model_id": "gogo3",
+      "number": 135,
+      "games": 3771,
+      "bb": 19,
+      "rb": 10,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.336142137851953,
+        "low_heavy": 0.054227388876457644,
+        "high_heavy": 0.6685326319213258
+      },
+      "span": 0.6143052430448682
+    },
+    {
+      "model_id": "gogo3",
+      "number": 136,
+      "games": 7274,
+      "bb": 30,
+      "rb": 27,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6098648654109471,
+        "low_heavy": 0.1819692455314045,
+        "high_heavy": 0.8493732042815678
+      },
+      "span": 0.6674039587501633
+    },
+    {
+      "model_id": "gogo3",
+      "number": 137,
+      "games": 765,
+      "bb": 2,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 219,
+      "games": 3159,
+      "bb": 14,
+      "rb": 16,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.8484489725951467,
+        "low_heavy": 0.45090362078609136,
+        "high_heavy": 0.9525240261569536
+      },
+      "span": 0.5016204053708623
+    },
+    {
+      "model_id": "happy8",
+      "number": 220,
+      "games": 7334,
+      "bb": 30,
+      "rb": 21,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.38739613037236625,
+        "low_heavy": 0.07930312992385656,
+        "high_heavy": 0.6988954260762948
+      },
+      "span": 0.6195922961524383
+    },
+    {
+      "model_id": "happy8",
+      "number": 221,
+      "games": 639,
+      "bb": 1,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 222,
+      "games": 563,
+      "bb": 1,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 223,
+      "games": 6772,
+      "bb": 36,
+      "rb": 25,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.873106776196284,
+        "low_heavy": 0.5073132297782547,
+        "high_heavy": 0.9605303340956693
+      },
+      "span": 0.4532171043174147
+    },
+    {
+      "model_id": "happy8",
+      "number": 224,
+      "games": 1230,
+      "bb": 9,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 225,
+      "games": 5482,
+      "bb": 23,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5706348800291454,
+        "low_heavy": 0.15508117268124327,
+        "high_heavy": 0.8299411109680369
+      },
+      "span": 0.6748599382867937
+    },
+    {
+      "model_id": "happy8",
+      "number": 226,
+      "games": 2025,
+      "bb": 10,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 227,
+      "games": 2714,
+      "bb": 9,
+      "rb": 10,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 228,
+      "games": 5393,
+      "bb": 26,
+      "rb": 8,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.13164997347728014,
+        "low_heavy": 0.015672355742462934,
+        "high_heavy": 0.38059667382781787
+      },
+      "span": 0.3649243180853549
+    },
+    {
+      "model_id": "happy8",
+      "number": 229,
+      "games": 1063,
+      "bb": 2,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 230,
+      "games": 731,
+      "bb": 1,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 231,
+      "games": 4205,
+      "bb": 18,
+      "rb": 16,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6952813330776433,
+        "low_heavy": 0.24121788956540674,
+        "high_heavy": 0.8931125678661805
+      },
+      "span": 0.6518946783007737
+    },
+    {
+      "model_id": "happy8",
+      "number": 232,
+      "games": 1239,
+      "bb": 6,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 233,
+      "games": 5419,
+      "bb": 25,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.642406922696829,
+        "low_heavy": 0.196930144023401,
+        "high_heavy": 0.8687211007123643
+      },
+      "span": 0.6717909566889633
+    },
+    {
+      "model_id": "happy8",
+      "number": 234,
+      "games": 1065,
+      "bb": 3,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "happy8",
+      "number": 235,
+      "games": 4722,
+      "bb": 17,
+      "rb": 14,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.3944872387732775,
+        "low_heavy": 0.07843694334283435,
+        "high_heavy": 0.7093326081978293
+      },
+      "span": 0.6308956648549949
+    },
+    {
+      "model_id": "happy8",
+      "number": 236,
+      "games": 6044,
+      "bb": 24,
+      "rb": 19,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4895758522590214,
+        "low_heavy": 0.11759194820667448,
+        "high_heavy": 0.7782776115439549
+      },
+      "span": 0.6606856633372804
+    },
+    {
+      "model_id": "happy8",
+      "number": 237,
+      "games": 2241,
+      "bb": 9,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "mr",
+      "number": 210,
+      "games": 3937,
+      "bb": 14,
+      "rb": 8,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.17938278045275402,
+        "low_heavy": 0.02615134101597813,
+        "high_heavy": 0.45273989927960445
+      },
+      "span": 0.4265885582636263
+    },
+    {
+      "model_id": "mr",
+      "number": 211,
+      "games": 1068,
+      "bb": 1,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "mr",
+      "number": 212,
+      "games": 974,
+      "bb": 2,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "mr",
+      "number": 213,
+      "games": 926,
+      "bb": 1,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "mr",
+      "number": 214,
+      "games": 720,
+      "bb": 1,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "mr",
+      "number": 215,
+      "games": 1578,
+      "bb": 4,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "myj5",
+      "number": 2221,
+      "games": 6000,
+      "bb": 24,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5648746207525739,
+        "low_heavy": 0.1672656235834164,
+        "high_heavy": 0.8176591735627273
+      },
+      "span": 0.650393549979311
+    },
+    {
+      "model_id": "myj5",
+      "number": 2222,
+      "games": 7455,
+      "bb": 32,
+      "rb": 23,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.49708847415407725,
+        "low_heavy": 0.13276387254075886,
+        "high_heavy": 0.7739816717704798
+      },
+      "span": 0.641217799229721
+    },
+    {
+      "model_id": "myj5",
+      "number": 2223,
+      "games": 3175,
+      "bb": 4,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.05681830302638851,
+        "low_heavy": 0.006962998785271809,
+        "high_heavy": 0.1916377771315759
+      },
+      "span": 0.18467477834630408
+    },
+    {
+      "model_id": "myj5",
+      "number": 2224,
+      "games": 8191,
+      "bb": 34,
+      "rb": 27,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5957842169407538,
+        "low_heavy": 0.20123216989986278,
+        "high_heavy": 0.8301688184250986
+      },
+      "span": 0.6289366485252358
+    },
+    {
+      "model_id": "myj5",
+      "number": 2225,
+      "games": 4517,
+      "bb": 17,
+      "rb": 12,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.29312103005626144,
+        "low_heavy": 0.05150492897126854,
+        "high_heavy": 0.6080727642745429
+      },
+      "span": 0.5565678353032744
+    },
+    {
+      "model_id": "myj5",
+      "number": 2226,
+      "games": 1756,
+      "bb": 6,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "myj5",
+      "number": 2227,
+      "games": 6915,
+      "bb": 39,
+      "rb": 25,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.8943519954336494,
+        "low_heavy": 0.5768472851171523,
+        "high_heavy": 0.9664672583195749
+      },
+      "span": 0.3896199732024226
+    },
+    {
+      "model_id": "myj5",
+      "number": 2228,
+      "games": 1614,
+      "bb": 3,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "myj5",
+      "number": 2229,
+      "games": 4946,
+      "bb": 20,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6712904248302854,
+        "low_heavy": 0.2378961071950006,
+        "high_heavy": 0.876191602157641
+      },
+      "span": 0.6382954949626405
+    },
+    {
+      "model_id": "myj5",
+      "number": 2230,
+      "games": 6790,
+      "bb": 29,
+      "rb": 23,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6430760025017528,
+        "low_heavy": 0.22587069067655907,
+        "high_heavy": 0.8595040399118712
+      },
+      "span": 0.6336333492353121
+    },
+    {
+      "model_id": "myj5",
+      "number": 2231,
+      "games": 3265,
+      "bb": 11,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.15929432500071905,
+        "low_heavy": 0.022036182525361395,
+        "high_heavy": 0.4272092208052449
+      },
+      "span": 0.40517303827988355
+    },
+    {
+      "model_id": "myj5",
+      "number": 2232,
+      "games": 6567,
+      "bb": 24,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.37937541159919086,
+        "low_heavy": 0.08419168300620543,
+        "high_heavy": 0.6806503996976138
+      },
+      "span": 0.5964587166914084
+    },
+    {
+      "model_id": "myj5",
+      "number": 2233,
+      "games": 5862,
+      "bb": 21,
+      "rb": 15,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.203716003412767,
+        "low_heavy": 0.03293364271691513,
+        "high_heavy": 0.48645678942828197
+      },
+      "span": 0.45352314671136684
+    },
+    {
+      "model_id": "myj5",
+      "number": 2234,
+      "games": 2038,
+      "bb": 4,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "myj5",
+      "number": 2235,
+      "games": 3888,
+      "bb": 14,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.07169029894412934,
+        "low_heavy": 0.008666611560449492,
+        "high_heavy": 0.23795448325508578
+      },
+      "span": 0.2292878716946363
+    },
+    {
+      "model_id": "myj5",
+      "number": 2236,
+      "games": 4420,
+      "bb": 18,
+      "rb": 14,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4973227808722908,
+        "low_heavy": 0.12064125744016888,
+        "high_heavy": 0.7822635399910518
+      },
+      "span": 0.661622282550883
+    },
+    {
+      "model_id": "myj5",
+      "number": 2237,
+      "games": 3730,
+      "bb": 11,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.036734995128458216,
+        "low_heavy": 0.004185917597298245,
+        "high_heavy": 0.13450339826849841
+      },
+      "span": 0.13031748067120016
+    },
+    {
+      "model_id": "myj5",
+      "number": 2238,
+      "games": 3567,
+      "bb": 12,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.12106320008118411,
+        "low_heavy": 0.015931333351801816,
+        "high_heavy": 0.3529826306702662
+      },
+      "span": 0.3370512973184644
+    },
+    {
+      "model_id": "myj5",
+      "number": 2239,
+      "games": 9356,
+      "bb": 38,
+      "rb": 27,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.3277456586384425,
+        "low_heavy": 0.0704388733510938,
+        "high_heavy": 0.6264841669280841
+      },
+      "span": 0.5560452935769903
+    },
+    {
+      "model_id": "myj6",
+      "number": 2201,
+      "games": 8226,
+      "bb": 37,
+      "rb": 26,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5839830268166639,
+        "low_heavy": 0.18566670588094186,
+        "high_heavy": 0.8268939162032463
+      },
+      "span": 0.6412272103223045
+    },
+    {
+      "model_id": "myj6",
+      "number": 2202,
+      "games": 7317,
+      "bb": 20,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.08617064440875945,
+        "low_heavy": 0.012406126474738318,
+        "high_heavy": 0.25583144330158863
+      },
+      "span": 0.2434253168268503
+    },
+    {
+      "model_id": "myj6",
+      "number": 2203,
+      "games": 8124,
+      "bb": 29,
+      "rb": 30,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6998083006232348,
+        "low_heavy": 0.3127390287070165,
+        "high_heavy": 0.8795882121330963
+      },
+      "span": 0.5668491834260798
+    },
+    {
+      "model_id": "myj6",
+      "number": 2204,
+      "games": 9186,
+      "bb": 44,
+      "rb": 36,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.9380386904186901,
+        "low_heavy": 0.7540189391190801,
+        "high_heavy": 0.9794117145248016
+      },
+      "span": 0.22539277540572145
+    },
+    {
+      "model_id": "myj6",
+      "number": 2205,
+      "games": 6570,
+      "bb": 19,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.28103917268956724,
+        "low_heavy": 0.05615892985528149,
+        "high_heavy": 0.572988326883972
+      },
+      "span": 0.5168293970286906
+    },
+    {
+      "model_id": "myj6",
+      "number": 2206,
+      "games": 6658,
+      "bb": 22,
+      "rb": 17,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.156768827969434,
+        "low_heavy": 0.02448403728121125,
+        "high_heavy": 0.4047857746501102
+      },
+      "span": 0.38030173736889894
+    },
+    {
+      "model_id": "myj6",
+      "number": 2207,
+      "games": 6063,
+      "bb": 18,
+      "rb": 16,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.17133021246736138,
+        "low_heavy": 0.02749410575580425,
+        "high_heavy": 0.4284470496451814
+      },
+      "span": 0.40095294388937713
+    },
+    {
+      "model_id": "myj6",
+      "number": 2208,
+      "games": 8274,
+      "bb": 24,
+      "rb": 31,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6150053821095198,
+        "low_heavy": 0.24712332367731463,
+        "high_heavy": 0.8290278082897843
+      },
+      "span": 0.5819044846124697
+    },
+    {
+      "model_id": "myj6",
+      "number": 2209,
+      "games": 7619,
+      "bb": 29,
+      "rb": 13,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.02739700337456059,
+        "low_heavy": 0.003194823261503931,
+        "high_heavy": 0.10134278879757103
+      },
+      "span": 0.0981479655360671
+    },
+    {
+      "model_id": "myj6",
+      "number": 2210,
+      "games": 8042,
+      "bb": 30,
+      "rb": 29,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6830920762802759,
+        "low_heavy": 0.28875510006770333,
+        "high_heavy": 0.8726970423350051
+      },
+      "span": 0.5839419422673018
+    },
+    {
+      "model_id": "myj6",
+      "number": 2211,
+      "games": 7164,
+      "bb": 29,
+      "rb": 13,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.04813353739839952,
+        "low_heavy": 0.005831140320368178,
+        "high_heavy": 0.16781697670746898
+      },
+      "span": 0.1619858363871008
+    },
+    {
+      "model_id": "myj6",
+      "number": 2212,
+      "games": 8568,
+      "bb": 32,
+      "rb": 24,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.24397439712039104,
+        "low_heavy": 0.04575978037133721,
+        "high_heavy": 0.5301175603172422
+      },
+      "span": 0.484357779945905
+    },
+    {
+      "model_id": "myj6",
+      "number": 2213,
+      "games": 7428,
+      "bb": 27,
+      "rb": 19,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.16506495802563567,
+        "low_heavy": 0.026179696435424497,
+        "high_heavy": 0.41945543023093707
+      },
+      "span": 0.39327573379551256
+    },
+    {
+      "model_id": "myj6",
+      "number": 2214,
+      "games": 6549,
+      "bb": 24,
+      "rb": 20,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.3848733948124873,
+        "low_heavy": 0.08609103642542763,
+        "high_heavy": 0.6856133236043228
+      },
+      "span": 0.5995222871788952
+    },
+    {
+      "model_id": "myj6",
+      "number": 2215,
+      "games": 7546,
+      "bb": 26,
+      "rb": 24,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4041199570239388,
+        "low_heavy": 0.09952907587144082,
+        "high_heavy": 0.6941834373745893
+      },
+      "span": 0.5946543615031485
+    },
+    {
+      "model_id": "myj6",
+      "number": 2216,
+      "games": 6973,
+      "bb": 33,
+      "rb": 12,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.06215827308689271,
+        "low_heavy": 0.0074518716403557195,
+        "high_heavy": 0.21273511891302227
+      },
+      "span": 0.20528324727266656
+    },
+    {
+      "model_id": "myj6",
+      "number": 2217,
+      "games": 8822,
+      "bb": 40,
+      "rb": 33,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.8689700238722176,
+        "low_heavy": 0.5650218024441724,
+        "high_heavy": 0.9546393875402693
+      },
+      "span": 0.3896175850960969
+    },
+    {
+      "model_id": "myj6",
+      "number": 2218,
+      "games": 8163,
+      "bb": 37,
+      "rb": 24,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4574314081264631,
+        "low_heavy": 0.11318934325485859,
+        "high_heavy": 0.7475370878708641
+      },
+      "span": 0.6343477446160055
+    },
+    {
+      "model_id": "myj6",
+      "number": 2219,
+      "games": 7185,
+      "bb": 28,
+      "rb": 22,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.41807636067864573,
+        "low_heavy": 0.09952186332402284,
+        "high_heavy": 0.7130288925883906
+      },
+      "span": 0.6135070292643678
+    },
+    {
+      "model_id": "myj6",
+      "number": 2220,
+      "games": 7373,
+      "bb": 29,
+      "rb": 16,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.09085120820762667,
+        "low_heavy": 0.012232561644073154,
+        "high_heavy": 0.2778461378812121
+      },
+      "span": 0.26561357623713894
+    },
+    {
+      "model_id": "neoim",
+      "number": 2101,
+      "games": 6041,
+      "bb": 18,
+      "rb": 21,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6017381596657218,
+        "low_heavy": 0.20579045960349235,
+        "high_heavy": 0.8335048570721708
+      },
+      "span": 0.6277143974686785
+    },
+    {
+      "model_id": "neoim",
+      "number": 2102,
+      "games": 754,
+      "bb": 2,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2103,
+      "games": 4984,
+      "bb": 20,
+      "rb": 17,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6270935884881441,
+        "low_heavy": 0.20974453916919406,
+        "high_heavy": 0.8523228055051039
+      },
+      "span": 0.6425782663359099
+    },
+    {
+      "model_id": "neoim",
+      "number": 2104,
+      "games": 6139,
+      "bb": 15,
+      "rb": 24,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.7275896664856102,
+        "low_heavy": 0.3419076887797405,
+        "high_heavy": 0.8950219736209915
+      },
+      "span": 0.5531142848412509
+    },
+    {
+      "model_id": "neoim",
+      "number": 2105,
+      "games": 2193,
+      "bb": 7,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2106,
+      "games": 580,
+      "bb": 1,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2107,
+      "games": 7788,
+      "bb": 30,
+      "rb": 19,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.2047391806632757,
+        "low_heavy": 0.03384651700073051,
+        "high_heavy": 0.48160007415112854
+      },
+      "span": 0.44775355715039805
+    },
+    {
+      "model_id": "neoim",
+      "number": 2108,
+      "games": 576,
+      "bb": 0,
+      "rb": 1,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2109,
+      "games": 4272,
+      "bb": 16,
+      "rb": 14,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.5575858683955439,
+        "low_heavy": 0.15502325393569522,
+        "high_heavy": 0.8170312350576184
+      },
+      "span": 0.6620079811219233
+    },
+    {
+      "model_id": "neoim",
+      "number": 2110,
+      "games": 6237,
+      "bb": 21,
+      "rb": 19,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4484417310259961,
+        "low_heavy": 0.111096590594417,
+        "high_heavy": 0.7368206902625474
+      },
+      "span": 0.6257240996681304
+    },
+    {
+      "model_id": "neoim",
+      "number": 2111,
+      "games": 1845,
+      "bb": 5,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2112,
+      "games": 4341,
+      "bb": 17,
+      "rb": 12,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4008713838308787,
+        "low_heavy": 0.08167400734863822,
+        "high_heavy": 0.7115805179881138
+      },
+      "span": 0.6299065106394757
+    },
+    {
+      "model_id": "neoim",
+      "number": 2113,
+      "games": 8009,
+      "bb": 35,
+      "rb": 28,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.7414785560884258,
+        "low_heavy": 0.3651662329791958,
+        "high_heavy": 0.9003678064912083
+      },
+      "span": 0.5352015735120125
+    },
+    {
+      "model_id": "neoim",
+      "number": 2114,
+      "games": 2062,
+      "bb": 2,
+      "rb": 7,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2115,
+      "games": 3763,
+      "bb": 16,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.15709672807624875,
+        "low_heavy": 0.02075818450516967,
+        "high_heavy": 0.42489345508236953
+      },
+      "span": 0.4041352705771999
+    },
+    {
+      "model_id": "neoim",
+      "number": 2116,
+      "games": 3384,
+      "bb": 8,
+      "rb": 11,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.48298800397828406,
+        "low_heavy": 0.1122841459685331,
+        "high_heavy": 0.7729341786865701
+      },
+      "span": 0.660650032718037
+    },
+    {
+      "model_id": "neoim",
+      "number": 2117,
+      "games": 1440,
+      "bb": 1,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2118,
+      "games": 3707,
+      "bb": 9,
+      "rb": 11,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4040325041523669,
+        "low_heavy": 0.0820247493145941,
+        "high_heavy": 0.7142327419384938
+      },
+      "span": 0.6322079926238997
+    },
+    {
+      "model_id": "neoim",
+      "number": 2119,
+      "games": 2678,
+      "bb": 4,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2120,
+      "games": 6865,
+      "bb": 25,
+      "rb": 15,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.14074528289371308,
+        "low_heavy": 0.020087587477489687,
+        "high_heavy": 0.38044703075948516
+      },
+      "span": 0.3603594432819955
+    },
+    {
+      "model_id": "neoim",
+      "number": 2121,
+      "games": 1379,
+      "bb": 8,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2122,
+      "games": 6461,
+      "bb": 29,
+      "rb": 24,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.7885647498550681,
+        "low_heavy": 0.41685823021946855,
+        "high_heavy": 0.9229818511791836
+      },
+      "span": 0.5061236209597151
+    },
+    {
+      "model_id": "neoim",
+      "number": 2123,
+      "games": 5506,
+      "bb": 24,
+      "rb": 10,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.12652851515286484,
+        "low_heavy": 0.016752021287691637,
+        "high_heavy": 0.3598444365057909
+      },
+      "span": 0.34309241521809924
+    },
+    {
+      "model_id": "neoim",
+      "number": 2124,
+      "games": 1257,
+      "bb": 0,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2125,
+      "games": 1489,
+      "bb": 4,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2126,
+      "games": 5038,
+      "bb": 20,
+      "rb": 18,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6787616909478497,
+        "low_heavy": 0.2582214003670962,
+        "high_heavy": 0.8771424230734707
+      },
+      "span": 0.6189210227063745
+    },
+    {
+      "model_id": "neoim",
+      "number": 2127,
+      "games": 2154,
+      "bb": 9,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2128,
+      "games": 5938,
+      "bb": 16,
+      "rb": 22,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.6684339590870153,
+        "low_heavy": 0.2675908773191481,
+        "high_heavy": 0.8678661526188952
+      },
+      "span": 0.6002752752997471
+    },
+    {
+      "model_id": "neoim",
+      "number": 2129,
+      "games": 3726,
+      "bb": 17,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.16953869308722638,
+        "low_heavy": 0.022781013434416412,
+        "high_heavy": 0.44719665978915224
+      },
+      "span": 0.42441564635473583
+    },
+    {
+      "model_id": "neoim",
+      "number": 2130,
+      "games": 4621,
+      "bb": 13,
+      "rb": 14,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.4245237393244848,
+        "low_heavy": 0.09352741218860365,
+        "high_heavy": 0.725847976118986
+      },
+      "span": 0.6323205639303824
+    },
+    {
+      "model_id": "neoim",
+      "number": 2131,
+      "games": 5683,
+      "bb": 20,
+      "rb": 23,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.8086594108699079,
+        "low_heavy": 0.4516787447175512,
+        "high_heavy": 0.9311736808781206
+      },
+      "span": 0.4794949361605694
+    },
+    {
+      "model_id": "neoim",
+      "number": 2132,
+      "games": 1599,
+      "bb": 2,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2133,
+      "games": 1401,
+      "bb": 4,
+      "rb": 4,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2134,
+      "games": 7051,
+      "bb": 23,
+      "rb": 27,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.7692257275075614,
+        "low_heavy": 0.40609114167103333,
+        "high_heavy": 0.9128346766872035
+      },
+      "span": 0.5067435350161702
+    },
+    {
+      "model_id": "neoim",
+      "number": 2135,
+      "games": 1865,
+      "bb": 11,
+      "rb": 6,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2136,
+      "games": 6039,
+      "bb": 28,
+      "rb": 16,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "conditional_comparison",
+      "scenario_mass_4_6": {
+        "equal": 0.37363100349162537,
+        "low_heavy": 0.0769650164309148,
+        "high_heavy": 0.6826673539962391
+      },
+      "span": 0.6057023375653243
+    },
+    {
+      "model_id": "neoim",
+      "number": 2137,
+      "games": 2155,
+      "bb": 7,
+      "rb": 5,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2138,
+      "games": 2160,
+      "bb": 6,
+      "rb": 3,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 2139,
+      "games": 2355,
+      "bb": 4,
+      "rb": 2,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    },
+    {
+      "model_id": "neoim",
+      "number": 3501,
+      "games": 0,
+      "bb": 0,
+      "rb": 0,
+      "source_url": "https://min-repo.com/3441234/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX",
+      "status": "inference_unavailable"
+    }
+  ]
+}

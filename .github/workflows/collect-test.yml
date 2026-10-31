@@ -51,7 +51,7 @@ jobs:
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
           python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history test_answer_status -v
-          python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction test_count_models -v
+          python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction test_count_models test_count_tracking -v
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
@@ -109,6 +109,19 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "Update source checks and dated layout"
+            git pull --rebase origin "$GITHUB_REF_NAME"
+            git push origin "HEAD:$GITHUB_REF_NAME"
+          fi
+
+      - name: Freeze and evaluate research count predictions
+        timeout-minutes: 2
+        continue-on-error: true
+        run: |
+          mkdir -p history/count-predictions history/count-evaluations
+          python track_count_predictions.py
+          git add history/count-predictions history/count-evaluations
+          if ! git diff --cached --quiet; then
+            git commit -m "Save frozen research count predictions and evaluations"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi

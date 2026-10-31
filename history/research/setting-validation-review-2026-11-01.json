@@ -1,0 +1,84 @@
+{
+  "kind": "setting_research_review",
+  "as_of": "2026-11-01",
+  "calibrated": false,
+  "changes_live_strategy": false,
+  "prospective": {
+    "date": "2026-11-01",
+    "created_at": "2026-10-31T20:28:33.065862+00:00",
+    "snapshot_id": "8a9b79f9c5045ecb9b15304d52482547c0d32224069126ee5fcc42b874380f4e",
+    "checks": {
+      "hash_valid": true,
+      "before_07_jst": true,
+      "all_training_dates_before_target": true,
+      "weights_normalized": true
+    },
+    "models": 8,
+    "machines": 150,
+    "completed_days": 0,
+    "pending_rows": 150
+  },
+  "retrospective": {
+    "source": "count-model-comparison-2026-11-01.json",
+    "rows": 8926,
+    "models": {
+      "funky2": {
+        "days": 84,
+        "rows": 632,
+        "gain_vs_best_fixed_per_row": 0.06748699995320973,
+        "daily_gain_vs_equal": 0.06398537248044456
+      },
+      "girls": {
+        "days": 81,
+        "rows": 460,
+        "gain_vs_best_fixed_per_row": 0.001503789916016629,
+        "daily_gain_vs_equal": -0.0008802532988219125
+      },
+      "gogo3": {
+        "days": 87,
+        "rows": 1631,
+        "gain_vs_best_fixed_per_row": 0.04424192729794818,
+        "daily_gain_vs_equal": 0.057051706761250744
+      },
+      "happy8": {
+        "days": 85,
+        "rows": 1021,
+        "gain_vs_best_fixed_per_row": 0.053482721856724424,
+        "daily_gain_vs_equal": 0.04163873721603214
+      },
+      "mr": {
+        "days": 72,
+        "rows": 266,
+        "gain_vs_best_fixed_per_row": 0.022947842133794083,
+        "daily_gain_vs_equal": 0.054603834427237034
+      },
+      "myj5": {
+        "days": 87,
+        "rows": 2535,
+        "gain_vs_best_fixed_per_row": 0.03956918479805527,
+        "daily_gain_vs_equal": 0.12041879694976616
+      },
+      "myj6": {
+        "days": 2,
+        "rows": 40,
+        "gain_vs_best_fixed_per_row": 0.02493753169049029,
+        "daily_gain_vs_equal": 0.02493753169049011
+      },
+      "neoim": {
+        "days": 87,
+        "rows": 2341,
+        "gain_vs_best_fixed_per_row": 0.024102459880702476,
+        "daily_gain_vs_equal": 0.02288203929653942
+      }
+    }
+  },
+  "interpretation": [
+    "All 8 models improve mean per-row log score over the three fixed alternatives in retrospective replay; no statistical significance established.",
+    "Girls improvement is marginal; equal-day gain versus equal weights is negative. Uneven play counts can change the conclusion.",
+    "My Juggler VI has only 2 scored dates and 40 rows; insufficient for a stable conclusion.",
+    "No verified setting labels exist. BB/RB conditional count fit is not setting 4-6 accuracy, win rate, or profit.",
+    "Normal-game denominator semantics remain a conditional assumption extended from user report.",
+    "Nov 1 is the first frozen research date. Oct 31 results must not be counted as prospective setting validation."
+  ],
+  "next": "Score the unchanged Nov 1 snapshot after real results arrive; collect at least 30 prospective dates before considering live strategy changes."
+}

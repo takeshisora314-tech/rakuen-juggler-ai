@@ -180546,19 +180546,22 @@
   },
   "history_backfill": {
     "status": "partial",
-    "attempted_at": "2026-10-30T13:27:00.211643+00:00",
+    "attempted_at": "2026-10-31T06:11:09.228981+00:00",
     "models": {},
     "backfill_only": true,
     "history_window": {
       "days": 90,
       "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-01",
-      "latest_discovered": "2026-10-29",
+      "earliest_discovered": "2026-08-02",
+      "latest_discovered": "2026-10-30",
       "note": "Discovered reports are not proof of complete machine results"
     },
-    "report_date": "2026-10-29",
-    "report_url": "https://min-repo.com/3439403/",
+    "report_date": "2026-10-30",
+    "report_url": "https://min-repo.com/3441234/",
     "backfill": {
+      "2026-10-29": {
+        "status": "cached"
+      },
       "2026-10-28": {
         "status": "cached"
       },
@@ -180580,105 +180583,11 @@
       "2026-10-20": {
         "status": "cached"
       },
-      "2026-08-02": {
-        "status": "complete",
-        "models": {
-          "myj5": {
-            "status": "complete",
-            "rows": 39,
-            "expected_rows": 39,
-            "missing_numbers": []
-          },
-          "neoim": {
-            "status": "complete",
-            "rows": 40,
-            "expected_rows": 40,
-            "missing_numbers": []
-          },
-          "gogo3": {
-            "status": "complete",
-            "rows": 26,
-            "expected_rows": 26,
-            "missing_numbers": []
-          },
-          "funky2": {
-            "status": "complete",
-            "rows": 11,
-            "expected_rows": 11,
-            "missing_numbers": []
-          },
-          "happy8": {
-            "status": "complete",
-            "rows": 19,
-            "expected_rows": 19,
-            "missing_numbers": []
-          },
-          "girls": {
-            "status": "complete",
-            "rows": 9,
-            "expected_rows": 9,
-            "missing_numbers": []
-          },
-          "mr": {
-            "status": "complete",
-            "rows": 6,
-            "expected_rows": 6,
-            "missing_numbers": []
-          }
-        }
-      },
-      "2026-08-01": {
-        "status": "complete",
-        "models": {
-          "myj5": {
-            "status": "complete",
-            "rows": 39,
-            "expected_rows": 39,
-            "missing_numbers": []
-          },
-          "neoim": {
-            "status": "complete",
-            "rows": 40,
-            "expected_rows": 40,
-            "missing_numbers": []
-          },
-          "gogo3": {
-            "status": "complete",
-            "rows": 26,
-            "expected_rows": 26,
-            "missing_numbers": []
-          },
-          "funky2": {
-            "status": "complete",
-            "rows": 11,
-            "expected_rows": 11,
-            "missing_numbers": []
-          },
-          "happy8": {
-            "status": "complete",
-            "rows": 19,
-            "expected_rows": 19,
-            "missing_numbers": []
-          },
-          "girls": {
-            "status": "complete",
-            "rows": 9,
-            "expected_rows": 9,
-            "missing_numbers": []
-          },
-          "mr": {
-            "status": "complete",
-            "rows": 6,
-            "expected_rows": 6,
-            "missing_numbers": []
-          }
-        }
-      },
       "2026-10-26": {
-        "status": "deferred"
+        "status": "cooldown"
       },
       "2026-10-22": {
-        "status": "deferred"
+        "status": "cooldown"
       },
       "2026-10-19": {
         "status": "cached"
@@ -180735,7 +180644,7 @@
         "status": "cached"
       },
       "2026-10-01": {
-        "status": "deferred"
+        "status": "cached"
       },
       "2026-09-30": {
         "status": "cached"
@@ -180756,7 +180665,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "deferred"
+        "status": "cooldown"
       },
       "2026-09-23": {
         "status": "cached"
@@ -180913,10 +180822,13 @@
       },
       "2026-08-03": {
         "status": "cached"
+      },
+      "2026-08-02": {
+        "status": "cached"
       }
     },
-    "progress_saves": 17,
-    "progress_record_count": 300
+    "progress_saves": 1,
+    "progress_record_count": 0
   },
   "history_coverage": {
     "as_of_date": "2026-10-31",

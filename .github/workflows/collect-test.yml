@@ -51,7 +51,7 @@ jobs:
           python -m unittest test_machine_collector -v
           python -m unittest test_forecast_engine -v
           python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history test_answer_status -v
-          python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction -v
+          python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction test_count_models -v
           python -m unittest test_publication -v
           python -m unittest test_collection_runner -v
           node test_frontend.cjs
@@ -112,6 +112,27 @@ jobs:
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
+
+      - name: Refresh offline count-model comparison
+        timeout-minutes: 2
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          import subprocess
+          import sys
+          day = str(datetime.now(ZoneInfo('Asia/Tokyo')).date())
+          subprocess.run([sys.executable, 'evaluate_count_models.py', '--as-of', day], check=True)
+          subprocess.run(['git', 'add', 'history/research/count-model-comparison-' + day + '.json'], check=True)
+          changed = subprocess.run(['git', 'diff', '--cached', '--quiet']).returncode
+          if changed == 1:
+              subprocess.run(['git', 'commit', '-m', 'Update offline count-model comparison'], check=True)
+              subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'], check=True)
+              subprocess.run(['git', 'push', 'origin', 'HEAD:main'], check=True)
+          elif changed != 0:
+              raise RuntimeError('Unable to check research changes')
+          PY
 
   publication:
     needs: collect

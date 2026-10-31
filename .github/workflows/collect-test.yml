@@ -87,6 +87,19 @@ jobs:
                           '--output', 'evaluation_report.json'], check=True)
           PY
 
+      - name: Refresh paired strategies and missing-data audit
+        timeout-minutes: 2
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          import subprocess
+          import sys
+          day = str(datetime.now(ZoneInfo('Asia/Tokyo')).date())
+          subprocess.run([sys.executable, 'evaluate_strategies.py', '--as-of', day], check=True)
+          PY
+
       - name: Save collected status and snapshots
         run: |
           git config user.name "github-actions[bot]"

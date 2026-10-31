@@ -1,0 +1,113 @@
+{
+  "kind": "retrospective_single_day_count_check",
+  "date": "2026-10-31",
+  "calibrated": false,
+  "prospective": false,
+  "models": {
+    "funky2": {
+      "scored": 11,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.222806209319856,
+        "low_heavy": -5.914507831718381,
+        "high_heavy": -6.639697290223204,
+        "rolling_mixture": -6.072415937308295
+      },
+      "gain_vs_equal": 0.15039027201156063,
+      "best_method": "low_heavy"
+    },
+    "girls": {
+      "scored": 9,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.519542925394142,
+        "low_heavy": -6.285143319509835,
+        "high_heavy": -6.901327199273566,
+        "rolling_mixture": -6.554012097905213
+      },
+      "gain_vs_equal": -0.034469172511070845,
+      "best_method": "low_heavy"
+    },
+    "gogo3": {
+      "scored": 26,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.365027133311691,
+        "low_heavy": -6.299783084667904,
+        "high_heavy": -6.646464807645189,
+        "rolling_mixture": -6.283001260846921
+      },
+      "gain_vs_equal": 0.08202587246477044,
+      "best_method": "rolling_mixture"
+    },
+    "happy8": {
+      "scored": 19,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.047448261710694,
+        "low_heavy": -5.809605807902771,
+        "high_heavy": -6.393095001054189,
+        "rolling_mixture": -5.975131813317746
+      },
+      "gain_vs_equal": 0.07231644839294837,
+      "best_method": "low_heavy"
+    },
+    "mr": {
+      "scored": 6,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -5.765664827114736,
+        "low_heavy": -5.399582404288869,
+        "high_heavy": -6.2156805530266865,
+        "rolling_mixture": -5.481114177214026
+      },
+      "gain_vs_equal": 0.28455064990070955,
+      "best_method": "low_heavy"
+    },
+    "myj5": {
+      "scored": 19,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.748021795680204,
+        "low_heavy": -6.5965319023110265,
+        "high_heavy": -7.1546766179202494,
+        "rolling_mixture": -6.591196135481934
+      },
+      "gain_vs_equal": 0.15682566019826982,
+      "best_method": "rolling_mixture"
+    },
+    "myj6": {
+      "scored": 20,
+      "excluded": 0,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.486551188961131,
+        "low_heavy": -6.5973992736265945,
+        "high_heavy": -6.777354814079429,
+        "rolling_mixture": -6.53573797301815
+      },
+      "gain_vs_equal": -0.04918678405701904,
+      "best_method": "equal"
+    },
+    "neoim": {
+      "scored": 39,
+      "excluded": 1,
+      "trained_through": "2026-10-30",
+      "mean_log_scores": {
+        "equal": -6.321895646989199,
+        "low_heavy": -6.973026207038004,
+        "high_heavy": -6.225411284422131,
+        "rolling_mixture": -6.255962144726052
+      },
+      "gain_vs_equal": 0.06593350226314687,
+      "best_method": "high_heavy"
+    }
+  },
+  "note": "Replayed weights trained through Oct 30; not a forecast frozen before Oct 31. Conditional on observed games; no true setting labels or setting accuracy. Same eligible rows for all methods; under 3000G excluded."
+}

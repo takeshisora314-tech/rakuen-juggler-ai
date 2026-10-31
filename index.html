@@ -19,6 +19,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 .row{display:flex;align-items:center;gap:7px;padding:11px 0;border-bottom:1px solid #eee}.no{width:60px;font-size:18px;font-weight:900}.badge{margin-left:auto;font-size:14px;padding:5px 7px;border-radius:8px;background:#eef2ff}
 .note{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:11px;font-size:15px;line-height:1.65;margin-bottom:12px}.small{font-size:15px;color:#4b5563;line-height:1.65}input{max-width:100%;padding:8px;border:1px solid #d1d5db;border-radius:8px;font:inherit}h2{font-size:20px}h3{font-size:18px;margin-top:0}a{color:#1d4ed8}.date-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .row .no{flex:0 0 72px}.row>div{min-width:0}button,summary,select{min-height:44px}summary{cursor:pointer;padding:10px 0}.small{overflow-wrap:anywhere}.rank-list{margin-top:10px} @media(max-width:420px){main{padding:9px}.card{padding:12px}.row .no{flex-basis:66px;font-size:18px}}
+.grape-settings{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}.grape-settings label{font-size:15px}.grape-settings input{display:block;width:100%;margin-top:4px}#grape-results p{overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -37,11 +38,26 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <section class="card" id="evaluation-panel" aria-live="polite"></section>
 <section class="card" id="answer-panel" aria-live="polite"></section>
 <section class="card" id="research-panel" aria-live="polite"></section>
+<section class="card" id="grape-panel">
+<h3>参考ぶどう逆算（マイジャグ5・6）</h3>
+<p class="small">保存済み実績から通常時のぶどうを逆算します。実測値・設定判定ではありません。BB・RBの純増枚数と小役条件は仮定です。差枚とボーナスを使うため、設定推定への独立した加点には使いません。</p>
+<details><summary>計算条件を調整</summary><p class="small">初期値は検証用の仮定で、公式確認済みの組合せではありません。通常回転数はボーナス中を除く前提です。「その他払出」はチェリー・ベル・ピエロ等の通常1Gあたり平均払出枚数です。</p>
+<div class="grape-settings">
+<label>BB純増枚数<input id="grape-bb" type="number" value="240" min="0" step="0.1"></label>
+<label>RB純増枚数<input id="grape-rb" type="number" value="96" min="0" step="0.1"></label>
+<label>ぶどう払出枚数<input id="grape-pay" type="number" value="8" min="0.1" step="0.1"></label>
+<label>リプレイ分母（1/○）<input id="grape-replay" type="number" value="7.3" min="1.1" step="0.01"></label>
+<label>その他払出（枚/G）<input id="grape-other" type="number" value="0.06" min="0" step="0.01"></label>
+<label>差枚の仮定誤差（±枚）<input id="grape-error" type="number" value="100" min="0" step="10"></label>
+</div></details>
+<p class="small">初期条件：BB240枚・RB96枚・ぶどう8枚・リプレイ1/7.3・その他0.06枚/G・差枚±100枚。表示幅は指定した差枚誤差だけを動かした範囲で、信頼区間や全誤差の上限ではありません。</p>
+<div id="grape-results" aria-live="polite"></div></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
 <section class="card"><details class="small"><summary>iPhoneのホーム画面から使うには</summary><p>Safariの共有メニューから「ホーム画面に追加」を選びます。「Webアプリとして開く」が表示されたらオンにして追加してください。名前は「ジャグラーAI」です。既存のアイコンの表示が変わらない場合は、まず新しいアイコンを追加して動作を確認してください。</p><p>ホーム画面から独立した画面で開くための設定です。App Storeアプリではなく、閲覧には通信が必要です。開いていなくてもGitHub側の予定処理は実行されますが、実行遅延や取得失敗はあり得ます。画面が古い場合は、画面上部の「最新表示に更新」を押してください。端末への追加操作・Safari実機での最終確認は利用者側で必要です。</p></details></section>
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
+<script src="grape_estimator.js"></script>
 <script>
 let CONFIG = null, DATA = null, PUBLICATION = null, REPORT = null, ANSWERS = null, current = null, followToday = true, selectedResultDay = null;
 const dateInput = document.getElementById('layout-date');
@@ -280,6 +296,7 @@ function draw() {
     ? `<section class="card"><h2>${safe(model.name)}</h2><p class="small">${model.numbers.length}台・台番順（予想順位ではありません）<br>選択日以前の取得実績を表示。当日のライブデータではありません。${model.id === 'myj6' ? '<br>導入日：2026/10/27。旧マイジャグ5の実績を6の実績として引き継ぎません。' : ''}</p>${resultDays.length ? `<label class="small" for="result-day">実績日（${resultDays.length}日分）</label> <select id="result-day" style="font:inherit;padding:8px;max-width:100%">${resultDays.map(day=>`<option value="${safe(day)}" ${day===resultDay?'selected':''}>${safe(day)}</option>`).join('')}</select>` : ''}<p class="small">以下の集計は台割の基準日より前のデータを使用し、実績日の選択とは独立しています。</p>${recentDipSummary(model,dateInput.value)}${model.numbers.map(n => machineRow(n, records.get(n))).join('')}</section>`
     : '<div class="card">この日の台割は登録されていません。</div>';
   document.getElementById('result-day')?.addEventListener('change', event=>{selectedResultDay=event.target.value;draw();});
+  drawGrapes();
 }
 function drawSources() {
   let html = '<h3>データ元の接続確認（台別取得とは別）</h3>';
@@ -332,6 +349,30 @@ function drawPublication() {
   if(current && matches) html+=`<p class="small">予想あり${safe((status.ready_models||[]).length)}機種／履歴不足等で見送り${safe((status.abstained_models||[]).length)}機種。公開確認と全機種の予想成立は別です。</p>`;
   panel.innerHTML=html+'<p class="small">6:45・7:05に公開JSONを監視します（実行遅延あり）。Safari実機での表示確認・高設定予想の的中確認ではありません。</p>';
 }
+
+function drawGrapes() {
+  const box=document.getElementById('grape-results');
+  if(!CONFIG) {box.textContent='台割の読み込み待ちです。'; return;}
+  const model=activeModels(CONFIG,dateInput.value).find(m=>m.id===current);
+  if(!model || !['myj5','myj6'].includes(model.id)) {box.textContent='選択機種は逆算条件が未確認のため対象外です。マイジャグ5・6を選んでください。';return;}
+  const input=id=>{const raw=document.getElementById(id).value.trim();return raw===''?NaN:Number(raw);};
+  const opts={bbNet:input('grape-bb'),rbNet:input('grape-rb'),grapePay:input('grape-pay'),replayDenominator:input('grape-replay'),otherPayPerGame:input('grape-other'),differenceError:input('grape-error')};
+  const records=latestModelRecords(model,dateInput.value);
+  if(!records.size){box.textContent='逆算できる実績がありません。';return;}
+  const f=n=>n.toFixed(2);
+  let html='<p class="small">'+safe(model.name)+'／実績日 '+safe(records.values().next().value.date)+'／台番順</p>';
+  html+='<p class="small">使用条件：BB '+safe(opts.bbNet)+'・RB '+safe(opts.rbNet)+'・ぶどう '+safe(opts.grapePay)+'枚、リプレイ1/'+safe(opts.replayDenominator)+'、その他 '+safe(opts.otherPayPerGame)+'枚/G、差枚±'+safe(opts.differenceError)+'枚</p>';
+  for(const number of model.numbers) {
+    const row=records.get(number);
+    if(!row){html+='<p class="small">'+number+'番：実績未取得</p>';continue;}
+    if(row.games<3000){html+='<p class="small">'+number+'番：3,000G未満のため見送り</p>';continue;}
+    const v=typeof estimateGrapes==='function'?estimateGrapes(row,opts):{status:'unavailable'};
+    html+='<p class="small"><b>'+number+'番</b>：'+(v.status==='conditional_estimate'?'参考 1/'+f(v.denominator)+'<br>差枚誤差のみの範囲 1/'+f(v.denominatorLow)+'〜1/'+f(v.denominatorHigh):v.status==='invalid_assumptions'?'計算条件を確認してください':v.status==='invalid_record'?'数値不足・不正のため逆算不可':'仮定と数値が整合しないため逆算不可')+'</p>';
+  }
+  box.innerHTML=html;
+}
+document.querySelectorAll('.grape-settings input').forEach(input=>input.addEventListener('input',drawGrapes));
+
 async function fetchJSON(path) {
   const response = await fetch(path, {cache:'no-store'});
   if (!response.ok) throw new Error('読み込み失敗');

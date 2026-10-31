@@ -38,6 +38,30 @@ class ForecastTests(unittest.TestCase):
             self.assertEqual(len(candidates),3)
             self.assertTrue(all(0<=r['score']<=100 for r in candidates))
 
+    def test_one_or_two_eligible_machines_are_ranked_and_evaluated(self):
+        for numbers in ((2201,), (2201, 2202)):
+            with self.subTest(numbers=numbers):
+                rows = [r for r in self.rows if r['number'] in numbers]
+                forecast = self.forecast(rows)
+                model = forecast['models']['myj5']
+                self.assertEqual(model['status'], 'ready')
+                self.assertEqual(model['eligible_numbers'], list(numbers))
+                for candidates in model['strategies'].values():
+                    self.assertEqual(len(candidates), len(numbers))
+                actual = [self.row('2026-10-27', n) for n in numbers]
+                pending = evaluate(forecast, [])['models']['myj5']
+                self.assertEqual(pending['status'], 'pending_results')
+                result = evaluate(forecast, actual)['models']['myj5']
+                self.assertEqual(result['status'], 'complete')
+                for metrics in result['strategies'].values():
+                    self.assertEqual(metrics['count'], len(numbers))
+
+    def test_no_eligible_machine_still_abstains(self):
+        rows = [{**r, 'games': 2999} for r in self.rows]
+        model = self.forecast(rows)['models']['myj5']
+        self.assertEqual(model['status'], 'insufficient_eligible_machines')
+        self.assertEqual(model['strategies'], {})
+
     def test_future_results_cannot_change_forecast(self):
         future = [{**self.row('2026-10-27',n),'difference':99999} for n in range(2201,2205)]
         self.assertEqual(self.forecast()['models'],self.forecast(self.rows+future)['models'])

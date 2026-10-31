@@ -151,7 +151,7 @@ def make_forecast(config, records, target_day, evaluations=(), created_at=None):
                              'three_day_difference': dip3, 'history_games': games,
                              'history_rb': rb, 'rb_denominator': round(games/rb, 1) if rb else None,
                              '_components': (dip_score, rb_score, support)})
-        if len(features) < 3:
+        if not features:
             out['status'] = 'insufficient_eligible_machines'
             continue
         out['status'] = 'ready'
@@ -162,7 +162,7 @@ def make_forecast(config, records, target_day, evaluations=(), created_at=None):
                       for row in features]
             ordered = sorted(ranked, key=lambda r:(-r['score'],r['number']))
             out['rankings'][strategy] = ordered
-            out['strategies'][strategy] = ordered[:3]  # retain the original top-3 evaluation protocol
+            out['strategies'][strategy] = ordered[:3]  # up to three eligible candidates
     return result
 
 

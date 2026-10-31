@@ -1,0 +1,139 @@
+{
+  "kind": "exploratory_prior_sensitivity_window",
+  "from": "2026-08-02",
+  "through": "2026-10-30",
+  "as_of": "2026-10-31",
+  "record_count": 13483,
+  "calibrated": false,
+  "assumptions": [
+    "The user reported bonus games excluded for compared store data. Extending normal-game semantics to this 90-day exploration is a hypothesis, not verification of all dates.",
+    "Completed day, exclusive BB/RB, constant setting, and dated model identity are calculation assumptions.",
+    "Prior distributions are arbitrary sensitivity scenarios, not measured store allocation.",
+    "Single-day records only; no pooling of settings across days.",
+    "The 50% boundary is a diagnostic threshold, not validated decision advice.",
+    "Scenario stability does not establish actual setting accuracy or next-day prediction."
+  ],
+  "prior_weights": {
+    "equal": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "low_heavy": [
+      60,
+      20,
+      10,
+      5,
+      3,
+      2
+    ],
+    "high_heavy": [
+      5,
+      5,
+      10,
+      20,
+      30,
+      30
+    ]
+  },
+  "excluded_by_model": {
+    "funky2": 338,
+    "girls": 329,
+    "gogo3": 646,
+    "happy8": 665,
+    "neoim": 1241,
+    "mr": 251,
+    "myj5": 787
+  },
+  "summaries": {
+    "all": {
+      "count": 9226,
+      "mean_span": 0.505115358435414,
+      "crosses_half": 6283,
+      "all_above_half": 731,
+      "all_below_half": 2212
+    },
+    "model:funky2": {
+      "count": 653,
+      "mean_span": 0.5364450682003808,
+      "crosses_half": 491,
+      "all_above_half": 32,
+      "all_below_half": 130
+    },
+    "games:8000+": {
+      "count": 1828,
+      "mean_span": 0.47327382470354956,
+      "crosses_half": 1176,
+      "all_above_half": 475,
+      "all_below_half": 177
+    },
+    "games:3000-4999": {
+      "count": 2716,
+      "mean_span": 0.5291341601038548,
+      "crosses_half": 1940,
+      "all_above_half": 20,
+      "all_below_half": 756
+    },
+    "games:5000-7999": {
+      "count": 4682,
+      "mean_span": 0.5036141321069993,
+      "crosses_half": 3167,
+      "all_above_half": 236,
+      "all_below_half": 1279
+    },
+    "model:girls": {
+      "count": 481,
+      "mean_span": 0.5456739043443575,
+      "crosses_half": 367,
+      "all_above_half": 39,
+      "all_below_half": 75
+    },
+    "model:gogo3": {
+      "count": 1694,
+      "mean_span": 0.5379908072950204,
+      "crosses_half": 1268,
+      "all_above_half": 81,
+      "all_below_half": 345
+    },
+    "model:happy8": {
+      "count": 1043,
+      "mean_span": 0.5445374620055,
+      "crosses_half": 800,
+      "all_above_half": 64,
+      "all_below_half": 179
+    },
+    "model:mr": {
+      "count": 289,
+      "mean_span": 0.5349648270572149,
+      "crosses_half": 217,
+      "all_above_half": 17,
+      "all_below_half": 55
+    },
+    "model:myj5": {
+      "count": 2623,
+      "mean_span": 0.45132438238784034,
+      "crosses_half": 1428,
+      "all_above_half": 204,
+      "all_below_half": 991
+    },
+    "model:neoim": {
+      "count": 2363,
+      "mean_span": 0.5050479425743276,
+      "crosses_half": 1662,
+      "all_above_half": 287,
+      "all_below_half": 414
+    },
+    "model:myj6": {
+      "count": 80,
+      "mean_span": 0.45325675806458743,
+      "crosses_half": 50,
+      "all_above_half": 7,
+      "all_below_half": 23
+    }
+  },
+  "data_sha256": "27fd31d42775b37bf050c3a9726876cca11001903d546579fd125970ca288e0e",
+  "config_sha256": "98e80fb3480b606e4d1245e475d26ef28f7f44dde219f1e2a3996461915784ff"
+}

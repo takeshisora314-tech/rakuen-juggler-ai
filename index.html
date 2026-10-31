@@ -25,6 +25,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">実験予想・自動答え合わせ・公開実績</div></header>
 <nav id="tabs" class="tabs" aria-label="機種選択"></nav>
 <main>
+<section class="card"><button id="refresh-display" type="button">↻ 最新表示に更新</button><p class="small">保存済みの最新予想・答え合わせを読み直します。</p></section>
 <section class="card" id="publication-panel" aria-live="polite"><h3>朝の公開監視</h3><p class="small">監視結果を読み込んでいます。</p></section>
 <section class="card">
   <label for="layout-date">台割の基準日（日本時間）</label>
@@ -38,7 +39,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <section class="card" id="research-panel" aria-live="polite"></section>
 <div id="app" aria-live="polite"><div class="card">台割を読み込んでいます。</div></div>
 <section class="card" id="source-status" aria-live="polite"></section>
-<section class="card"><details class="small"><summary>iPhoneのホーム画面から使うには</summary><p>Safariの共有メニューから「ホーム画面に追加」を選びます。「Webアプリとして開く」が表示されたらオンにして追加してください。名前は「ジャグラーAI」です。既存のアイコンの表示が変わらない場合は、まず新しいアイコンを追加して動作を確認してください。</p><p>ホーム画面から独立した画面で開くための設定です。App Storeアプリではなく、閲覧には通信が必要です。開いていなくてもGitHub側の予定処理は実行されますが、実行遅延や取得失敗はあり得ます。画面が古い場合は一度閉じて開き直してください。端末への追加操作・Safari実機での最終確認は利用者側で必要です。</p></details></section>
+<section class="card"><details class="small"><summary>iPhoneのホーム画面から使うには</summary><p>Safariの共有メニューから「ホーム画面に追加」を選びます。「Webアプリとして開く」が表示されたらオンにして追加してください。名前は「ジャグラーAI」です。既存のアイコンの表示が変わらない場合は、まず新しいアイコンを追加して動作を確認してください。</p><p>ホーム画面から独立した画面で開くための設定です。App Storeアプリではなく、閲覧には通信が必要です。開いていなくてもGitHub側の予定処理は実行されますが、実行遅延や取得失敗はあり得ます。画面が古い場合は、画面上部の「最新表示に更新」を押してください。端末への追加操作・Safari実機での最終確認は利用者側で必要です。</p></details></section>
 <div class="note"><b>表示について</b><br>実験予想は固定ルールによる参考候補で、精度未検証です。点数は優先度であり勝率ではありません。設定そのものや設定変更は確認できません。台別実績はみんレポの独自集計による参考値です。差枚は実際の収支・期待利益を示さず、勝利を保証しません。未取得は0で補いません。</div>
 </main>
 <script>
@@ -351,6 +352,14 @@ async function load() {
   try { ANSWERS = await fetchJSON('answer_status.json'); } catch(error) { ANSWERS=null; }
   draw(); drawSources(); drawPublication(); drawAnswers();
 }
+document.getElementById('refresh-display').addEventListener('click', () => {
+  const button = document.getElementById('refresh-display');
+  button.disabled = true;
+  button.textContent = '更新中…';
+  const url = new URL(window.location.href);
+  url.searchParams.set('_refresh', String(Date.now()));
+  window.location.replace(url.href);
+});
 dateInput.addEventListener('change', () => {followToday = false; draw();});
 document.getElementById('today').addEventListener('click', () => {followToday = true; dateInput.value = todayJST(); draw();});
 setInterval(() => {

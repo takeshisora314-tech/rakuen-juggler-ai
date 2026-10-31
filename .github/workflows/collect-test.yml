@@ -5,7 +5,9 @@ on:
   schedule:
     - cron: "0 20 * * *"
     - cron: "17 21 * * *"
-    - cron: "30 14 * * *"
+    - cron: "30 14 * * *" # 23:30 JST: initial answer check
+    - cron: "17 15 * * *" # 00:17 JST: retry previous day after publication delay
+    - cron: "17 17 * * *" # 02:17 JST: second previous-day retry
     - cron: "45 21 * * *"
     - cron: "5 22 * * *"
 
@@ -149,7 +151,7 @@ jobs:
 
   publication:
     needs: collect
-    if: always() && !cancelled() && github.event.schedule != '30 14 * * *'
+    if: always() && !cancelled() && github.event.schedule != '30 14 * * *' && github.event.schedule != '17 15 * * *' && github.event.schedule != '17 17 * * *'
     runs-on: ubuntu-latest
     timeout-minutes: 4
     permissions:

@@ -50,6 +50,11 @@ assert.doesNotMatch(element('publication-panel').innerHTML,/7時前に公開先�
 vm.runInContext("DATA.forecast.snapshot_id='same';drawPublication();",context);
 assert.match(element('publication-panel').innerHTML,/7時前に公開先で確認済み/);
 assert.match(element('publication-panel').innerHTML,/予想あり1機種/);
+vm.runInContext("PUBLICATION.input_status='stale';PUBLICATION.missing_previous_day_models=['myj5'];drawPublication();",context);
+assert.match(element('publication-panel').innerHTML,/前日実績を反映していない予想/);
+assert.match(element('publication-panel').innerHTML,/公開できても、実績更新の成功とは扱いません/);
+vm.runInContext("PUBLICATION.input_status='previous_day_reflected';drawPublication();",context);
+assert.match(element('publication-panel').innerHTML,/使用実績日が前日/);
 vm.runInContext("PUBLICATION.date='2020-01-01';drawPublication();",context);
 assert.match(element('publication-panel').innerHTML,/今日の公開状態は未確認/);
 assert.doesNotMatch(element('publication-panel').innerHTML,/7時前に公開先で確認済み/);

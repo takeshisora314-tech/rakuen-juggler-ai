@@ -4,7 +4,11 @@ on:
   push:
     paths:
       - index.html
+      - check_publication.py
+      - test_publication.py
       - grape_estimator.js
+      - review_grape_conditions.cjs
+      - .github/workflows/collect-test.yml
       - test_*frontend.cjs
       - test_grape_estimator.cjs
       - .github/workflows/frontend-check.yml
@@ -26,3 +30,13 @@ jobs:
           node test_answer_frontend.cjs
           node test_grape_estimator.cjs
           node test_grape_frontend.cjs
+  publication-rules:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install requests==2.34.2
+      - run: python -m unittest test_publication -v

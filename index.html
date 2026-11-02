@@ -357,6 +357,11 @@ function drawPublication() {
   else if(status.status==='available' && !matches) html+='<p>監視結果と現在の予想が一致しません。最新の公開確認待ちです。</p>';
   else html+=`<p>${safe(labels[status.status] || '確認待ち')}<br>${safe(deadline[status.deadline_status] || '期限内公開は未確認')}</p>`;
   if(current && matches) html+=`<p class="small">予想あり${safe((status.ready_models||[]).length)}機種／履歴不足等で見送り${safe((status.abstained_models||[]).length)}機種。公開確認と全機種の予想成立は別です。</p>`;
+  if(current && matches) {
+    if(status.input_status==='stale') html+=`<p class="note"><b>前日実績を反映していない予想があります。</b>対象：${safe((status.missing_previous_day_models||[]).map(id=>CONFIG?.models.find(m=>m.id===id)?.name||id).join('・'))}。公開できても、実績更新の成功とは扱いません。</p>`;
+    else if(status.input_status==='previous_day_reflected') html+='<p class="small">予想ありの全機種で、使用実績日が前日であることを確認済みです。</p>';
+    else html+='<p class="small">前日実績の反映状況は未確認です。</p>';
+  }
   panel.innerHTML=html+'<p class="small">6:45・7:05に公開JSONを監視します（実行遅延あり）。Safari実機での表示確認・高設定予想の的中確認ではありません。</p>';
 }
 

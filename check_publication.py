@@ -1,6 +1,6 @@
 """Observe the public Pages payload; generation time is NOT publication proof."""
 import json
-from datetime import datetime, time, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 
 import requests
@@ -30,6 +30,7 @@ def observe(config, payload, now, previous=None, error=None):
            'deadline_status': 'not_yet_due' if now < deadline else 'unverified',
            'snapshot_id': None, 'evidence': {}, 'ready_models': [],
            'abstained_models': [], 'require_attention': False,
+           'input_status':'unverified', 'source_dates':{}, 'missing_previous_day_models':[],
            'note': 'Observed public JSON availability, not Safari rendering or setting accuracy.'}
     # Retain only previously observed proof for this day and this exact public URL.
     if previous.get('date') == str(today) and previous.get('public_url') == PUBLIC_URL:
@@ -66,6 +67,16 @@ def observe(config, payload, now, previous=None, error=None):
                 out['first_observed_at'] = out['evidence'][key]
                 out['ready_models'] = [k for k,v in forecast['models'].items() if v.get('status') == 'ready']
                 out['abstained_models'] = [k for k,v in forecast['models'].items() if v.get('status') != 'ready']
+                expected_source = str(today-timedelta(days=1))
+                for model_id in out['ready_models']:
+                    source = forecast['models'][model_id].get('latest_source_date')
+                    if not isinstance(source,str) or str(date.fromisoformat(source)) != source or source >= str(today):
+                        raise ValueError('Ready forecast has invalid or future source date')
+                    out['source_dates'][model_id] = source
+                    if source != expected_source:
+                        out['missing_previous_day_models'].append(model_id)
+                out['input_status'] = ('not_applicable' if not out['ready_models'] else
+                                       'stale' if out['missing_previous_day_models'] else 'previous_day_reflected')
                 if created >= deadline:
                     out.update(status='late_generated', deadline_status='missed')
                 elif aware(out['first_observed_at']) < deadline:
@@ -77,6 +88,8 @@ def observe(config, payload, now, previous=None, error=None):
         except (ValueError, TypeError, KeyError, AttributeError) as exc:
             out.update(status='invalid_payload', reason=str(exc)[:300], snapshot_id=None)
     if now >= deadline and out['status'] != 'available':
+        out['require_attention'] = True
+    if now >= deadline and out['input_status'] == 'stale':
         out['require_attention'] = True
     return out
 
@@ -111,3 +124,4 @@ def run(base=BASE, now=None, fetcher=fetch_public):
 
 if __name__ == '__main__':
     run()
+

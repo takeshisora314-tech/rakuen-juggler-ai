@@ -11,6 +11,32 @@ from forecast_engine import make_forecast, snapshot_id
 
 
 class PublicationTests(unittest.TestCase):
+    def test_publication_success_does_not_hide_stale_forecast_inputs(self):
+        f=self.payload['forecast']
+        f['models']['myj5'].update(status='ready',latest_source_date='2026-10-26')
+        f['snapshot_id']=snapshot_id({k:v for k,v in f.items() if k not in ('display_status','delivery')})
+        before=copy.deepcopy(self.payload)
+        early=observe(self.config,self.payload,self.early)
+        self.assertEqual(early['deadline_status'],'verified_on_time')
+        self.assertEqual(early['input_status'],'stale')
+        self.assertFalse(early['require_attention'])
+        late=observe(self.config,self.payload,self.late,early)
+        self.assertEqual(late['status'],'available')
+        self.assertEqual(late['missing_previous_day_models'],['myj5'])
+        self.assertTrue(late['require_attention'])
+        self.assertEqual(self.payload,before)
+        f['models']['myj5']['latest_source_date']='2026-10-27'
+        f['snapshot_id']=snapshot_id({k:v for k,v in f.items() if k not in ('display_status','delivery')})
+        fresh=observe(self.config,self.payload,self.late)
+        self.assertEqual(fresh['input_status'],'previous_day_reflected')
+        self.assertFalse(fresh['require_attention'])
+
+    def test_future_source_date_is_not_accepted_as_fresh(self):
+        f=self.payload['forecast']
+        f['models']['myj5'].update(status='ready',latest_source_date='2026-10-28')
+        f['snapshot_id']=snapshot_id({k:v for k,v in f.items() if k not in ('display_status','delivery')})
+        self.assertEqual(observe(self.config,self.payload,self.late)['status'],'invalid_payload')
+
     def setUp(self):
         self.config={'timezone':'Asia/Tokyo','models':[{'id':'myj5','name':'V',
           'installations':[{'from':None,'until':None,'numbers':[2221,2222,2223]}]}]}
@@ -45,7 +71,7 @@ class PublicationTests(unittest.TestCase):
         f=self.payload['forecast']
         f.pop('snapshot_id');f.pop('display_status');f.pop('delivery')
         f['created_at']='2026-10-27T20:01:00+00:00'
-        f['snapshot_id']=snapshot_id(f);f['display_status']='locked'
+        f['snapshot_id']=snapshot_id({k:v for k,v in f.items() if k not in ('display_status','delivery')});f['display_status']='locked'
         self.assertEqual(observe(self.config,self.payload,self.late,old)['deadline_status'],'unverified')
 
     def test_tampered_payload_is_rejected(self):
@@ -95,3 +121,4 @@ class PublicationTests(unittest.TestCase):
 
 
 if __name__=='__main__': unittest.main()
+

@@ -8,6 +8,9 @@ on:
       - test_forecast_engine.py
       - rank_comparison.py
       - test_rank_comparison.py
+      - external_morning_trigger.mjs
+      - test_external_morning_trigger.mjs
+      - wrangler.jsonc
       - track_count_predictions.py
       - test_count_tracking.py
       - check_publication.py
@@ -21,6 +24,15 @@ on:
 permissions:
   contents: read
 jobs:
+  external-trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --test test_external_morning_trigger.mjs
   frontend:
     runs-on: ubuntu-latest
     timeout-minutes: 3

@@ -123,7 +123,7 @@ jobs:
         run: |
           mkdir -p history/count-predictions history/count-evaluations
           python track_count_predictions.py
-          git add history/count-predictions history/count-evaluations
+          git add history/count-predictions history/count-evaluations history/research/prospective-count-validation-*.json
           if ! git diff --cached --quiet; then
             git commit -m "Save frozen research count predictions and evaluations"
             git pull --rebase origin "$GITHUB_REF_NAME"

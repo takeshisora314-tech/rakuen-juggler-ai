@@ -97,6 +97,45 @@ def score(snapshot, records, config):
     return result
 
 
+def summarize_validation(evaluations, as_of):
+    """Describe frozen, completed past dates; never promote a live strategy."""
+    past = [e for e in evaluations if e['date'] < as_of]
+    if len({e['date'] for e in past}) != len(past):
+        raise ValueError('Duplicate prospective evaluation date')
+    models = {}
+    for model in sorted({m for e in past for m in e['models']}):
+        eligible = [e['models'][model] for e in past if model in e['models']
+                    and e['models'][model]['status'] == 'complete'
+                    and e['models'][model]['scored'] > 0]
+        days = len(eligible)
+        rows = sum(m['scored'] for m in eligible)
+        methods = {}
+        for name in (*FIXED, 'rolling_mixture'):
+            gains = [m['mean_log_scores'][name]-m['mean_log_scores']['equal'] for m in eligible]
+            methods[name] = {
+                'mean_daily_gain_vs_equal': mean(gains) if days else None,
+                'mean_row_gain_vs_equal': sum(g*m['scored'] for g,m in zip(gains,eligible))/rows if rows else None,
+                'days_above_equal': sum(g > 0 for g in gains),
+                'days_below_equal': sum(g < 0 for g in gains)}
+        models[model] = {'completed_days':days, 'scored_rows':rows,
+            'excluded_rows':sum(m['excluded'] for m in eligible),
+            'days_remaining_to_minimum':max(0,30-days),
+            'validation_status':'minimum_sample_reached_review_required' if days >= 30 else 'insufficient_prospective_days',
+            'methods':methods}
+    complete = [e['date'] for e in past if e['models'] and all(
+        m['status'] == 'complete' and m['scored'] > 0 for m in e['models'].values())]
+    return {'kind':'frozen_prospective_count_validation', 'as_of':as_of,
+        'calibrated':False, 'changes_live_strategy':False,
+        'minimum_completed_days_per_model':30,
+        'completed_dates':sorted(complete), 'models':models,
+        'interpretation':[
+            'Higher conditional BB/RB log score is better; compare the same scored rows.',
+            'Daily and row-weighted gains are separate; partial dates and same-day results are excluded.',
+            'Thirty completed dates is a minimum review gate, not proof or automatic adoption.',
+            'No verified setting labels: count fit is not setting 4-6 accuracy, win rate or profit.',
+            'Normal-game semantics, constant setting and factory-rate assumptions remain conditional.']}
+
+
 def run(base=Path(__file__).parent, now=None):
     now = now or datetime.now(timezone.utc)
     config = json.loads((base/'machines.json').read_text())
@@ -104,12 +143,17 @@ def run(base=Path(__file__).parent, now=None):
     freeze(base,config,records,now)
     day = str(now.astimezone(ZoneInfo(config['timezone'])).date())
     count = 0
+    evaluations = []
     for path in sorted((base/'history/count-predictions').glob('*.json')):
         snapshot = json.loads(path.read_text())
         if snapshot['date'] > day:
             continue
-        write_json(base/'history/count-evaluations'/path.name,score(snapshot,records,config))
+        evaluation = score(snapshot,records,config)
+        write_json(base/'history/count-evaluations'/path.name,evaluation)
+        evaluations.append(evaluation)
         count += 1
+    write_json(base/'history/research'/('prospective-count-validation-'+day+'.json'),
+               summarize_validation(evaluations,day))
     print(json.dumps({'research_snapshots_evaluated':count,'date':day}))
 
 

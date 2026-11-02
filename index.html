@@ -26,7 +26,7 @@ main{max-width:760px;margin:auto;padding:12px}.card{background:#fff;border-radiu
 <header><h1>🎰 楽園上新屋 ジャグラーAI</h1><div class="sub">実験予想・自動答え合わせ・公開実績</div></header>
 <nav id="tabs" class="tabs" aria-label="機種選択"></nav>
 <main>
-<section class="card"><button id="refresh-display" type="button">↻ 最新表示に更新</button><p class="small">保存済みの最新予想・答え合わせを読み直します。</p></section>
+<section class="card"><button id="refresh-display" type="button">↻ 最新表示に更新</button><p class="small">保存済みの最新予想・答え合わせを読み直します。アプリに戻ったときも自動で確認します。</p><p id="data-refresh-status" class="small" aria-live="polite"></p></section>
 <section class="card" id="publication-panel" aria-live="polite"><h3>朝の公開監視</h3><p class="small">監視結果を読み込んでいます。</p></section>
 <section class="card">
   <label for="layout-date">台割の基準日（日本時間）</label>
@@ -397,24 +397,52 @@ function drawGrapes() {
 document.querySelectorAll('.grape-settings input').forEach(input=>input.addEventListener('input',drawGrapes));
 
 async function fetchJSON(path) {
-  const response = await fetch(path, {cache:'no-store'});
-  if (!response.ok) throw new Error('読み込み失敗');
-  return response.json();
+  const controller=typeof AbortController==='function'?new AbortController():null;
+  const timeout=controller?setTimeout(()=>controller.abort(),25000):null;
+  try {
+    const url=path+(path.includes('?')?'&':'?')+'_read='+Date.now();
+    const response = await fetch(url, {cache:'no-store',...(controller?{signal:controller.signal}:{})});
+    if (!response.ok) throw new Error('読み込み失敗');
+    return await response.json();
+  } finally {if(timeout!==null) clearTimeout(timeout);}
+}
+let refreshInFlight=null,lastDataCheck=0;
+function refreshSavedData(force=false) {
+  if(refreshInFlight) return refreshInFlight;
+  if(!force && (document.visibilityState==='hidden' || Date.now()-lastDataCheck<60000)) return Promise.resolve(false);
+  lastDataCheck=Date.now();
+  const status=document.getElementById('data-refresh-status');
+  status.textContent='公開データを確認中…';
+  refreshInFlight=(async()=>{
+    try {
+      const results=await Promise.allSettled(['machines.json','data.json','publication_status.json','evaluation_report.json','answer_status.json'].map(path=>fetchJSON(path)));
+      const [configResult,dataResult]=results;
+      if(configResult.status!=='fulfilled' || dataResult.status!=='fulfilled') throw new Error('Required data unavailable');
+      const nextConfig=configResult.value,nextData=dataResult.value;
+      if(!Array.isArray(nextConfig?.models) || !Array.isArray(nextData?.machine_records)) throw new Error('Invalid public data');
+      activeModels(nextConfig,dateInput.value || todayJST());
+      CONFIG=nextConfig; DATA=nextData;
+      [PUBLICATION,REPORT,ANSWERS]=results.slice(2).map(result=>result.status==='fulfilled'?result.value:null);
+      if(followToday) dateInput.value=todayJST();
+      draw(); drawSources(); drawPublication(); drawAnswers();
+      const stamp=new Date().toLocaleString('ja-JP',{timeZone:'Asia/Tokyo'});
+      status.textContent='表示データの確認：'+stamp+'（日本時間）'+(results.slice(2).some(r=>r.status==='rejected')?'／一部の確認記録は読み込めませんでした。':'');
+      return true;
+    } catch(error) {
+      status.textContent=DATA?'最新データを確認できませんでした。前回読み込んだデータを表示しています。通信を確認して「最新表示に更新」を押してください。':'データを読み込めませんでした。通信を確認して「最新表示に更新」を押してください。';
+      return false;
+    }
+  })().finally(()=>{refreshInFlight=null;});
+  return refreshInFlight;
 }
 async function load() {
-  dateInput.value = todayJST();
-  try {
-    CONFIG = await fetchJSON('machines.json');
-    if (!Array.isArray(CONFIG.models)) throw new Error('台割の形式が不正です');
-    draw();
-  } catch (error) {
-    document.getElementById('app').innerHTML = '<div class="card">台割を読み込めませんでした。時間をおいて再読み込みしてください。</div>';
-  }
-  try { DATA = await fetchJSON('data.json'); } catch (error) { DATA = null; }
-  try { PUBLICATION = await fetchJSON('publication_status.json'); } catch(error) { PUBLICATION=null; }
-  try { REPORT = await fetchJSON('evaluation_report.json'); } catch(error) { REPORT=null; }
-  try { ANSWERS = await fetchJSON('answer_status.json'); } catch(error) { ANSWERS=null; }
-  draw(); drawSources(); drawPublication(); drawAnswers();
+  dateInput.value=todayJST();
+  return refreshSavedData(true);
+}
+if(typeof document.addEventListener==='function') document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible') refreshSavedData();});
+if(typeof window!=='undefined' && typeof window.addEventListener==='function') {
+  window.addEventListener('pageshow',()=>refreshSavedData());
+  window.addEventListener('focus',()=>refreshSavedData());
 }
 document.getElementById('refresh-display').addEventListener('click', () => {
   const button = document.getElementById('refresh-display');
@@ -428,7 +456,7 @@ dateInput.addEventListener('change', () => {followToday = false; draw();});
 document.getElementById('today').addEventListener('click', () => {followToday = true; dateInput.value = todayJST(); draw();});
 setInterval(() => {
   drawAnswers();
-  if (followToday && dateInput.value !== todayJST()) {dateInput.value = todayJST(); draw(); drawPublication();}
+  if (followToday && dateInput.value !== todayJST()) refreshSavedData();
 }, 60000);
 load();
 </script>

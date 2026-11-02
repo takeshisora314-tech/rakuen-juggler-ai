@@ -169,7 +169,17 @@ function drawForecast(model) {
   const item = forecast.models?.[model.id];
   const reasons = {insufficient_history:'履歴が3日未満のため予想しません。', stale_data:'直近実績が古いため予想しません。', insufficient_eligible_machines:'回転数・欠損条件を満たす台が不足しています。'};
   const state = forecast.display_status === 'locked' ? '事前保存済み（変更しません）' : '仮表示（朝の収集後に事前保存）';
-  let html = `<h3>実験予想：${safe(forecast.date)} · ${safe(model.name)}</h3><p class="small">${safe(state)}<br>上の台割・実績日選択とは独立した、最新の予想です。未検証の参考候補で、設定上げの確率・勝率ではありません。</p>`;
+  let html = `<h3>実験予想：${safe(forecast.date)} · ${safe(model.name)}</h3><p class="small">${safe(state)}<br>上の台割・実績日選択とは独立した、公開中の予想です。未検証の参考候補で、設定上げの確率・勝率ではありません。</p>`;
+  const created=new Date(forecast.created_at);
+  const createdLabel=Number.isFinite(created.getTime())?new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(created):'記録なし';
+  html+=`<p class="small">予想の生成日時：${safe(createdLabel)}（日本時間）</p>`;
+  if(forecast.date < todayJST()) html+='<p class="note"><b>今日の予想はまだ取得できていません。</b>以下は過去日の保存予想です。「最新表示に更新」で公開データを再確認してください。</p>';
+  if(item?.status==='ready' && /^\d{4}-\d{2}-\d{2}$/.test(forecast.date)) {
+    const previous=new Date(forecast.date+'T00:00:00Z');previous.setUTCDate(previous.getUTCDate()-1);
+    if(item.latest_source_date < previous.toISOString().slice(0,10)) html+=`<p class="note"><b>前日実績が未反映の予想です。</b>この保存予想は${safe(item.latest_source_date)}までの実績を使用しています。同じ実績を使うと、前日と候補・順位が同じになる場合があります。</p>`;
+    const latest=(DATA.machine_records||[]).filter(r=>r.model_id===model.id && r.date<forecast.date).reduce((last,r)=>r.date>last?r.date:last,'');
+    if(latest>item.latest_source_date) html+=`<p class="note">新しい実績（${safe(latest)}）は取得済みですが、この朝の保存予想には未反映です。保存済み予想は答え合わせのため変更せず、今後生成する予想に使用します。</p>`;
+  }
   if (!item || item.status !== 'ready') html += `<p>${safe(reasons[item?.status] || 'この予想日の対象機種ではありません。')}</p>`;
   else {
     const selection = item.selection;

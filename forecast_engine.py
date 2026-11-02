@@ -252,6 +252,7 @@ def run(base=BASE, now=None):
     config = json.loads((base/'machines.json').read_text(encoding='utf-8'))
     data = json.loads((base/'data.json').read_text(encoding='utf-8'))
     records = data.get('machine_records', [])
+    newly_saved_snapshot = None
     local = now.astimezone(ZoneInfo(config['timezone']))
     today = str(local.date())
     forecast_root = base/'history'/'forecasts'
@@ -303,6 +304,7 @@ def run(base=BASE, now=None):
             readiness = morning_input_readiness(config,records,target)
             if readiness['ready']:
                 forecast = save_snapshot(live_path,forecast)
+                newly_saved_snapshot = json.loads(json.dumps(forecast))
             else:
                 forecast['input_readiness'] = readiness
                 forecast['display_status'] = 'waiting_for_results'
@@ -332,6 +334,14 @@ def run(base=BASE, now=None):
     print(json.dumps({'forecast_date':target, 'status':forecast['display_status'],
                       'ready_models':[m for m,v in forecast['models'].items() if v['status']=='ready'],
                       'prospective_days':len(evaluations), 'retrospective_days':len(replay)}, ensure_ascii=False))
+    # Research comparison runs after the public payload is saved. Its failures
+    # must never prevent publication or change live rankings/settlement.
+    try:
+        from rank_comparison import run as compare_rankings
+        compare_rankings(base=base, now=now, new_snapshot=newly_saved_snapshot,
+                         config=config, records=records)
+    except Exception as exc:
+        print(json.dumps({'rank_comparison_status':'error','error':str(exc)}))
     return data
 
 

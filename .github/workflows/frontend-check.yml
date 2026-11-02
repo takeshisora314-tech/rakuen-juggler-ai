@@ -6,6 +6,8 @@ on:
       - index.html
       - forecast_engine.py
       - test_forecast_engine.py
+      - rank_comparison.py
+      - test_rank_comparison.py
       - track_count_predictions.py
       - test_count_tracking.py
       - check_publication.py
@@ -44,4 +46,4 @@ jobs:
         with:
           python-version: "3.11"
       - run: python -m pip install requests==2.34.2
-      - run: python -m unittest test_publication test_forecast_engine test_count_tracking -v
+      - run: python -m unittest test_publication test_forecast_engine test_count_tracking test_rank_comparison -v

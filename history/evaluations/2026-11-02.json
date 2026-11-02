@@ -5,1090 +5,2804 @@
   "snapshot_id": "8a86092a6a17bc714a13539fa451a4dc26c69fd90f4869f9e641cbca4b3b16f8",
   "models": {
     "myj6": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 771.67,
+          "lift_vs_eligible_mean": 718.47,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2202,
+              "games": 5199,
+              "bb": 20,
+              "rb": 9,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2206,
+              "games": 10238,
+              "bb": 44,
+              "rb": 36,
+              "difference": 2361,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2219,
+              "games": 7596,
+              "bb": 30,
+              "rb": 22,
+              "difference": 417,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 771.67,
+          "lift_vs_eligible_mean": 718.47,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2206,
+              "games": 10238,
+              "bb": 44,
+              "rb": 36,
+              "difference": 2361,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2202,
+              "games": 5199,
+              "bb": 20,
+              "rb": 9,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2219,
+              "games": 7596,
+              "bb": 30,
+              "rb": 22,
+              "difference": 417,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": -725.33,
+          "lift_vs_eligible_mean": -778.53,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2203,
+              "games": 5438,
+              "bb": 15,
+              "rb": 13,
+              "difference": -1667,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2208,
+              "games": 6674,
+              "bb": 15,
+              "rb": 14,
+              "difference": -3194,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            },
+            {
+              "number": 2212,
+              "games": 7818,
+              "bb": 39,
+              "rb": 23,
+              "difference": 2685,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 2202,
           "score": 66.74,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5199,
+            "bb": 20,
+            "rb": 9,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 2,
           "number": 2206,
           "score": 64.24,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 10238,
+            "bb": 44,
+            "rb": 36,
+            "difference": 2361,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 3,
           "number": 2219,
           "score": 52.71,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7596,
+            "bb": 30,
+            "rb": 22,
+            "difference": 417,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 4,
           "number": 2203,
           "score": 51.37,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5438,
+            "bb": 15,
+            "rb": 13,
+            "difference": -1667,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 5,
           "number": 2213,
           "score": 51.07,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4989,
+            "bb": 15,
+            "rb": 16,
+            "difference": -1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 6,
           "number": 2212,
           "score": 50.05,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7818,
+            "bb": 39,
+            "rb": 23,
+            "difference": 2685,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 7,
           "number": 2215,
           "score": 48.78,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7794,
+            "bb": 37,
+            "rb": 19,
+            "difference": 1343,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 8,
           "number": 2208,
           "score": 46.87,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6674,
+            "bb": 15,
+            "rb": 14,
+            "difference": -3194,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 9,
           "number": 2207,
           "score": 44.46,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3829,
+            "bb": 15,
+            "rb": 9,
+            "difference": -139,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 10,
           "number": 2211,
           "score": 43.74,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6165,
+            "bb": 23,
+            "rb": 15,
+            "difference": -93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 11,
           "number": 2201,
           "score": 42.78,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7609,
+            "bb": 22,
+            "rb": 32,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 12,
           "number": 2209,
           "score": 42.05,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7396,
+            "bb": 31,
+            "rb": 16,
+            "difference": 185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 13,
           "number": 2210,
           "score": 41.98,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8034,
+            "bb": 37,
+            "rb": 19,
+            "difference": 926,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 14,
           "number": 2205,
           "score": 41.93,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8257,
+            "bb": 32,
+            "rb": 26,
+            "difference": 231,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 15,
           "number": 2217,
           "score": 41.27,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7513,
+            "bb": 30,
+            "rb": 14,
+            "difference": -648,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 16,
           "number": 2220,
           "score": 40.81,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8181,
+            "bb": 24,
+            "rb": 26,
+            "difference": -1019,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 17,
           "number": 2214,
           "score": 40.44,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 9014,
+            "bb": 38,
+            "rb": 23,
+            "difference": 1204,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 18,
           "number": 2204,
           "score": 38.67,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4191,
+            "bb": 13,
+            "rb": 8,
+            "difference": -1389,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 19,
           "number": 2218,
           "score": 30.32,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7749,
+            "bb": 28,
+            "rb": 24,
+            "difference": 509,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         },
         {
           "rank": 20,
           "number": 2216,
           "score": 20.0,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7267,
+            "bb": 31,
+            "rb": 19,
+            "difference": 1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCVI"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": 53.2
     },
     "myj5": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": -123.67,
+          "lift_vs_eligible_mean": -130.93,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2223,
+              "games": 6129,
+              "bb": 22,
+              "rb": 12,
+              "difference": -556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2237,
+              "games": 6431,
+              "bb": 24,
+              "rb": 21,
+              "difference": -324,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2234,
+              "games": 8174,
+              "bb": 31,
+              "rb": 30,
+              "difference": 509,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": 478.33,
+          "lift_vs_eligible_mean": 471.07,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2223,
+              "games": 6129,
+              "bb": 22,
+              "rb": 12,
+              "difference": -556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2237,
+              "games": 6431,
+              "bb": 24,
+              "rb": 21,
+              "difference": -324,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2238,
+              "games": 7558,
+              "bb": 33,
+              "rb": 31,
+              "difference": 2315,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 401.33,
+          "lift_vs_eligible_mean": 394.07,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2224,
+              "games": 6909,
+              "bb": 29,
+              "rb": 22,
+              "difference": 833,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2227,
+              "games": 7261,
+              "bb": 26,
+              "rb": 22,
+              "difference": -231,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            },
+            {
+              "number": 2231,
+              "games": 5425,
+              "bb": 25,
+              "rb": 9,
+              "difference": 602,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 2223,
           "score": 76.02,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6129,
+            "bb": 22,
+            "rb": 12,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 2,
           "number": 2237,
           "score": 75.9,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6431,
+            "bb": 24,
+            "rb": 21,
+            "difference": -324,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 3,
           "number": 2234,
           "score": 64.62,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8174,
+            "bb": 31,
+            "rb": 30,
+            "difference": 509,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 4,
           "number": 2230,
           "score": 62.98,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3064,
+            "bb": 8,
+            "rb": 10,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 5,
           "number": 2238,
           "score": 62.74,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7558,
+            "bb": 33,
+            "rb": 31,
+            "difference": 2315,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 6,
           "number": 2236,
           "score": 54.14,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4553,
+            "bb": 14,
+            "rb": 15,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 7,
           "number": 2224,
           "score": 52.54,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6909,
+            "bb": 29,
+            "rb": 22,
+            "difference": 833,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 8,
           "number": 2227,
           "score": 49.88,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7261,
+            "bb": 26,
+            "rb": 22,
+            "difference": -231,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 9,
           "number": 2231,
           "score": 46.89,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5425,
+            "bb": 25,
+            "rb": 9,
+            "difference": 602,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 10,
           "number": 2221,
           "score": 45.15,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7807,
+            "bb": 34,
+            "rb": 22,
+            "difference": 1296,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 11,
           "number": 2226,
           "score": 42.85,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6996,
+            "bb": 30,
+            "rb": 20,
+            "difference": 787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 12,
           "number": 2228,
           "score": 41.62,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2021,
+            "bb": 4,
+            "rb": 2,
+            "difference": -1111,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 13,
           "number": 2222,
           "score": 39.51,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7940,
+            "bb": 30,
+            "rb": 26,
+            "difference": 694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 14,
           "number": 2235,
           "score": 38.62,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1397,
+            "bb": 3,
+            "rb": 4,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 15,
           "number": 2232,
           "score": 38.08,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3787,
+            "bb": 17,
+            "rb": 7,
+            "difference": 139,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 16,
           "number": 2239,
           "score": 36.23,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6077,
+            "bb": 23,
+            "rb": 19,
+            "difference": 278,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 17,
           "number": 2225,
           "score": 35.85,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5147,
+            "bb": 16,
+            "rb": 15,
+            "difference": 46,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 18,
           "number": 2233,
           "score": 34.93,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4195,
+            "bb": 8,
+            "rb": 6,
+            "difference": -2685,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         },
         {
           "rank": 19,
           "number": 2229,
           "score": 33.07,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7459,
+            "bb": 24,
+            "rb": 23,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9E%E3%82%A4%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCV"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": 7.26
     },
     "neoim": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 555.33,
+          "lift_vs_eligible_mean": 570.77,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2139,
+              "games": 5747,
+              "bb": 28,
+              "rb": 17,
+              "difference": 1898,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2116,
+              "games": 5448,
+              "bb": 21,
+              "rb": 19,
+              "difference": 787,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2107,
+              "games": 3280,
+              "bb": 8,
+              "rb": 10,
+              "difference": -1019,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 555.33,
+          "lift_vs_eligible_mean": 570.77,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 2139,
+              "games": 5747,
+              "bb": 28,
+              "rb": 17,
+              "difference": 1898,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2116,
+              "games": 5448,
+              "bb": 21,
+              "rb": 19,
+              "difference": 787,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2107,
+              "games": 3280,
+              "bb": 8,
+              "rb": 10,
+              "difference": -1019,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -385.67,
+          "lift_vs_eligible_mean": -370.23,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 2135,
+              "games": 903,
+              "bb": 2,
+              "rb": 3,
+              "difference": -370,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2102,
+              "games": 1446,
+              "bb": 5,
+              "rb": 4,
+              "difference": -231,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            },
+            {
+              "number": 2134,
+              "games": 7062,
+              "bb": 21,
+              "rb": 24,
+              "difference": -556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 2139,
           "score": 76.57,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5747,
+            "bb": 28,
+            "rb": 17,
+            "difference": 1898,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 2,
           "number": 2116,
           "score": 68.99,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5448,
+            "bb": 21,
+            "rb": 19,
+            "difference": 787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 3,
           "number": 2107,
           "score": 65.95,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3280,
+            "bb": 8,
+            "rb": 10,
+            "difference": -1019,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 4,
           "number": 2104,
           "score": 64.03,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4227,
+            "bb": 20,
+            "rb": 6,
+            "difference": 370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 5,
           "number": 2128,
           "score": 58.65,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1637,
+            "bb": 3,
+            "rb": 3,
+            "difference": -1065,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 6,
           "number": 2102,
           "score": 53.6,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1446,
+            "bb": 5,
+            "rb": 4,
+            "difference": -231,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 7,
           "number": 2135,
           "score": 51.56,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 903,
+            "bb": 2,
+            "rb": 3,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 8,
           "number": 2134,
           "score": 50.59,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7062,
+            "bb": 21,
+            "rb": 24,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 9,
           "number": 2114,
           "score": 50.32,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6169,
+            "bb": 25,
+            "rb": 19,
+            "difference": 417,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 10,
           "number": 2117,
           "score": 49.06,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6014,
+            "bb": 22,
+            "rb": 18,
+            "difference": -46,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 11,
           "number": 2101,
           "score": 49.03,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6239,
+            "bb": 25,
+            "rb": 15,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 12,
           "number": 2123,
           "score": 47.08,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1944,
+            "bb": 6,
+            "rb": 3,
+            "difference": -880,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 13,
           "number": 2131,
           "score": 44.42,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4738,
+            "bb": 14,
+            "rb": 14,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 14,
           "number": 2111,
           "score": 44.14,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2017,
+            "bb": 6,
+            "rb": 5,
+            "difference": -787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 15,
           "number": 2108,
           "score": 43.18,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4935,
+            "bb": 24,
+            "rb": 13,
+            "difference": 1204,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 16,
           "number": 2122,
           "score": 42.73,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3480,
+            "bb": 10,
+            "rb": 10,
+            "difference": -787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 17,
           "number": 2110,
           "score": 42.31,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5273,
+            "bb": 22,
+            "rb": 17,
+            "difference": 602,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 18,
           "number": 2105,
           "score": 42.28,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8150,
+            "bb": 39,
+            "rb": 26,
+            "difference": 2454,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 19,
           "number": 2115,
           "score": 41.65,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1662,
+            "bb": 5,
+            "rb": 1,
+            "difference": -833,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 20,
           "number": 2113,
           "score": 41.32,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1981,
+            "bb": 8,
+            "rb": 3,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 21,
           "number": 2137,
           "score": 40.36,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4334,
+            "bb": 16,
+            "rb": 13,
+            "difference": 46,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 22,
           "number": 2126,
           "score": 39.74,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4270,
+            "bb": 17,
+            "rb": 13,
+            "difference": 93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 23,
           "number": 2138,
           "score": 39.33,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2047,
+            "bb": 5,
+            "rb": 5,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 24,
           "number": 2136,
           "score": 39.22,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4264,
+            "bb": 17,
+            "rb": 12,
+            "difference": 417,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 25,
           "number": 2133,
           "score": 38.98,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1298,
+            "bb": 2,
+            "rb": 5,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 26,
           "number": 2121,
           "score": 38.72,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2584,
+            "bb": 8,
+            "rb": 5,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 27,
           "number": 2106,
           "score": 37.36,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 406,
+            "bb": 0,
+            "rb": 1,
+            "difference": -324,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 28,
           "number": 2119,
           "score": 37.33,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5622,
+            "bb": 32,
+            "rb": 16,
+            "difference": 3009,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 29,
           "number": 2132,
           "score": 35.92,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1156,
+            "bb": 3,
+            "rb": 2,
+            "difference": -417,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 30,
           "number": 2112,
           "score": 35.74,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4647,
+            "bb": 16,
+            "rb": 11,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 31,
           "number": 2125,
           "score": 35.7,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1609,
+            "bb": 5,
+            "rb": 3,
+            "difference": -417,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 32,
           "number": 2130,
           "score": 35.59,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1275,
+            "bb": 2,
+            "rb": 4,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 33,
           "number": 2118,
           "score": 33.56,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1102,
+            "bb": 4,
+            "rb": 0,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 34,
           "number": 2124,
           "score": 32.48,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3074,
+            "bb": 8,
+            "rb": 12,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 35,
           "number": 2103,
           "score": 32.25,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5296,
+            "bb": 25,
+            "rb": 11,
+            "difference": 926,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 36,
           "number": 2109,
           "score": 31.82,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2017,
+            "bb": 5,
+            "rb": 2,
+            "difference": -1204,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 37,
           "number": 2127,
           "score": 30.77,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4412,
+            "bb": 21,
+            "rb": 7,
+            "difference": 648,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 38,
           "number": 2129,
           "score": 30.07,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6610,
+            "bb": 23,
+            "rb": 17,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         },
         {
           "rank": 39,
           "number": 2120,
           "score": 27.53,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5753,
+            "bb": 25,
+            "rb": 18,
+            "difference": 926,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8D%E3%82%AA%E3%82%A2%E3%82%A4%E3%83%A0%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BCEX"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": -15.44
     },
     "gogo3": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 895,
+          "lift_vs_eligible_mean": 960.88,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 112,
+              "games": 4926,
+              "bb": 17,
+              "rb": 12,
+              "difference": -1389,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 124,
+              "games": 10020,
+              "bb": 54,
+              "rb": 40,
+              "difference": 3704,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 115,
+              "games": 3028,
+              "bb": 14,
+              "rb": 6,
+              "difference": 370,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": -154.33,
+          "lift_vs_eligible_mean": -88.45,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 112,
+              "games": 4926,
+              "bb": 17,
+              "rb": 12,
+              "difference": -1389,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 115,
+              "games": 3028,
+              "bb": 14,
+              "rb": 6,
+              "difference": 370,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 123,
+              "games": 8973,
+              "bb": 35,
+              "rb": 33,
+              "difference": 556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 3,
+          "positive_rate": 1.0,
+          "mean_difference": 1944.33,
+          "lift_vs_eligible_mean": 2010.22,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 124,
+              "games": 10020,
+              "bb": 54,
+              "rb": 40,
+              "difference": 3704,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 114,
+              "games": 7389,
+              "bb": 37,
+              "rb": 18,
+              "difference": 1296,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            },
+            {
+              "number": 132,
+              "games": 7943,
+              "bb": 37,
+              "rb": 19,
+              "difference": 833,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 112,
           "score": 55.89,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4926,
+            "bb": 17,
+            "rb": 12,
+            "difference": -1389,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 2,
           "number": 124,
           "score": 54.1,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 10020,
+            "bb": 54,
+            "rb": 40,
+            "difference": 3704,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 3,
           "number": 115,
           "score": 53.77,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3028,
+            "bb": 14,
+            "rb": 6,
+            "difference": 370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 4,
           "number": 132,
           "score": 52.79,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7943,
+            "bb": 37,
+            "rb": 19,
+            "difference": 833,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 5,
           "number": 114,
           "score": 51.76,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7389,
+            "bb": 37,
+            "rb": 18,
+            "difference": 1296,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 6,
           "number": 133,
           "score": 47.3,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1317,
+            "bb": 3,
+            "rb": 1,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 7,
           "number": 118,
           "score": 46.39,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 9379,
+            "bb": 45,
+            "rb": 25,
+            "difference": 1852,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 8,
           "number": 123,
           "score": 45.88,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8973,
+            "bb": 35,
+            "rb": 33,
+            "difference": 556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 9,
           "number": 119,
           "score": 45.5,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7517,
+            "bb": 21,
+            "rb": 30,
+            "difference": -1528,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 10,
           "number": 127,
           "score": 45.46,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6184,
+            "bb": 22,
+            "rb": 17,
+            "difference": -787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 11,
           "number": 131,
           "score": 44.54,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1590,
+            "bb": 2,
+            "rb": 4,
+            "difference": -1204,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 12,
           "number": 137,
           "score": 44.41,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5597,
+            "bb": 23,
+            "rb": 16,
+            "difference": 278,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 13,
           "number": 122,
           "score": 44.38,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1292,
+            "bb": 2,
+            "rb": 2,
+            "difference": -1111,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 14,
           "number": 128,
           "score": 42.23,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6187,
+            "bb": 21,
+            "rb": 20,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 15,
           "number": 120,
           "score": 40.62,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3849,
+            "bb": 15,
+            "rb": 9,
+            "difference": -139,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 16,
           "number": 130,
           "score": 38.15,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6717,
+            "bb": 29,
+            "rb": 15,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 17,
           "number": 117,
           "score": 37.88,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5951,
+            "bb": 27,
+            "rb": 16,
+            "difference": 463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 18,
           "number": 136,
           "score": 37.29,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8331,
+            "bb": 30,
+            "rb": 29,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 19,
           "number": 129,
           "score": 37.17,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7359,
+            "bb": 32,
+            "rb": 23,
+            "difference": 694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 20,
           "number": 134,
           "score": 33.62,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7315,
+            "bb": 25,
+            "rb": 22,
+            "difference": -1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 21,
           "number": 121,
           "score": 33.09,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7904,
+            "bb": 34,
+            "rb": 21,
+            "difference": 370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 22,
           "number": 113,
           "score": 31.2,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2252,
+            "bb": 10,
+            "rb": 6,
+            "difference": 93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 23,
           "number": 135,
           "score": 30.84,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2527,
+            "bb": 5,
+            "rb": 7,
+            "difference": -1065,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 24,
           "number": 126,
           "score": 30.6,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 7125,
+            "bb": 25,
+            "rb": 23,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 25,
           "number": 116,
           "score": 30.23,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6763,
+            "bb": 32,
+            "rb": 19,
+            "difference": 1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         },
         {
           "rank": 26,
           "number": 125,
           "score": 29.87,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5076,
+            "bb": 12,
+            "rb": 19,
+            "difference": -1759,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B4%E3%83%BC%E3%82%B4%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%93"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": -65.88
     },
     "funky2": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 740.67,
+          "lift_vs_eligible_mean": 985.97,
+          "low_play_count": 1,
+          "results": [
+            {
+              "number": 103,
+              "games": 4281,
+              "bb": 15,
+              "rb": 11,
+              "difference": -231,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 109,
+              "games": 8288,
+              "bb": 44,
+              "rb": 20,
+              "difference": 2407,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 110,
+              "games": 1355,
+              "bb": 7,
+              "rb": 2,
+              "difference": 46,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -540,
+          "lift_vs_eligible_mean": -294.7,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 108,
+              "games": 2399,
+              "bb": 8,
+              "rb": 5,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 103,
+              "games": 4281,
+              "bb": 15,
+              "rb": 11,
+              "difference": -231,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 101,
+              "games": 2220,
+              "bb": 7,
+              "rb": 2,
+              "difference": -926,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 740.67,
+          "lift_vs_eligible_mean": 985.97,
+          "low_play_count": 1,
+          "results": [
+            {
+              "number": 110,
+              "games": 1355,
+              "bb": 7,
+              "rb": 2,
+              "difference": 46,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 109,
+              "games": 8288,
+              "bb": 44,
+              "rb": 20,
+              "difference": 2407,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            },
+            {
+              "number": 103,
+              "games": 4281,
+              "bb": 15,
+              "rb": 11,
+              "difference": -231,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 103,
           "score": 55.64,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4281,
+            "bb": 15,
+            "rb": 11,
+            "difference": -231,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 2,
           "number": 109,
           "score": 55.6,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8288,
+            "bb": 44,
+            "rb": 20,
+            "difference": 2407,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 3,
           "number": 110,
           "score": 51.05,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1355,
+            "bb": 7,
+            "rb": 2,
+            "difference": 46,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 4,
           "number": 101,
           "score": 49.34,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2220,
+            "bb": 7,
+            "rb": 2,
+            "difference": -926,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 5,
           "number": 108,
           "score": 48.83,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2399,
+            "bb": 8,
+            "rb": 5,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 6,
           "number": 107,
           "score": 41.72,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2544,
+            "bb": 8,
+            "rb": 6,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 7,
           "number": 106,
           "score": 41.03,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2633,
+            "bb": 10,
+            "rb": 2,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 8,
           "number": 111,
           "score": 40.1,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3539,
+            "bb": 10,
+            "rb": 13,
+            "difference": -648,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 9,
           "number": 102,
           "score": 35.03,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1646,
+            "bb": 4,
+            "rb": 3,
+            "difference": -833,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         },
         {
           "rank": 10,
           "number": 105,
           "score": 25.69,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1723,
+            "bb": 4,
+            "rb": 3,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%95%E3%82%A1%E3%83%B3%E3%82%AD%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%92%EF%BC%AB%EF%BC%B4"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": -245.3
     },
     "happy8": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -200.67,
+          "lift_vs_eligible_mean": 442.22,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 231,
+              "games": 784,
+              "bb": 3,
+              "rb": 1,
+              "difference": -139,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 232,
+              "games": 756,
+              "bb": 2,
+              "rb": 0,
+              "difference": -370,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 234,
+              "games": 3343,
+              "bb": 13,
+              "rb": 7,
+              "difference": -93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": 15.33,
+          "lift_vs_eligible_mean": 658.22,
+          "low_play_count": 1,
+          "results": [
+            {
+              "number": 229,
+              "games": 3711,
+              "bb": 16,
+              "rb": 10,
+              "difference": 278,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 234,
+              "games": 3343,
+              "bb": 13,
+              "rb": 7,
+              "difference": -93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 231,
+              "games": 784,
+              "bb": 3,
+              "rb": 1,
+              "difference": -139,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -231.33,
+          "lift_vs_eligible_mean": 411.56,
+          "low_play_count": 3,
+          "results": [
+            {
+              "number": 231,
+              "games": 784,
+              "bb": 3,
+              "rb": 1,
+              "difference": -139,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 232,
+              "games": 756,
+              "bb": 2,
+              "rb": 0,
+              "difference": -370,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            },
+            {
+              "number": 230,
+              "games": 2281,
+              "bb": 7,
+              "rb": 10,
+              "difference": -185,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 231,
           "score": 53.16,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 784,
+            "bb": 3,
+            "rb": 1,
+            "difference": -139,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 2,
           "number": 232,
           "score": 47.53,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 756,
+            "bb": 2,
+            "rb": 0,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 3,
           "number": 234,
           "score": 46.09,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3343,
+            "bb": 13,
+            "rb": 7,
+            "difference": -93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 4,
           "number": 220,
           "score": 40.79,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1961,
+            "bb": 3,
+            "rb": 6,
+            "difference": -1296,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 5,
           "number": 219,
           "score": 39.94,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3482,
+            "bb": 11,
+            "rb": 10,
+            "difference": -787,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 6,
           "number": 237,
           "score": 39.82,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 6410,
+            "bb": 19,
+            "rb": 22,
+            "difference": -833,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 7,
           "number": 230,
           "score": 39.59,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2281,
+            "bb": 7,
+            "rb": 10,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 8,
           "number": 233,
           "score": 39.56,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1907,
+            "bb": 8,
+            "rb": 2,
+            "difference": -231,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 9,
           "number": 228,
           "score": 39.04,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3201,
+            "bb": 9,
+            "rb": 3,
+            "difference": -1435,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 10,
           "number": 235,
           "score": 38.64,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1834,
+            "bb": 3,
+            "rb": 2,
+            "difference": -1250,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 11,
           "number": 225,
           "score": 38.5,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3895,
+            "bb": 11,
+            "rb": 12,
+            "difference": -1065,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 12,
           "number": 227,
           "score": 37.29,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1356,
+            "bb": 4,
+            "rb": 2,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 13,
           "number": 224,
           "score": 37.12,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2113,
+            "bb": 5,
+            "rb": 7,
+            "difference": -741,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 14,
           "number": 229,
           "score": 36.8,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3711,
+            "bb": 16,
+            "rb": 10,
+            "difference": 278,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 15,
           "number": 223,
           "score": 34.31,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 764,
+            "bb": 1,
+            "rb": 2,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 16,
           "number": 222,
           "score": 33.34,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1420,
+            "bb": 1,
+            "rb": 3,
+            "difference": -1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 17,
           "number": 236,
           "score": 32.52,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 981,
+            "bb": 4,
+            "rb": 0,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         },
         {
           "rank": 18,
           "number": 221,
           "score": 29.89,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1534,
+            "bb": 1,
+            "rb": 4,
+            "difference": -1157,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": -642.89
     },
     "girls": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 2,
+          "positive_rate": 0.6666666666666666,
+          "mean_difference": 524.67,
+          "lift_vs_eligible_mean": 287.89,
+          "low_play_count": 1,
+          "results": [
+            {
+              "number": 202,
+              "games": 8877,
+              "bb": 38,
+              "rb": 24,
+              "difference": 880,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 208,
+              "games": 1798,
+              "bb": 5,
+              "rb": 5,
+              "difference": -556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 205,
+              "games": 8147,
+              "bb": 36,
+              "rb": 21,
+              "difference": 1250,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 3,
+          "positive_rate": 1.0,
+          "mean_difference": 895.33,
+          "lift_vs_eligible_mean": 658.56,
+          "low_play_count": 0,
+          "results": [
+            {
+              "number": 202,
+              "games": 8877,
+              "bb": 38,
+              "rb": 24,
+              "difference": 880,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 205,
+              "games": 8147,
+              "bb": 36,
+              "rb": 21,
+              "difference": 1250,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 207,
+              "games": 4780,
+              "bb": 20,
+              "rb": 14,
+              "difference": 556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": 30.67,
+          "lift_vs_eligible_mean": -206.11,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 208,
+              "games": 1798,
+              "bb": 5,
+              "rb": 5,
+              "difference": -556,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 205,
+              "games": 8147,
+              "bb": 36,
+              "rb": 21,
+              "difference": 1250,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            },
+            {
+              "number": 201,
+              "games": 674,
+              "bb": 0,
+              "rb": 2,
+              "difference": -602,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 202,
           "score": 63.01,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8877,
+            "bb": 38,
+            "rb": 24,
+            "difference": 880,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 2,
           "number": 208,
           "score": 48.91,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1798,
+            "bb": 5,
+            "rb": 5,
+            "difference": -556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 3,
           "number": 205,
           "score": 47.86,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 8147,
+            "bb": 36,
+            "rb": 21,
+            "difference": 1250,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 4,
           "number": 207,
           "score": 44.54,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 4780,
+            "bb": 20,
+            "rb": 14,
+            "difference": 556,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 5,
           "number": 201,
           "score": 42.59,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 674,
+            "bb": 0,
+            "rb": 2,
+            "difference": -602,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 6,
           "number": 206,
           "score": 39.91,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 609,
+            "bb": 2,
+            "rb": 1,
+            "difference": -185,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 7,
           "number": 209,
           "score": 38.52,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2893,
+            "bb": 9,
+            "rb": 11,
+            "difference": -370,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 8,
           "number": 203,
           "score": 33.32,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1032,
+            "bb": 1,
+            "rb": 4,
+            "difference": -694,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         },
         {
           "rank": 9,
           "number": 204,
           "score": 31.78,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 5145,
+            "bb": 27,
+            "rb": 14,
+            "difference": 1852,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%E3%82%AC%E3%83%BC%E3%83%AB%E3%82%BASS"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": 236.78
     },
     "mr": {
-      "status": "pending_results",
-      "strategies": {},
+      "status": "complete",
+      "strategies": {
+        "balanced": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -509.33,
+          "lift_vs_eligible_mean": -710.0,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 215,
+              "games": 1228,
+              "bb": 5,
+              "rb": 2,
+              "difference": -93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 213,
+              "games": 1112,
+              "bb": 1,
+              "rb": 1,
+              "difference": -972,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 210,
+              "games": 3040,
+              "bb": 11,
+              "rb": 6,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            }
+          ]
+        },
+        "dip": {
+          "count": 3,
+          "positive_count": 0,
+          "positive_rate": 0.0,
+          "mean_difference": -509.33,
+          "lift_vs_eligible_mean": -710.0,
+          "low_play_count": 2,
+          "results": [
+            {
+              "number": 215,
+              "games": 1228,
+              "bb": 5,
+              "rb": 2,
+              "difference": -93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 213,
+              "games": 1112,
+              "bb": 1,
+              "rb": 1,
+              "difference": -972,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 210,
+              "games": 3040,
+              "bb": 11,
+              "rb": 6,
+              "difference": -463,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            }
+          ]
+        },
+        "rb": {
+          "count": 3,
+          "positive_count": 1,
+          "positive_rate": 0.3333333333333333,
+          "mean_difference": -108,
+          "lift_vs_eligible_mean": -308.67,
+          "low_play_count": 3,
+          "results": [
+            {
+              "number": 215,
+              "games": 1228,
+              "bb": 5,
+              "rb": 2,
+              "difference": -93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 211,
+              "games": 414,
+              "bb": 0,
+              "rb": 1,
+              "difference": -324,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            },
+            {
+              "number": 214,
+              "games": 2292,
+              "bb": 9,
+              "rb": 5,
+              "difference": 93,
+              "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+            }
+          ]
+        }
+      },
       "selected_strategy": "balanced",
       "prediction_results": [
         {
           "rank": 1,
           "number": 215,
           "score": 60.35,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1228,
+            "bb": 5,
+            "rb": 2,
+            "difference": -93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         },
         {
           "rank": 2,
           "number": 213,
           "score": 45.6,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 1112,
+            "bb": 1,
+            "rb": 1,
+            "difference": -972,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         },
         {
           "rank": 3,
           "number": 210,
           "score": 43.71,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3040,
+            "bb": 11,
+            "rb": 6,
+            "difference": -463,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         },
         {
           "rank": 4,
           "number": 211,
           "score": 40.94,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 414,
+            "bb": 0,
+            "rb": 1,
+            "difference": -324,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         },
         {
           "rank": 5,
           "number": 214,
           "score": 40.64,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 2292,
+            "bb": 9,
+            "rb": 5,
+            "difference": 93,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         },
         {
           "rank": 6,
           "number": 212,
           "score": 31.47,
-          "status": "pending_results",
-          "actual": null
+          "status": "available",
+          "actual": {
+            "games": 3611,
+            "bb": 26,
+            "rb": 10,
+            "difference": 2963,
+            "source_url": "https://min-repo.com/3447082/?kishu=%E3%83%9F%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC"
+          }
         }
-      ]
+      ],
+      "eligible_mean_difference": 200.67
     }
   },
-  "status": "pending"
+  "status": "complete"
 }

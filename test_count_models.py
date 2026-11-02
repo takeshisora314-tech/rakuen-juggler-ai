@@ -1,9 +1,23 @@
 import copy
 import unittest
-from evaluate_count_models import fit_weights,evaluate_records
+from evaluate_count_models import fit_weights,evaluate_records,diagnose_rows
 
 
 class CountReplayTests(unittest.TestCase):
+    def test_diagnostics_use_paired_rows_and_separate_daily_weight(self):
+        rows=[]
+        for day,n,games,gain in [('2026-09-05',1,4000,2),('2026-10-30',9,7000,-1)]:
+            rows += [{'date':day,'model_id':'myj5','games':games,'scores':{
+                'equal':-10,'low_heavy':-11,'high_heavy':-9,'rolling_mixture':-10+gain}} for _ in range(n)]
+        result=diagnose_rows(rows,'2026-11-02')['models']['myj5']
+        comp=result['all']['comparisons']['equal']
+        self.assertAlmostEqual(comp['mean_row_gain'],-.7)
+        self.assertEqual(comp['mean_daily_gain'],.5)
+        self.assertEqual((comp['positive_days'],comp['negative_days']),(1,1))
+        for label,count in [('earlier',1),('recent_30',9),('games_3000_5999',1),('games_6000_plus',9),('weekend',1),('weekday',9)]:
+            self.assertEqual(result[label]['rows'],count)
+        with self.assertRaises(ValueError):diagnose_rows(rows,'2026-10-30')
+
     def setUp(self):
         self.config={'timezone':'Asia/Tokyo','models':[{'id':'myj5','name':'V','installations':[
             {'from':None,'until':None,'numbers':list(range(1,9))}]}]}

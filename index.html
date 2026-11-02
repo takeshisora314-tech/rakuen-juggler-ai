@@ -362,13 +362,19 @@ function drawGrapes() {
   const f=n=>n.toFixed(2);
   let html='<p class="small">'+safe(model.name)+'／実績日 '+safe(records.values().next().value.date)+'／台番順</p>';
   html+='<p class="small">使用条件：BB '+safe(opts.bbNet)+'・RB '+safe(opts.rbNet)+'・ぶどう '+safe(opts.grapePay)+'枚、リプレイ1/'+safe(opts.replayDenominator)+'、その他 '+safe(opts.otherPayPerGame)+'枚/G、差枚±'+safe(opts.differenceError)+'枚</p>';
+  let sensitivity='';
   for(const number of model.numbers) {
     const row=records.get(number);
     if(!row){html+='<p class="small">'+number+'番：実績未取得</p>';continue;}
     if(row.games<3000){html+='<p class="small">'+number+'番：3,000G未満のため見送り</p>';continue;}
     const v=typeof estimateGrapes==='function'?estimateGrapes(row,opts):{status:'unavailable'};
+    if(v.status==='conditional_estimate' && typeof compareGrapeOtherPay==='function') {
+      const s=compareGrapeOtherPay(row,opts);
+      sensitivity+='<p class="small">'+number+'番：'+(s.status==='conditional_comparison'?'その他払出 '+f(s.lowerOtherPay)+'〜'+f(s.upperOtherPay)+'枚/G → 1/'+f(s.denominatorLow)+'〜1/'+f(s.denominatorHigh):'比較条件では数値が整合せず、比較不可')+'</p>';
+    }
     html+='<p class="small"><b>'+number+'番</b>：'+(v.status==='conditional_estimate'?'参考 1/'+f(v.denominator)+'<br>差枚誤差のみの範囲 1/'+f(v.denominatorLow)+'〜1/'+f(v.denominatorHigh):v.status==='invalid_assumptions'?'計算条件を確認してください':v.status==='invalid_record'?'数値不足・不正のため逆算不可':'仮定と数値が整合しないため逆算不可')+'</p>';
   }
+  if(sensitivity) html+='<details><summary>打ち方・小役条件で変わる幅の例</summary><p class="small">チェリー等の回収差を考えるため、その他払出だけを入力値から±0.03枚/G（下限0）変えた例です。±0.03は任意の比較幅で、打ち方による実際の誤差を測った値ではありません。差枚は固定し、差枚誤差の幅は重ねていません。設定別ぶどう確率・信頼区間・全誤差の上限ではありません。</p>'+sensitivity+'</details>';
   box.innerHTML=html;
 }
 document.querySelectorAll('.grape-settings input').forEach(input=>input.addEventListener('input',drawGrapes));
@@ -411,5 +417,6 @@ load();
 </script>
 </body>
 </html>
+
 
 

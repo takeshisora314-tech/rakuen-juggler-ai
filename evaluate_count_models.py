@@ -62,6 +62,7 @@ def evaluate_records(records, config, as_of):
         by_day[row['date']].append(row)
     outcomes = defaultdict(lambda: defaultdict(list))
     frozen = []
+    diagnostic_rows = []
     excluded = defaultdict(int)
     for day in days:
         for model in sorted({r['model_id'] for r in by_day[day]}):
@@ -86,6 +87,7 @@ def evaluate_records(records, config, as_of):
                     excluded['invalid_or_under_3000_games'] += 1
                     continue
                 outcomes[(model,day)]['scores'].append(scores)
+                diagnostic_rows.append({'date':day,'model_id':model,'games':row['games'],'scores':scores})
     summaries = {}
     recent = str(target_end-timedelta(days=30))
     for model in sorted({m for m,d in outcomes}):
@@ -109,7 +111,40 @@ def evaluate_records(records, config, as_of):
                            'Recent 30 days are descriptive, not untouched holdout. Historical publication timing is unknown.',
                            'Fixed priors and mixture design were chosen after prior sensitivity inspection; not prospective validation.'],
             'fixed_weights':FIXED,'mixture':{'max_iterations':50,'equal_pseudocount_per_setting':1},
-            'excluded':dict(excluded),'summaries':summaries,'training_weights':frozen}
+            'excluded':dict(excluded),'summaries':summaries,'training_weights':frozen,
+            'diagnostics':diagnose_rows(diagnostic_rows,as_of)}
+
+
+def diagnose_rows(rows, as_of):
+    """Descriptive, paired comparisons. Subgroups are not untouched holdouts."""
+    cutoff = str(date.fromisoformat(as_of)-timedelta(days=30))
+    groups = defaultdict(list)
+    for row in rows:
+        if row['date'] >= as_of:
+            raise ValueError('Diagnostic outcomes must precede as_of')
+        labels = ('all', 'recent_30' if row['date'] >= cutoff else 'earlier',
+                  'games_3000_5999' if row['games'] < 6000 else 'games_6000_plus',
+                  'weekend' if date.fromisoformat(row['date']).weekday() >= 5 else 'weekday')
+        for label in labels:
+            groups[(row['model_id'],label)].append(row)
+    output = {}
+    for (model,label), members in sorted(groups.items()):
+        comparisons = {}
+        for baseline in FIXED:
+            daily = defaultdict(list)
+            for row in members:
+                daily[row['date']].append(row['scores']['rolling_mixture']-row['scores'][baseline])
+            gains = [mean(v) for v in daily.values()]
+            comparisons[baseline] = {
+                'mean_row_gain':mean(g for v in daily.values() for g in v),
+                'mean_daily_gain':mean(gains),
+                'positive_days':sum(g>0 for g in gains),
+                'negative_days':sum(g<0 for g in gains),
+                'tied_days':sum(g==0 for g in gains)}
+        output.setdefault(model,{})[label] = {'days':len({r['date'] for r in members}),
+            'rows':len(members),'comparisons':comparisons}
+    return {'kind':'exploratory_paired_subgroups', 'models':output,
+            'note':'G bands and weekday/weekend are descriptive; weekends do not encode store events. No setting labels, significance test, untouched holdout, or live promotion.'}
 
 
 def main():

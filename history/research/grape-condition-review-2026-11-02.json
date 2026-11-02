@@ -1,0 +1,97 @@
+{
+  "kind": "grape_assumption_display_audit",
+  "as_of": "2026-11-02",
+  "calibrated": false,
+  "changes_live_strategy": false,
+  "options": {
+    "bbNet": 240,
+    "rbNet": 96,
+    "grapePay": 8,
+    "replayDenominator": 7.3,
+    "otherPayPerGame": 0.06,
+    "differenceError": 100
+  },
+  "other_pay_comparison": {
+    "lower": 0.03,
+    "upper": 0.09
+  },
+  "models": {
+    "myj5": {
+      "rows": 3370,
+      "counts": {
+        "compared": 2601,
+        "under_3000": 769
+      },
+      "compared_days": 90,
+      "mean_other_pay_width": 0.2652942746199841,
+      "largest_width_examples": [
+        {
+          "date": "2026-09-06",
+          "number": 2239,
+          "denominator": 6.727783709633924,
+          "difference_only_width": 0.14859701036765482,
+          "other_pay_only_width": 0.3396892686137285,
+          "other_pay_only_low": 6.562224117691529,
+          "other_pay_only_high": 6.9019133863052575
+        },
+        {
+          "date": "2026-08-24",
+          "number": 2227,
+          "denominator": 6.656463904127238,
+          "difference_only_width": 0.3088932039563046,
+          "other_pay_only_width": 0.33252102781255743,
+          "other_pay_only_low": 6.494353541881581,
+          "other_pay_only_high": 6.826874569694138
+        },
+        {
+          "date": "2026-10-16",
+          "number": 2208,
+          "denominator": 6.621311456291248,
+          "difference_only_width": 0.2273677188589227,
+          "other_pay_only_width": 0.329016087094935,
+          "other_pay_only_low": 6.460888133969004,
+          "other_pay_only_high": 6.789904221063939
+        }
+      ]
+    },
+    "myj6": {
+      "rows": 120,
+      "counts": {
+        "compared": 120
+      },
+      "compared_days": 6,
+      "mean_other_pay_width": 0.26313584157132375,
+      "largest_width_examples": [
+        {
+          "date": "2026-10-30",
+          "number": 2205,
+          "denominator": 6.344914169825443,
+          "difference_only_width": 0.15321081946753434,
+          "other_pay_only_width": 0.3021055488436568,
+          "other_pay_only_low": 6.197455458736691,
+          "other_pay_only_high": 6.499561007580348
+        },
+        {
+          "date": "2026-10-29",
+          "number": 2211,
+          "denominator": 6.253949279557867,
+          "difference_only_width": 0.1472790045780572,
+          "other_pay_only_width": 0.29350054041188667,
+          "other_pay_only_low": 6.110640642151785,
+          "other_pay_only_high": 6.404141182563672
+        },
+        {
+          "date": "2026-10-31",
+          "number": 2214,
+          "denominator": 6.253488499409852,
+          "difference_only_width": 0.1368084405690091,
+          "other_pay_only_width": 0.29345726898624225,
+          "other_pay_only_low": 6.1102007367729945,
+          "other_pay_only_high": 6.403658005759237
+        }
+      ]
+    }
+  },
+  "interpretation": "Arbitrary other-payout variation, not measured play-style error, confidence interval, actual grape accuracy or setting validation. Only available saved rows before as_of; under 3000G excluded. Difference-only and other-payout-only ranges are separate.",
+  "data_sha256": "b5eac1d731d85b5b0b665301e81588c2bff5dcd52e412bbfcbb2546dcc776072"
+}

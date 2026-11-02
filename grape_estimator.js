@@ -11,6 +11,18 @@
     if(count<=0 || count>maxCount || count-delta<=0 || count+delta>maxCount) return {status:'inconsistent_assumptions'};
     return {status:'conditional_estimate',count,denominator:g/count,denominatorLow:g/(count+delta),denominatorHigh:g/(count-delta),calibrated:false};
   }
-  if(typeof module!=='undefined' && module.exports) module.exports={estimateGrapes};
-  else root.estimateGrapes=estimateGrapes;
+  function compareGrapeOtherPay(row, options, change=.03) {
+    const base=estimateGrapes(row,options);
+    if(base.status!=='conditional_estimate') return base;
+    if(typeof change!=='number' || !Number.isFinite(change) || change<=0) return {status:'invalid_assumptions'};
+    const lowerOtherPay=Math.max(0,options.otherPayPerGame-change),upperOtherPay=options.otherPayPerGame+change;
+    const low=estimateGrapes(row,{...options,otherPayPerGame:lowerOtherPay,differenceError:0});
+    const high=estimateGrapes(row,{...options,otherPayPerGame:upperOtherPay,differenceError:0});
+    if(low.status!=='conditional_estimate' || high.status!=='conditional_estimate') return {status:'inconsistent_assumptions'};
+    return {status:'conditional_comparison',lowerOtherPay,upperOtherPay,
+      denominatorLow:low.denominator,denominatorHigh:high.denominator,calibrated:false};
+  }
+  if(typeof module!=='undefined' && module.exports) module.exports={estimateGrapes,compareGrapeOtherPay};
+  else {root.estimateGrapes=estimateGrapes;root.compareGrapeOtherPay=compareGrapeOtherPay;}
 })(globalThis);
+

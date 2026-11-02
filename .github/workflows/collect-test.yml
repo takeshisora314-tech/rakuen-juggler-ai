@@ -59,6 +59,8 @@ jobs:
           node test_frontend.cjs
           node test_research_frontend.cjs
           node test_answer_frontend.cjs
+          node test_grape_estimator.cjs
+          node test_grape_frontend.cjs
           node --test test_external_morning_trigger.mjs
 
       - name: Check source availability

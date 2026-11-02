@@ -1,6 +1,6 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const panel={innerHTML:'',addEventListener(){}};
-const context=vm.createContext({document:{getElementById(){return panel;}},Intl,Date,setInterval(){}});
+const context=vm.createContext({document:{getElementById(){return panel;},querySelectorAll(){return [];}},Intl,Date,setInterval(){}});
 const script=fs.readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace(/load\(\);\s*$/,'');
 vm.runInContext(script,context);
 const day=vm.runInContext('expectedAnswerDay()',context);

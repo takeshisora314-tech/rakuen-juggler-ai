@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const element = {innerHTML:''};
 const script = fs.readFileSync('index.html','utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace(/load\(\);\s*$/, '');
 element.addEventListener = () => {};
-const context = vm.createContext({document:{getElementById(){return element;}},Intl,Date,setInterval(){}});
+const context = vm.createContext({document:{getElementById(){return element;},querySelectorAll(){return [];}},Intl,Date,setInterval(){}});
 vm.runInContext(script,context);
 function draw(report) {
   context.fixture = report;

@@ -8,7 +8,7 @@ const element = id => {
   if (!elements.has(id)) elements.set(id,{innerHTML:'',value:'',addEventListener(){}});
   return elements.get(id);
 };
-const context = vm.createContext({document:{getElementById:element},Intl,Date,URL,
+const context = vm.createContext({document:{getElementById:element,querySelectorAll(){return [];}},Intl,Date,URL,
   setInterval(){}, fetch(){throw new Error('Tests must not access network');}});
 const script = html.match(/<script>([\s\S]*?)<\/script>/)[1].replace(/load\(\);\s*$/, '');
 vm.runInContext(script,context);

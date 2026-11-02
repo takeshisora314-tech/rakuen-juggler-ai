@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 from collect_sources import layout_on, write_json
 from evaluate_count_models import FIXED, ASSUMED_CONTRACT, fit_weights
-from forecast_engine import record_index
+from forecast_engine import record_index, morning_input_readiness
 from setting_model import score_count_prediction
 
 VERSION = 'research-count-forward-v1'
@@ -31,6 +31,8 @@ def freeze(base, config, records, now):
             raise ValueError('Research snapshot integrity mismatch')
         return saved
     if not 5 <= local.hour < 7:
+        return None
+    if not morning_input_readiness(config,records,day)['ready']:
         return None
     record_index(records)
     models = {}

@@ -229,6 +229,22 @@ def evaluate(snapshot, records):
     return out
 
 
+def morning_input_readiness(config, records, target_day):
+    """Require complete numeric previous-day rows for continuing installations."""
+    previous = str(date.fromisoformat(target_day)-timedelta(days=1))
+    index = record_index(records)
+    prior = {m['model_id']:set(m['numbers']) for m in layout_on(config,previous)}
+    models = {}
+    for model in layout_on(config,target_day):
+        expected = set(model['numbers']) & prior.get(model['model_id'],set())
+        missing = [n for n in sorted(expected)
+                   if not valid_record(index.get((previous,model['model_id'],n),{}))]
+        models[model['model_id']] = {'expected_rows':len(expected),
+            'missing_numbers':missing,'status':'waiting' if missing else 'ready'}
+    waiting = [m for m,v in models.items() if v['status']=='waiting']
+    return {'previous_date':previous,'ready':not waiting,'waiting_models':waiting,'models':models}
+
+
 def run(base=BASE, now=None):
     now = now or datetime.now(timezone.utc)
     if now.tzinfo is None:
@@ -283,12 +299,18 @@ def run(base=BASE, now=None):
             if snapshot_id(forecast) != forecast['snapshot_id']:
                 raise ValueError('Existing forecast integrity mismatch')
         else:
-            forecast = save_snapshot(live_path, make_forecast(
-                config, records, target, evaluations, now.isoformat()))
-        forecast['display_status'] = 'locked'
-        forecast['delivery'] = {'deadline_jst': target+'T07:00:00+09:00',
-            'generated_before_deadline': datetime.fromisoformat(forecast['created_at']).astimezone(
-                ZoneInfo(config['timezone'])).hour < 7}
+            forecast = make_forecast(config, records, target, evaluations, now.isoformat())
+            readiness = morning_input_readiness(config,records,target)
+            if readiness['ready']:
+                forecast = save_snapshot(live_path,forecast)
+            else:
+                forecast['input_readiness'] = readiness
+                forecast['display_status'] = 'waiting_for_results'
+        if forecast.get('display_status') != 'waiting_for_results':
+            forecast['display_status'] = 'locked'
+            forecast['delivery'] = {'deadline_jst': target+'T07:00:00+09:00',
+                'generated_before_deadline': datetime.fromisoformat(forecast['created_at']).astimezone(
+                    ZoneInfo(config['timezone'])).hour < 7}
     else:
         forecast = make_forecast(config, records, target, evaluations, now.isoformat())
         forecast['display_status'] = 'preview'

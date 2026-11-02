@@ -10,10 +10,55 @@ from collect_sources import write_json
 from collect_sources import BASE
 from setting_model import infer_day, REQUIRED_CONTRACT, SPECS, SOURCES
 from forecast_engine import (VERSION, WEIGHTS, evaluate, make_forecast,
-                             choose_strategy, run, save_snapshot, snapshot_id)
+                             choose_strategy, run, save_snapshot, snapshot_id, morning_input_readiness)
 
 
 class ForecastTests(unittest.TestCase):
+    def test_readiness_rejects_invalid_rows_and_respects_replacement(self):
+        self.assertTrue(morning_input_readiness(self.config,self.rows,'2026-10-27')['ready'])
+        bad=[{**r,'rb':None} if r['date']=='2026-10-26' and r['number']==2204 else r for r in self.rows]
+        status=morning_input_readiness(self.config,bad,'2026-10-27')
+        self.assertEqual(status['models']['myj5']['missing_numbers'],[2204])
+        with self.assertRaises(ValueError):morning_input_readiness(self.config,self.rows+[self.rows[0]],'2026-10-27')
+        self.config['models'][0]['installations'][0]['until']='2026-10-27'
+        self.config['models'].append({'id':'myj6','name':'VI','installations':[{'from':'2026-10-27','until':None,'numbers':[2201,2202,2203,2204]}]})
+        status=morning_input_readiness(self.config,[],'2026-10-27')
+        self.assertTrue(status['ready'])
+        self.assertEqual(status['models']['myj6']['expected_rows'],0)
+        self.assertNotIn('myj5',status['models'])
+
+    def test_wait_for_complete_previous_results_then_freeze_before_deadline(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory);write_json(base/'machines.json',self.config)
+            stale=[{**r,'date':str(date.fromisoformat(r['date'])-timedelta(days=1))} for r in self.rows]
+            write_json(base/'data.json',{'machine_records':stale})
+            clock=datetime.fromisoformat('2026-10-27T05:03:00+09:00')
+            path=base/'history/forecasts/2026-10-27.json'
+            pending=run(base,clock)['forecast']
+            self.assertEqual(pending['display_status'],'waiting_for_results')
+            self.assertFalse(path.exists())
+            incoming=[self.row('2026-10-26',n) for n in range(2201,2205)]
+            write_json(base/'data.json',{'machine_records':stale+incoming[:-1]})
+            self.assertEqual(run(base,clock+timedelta(minutes=30))['forecast']['display_status'],'waiting_for_results')
+            self.assertFalse(path.exists())
+            write_json(base/'data.json',{'machine_records':stale+incoming})
+            locked=run(base,clock+timedelta(hours=1))['forecast']
+            self.assertEqual(locked['display_status'],'locked')
+            self.assertEqual(locked['models']['myj5']['latest_source_date'],'2026-10-26')
+            original=path.read_bytes()
+            write_json(base/'data.json',{'machine_records':[]})
+            run(base,clock+timedelta(hours=1,minutes=20))
+            self.assertEqual(path.read_bytes(),original)
+
+    def test_wait_does_not_freeze_retroactively_after_seven(self):
+        with TemporaryDirectory() as directory:
+            base=Path(directory);write_json(base/'machines.json',self.config)
+            write_json(base/'data.json',{'machine_records':self.rows[:-1]})
+            run(base,datetime.fromisoformat('2026-10-27T06:59:00+09:00'))
+            write_json(base/'data.json',{'machine_records':self.rows})
+            run(base,datetime.fromisoformat('2026-10-27T07:00:00+09:00'))
+            self.assertFalse((base/'history/forecasts/2026-10-27.json').exists())
+
     def setUp(self):
         self.config = {'timezone':'Asia/Tokyo', 'models':[{
             'id':'myj5', 'name':'マイジャグラーV',
@@ -362,3 +407,4 @@ class ConditionalSettingTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

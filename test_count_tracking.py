@@ -8,6 +8,17 @@ from track_count_predictions import freeze,score,summarize_validation
 
 
 class CountTrackingTests(unittest.TestCase):
+    def test_research_also_waits_for_previous_day_before_freezing(self):
+        with TemporaryDirectory() as td:
+            base=Path(td)
+            (base/'data.json').write_text(json.dumps({'machine_records':self.rows}))
+            now=datetime.fromisoformat('2026-10-25T05:03:00+09:00')
+            stale=[r for r in self.rows if r['date']<'2026-10-24']
+            self.assertIsNone(freeze(base,self.config,stale,now))
+            self.assertFalse((base/'history/count-predictions/2026-10-25.json').exists())
+            saved=freeze(base,self.config,self.rows,datetime.fromisoformat('2026-10-25T06:03:00+09:00'))
+            self.assertEqual(saved['models']['myj5']['trained_through'],'2026-10-24')
+
     def test_validation_excludes_pending_and_same_day_and_separates_weighting(self):
         def evaluation(day, n, gain, status='complete'):
             return {'date':day,'models':{'myj5':{'status':status,'scored':n,'excluded':1,

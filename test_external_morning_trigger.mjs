@@ -86,9 +86,29 @@ test('Git integration uses the existing Worker and no public URLs or embedded se
   assert.equal(config.workers_dev,false);
   assert.equal(config.preview_urls,false);
   assert.equal(config.vars,undefined);
-  // No cron is enabled by the preparation commit. Existing dashboard triggers
-  // are left untouched, not removed with an empty crons array.
-  assert.equal(config.triggers,undefined);
+  assert.deepEqual(config.triggers.crons,['3,33 20,21 * * *','33 14,15,17 * * *']);
+});
+
+test('configured daily schedules preserve four morning slots and add exactly three night slots',async()=>{
+  const config=JSON.parse(readFileSync(new URL('./wrangler.jsonc',import.meta.url),'utf8'));
+  const observed=[];
+  for(const cron of config.triggers.crons) {
+    const [minutes,hours,day,month,weekday]=cron.split(' ');
+    assert.deepEqual([day,month,weekday],['*','*','*']);
+    for(const hour of hours.split(',').map(Number)) for(const minute of minutes.split(',').map(Number)) {
+      const time=Date.UTC(2026,10,3,hour,minute);
+      const local=new Date(time+9*3600000);
+      const label=local.toISOString().slice(11,16);
+      const result=await trigger({scheduledTime:time},env,async(url)=>{
+        observed.push([label,url.includes('morning-forecast')?'morning':'evening']);
+        return {status:204};
+      },time);
+      assert.equal(result.status,'dispatch_accepted');
+    }
+  }
+  assert.deepEqual(observed.sort(),[
+    ['00:33','evening'],['02:33','evening'],['05:03','morning'],
+    ['05:33','morning'],['06:03','morning'],['06:33','morning'],['23:33','evening']]);
 });
 
 

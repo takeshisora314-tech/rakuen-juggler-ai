@@ -5,5 +5,8 @@
   "compatibility_date": "2026-10-29",
   "workers_dev": false,
   "preview_urls": false,
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  "triggers": {
+    "crons": ["3,33 20,21 * * *", "33 14,15,17 * * *"]
+  }
 }

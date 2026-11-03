@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Prospective ranking comparison only. Never selects or publishes a live model.
 
 Capture is called only when the live engine creates a new morning snapshot.
@@ -94,7 +95,7 @@ def validate(snapshot):
     created = datetime.fromisoformat(snapshot['created_at'])
     local = created.astimezone(ZoneInfo('Asia/Tokyo'))
     if (created.tzinfo is None or str(local.date())!=snapshot['date']
-            or not 5 <= local.hour < 7 or snapshot['date'] < START_DATE
+            or not in_morning_window(local) or snapshot['date'] < START_DATE
             or snapshot['max_input_date'] >= snapshot['date']
             or snapshot['specification'] != SPEC):
         raise ValueError('Pair violates prospective capture policy')
@@ -118,7 +119,7 @@ def capture(base, config, records, live, now):
         raise ValueError('Timezone-aware execution required')
     local = now.astimezone(ZoneInfo('Asia/Tokyo'))
     day = str(local.date())
-    if day < START_DATE or not 5 <= local.hour < 7:
+    if day < START_DATE or not in_morning_window(local):
         return None
     if (live.get('date')!=day or live.get('created_at')!=now.isoformat()
             or live.get('kind')!='prospective' or live.get('snapshot_id')!=snapshot_id(live)):
@@ -336,7 +337,7 @@ def run(base=BASE, now=None, new_snapshot=None, config=None, records=None):
     summary.update(checked_at=now.isoformat(),captured_days=len(entries),pending=pending,errors=errors,
         today_capture_status='not_started' if today < START_DATE
             else 'saved' if (base/ROOT/'forecasts'/(today+'.json')).exists()
-            else 'not_captured_no_backfill' if local.hour>=7 else 'waiting_for_new_morning_forecast')
+            else 'not_captured_no_backfill' if not before_morning_deadline(local) else 'waiting_for_new_morning_forecast')
     write_json(base/ROOT/'status.json',summary)
     report = base/ROOT/'REPORT.md'
     report.write_text(render_summary(summary),encoding='utf-8')

@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Record explicit evening settlement state without rewriting morning forecasts."""
 import json
 from datetime import datetime, timedelta, timezone
@@ -23,7 +24,7 @@ def answer_status(config, records, snapshot, day, checked_at):
     if created.tzinfo is None:
         raise ValueError('Forecast time must have timezone')
     local = created.astimezone(ZoneInfo(config['timezone']))
-    if str(local.date()) != day or local.hour >= 7:
+    if str(local.date()) != day or not before_morning_deadline(local):
         raise ValueError('Forecast was not saved before its morning deadline')
     evaluation = evaluate(snapshot, records)
     for model_id in models:

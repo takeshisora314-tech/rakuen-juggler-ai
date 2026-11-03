@@ -8,6 +8,8 @@ const ENDPOINTS = Object.freeze({
 function routeAt(local) {
   const hour=local.getUTCHours(), minute=local.getUTCMinutes();
   if (hour>=5 && hour<7) return 'morning';
+  if (local.toISOString().slice(0,10)>='2026-11-04' &&
+      (hour===7 || (hour===8 && minute<30))) return 'evening'; // collect + forecast
   if ((hour===23 && minute>=30) || hour<3) return 'evening';
   return null;
 }

@@ -39,7 +39,7 @@ test('night and after-midnight retries dispatch collection, never a backdated mo
 test('night window boundaries and scheduled time are checked before transmission',async()=>{
   const fetcher=()=>assert.fail('network forbidden');
   for(const iso of ['2026-11-03T14:29:59Z','2026-11-03T18:00:00Z',
-                     '2026-11-03T19:59:59Z','2026-11-03T22:00:00Z']) {
+                     '2026-11-03T19:59:59Z','2026-11-03T23:30:00Z']) {
     const time=Date.parse(iso);
     assert.match((await trigger({scheduledTime:time},env,fetcher,time)).status,/skipped/);
   }
@@ -86,17 +86,17 @@ test('Git integration uses the existing Worker and no public URLs or embedded se
   assert.equal(config.workers_dev,false);
   assert.equal(config.preview_urls,false);
   assert.equal(config.vars,undefined);
-  assert.deepEqual(config.triggers.crons,['3,33 20,21 * * *','33 14,15,17 * * *']);
+  assert.deepEqual(config.triggers.crons,['3,33 20,21,22 * * *','33 14,15,17 * * *','3,13,23 23 * * *']);
 });
 
-test('configured daily schedules preserve four morning slots and add exactly three night slots',async()=>{
+test('configured daily schedules preserve existing slots and collect delayed results before 08:30',async()=>{
   const config=JSON.parse(readFileSync(new URL('./wrangler.jsonc',import.meta.url),'utf8'));
   const observed=[];
   for(const cron of config.triggers.crons) {
     const [minutes,hours,day,month,weekday]=cron.split(' ');
     assert.deepEqual([day,month,weekday],['*','*','*']);
     for(const hour of hours.split(',').map(Number)) for(const minute of minutes.split(',').map(Number)) {
-      const time=Date.UTC(2026,10,3,hour,minute);
+      const time=Date.UTC(2026,10,4,hour,minute);
       const local=new Date(time+9*3600000);
       const label=local.toISOString().slice(11,16);
       const result=await trigger({scheduledTime:time},env,async(url)=>{
@@ -108,7 +108,8 @@ test('configured daily schedules preserve four morning slots and add exactly thr
   }
   assert.deepEqual(observed.sort(),[
     ['00:33','evening'],['02:33','evening'],['05:03','morning'],
-    ['05:33','morning'],['06:03','morning'],['06:33','morning'],['23:33','evening']]);
+    ['05:33','morning'],['06:03','morning'],['06:33','morning'],['07:03','evening'],['07:33','evening'],
+    ['08:03','evening'],['08:13','evening'],['08:23','evening'],['23:33','evening']]);
 });
 
 
@@ -121,4 +122,12 @@ test('Workers-compatible request rejects redirects without following or forwardi
     return new Response(null,{status:302,headers:{Location:'https://example.invalid/'}});
   },now),/GitHub dispatch failed: HTTP 302/);
   assert.equal(calls,1);
+});
+
+test('extended cutoff collects before 08:30 and preserves old dated boundary',async()=>{
+  for(const [iso,accept] of [['2026-11-02T23:00:00Z',false],['2026-11-03T23:29:59Z',true],['2026-11-03T23:30:00Z',false]]) {
+    const time=Date.parse(iso);let calls=0;
+    const result=await trigger({scheduledTime:time},env,async url=>{calls++;assert.match(url,/collect-test.yml/);return {status:204};},time);
+    assert.equal(calls,accept?1:0);assert.match(result.status,accept?/accepted/:/skipped/);
+  }
 });

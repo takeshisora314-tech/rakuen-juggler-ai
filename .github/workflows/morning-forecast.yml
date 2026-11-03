@@ -5,6 +5,8 @@ on:
   schedule:
     - cron: "15,45 20 * * *"
     - cron: "15,35 21 * * *"
+    - cron: "15,45 22 * * *"
+    - cron: "5,25 23 * * *"
 
 permissions:
   contents: read
@@ -35,13 +37,14 @@ jobs:
           from datetime import datetime
           from zoneinfo import ZoneInfo
           from forecast_engine import run
+          from morning_window import in_morning_window
           from track_count_predictions import run as track_counts
           now = datetime.now(ZoneInfo('Asia/Tokyo'))
-          if 5 <= now.hour < 7:
+          if in_morning_window(now):
               run(now=now)
               track_counts(now=now)
           else:
-              print(f'Skipped outside 05:00-06:59 JST: {now.isoformat()}')
+              print(f'Skipped outside dated morning window (from Nov 4: 05:00-08:29 JST): {now.isoformat()}')
           PY
       - name: Save without changing an existing forecast
         run: |

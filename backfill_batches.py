@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Bounded sequential history batches; never overlap the morning forecast window."""
 import time
 from datetime import datetime
@@ -14,7 +15,7 @@ def run_batches(limit=2, collect=run, save=lambda:None, clock=None, pause=time.s
         now=clock()
         if now.tzinfo is None:
             raise ValueError('Timezone-aware clock required')
-        if 4 <= now.astimezone(ZoneInfo('Asia/Tokyo')).hour < 7:
+        if now.astimezone(ZoneInfo('Asia/Tokyo')).hour >= 4 and before_morning_deadline(now):
             print('Paused history backfill for morning forecast window')
             break
         evidence=collect(backfill_only=True)

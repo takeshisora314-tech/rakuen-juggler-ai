@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Read-only chronological replay and separate verified morning-snapshot results."""
 import argparse
 import hashlib
@@ -86,7 +87,7 @@ def build_report(config, records, as_of, days=90, snapshots=()):
         local = created.astimezone(ZoneInfo(config['timezone']))
         # Legacy snapshots may predate the current 05:00 start. Require the
         # same business date and the 07:00 deadline without rewriting history.
-        if str(local.date()) != snapshot['date'] or local.hour >= 7:
+        if str(local.date()) != snapshot['date'] or not before_morning_deadline(local):
             raise ValueError('Snapshot was not created before its morning deadline')
         if str(start) <= snapshot['date'] < as_of:
             prospective.append(evaluate(snapshot, records))

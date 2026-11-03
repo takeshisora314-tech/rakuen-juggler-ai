@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Observe the public Pages payload; generation time is NOT publication proof."""
 import json
 from datetime import date, datetime, time, timedelta, timezone
@@ -22,7 +23,7 @@ def observe(config, payload, now, previous=None, error=None):
     if now.tzinfo is None:
         raise ValueError('Timezone-aware observation required')
     today = now.astimezone(JST).date()
-    deadline = datetime.combine(today, time(7), JST)
+    deadline = morning_deadline(today)
     previous = previous or {}
     out = {'schema_version': 1, 'date': str(today), 'checked_at': now.isoformat(),
            'public_url': PUBLIC_URL, 'deadline_jst': deadline.isoformat(),
@@ -83,7 +84,7 @@ def observe(config, payload, now, previous=None, error=None):
                     out.update(status='available', deadline_status='verified_on_time')
                 else:
                     out['status'] = 'available'
-                    # Never infer on-time deployment from a pre-07:00 created_at.
+                    # Never infer on-time deployment from a pre-deadline created_at.
                     out['deadline_status'] = 'unverified'
         except (ValueError, TypeError, KeyError, AttributeError) as exc:
             out.update(status='invalid_payload', reason=str(exc)[:300], snapshot_id=None)

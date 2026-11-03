@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Experimental, preregistered rules; no claim of true settings or win probability."""
 import hashlib
 import json
@@ -18,7 +19,8 @@ WEIGHTS = {
 POLICY = {'min_history_days': 3, 'min_daily_games': 3000,
           'min_total_games': 12000, 'max_source_age_days': 2,
           'comparison_days': 30, 'switch_min_lift_gain': 100,
-          'forecast_lock_from_jst_hour': 5, 'forecast_lock_before_jst_hour': 7}
+          'forecast_lock_from_jst_hour': 5, 'forecast_lock_before_jst_hour': 7,
+          'extended_deadline_from': '2026-11-04', 'extended_deadline_jst': '08:30'}
 
 
 def integer(value):
@@ -289,10 +291,9 @@ def run(base=BASE, now=None):
         if evaluation != old:
             write_json(result_path, evaluation)
         evaluations.append(evaluation)
-    before_deadline = (POLICY['forecast_lock_from_jst_hour'] <= local.hour
-                       < POLICY['forecast_lock_before_jst_hour'])
+    before_deadline = in_morning_window(local)
     show_locked_today = same_day.exists() and local.hour < 23
-    target = today if local.hour < POLICY['forecast_lock_before_jst_hour'] or show_locked_today else str(local.date()+timedelta(days=1))
+    target = today if before_morning_deadline(local) or show_locked_today else str(local.date()+timedelta(days=1))
     live_path = forecast_root/(target+'.json')
     if before_deadline or show_locked_today:
         if live_path.exists():
@@ -310,9 +311,8 @@ def run(base=BASE, now=None):
                 forecast['display_status'] = 'waiting_for_results'
         if forecast.get('display_status') != 'waiting_for_results':
             forecast['display_status'] = 'locked'
-            forecast['delivery'] = {'deadline_jst': target+'T07:00:00+09:00',
-                'generated_before_deadline': datetime.fromisoformat(forecast['created_at']).astimezone(
-                    ZoneInfo(config['timezone'])).hour < 7}
+            forecast['delivery'] = {'deadline_jst': morning_deadline(target).isoformat(),
+                'generated_before_deadline': before_morning_deadline(datetime.fromisoformat(forecast['created_at']))}
     else:
         forecast = make_forecast(config, records, target, evaluations, now.isoformat())
         forecast['display_status'] = 'preview'

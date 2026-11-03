@@ -1,3 +1,4 @@
+from morning_window import morning_deadline, before_morning_deadline, in_morning_window
 """Freeze research count mixtures before opening and score observed counts later."""
 import hashlib
 import json
@@ -30,7 +31,7 @@ def freeze(base, config, records, now):
         if identity(saved) != saved.get('snapshot_id'):
             raise ValueError('Research snapshot integrity mismatch')
         return saved
-    if not 5 <= local.hour < 7:
+    if not in_morning_window(local):
         return None
     if not morning_input_readiness(config,records,day)['ready']:
         return None
@@ -65,7 +66,7 @@ def score(snapshot, records, config):
     if created.tzinfo is None:
         raise ValueError('Missing timezone')
     local = created.astimezone(ZoneInfo(config['timezone']))
-    if str(local.date()) != snapshot['date'] or not 5 <= local.hour < 7:
+    if str(local.date()) != snapshot['date'] or not in_morning_window(local):
         raise ValueError('Snapshot outside morning window')
     index = record_index(records)
     result = {'date':snapshot['date'],'snapshot_id':snapshot['snapshot_id'],'calibrated':False,'models':{}}

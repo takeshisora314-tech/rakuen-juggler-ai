@@ -59,7 +59,7 @@ def comparison_metrics_valid(metrics):
 
 
 def choose_strategy(evaluations, model_id, target_day):
-    """Only prospective, already completed, paired evaluations may change rules."""
+    """Compare completed prospective pairs and keep the approved public strategy."""
     dates = {}
     for evaluation in evaluations:
         if (not isinstance(evaluation, dict) or evaluation.get('kind') != 'prospective'
@@ -97,8 +97,8 @@ def choose_strategy(evaluations, model_id, target_day):
     baseline = summaries[DEFAULT]
     improve = (summaries[best]['lift'] - baseline['lift'] >= POLICY['switch_min_lift_gain']
                and summaries[best]['positive_rate'] >= baseline['positive_rate'])
-    info.update(strategy=best if improve else DEFAULT,
-                status='switched_by_rule' if improve else 'kept_default',
+    info.update(status='awaiting_approval' if improve else 'kept_default',
+                recommended_strategy=best if improve else None,
                 comparison=summaries)
     return info
 
@@ -342,6 +342,11 @@ def run(base=BASE, now=None):
                          config=config, records=records)
     except Exception as exc:
         print(json.dumps({'rank_comparison_status':'error','error':str(exc)}))
+    try:
+        from myj_rank_research import run as compare_myj_ranks
+        compare_myj_ranks(base, config, records, now, newly_saved_snapshot)
+    except Exception as exc:
+        print(json.dumps({'myj_rank_research_status': 'error', 'error': str(exc)}))
     return data
 
 

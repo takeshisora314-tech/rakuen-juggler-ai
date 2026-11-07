@@ -224,12 +224,13 @@ class ForecastTests(unittest.TestCase):
     def test_no_daily_chasing_with_small_sample(self):
         self.assertEqual(choose_strategy(self.paired(29),'myj5','2026-10-27')['strategy'],'balanced')
 
-    def test_only_prospective_comparisons_can_switch(self):
+    def test_only_prospective_comparisons_can_recommend(self):
         retrospective=choose_strategy(self.paired(35,'retrospective'),'myj5','2026-10-27')
         self.assertEqual(retrospective['paired_days'],0)
         prospective=choose_strategy(self.paired(30),'myj5','2026-10-27')
-        self.assertEqual(prospective['strategy'],'dip')
-        self.assertEqual(prospective['status'],'switched_by_rule')
+        self.assertEqual(prospective['strategy'],'balanced')
+        self.assertEqual(prospective['recommended_strategy'],'dip')
+        self.assertEqual(prospective['status'],'awaiting_approval')
 
     def test_small_gain_cannot_switch(self):
         self.assertEqual(choose_strategy(self.paired(30,gain=50),'myj5','2026-10-27')['strategy'],'balanced')
@@ -279,7 +280,8 @@ class ForecastTests(unittest.TestCase):
     def test_only_latest_sixty_valid_unique_days_are_compared(self):
         result=choose_strategy(self.paired(70),'myj5','2026-12-01')
         self.assertEqual(result['paired_days'],60)
-        self.assertEqual(result['strategy'],'dip')
+        self.assertEqual(result['strategy'],'balanced')
+        self.assertEqual(result['recommended_strategy'],'dip')
 
     def test_preview_is_not_archived_and_morning_forecast_is_immutable(self):
         with TemporaryDirectory() as directory:

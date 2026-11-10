@@ -148681,7 +148681,7 @@
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-11",
-    "created_at": "2026-11-10T17:34:38.494575+00:00",
+    "created_at": "2026-11-11T05:03:54.208165+09:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -152261,7 +152261,76 @@
         "eligible_numbers": []
       }
     },
-    "display_status": "preview"
+    "input_readiness": {
+      "previous_date": "2026-11-10",
+      "ready": false,
+      "waiting_models": [
+        "myj5"
+      ],
+      "models": {
+        "myj6": {
+          "expected_rows": 20,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "myj5": {
+          "expected_rows": 19,
+          "missing_numbers": [
+            2221,
+            2222,
+            2223,
+            2224,
+            2225,
+            2226,
+            2227,
+            2228,
+            2229,
+            2230,
+            2231,
+            2232,
+            2233,
+            2234,
+            2235,
+            2236,
+            2237,
+            2238,
+            2239
+          ],
+          "status": "waiting"
+        },
+        "neoim": {
+          "expected_rows": 40,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "gogo3": {
+          "expected_rows": 26,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "funky2": {
+          "expected_rows": 11,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "happy8": {
+          "expected_rows": 19,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "girls": {
+          "expected_rows": 9,
+          "missing_numbers": [],
+          "status": "ready"
+        },
+        "mr": {
+          "expected_rows": 6,
+          "missing_numbers": [],
+          "status": "ready"
+        }
+      }
+    },
+    "display_status": "waiting_for_results"
   },
   "evaluation": {
     "policy_version": "experimental-v1",

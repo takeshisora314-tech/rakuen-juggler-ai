@@ -20,12 +20,18 @@ class LayoutTests(unittest.TestCase):
         self.assertNotIn("myj6", models)
         self.assertEqual(models["myj5"]["numbers"], list(range(2201, 2240)))
 
-    def test_replacement_and_future(self):
-        for day in ("2026-10-27", "2027-01-01"):
+    def test_replacement_and_expansion(self):
+        for day in ("2026-10-27", "2026-11-10"):
             models = {m["model_id"]: m for m in collector.layout_on(self.config, day)}
             self.assertEqual(models["myj6"]["numbers"], list(range(2201, 2221)))
             self.assertEqual(models["myj5"]["numbers"], list(range(2221, 2240)))
             self.assertEqual(len(models), 8)
+
+        for day in ("2026-11-11", "2027-01-01"):
+            models = {m["model_id"]: m for m in collector.layout_on(self.config, day)}
+            self.assertEqual(models["myj6"]["numbers"], list(range(2201, 2240)))
+            self.assertNotIn("myj5", models)
+            self.assertEqual(len(models), 7)
 
     def test_historical_identity_and_other_models(self):
         self.assertEqual(collector.model_for_number(self.config, "2026-10-26", 2201), "myj5")

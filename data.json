@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-11T02:32:49.038348+00:00",
+  "updated_at": "2026-11-11T10:25:53.022929+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-11T02:32:49.038348+00:00"
+      "checked_at": "2026-11-11T10:25:53.022929+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-11T02:32:49.038348+00:00"
+      "checked_at": "2026-11-11T10:25:53.022929+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-11T02:32:49.038348+00:00"
+      "checked_at": "2026-11-11T10:25:53.022929+00:00"
     }
   },
   "layout": {
@@ -44,15 +44,7 @@
           2217,
           2218,
           2219,
-          2220
-        ],
-        "valid_from": "2026-10-27",
-        "valid_until": null
-      },
-      {
-        "model_id": "myj5",
-        "name": "マイジャグラーV",
-        "numbers": [
+          2220,
           2221,
           2222,
           2223,
@@ -73,7 +65,7 @@
           2238,
           2239
         ],
-        "valid_from": "2026-10-27",
+        "valid_from": "2026-11-11",
         "valid_until": null
       },
       {
@@ -148347,7 +148339,7 @@
   ],
   "machine_collection": {
     "status": "partial",
-    "attempted_at": "2026-11-11T02:32:51.311314+00:00",
+    "attempted_at": "2026-11-11T10:25:55.475565+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148681,7 +148673,7 @@
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-12",
-    "created_at": "2026-11-11T02:33:25.632710+00:00",
+    "created_at": "2026-11-11T10:26:35.629586+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -149535,20 +149527,6 @@
           2219,
           2220
         ]
-      },
-      "myj5": {
-        "status": "stale_data",
-        "history_days": 7,
-        "latest_source_date": "2026-11-09",
-        "selection": {
-          "paired_days": 10,
-          "minimum_days": 30,
-          "status": "insufficient_evaluation",
-          "strategy": "balanced"
-        },
-        "strategies": {},
-        "rankings": {},
-        "eligible_numbers": []
       },
       "neoim": {
         "status": "ready",

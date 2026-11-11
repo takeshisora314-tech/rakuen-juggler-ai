@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-11T10:25:53.022929+00:00",
+  "updated_at": "2026-11-11T14:33:52.501120+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-11T10:25:53.022929+00:00"
+      "checked_at": "2026-11-11T14:33:52.501120+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-11T10:25:53.022929+00:00"
+      "checked_at": "2026-11-11T14:33:52.501120+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-11T10:25:53.022929+00:00"
+      "checked_at": "2026-11-11T14:33:52.501120+00:00"
     }
   },
   "layout": {
@@ -148339,7 +148339,7 @@
   ],
   "machine_collection": {
     "status": "partial",
-    "attempted_at": "2026-11-11T10:25:55.475565+00:00",
+    "attempted_at": "2026-11-11T14:33:55.439864+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148391,15 +148391,15 @@
     "backfill_only": false,
     "history_window": {
       "days": 90,
-      "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-13",
+      "discovered_report_days": 89,
+      "earliest_discovered": "2026-08-14",
       "latest_discovered": "2026-11-10",
       "note": "Discovered reports are not proof of complete machine results"
     },
     "report_date": "2026-11-10",
     "report_url": "https://min-repo.com/3462537/",
-    "progress_saves": 8,
-    "progress_record_count": 131,
+    "progress_saves": 12,
+    "progress_record_count": 168,
     "backfill": {
       "2026-11-09": {
         "status": "cached"
@@ -148459,10 +148459,49 @@
         "status": "cached"
       },
       "2026-10-26": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "partial",
+            "rows": 19,
+            "expected_rows": 39,
+            "missing_numbers": [
+              2201,
+              2202,
+              2203,
+              2204,
+              2205,
+              2206,
+              2207,
+              2208,
+              2209,
+              2210,
+              2211,
+              2212,
+              2213,
+              2214,
+              2215,
+              2216,
+              2217,
+              2218,
+              2219,
+              2220
+            ]
+          }
+        }
       },
       "2026-10-22": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "happy8": {
+            "status": "partial",
+            "rows": 18,
+            "expected_rows": 19,
+            "missing_numbers": [
+              219
+            ]
+          }
+        }
       },
       "2026-10-19": {
         "status": "cached"
@@ -148540,7 +148579,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-09-23": {
         "status": "cached"
@@ -148664,16 +148703,13 @@
       },
       "2026-08-14": {
         "status": "cached"
-      },
-      "2026-08-13": {
-        "status": "cached"
       }
     }
   },
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-12",
-    "created_at": "2026-11-11T10:26:35.629586+00:00",
+    "created_at": "2026-11-11T14:34:51.671854+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -203054,7 +203090,7 @@
   "backfill_checkpoint": {
     "2026-10-22": {
       "status": "partial",
-      "attempted_on": "2026-11-11"
+      "attempted_on": "2026-11-12"
     },
     "2026-10-19": {
       "status": "complete",
@@ -203102,7 +203138,7 @@
     },
     "2026-10-26": {
       "status": "partial",
-      "attempted_on": "2026-11-11"
+      "attempted_on": "2026-11-12"
     },
     "2026-10-08": {
       "status": "complete",

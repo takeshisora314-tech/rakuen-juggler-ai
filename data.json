@@ -201736,23 +201736,36 @@
     "2026-08-01": {
       "status": "complete",
       "attempted_on": "2026-10-30"
+    },
+    "2026-11-10": {
+      "status": "partial",
+      "attempted_on": "2026-11-12"
     }
   },
   "history_backfill": {
     "status": "partial",
-    "attempted_at": "2026-11-10T23:39:08.195835+00:00",
+    "attempted_at": "2026-11-11T17:23:21.674429+00:00",
     "models": {},
     "backfill_only": true,
     "history_window": {
       "days": 90,
       "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-13",
-      "latest_discovered": "2026-11-10",
+      "earliest_discovered": "2026-08-14",
+      "latest_discovered": "2026-11-11",
       "note": "Discovered reports are not proof of complete machine results"
     },
-    "report_date": "2026-11-10",
-    "report_url": "https://min-repo.com/3462537/",
+    "report_date": "2026-11-11",
+    "report_url": "https://min-repo.com/3464434/",
     "backfill": {
+      "2026-11-10": {
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "unavailable",
+            "reason": "Model link not found"
+          }
+        }
+      },
       "2026-11-09": {
         "status": "cached"
       },
@@ -202016,12 +202029,9 @@
       },
       "2026-08-14": {
         "status": "cached"
-      },
-      "2026-08-13": {
-        "status": "cached"
       }
     },
-    "progress_saves": 1,
+    "progress_saves": 3,
     "progress_record_count": 0
   },
   "history_coverage": {

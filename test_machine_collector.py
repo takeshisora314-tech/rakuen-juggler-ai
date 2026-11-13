@@ -164,7 +164,7 @@ class MachineTests(unittest.TestCase):
 
     def test_each_date_has_its_own_archive(self):
         days = [str(datetime.now(timezone.utc).date()-timedelta(days=n)) for n in (1,2)]
-        async def fake_scrape(config, today, result, existing, persist=None):
+        async def fake_scrape(config, today, result, existing, persist=None, **kwargs):
             result['records'] = [{**self.parse()[0], 'date': day, 'difference': i}
                                  for i, day in enumerate(days)]
             result['models'] = {'myj5': {'status':'complete', 'rows':1}}

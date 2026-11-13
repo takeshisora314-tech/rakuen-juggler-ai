@@ -53,7 +53,7 @@ jobs:
       - name: Test layout and preservation
         run: |
           python -m unittest discover -s tests -v
-          python -m unittest test_machine_collector -v
+          python -m unittest test_machine_collector test_detect_layout -v
           python -m unittest test_forecast_engine test_morning_window -v
           python -m unittest test_historical_layout test_setting_sensitivity test_evaluate_history test_answer_status -v
           python -m unittest test_evaluate_candidates test_strategy_comparison test_setting_prediction test_count_models test_count_tracking -v
@@ -106,7 +106,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json history evaluation_report.json answer_status.json
+          git add machines.json data.json history evaluation_report.json answer_status.json
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else

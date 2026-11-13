@@ -86,7 +86,7 @@ def integer(value, nonnegative=False):
     return number
 
 
-def parse_tables(tables, model, day, source_url, allow_partial=False):
+def parse_tables(tables, model, day, source_url, allow_partial=False, *, observe_layout=False):
     matching = [t for t in tables if t and [normalized(x) for x in t[0]] == HEADERS]
     if len(matching) != 1:
         raise ValueError("Expected one BB/RB machine table")
@@ -99,7 +99,7 @@ def parse_tables(tables, model, day, source_url, allow_partial=False):
         if len(cells) != len(HEADERS):
             raise ValueError("Unexpected source columns")
         number = integer(cells[0], True)
-        if number not in model["numbers"] or number in seen:
+        if not number or number in seen or (not observe_layout and number not in model["numbers"]):
             raise ValueError("Duplicate number or installation layout mismatch")
         seen.add(number)
         games, bb, rb = [integer(cells[i], True) for i in (2, 4, 5)]
@@ -221,7 +221,7 @@ async def collect_history_models(models, reader, records, outcome, persist=None)
             persist()
 
 
-async def scrape(config, today, results, existing=(), persist=None):
+async def scrape(config, today, results, existing=(), persist=None, *, observe_layout=None):
     from playwright.async_api import async_playwright, TimeoutError as BrowserTimeout
     policy = robots_policy()
     async with async_playwright() as playwright:
@@ -312,6 +312,7 @@ async def scrape(config, today, results, existing=(), persist=None):
             if STORE not in heading or report_day(heading.replace(STORE, "").strip(), today) != day:
                 raise ValueError("Report store/date mismatch")
             model_links = {normalized(link["text"]): link["href"] for link in await links() if "kishu=" in link["href"]}
+            observed = {}
             for model in ([] if results.get('backfill_only') else layout_on(config, day)):
                 model_id = model["model_id"]
                 url = model_links.get(normalized(ALIASES.get(model_id, model["name"])))
@@ -326,6 +327,9 @@ async def scrape(config, today, results, existing=(), persist=None):
                     if STORE not in title or report_day(title.replace(STORE, "").strip(), today) != day:
                         raise ValueError("Machine page store/date mismatch")
                     tables = await page.locator("table").evaluate_all("ts => ts.map(t => Array.from(t.querySelectorAll('tr')).map(r => Array.from(r.querySelectorAll('th,td')).map(c => c.textContent.trim())))")
+                    if observe_layout is not None:
+                        observed[model_id] = parse_tables(tables, model, day, url, allow_partial=True,
+                                                          observe_layout=True)
                     rows = parse_tables(tables, model, day, url, allow_partial=True)
                     results["records"].extend(rows)
                     results["models"][model_id] = collection_result(rows, model)
@@ -335,6 +339,19 @@ async def scrape(config, today, results, existing=(), persist=None):
                     raise  # no alternate routes or retries after access restrictions
                 except (ValueError, BrowserTimeout) as error:
                     results["models"][model_id] = {"status": "error", "reason": str(error)}
+            if observe_layout is not None:
+                changes = observe_layout(day, report, observed)
+                if changes:
+                    results['layout_changes'] = changes
+                    for model in layout_on(config, day):
+                        model_id = model['model_id']
+                        if model_id in changes:
+                            rows = observed[model_id]
+                            if results['models'][model_id]['status'] == 'error':
+                                results['records'].extend(rows)
+                            results['models'][model_id] = collection_result(rows, model)
+                    if persist:
+                        persist()
             # At most two older report-days per run, all missing models together.
             # Follow only public rendered links and preserve every cached fact.
             results['backfill'] = {}
@@ -436,7 +453,13 @@ def run(base=BASE, backfill_only=False):
     try:
         # After 23:00 JST, an already published same-day report is completed play.
         report_cutoff = today + timedelta(days=1) if local.hour >= 23 else today
-        asyncio.run(scrape(config, report_cutoff, result, data.get('machine_records', []),persist))
+        args = (config, report_cutoff, result, data.get('machine_records', []), persist)
+        if backfill_only:
+            asyncio.run(scrape(*args))
+        else:
+            from detect_layout import confirm_layout
+            asyncio.run(scrape(*args, observe_layout=lambda day, url, rows:
+                               confirm_layout(base, config, day, url, rows)))
         statuses=list(result.get('backfill',{}).values()) if backfill_only else list(result['models'].values())
         result['status']='complete' if statuses and all(m['status'] in ('complete','cached') for m in statuses) else 'partial'
     except Exception as error:

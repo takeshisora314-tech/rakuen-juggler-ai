@@ -1,9 +1,10 @@
 """Compare My Juggler VI results by JST business-date category."""
 import json
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 from statistics import mean
 
+from collect_sources import layout_on
 from forecast_engine import valid_record
 
 BASE = Path(__file__).resolve().parent
@@ -70,5 +71,64 @@ def evaluate(base=BASE):
     return {'periods': summary, 'excluded_incomplete': excluded}
 
 
+def evaluate_store_window(base, end):
+    """Compare exact dated layouts over 90 calendar days, ending on end."""
+    start = end - timedelta(days=89)
+    config = read(base / 'machines.json')
+    tables = {}
+    groups = {}
+    for offset in range(90):
+        day = start + timedelta(days=offset)
+        for model in layout_on(config, day):
+            model_id = model['model_id']
+            if model_id not in ('myj5', 'myj6'):
+                continue
+            key = f"{model_id} / {len(model['numbers'])}台"
+            group = groups.setdefault(key, {'days': {}, 'excluded': []})
+            path = base / 'history' / 'machines' / str(day) / (model_id + '.json')
+            rows = read(path) if path.exists() else []
+            actual = {row['number']: row for row in rows if valid_record(row)
+                      and row['date'] == str(day) and row['model_id'] == model_id}
+            if len(rows) != len(model['numbers']) or set(actual) != set(model['numbers']):
+                group['excluded'].append(str(day))
+                continue
+            tables[day, model_id] = actual
+            average = mean(row['difference'] for row in actual.values())
+            previous = tables.get((day - timedelta(days=1), model_id), {})
+            samples = {'low_play_loss': [], 'previous_plus_2000': []}
+            for number, row in previous.items():
+                if number not in actual:
+                    continue
+                result = (actual[number]['difference'], average)
+                if 0 < row['games'] <= 1000 and row['difference'] < 0:
+                    samples['low_play_loss'].append(result)
+                if row['difference'] >= 2000:
+                    samples['previous_plus_2000'].append(result)
+            group['days'][day] = (average, samples)
+    report = {}
+    for key, group in groups.items():
+        summary = {}
+        for category in CATEGORIES:
+            chosen = [(day, average, samples) for day, (average, samples) in group['days'].items()
+                      if category in special_days(day)
+                      or (category == '特日全体' and special_days(day))
+                      or (category == '通常日' and not special_days(day))]
+            summary[category] = {
+                'days': [str(day) for day, _, _ in chosen],
+                'all_machine_mean': mean(average for _, average, _ in chosen) if chosen else None,
+                **{name: metrics([item for _, _, samples in chosen for item in samples[name]])
+                   for name in ('low_play_loss', 'previous_plus_2000')},
+            }
+        report[key] = {'categories': summary, 'excluded': group['excluded']}
+    return {'start': str(start), 'end': str(end), 'layouts': report}
+
+
 if __name__ == '__main__':
-    print(json.dumps(evaluate(), ensure_ascii=False, indent=2))
+    import argparse
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--end', type=date.fromisoformat,
+                        help='Run the 90-day store analysis through this JST date')
+    args = parser.parse_args()
+    result = evaluate_store_window(BASE, args.end) if args.end else evaluate()
+    print(json.dumps(result, ensure_ascii=False, indent=2))

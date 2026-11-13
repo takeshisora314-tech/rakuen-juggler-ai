@@ -301,14 +301,37 @@ def run(base=BASE, now=None):
             if snapshot_id(forecast) != forecast['snapshot_id']:
                 raise ValueError('Existing forecast integrity mismatch')
         else:
-            forecast = make_forecast(config, records, target, evaluations, now.isoformat())
-            readiness = morning_input_readiness(config,records,target)
-            if readiness['ready']:
-                forecast = save_snapshot(live_path,forecast)
-                newly_saved_snapshot = json.loads(json.dumps(forecast))
+            forecast = None
+        if forecast is None or (before_deadline and any(
+                item['status'] == 'waiting_for_results' for item in forecast['models'].values())):
+            readiness = morning_input_readiness(config, records, target)
+            candidate = make_forecast(config, records, target, evaluations, now.isoformat())
+            for model_id in readiness['waiting_models']:
+                candidate['models'][model_id] = {'status': 'waiting_for_results'}
+            if forecast is None:
+                forecast = candidate
+                if readiness['ready'] or any(item['status'] == 'ready'
+                                             for item in candidate['models'].values()):
+                    forecast = save_snapshot(live_path, candidate)
+                    newly_saved_snapshot = json.loads(json.dumps(forecast))
+                else:
+                    forecast['input_readiness'] = readiness
+                    forecast['display_status'] = 'waiting_for_results'
             else:
-                forecast['input_readiness'] = readiness
-                forecast['display_status'] = 'waiting_for_results'
+                additions = {
+                    model_id: {**candidate['models'][model_id], 'created_at': now.isoformat()}
+                    for model_id, item in forecast['models'].items()
+                    if item['status'] == 'waiting_for_results'
+                    and candidate['models'].get(model_id, {}).get('status') == 'ready'
+                }
+                if additions:
+                    previous = forecast['snapshot_id']
+                    revision = live_path.parent/'revisions'/previous[:2]/(previous+'.json')
+                    if not revision.exists():
+                        save_snapshot(revision, forecast)
+                    forecast['models'].update(additions)
+                    forecast['snapshot_id'] = snapshot_id(forecast)
+                    write_json(live_path, forecast)
         if forecast.get('display_status') != 'waiting_for_results':
             forecast['display_status'] = 'locked'
             forecast['delivery'] = {'deadline_jst': morning_deadline(target).isoformat(),

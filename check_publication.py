@@ -70,6 +70,12 @@ def observe(config, payload, now, previous=None, error=None):
                 out['abstained_models'] = [k for k,v in forecast['models'].items() if v.get('status') != 'ready']
                 expected_source = str(today-timedelta(days=1))
                 for model_id in out['ready_models']:
+                    if 'created_at' not in forecast['models'][model_id]:
+                        continue
+                    item_created = aware(forecast['models'][model_id].get('created_at', forecast['created_at']))
+                    if not created <= item_created <= now or item_created >= deadline:
+                        raise ValueError('Model forecast generation time is inconsistent')
+                for model_id in out['ready_models']:
                     source = forecast['models'][model_id].get('latest_source_date')
                     if not isinstance(source,str) or str(date.fromisoformat(source)) != source or source >= str(today):
                         raise ValueError('Ready forecast has invalid or future source date')

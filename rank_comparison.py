@@ -12,7 +12,7 @@ from statistics import mean, median
 from zoneinfo import ZoneInfo
 
 from collect_sources import BASE, layout_on, write_json
-from forecast_engine import make_forecast, morning_input_readiness, record_index, snapshot_id, valid_record
+from forecast_engine import make_forecast, record_index, snapshot_id, valid_record
 
 VERSION = 'prospective-rank-pair-v1'
 START_DATE = '2026-11-03'
@@ -134,8 +134,6 @@ def capture(base, config, records, live, now):
     live_path = base/'history/forecasts'/(day+'.json')
     if not live_path.exists() or json.loads(live_path.read_text()) != live:
         raise ValueError('Live prediction must be saved first')
-    if not morning_input_readiness(config, records, day)['ready']:
-        return None
     record_index(records)
     # Deliberately omit target/future rows from both input digest and features.
     start = str(local.date()-timedelta(days=SPEC['calendar_window']))
@@ -308,6 +306,10 @@ def run(base=BASE, now=None, new_snapshot=None, config=None, records=None):
                 continue
             live_path = base/'history/forecasts'/path.name
             live = json.loads(live_path.read_text())
+            if live.get('snapshot_id') != snap['live_snapshot_id']:
+                original = snap['live_snapshot_id']
+                revision = live_path.parent/'revisions'/original[:2]/(original+'.json')
+                live = json.loads(revision.read_text())
             if snapshot_id(live)!=snap['live_snapshot_id'] or live.get('snapshot_id')!=snap['live_snapshot_id']:
                 raise ValueError('Original live forecast is missing or changed')
             target = base/ROOT/'evaluations'/path.name

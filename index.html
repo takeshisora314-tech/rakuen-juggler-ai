@@ -168,10 +168,10 @@ function drawForecast(model) {
   const labels = {balanced:'バランス型', dip:'凹み重視型', rb:'RB実績重視型'};
   const item = forecast.models?.[model.id];
   const reasons = {insufficient_history:'履歴が3日未満のため予想しません。', stale_data:'直近実績が古いため予想しません。', insufficient_eligible_machines:'回転数・欠損条件を満たす台が不足しています。'};
-  const waiting=forecast.display_status==='waiting_for_results';
+  const waiting=forecast.display_status==='waiting_for_results' || item?.status==='waiting_for_results';
   const state = waiting ? '前日実績の取得待ち（予想は未固定）' : forecast.display_status === 'locked' ? '事前保存済み（変更しません）' : '仮表示（朝の収集後に事前保存）';
   let html = `<h3>実験予想：${safe(forecast.date)} · ${safe(model.name)}</h3><p class="small">${safe(state)}<br>上の台割・実績日選択とは独立した、公開中の予想です。未検証の参考候補で、設定上げの確率・勝率ではありません。</p>`;
-  const created=new Date(forecast.created_at);
+  const created=new Date(item?.created_at || forecast.created_at);
   const createdLabel=Number.isFinite(created.getTime())?new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(created):'記録なし';
   html+=`<p class="small">予想の生成日時：${safe(createdLabel)}（日本時間）</p>`;
   if(forecast.date < todayJST()) html+='<p class="note"><b>今日の予想はまだ取得できていません。</b>以下は過去日の保存予想です。「最新表示に更新」で公開データを再確認してください。</p>';

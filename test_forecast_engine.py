@@ -50,6 +50,25 @@ class ForecastTests(unittest.TestCase):
             run(base,clock+timedelta(hours=1,minutes=20))
             self.assertEqual(path.read_bytes(),original)
 
+    def test_missing_model_does_not_block_and_can_join_before_deadline(self):
+        other = copy.deepcopy(self.config['models'][0])
+        other['id'] = 'myj6'
+        other['installations'][0]['numbers'] = list(range(2301, 2305))
+        self.config['models'].append(other)
+        rows = [{**r, 'model_id': 'myj6', 'number': r['number'] + 100} for r in self.rows]
+        with TemporaryDirectory() as directory:
+            base = Path(directory)
+            write_json(base/'machines.json', self.config)
+            write_json(base/'data.json', {'machine_records': self.rows + rows[:-1]})
+            clock = datetime.fromisoformat('2026-10-27T05:03:00+09:00')
+            first = run(base, clock)['forecast']
+            self.assertEqual(first['display_status'], 'locked')
+            self.assertEqual(first['models']['myj6'], {'status': 'waiting_for_results'})
+            write_json(base/'data.json', {'machine_records': self.rows + rows})
+            second = run(base, clock+timedelta(hours=1))['forecast']
+            self.assertEqual(second['models']['myj5'], first['models']['myj5'])
+            self.assertEqual(second['models']['myj6']['status'], 'ready')
+
     def test_wait_does_not_freeze_retroactively_after_seven(self):
         with TemporaryDirectory() as directory:
             base=Path(directory);write_json(base/'machines.json',self.config)

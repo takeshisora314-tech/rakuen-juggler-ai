@@ -3,18 +3,16 @@
   "coverage": {
     "as_of_date": "2026-11-13",
     "window_days": 90,
-    "complete_days": 85,
-    "partial_days": 5,
+    "complete_days": 86,
+    "partial_days": 4,
     "missing_days": 0,
     "days": [
       {
         "date": "2026-11-12",
-        "status": "partial",
-        "expected_rows": 150,
+        "status": "complete",
+        "expected_rows": 149,
         "verified_rows": 149,
-        "incomplete_models": [
-          "happy8"
-        ]
+        "incomplete_models": []
       },
       {
         "date": "2026-11-11",
@@ -651,18 +649,6 @@
     "note": "Numeric completeness against configured layouts only; missing does not imply closure or no source report."
   },
   "missing": [
-    {
-      "date": "2026-11-12",
-      "model_id": "happy8",
-      "number": 219,
-      "reason": "missing_record",
-      "missing_fields": [
-        "games",
-        "bb",
-        "rb",
-        "difference"
-      ]
-    },
     {
       "date": "2026-11-10",
       "model_id": "myj5",

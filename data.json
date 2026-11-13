@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-13T03:09:08.765990+00:00",
+  "updated_at": "2026-11-13T14:33:57.212711+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-13T03:09:08.765990+00:00"
+      "checked_at": "2026-11-13T14:33:57.212711+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-13T03:09:08.765990+00:00"
+      "checked_at": "2026-11-13T14:33:57.212711+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-13T03:09:08.765990+00:00"
+      "checked_at": "2026-11-13T14:33:57.212711+00:00"
     }
   },
   "layout": {
@@ -173,7 +173,6 @@
         "model_id": "happy8",
         "name": "ハッピージャグラーVIII",
         "numbers": [
-          219,
           220,
           221,
           222,
@@ -193,7 +192,7 @@
           236,
           237
         ],
-        "valid_from": null,
+        "valid_from": "2026-11-12",
         "valid_until": null
       },
       {
@@ -148327,8 +148326,8 @@
     }
   ],
   "machine_collection": {
-    "status": "partial",
-    "attempted_at": "2026-11-13T03:09:11.439874+00:00",
+    "status": "complete",
+    "attempted_at": "2026-11-13T14:33:59.849281+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148355,12 +148354,10 @@
         "missing_numbers": []
       },
       "happy8": {
-        "status": "partial",
+        "status": "complete",
         "rows": 18,
-        "expected_rows": 19,
-        "missing_numbers": [
-          219
-        ]
+        "expected_rows": 18,
+        "missing_numbers": []
       },
       "girls": {
         "status": "complete",
@@ -148378,15 +148375,15 @@
     "backfill_only": false,
     "history_window": {
       "days": 90,
-      "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-15",
+      "discovered_report_days": 89,
+      "earliest_discovered": "2026-08-16",
       "latest_discovered": "2026-11-12",
       "note": "Discovered reports are not proof of complete machine results"
     },
     "report_date": "2026-11-12",
     "report_url": "https://min-repo.com/3468096/",
-    "progress_saves": 8,
-    "progress_record_count": 149,
+    "progress_saves": 12,
+    "progress_record_count": 168,
     "backfill": {
       "2026-11-11": {
         "status": "cached"
@@ -148449,13 +148446,48 @@
         "status": "cached"
       },
       "2026-11-10": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "unavailable",
+            "reason": "Model link not found"
+          }
+        }
       },
       "2026-10-26": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "partial",
+            "rows": 19,
+            "expected_rows": 39,
+            "missing_numbers": [
+              2201,
+              2202,
+              2203,
+              2204,
+              2205,
+              2206,
+              2207,
+              2208,
+              2209,
+              2210,
+              2211,
+              2212,
+              2213,
+              2214,
+              2215,
+              2216,
+              2217,
+              2218,
+              2219,
+              2220
+            ]
+          }
+        }
       },
       "2026-10-22": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-10-19": {
         "status": "cached"
@@ -148533,7 +148565,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-09-23": {
         "status": "cached"
@@ -148651,16 +148683,13 @@
       },
       "2026-08-16": {
         "status": "cached"
-      },
-      "2026-08-15": {
-        "status": "cached"
       }
     }
   },
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-14",
-    "created_at": "2026-11-13T03:09:51.988312+00:00",
+    "created_at": "2026-11-13T14:34:48.381940+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -150726,7 +150755,7 @@
               "history_games": 36903,
               "history_rb": 118,
               "rb_denominator": 312.7,
-              "score": 49.31
+              "score": 49.13
             },
             {
               "number": 224,
@@ -150738,7 +150767,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 46.24
+              "score": 46.05
             },
             {
               "number": 220,
@@ -150750,7 +150779,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 46.02
+              "score": 45.82
             }
           ],
           "dip": [
@@ -150764,7 +150793,7 @@
               "history_games": 36903,
               "history_rb": 118,
               "rb_denominator": 312.7,
-              "score": 30.81
+              "score": 30.76
             },
             {
               "number": 224,
@@ -150776,7 +150805,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 17.5
+              "score": 17.44
             },
             {
               "number": 220,
@@ -150788,7 +150817,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 17.43
+              "score": 17.38
             }
           ],
           "rb": [
@@ -150802,7 +150831,7 @@
               "history_games": 27320,
               "history_rb": 96,
               "rb_denominator": 284.6,
-              "score": 63.14
+              "score": 62.76
             },
             {
               "number": 224,
@@ -150814,7 +150843,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 62.48
+              "score": 62.1
             },
             {
               "number": 220,
@@ -150826,7 +150855,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 62.03
+              "score": 61.64
             }
           ]
         },
@@ -150842,7 +150871,7 @@
               "history_games": 36903,
               "history_rb": 118,
               "rb_denominator": 312.7,
-              "score": 49.31
+              "score": 49.13
             },
             {
               "number": 224,
@@ -150854,7 +150883,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 46.24
+              "score": 46.05
             },
             {
               "number": 220,
@@ -150866,7 +150895,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 46.02
+              "score": 45.82
             },
             {
               "number": 234,
@@ -150878,7 +150907,7 @@
               "history_games": 27320,
               "history_rb": 96,
               "rb_denominator": 284.6,
-              "score": 45.23
+              "score": 45.04
             },
             {
               "number": 221,
@@ -150890,7 +150919,7 @@
               "history_games": 34548,
               "history_rb": 111,
               "rb_denominator": 311.2,
-              "score": 41.25
+              "score": 41.07
             },
             {
               "number": 222,
@@ -150902,7 +150931,7 @@
               "history_games": 30442,
               "history_rb": 97,
               "rb_denominator": 313.8,
-              "score": 40.66
+              "score": 40.49
             },
             {
               "number": 236,
@@ -150914,7 +150943,7 @@
               "history_games": 26365,
               "history_rb": 85,
               "rb_denominator": 310.2,
-              "score": 38.9
+              "score": 38.73
             },
             {
               "number": 237,
@@ -150926,7 +150955,7 @@
               "history_games": 35654,
               "history_rb": 107,
               "rb_denominator": 333.2,
-              "score": 36.97
+              "score": 36.8
             },
             {
               "number": 226,
@@ -150938,7 +150967,7 @@
               "history_games": 21873,
               "history_rb": 70,
               "rb_denominator": 312.5,
-              "score": 35.34
+              "score": 35.18
             },
             {
               "number": 235,
@@ -150950,7 +150979,7 @@
               "history_games": 32929,
               "history_rb": 95,
               "rb_denominator": 346.6,
-              "score": 34.65
+              "score": 34.49
             },
             {
               "number": 225,
@@ -150962,7 +150991,7 @@
               "history_games": 34924,
               "history_rb": 100,
               "rb_denominator": 349.2,
-              "score": 34.19
+              "score": 34.03
             },
             {
               "number": 223,
@@ -150974,7 +151003,7 @@
               "history_games": 28082,
               "history_rb": 81,
               "rb_denominator": 346.7,
-              "score": 33.42
+              "score": 33.26
             },
             {
               "number": 229,
@@ -150986,7 +151015,7 @@
               "history_games": 28276,
               "history_rb": 78,
               "rb_denominator": 362.5,
-              "score": 31.07
+              "score": 30.92
             },
             {
               "number": 230,
@@ -150998,7 +151027,7 @@
               "history_games": 35118,
               "history_rb": 93,
               "rb_denominator": 377.6,
-              "score": 29.83
+              "score": 29.68
             },
             {
               "number": 231,
@@ -151010,7 +151039,7 @@
               "history_games": 23353,
               "history_rb": 65,
               "rb_denominator": 359.3,
-              "score": 28.43
+              "score": 28.28
             }
           ],
           "dip": [
@@ -151024,7 +151053,7 @@
               "history_games": 36903,
               "history_rb": 118,
               "rb_denominator": 312.7,
-              "score": 30.81
+              "score": 30.76
             },
             {
               "number": 224,
@@ -151036,7 +151065,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 17.5
+              "score": 17.44
             },
             {
               "number": 220,
@@ -151048,7 +151077,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 17.43
+              "score": 17.38
             },
             {
               "number": 234,
@@ -151060,7 +151089,7 @@
               "history_games": 27320,
               "history_rb": 96,
               "rb_denominator": 284.6,
-              "score": 16.83
+              "score": 16.77
             },
             {
               "number": 221,
@@ -151072,7 +151101,7 @@
               "history_games": 34548,
               "history_rb": 111,
               "rb_denominator": 311.2,
-              "score": 16.07
+              "score": 16.02
             },
             {
               "number": 222,
@@ -151084,7 +151113,7 @@
               "history_games": 30442,
               "history_rb": 97,
               "rb_denominator": 313.8,
-              "score": 15.9
+              "score": 15.85
             },
             {
               "number": 236,
@@ -151096,7 +151125,7 @@
               "history_games": 26365,
               "history_rb": 85,
               "rb_denominator": 310.2,
-              "score": 14.88
+              "score": 14.83
             },
             {
               "number": 237,
@@ -151108,7 +151137,7 @@
               "history_games": 35654,
               "history_rb": 107,
               "rb_denominator": 333.2,
-              "score": 14.85
+              "score": 14.8
             },
             {
               "number": 235,
@@ -151120,7 +151149,7 @@
               "history_games": 32929,
               "history_rb": 95,
               "rb_denominator": 346.6,
-              "score": 14.18
+              "score": 14.14
             },
             {
               "number": 225,
@@ -151132,7 +151161,7 @@
               "history_games": 34924,
               "history_rb": 100,
               "rb_denominator": 349.2,
-              "score": 14.05
+              "score": 14.01
             },
             {
               "number": 223,
@@ -151144,7 +151173,7 @@
               "history_games": 28082,
               "history_rb": 81,
               "rb_denominator": 346.7,
-              "score": 13.56
+              "score": 13.52
             },
             {
               "number": 226,
@@ -151156,7 +151185,7 @@
               "history_games": 21873,
               "history_rb": 70,
               "rb_denominator": 312.5,
-              "score": 13.22
+              "score": 13.17
             },
             {
               "number": 229,
@@ -151168,7 +151197,7 @@
               "history_games": 28276,
               "history_rb": 78,
               "rb_denominator": 362.5,
-              "score": 12.92
+              "score": 12.87
             },
             {
               "number": 230,
@@ -151180,7 +151209,7 @@
               "history_games": 35118,
               "history_rb": 93,
               "rb_denominator": 377.6,
-              "score": 12.81
+              "score": 12.77
             },
             {
               "number": 231,
@@ -151192,7 +151221,7 @@
               "history_games": 23353,
               "history_rb": 65,
               "rb_denominator": 359.3,
-              "score": 11.46
+              "score": 11.42
             }
           ],
           "rb": [
@@ -151206,7 +151235,7 @@
               "history_games": 27320,
               "history_rb": 96,
               "rb_denominator": 284.6,
-              "score": 63.14
+              "score": 62.76
             },
             {
               "number": 224,
@@ -151218,7 +151247,7 @@
               "history_games": 34098,
               "history_rb": 118,
               "rb_denominator": 289.0,
-              "score": 62.48
+              "score": 62.1
             },
             {
               "number": 220,
@@ -151230,7 +151259,7 @@
               "history_games": 42457,
               "history_rb": 146,
               "rb_denominator": 290.8,
-              "score": 62.03
+              "score": 61.64
             },
             {
               "number": 227,
@@ -151242,7 +151271,7 @@
               "history_games": 36903,
               "history_rb": 118,
               "rb_denominator": 312.7,
-              "score": 55.65
+              "score": 55.29
             },
             {
               "number": 221,
@@ -151254,7 +151283,7 @@
               "history_games": 34548,
               "history_rb": 111,
               "rb_denominator": 311.2,
-              "score": 52.51
+              "score": 52.15
             },
             {
               "number": 236,
@@ -151266,7 +151295,7 @@
               "history_games": 26365,
               "history_rb": 85,
               "rb_denominator": 310.2,
-              "score": 51.44
+              "score": 51.1
             },
             {
               "number": 222,
@@ -151278,7 +151307,7 @@
               "history_games": 30442,
               "history_rb": 97,
               "rb_denominator": 313.8,
-              "score": 51.33
+              "score": 50.98
             },
             {
               "number": 226,
@@ -151290,7 +151319,7 @@
               "history_games": 21873,
               "history_rb": 70,
               "rb_denominator": 312.5,
-              "score": 48.81
+              "score": 48.48
             },
             {
               "number": 237,
@@ -151302,7 +151331,7 @@
               "history_games": 35654,
               "history_rb": 107,
               "rb_denominator": 333.2,
-              "score": 43.94
+              "score": 43.61
             },
             {
               "number": 235,
@@ -151314,7 +151343,7 @@
               "history_games": 32929,
               "history_rb": 95,
               "rb_denominator": 346.6,
-              "score": 39.29
+              "score": 38.98
             },
             {
               "number": 223,
@@ -151326,7 +151355,7 @@
               "history_games": 28082,
               "history_rb": 81,
               "rb_denominator": 346.7,
-              "score": 38.76
+              "score": 38.45
             },
             {
               "number": 225,
@@ -151338,7 +151367,7 @@
               "history_games": 34924,
               "history_rb": 100,
               "rb_denominator": 349.2,
-              "score": 38.37
+              "score": 38.06
             },
             {
               "number": 229,
@@ -151350,7 +151379,7 @@
               "history_games": 28276,
               "history_rb": 78,
               "rb_denominator": 362.5,
-              "score": 33.87
+              "score": 33.57
             },
             {
               "number": 231,
@@ -151362,7 +151391,7 @@
               "history_games": 23353,
               "history_rb": 65,
               "rb_denominator": 359.3,
-              "score": 33.5
+              "score": 33.21
             },
             {
               "number": 230,
@@ -151374,7 +151403,7 @@
               "history_games": 35118,
               "history_rb": 93,
               "rb_denominator": 377.6,
-              "score": 29.66
+              "score": 29.37
             }
           ]
         },
@@ -205037,14 +205066,117 @@
             "eligible_mean_difference": -248.45
           },
           "happy8": {
-            "status": "pending_results",
-            "strategies": {},
+            "status": "complete",
+            "strategies": {
+              "balanced": {
+                "count": 3,
+                "positive_count": 3,
+                "positive_rate": 1.0,
+                "mean_difference": 1913.67,
+                "lift_vs_eligible_mean": 645.72,
+                "low_play_count": 0,
+                "results": [
+                  {
+                    "number": 225,
+                    "games": 8029,
+                    "bb": 39,
+                    "rb": 24,
+                    "difference": 2037,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 227,
+                    "games": 7742,
+                    "bb": 30,
+                    "rb": 25,
+                    "difference": 648,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 221,
+                    "games": 9301,
+                    "bb": 40,
+                    "rb": 40,
+                    "difference": 3056,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  }
+                ]
+              },
+              "dip": {
+                "count": 3,
+                "positive_count": 3,
+                "positive_rate": 1.0,
+                "mean_difference": 2500,
+                "lift_vs_eligible_mean": 1232.06,
+                "low_play_count": 0,
+                "results": [
+                  {
+                    "number": 225,
+                    "games": 8029,
+                    "bb": 39,
+                    "rb": 24,
+                    "difference": 2037,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 221,
+                    "games": 9301,
+                    "bb": 40,
+                    "rb": 40,
+                    "difference": 3056,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 226,
+                    "games": 8029,
+                    "bb": 38,
+                    "rb": 31,
+                    "difference": 2407,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  }
+                ]
+              },
+              "rb": {
+                "count": 3,
+                "positive_count": 1,
+                "positive_rate": 0.3333333333333333,
+                "mean_difference": 493.67,
+                "lift_vs_eligible_mean": -774.28,
+                "low_play_count": 0,
+                "results": [
+                  {
+                    "number": 220,
+                    "games": 8042,
+                    "bb": 42,
+                    "rb": 21,
+                    "difference": 2500,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 222,
+                    "games": 6064,
+                    "bb": 22,
+                    "rb": 18,
+                    "difference": -417,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  },
+                  {
+                    "number": 236,
+                    "games": 3337,
+                    "bb": 11,
+                    "rb": 8,
+                    "difference": -602,
+                    "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
+                  }
+                ]
+              }
+            },
             "selected_strategy": "balanced",
             "prediction_results": [
               {
                 "rank": 1,
                 "number": 225,
-                "score": 58.17,
+                "score": 58.15,
                 "status": "available",
                 "actual": {
                   "games": 8029,
@@ -205057,7 +205189,7 @@
               {
                 "rank": 2,
                 "number": 227,
-                "score": 56.72,
+                "score": 56.69,
                 "status": "available",
                 "actual": {
                   "games": 7742,
@@ -205070,7 +205202,7 @@
               {
                 "rank": 3,
                 "number": 221,
-                "score": 53.69,
+                "score": 53.67,
                 "status": "available",
                 "actual": {
                   "games": 9301,
@@ -205083,7 +205215,7 @@
               {
                 "rank": 4,
                 "number": 226,
-                "score": 52.7,
+                "score": 52.68,
                 "status": "available",
                 "actual": {
                   "games": 8029,
@@ -205096,7 +205228,7 @@
               {
                 "rank": 5,
                 "number": 220,
-                "score": 52.64,
+                "score": 52.61,
                 "status": "available",
                 "actual": {
                   "games": 8042,
@@ -205109,7 +205241,7 @@
               {
                 "rank": 6,
                 "number": 222,
-                "score": 47.12,
+                "score": 47.1,
                 "status": "available",
                 "actual": {
                   "games": 6064,
@@ -205122,7 +205254,7 @@
               {
                 "rank": 7,
                 "number": 233,
-                "score": 46.64,
+                "score": 46.61,
                 "status": "available",
                 "actual": {
                   "games": 1983,
@@ -205135,7 +205267,7 @@
               {
                 "rank": 8,
                 "number": 236,
-                "score": 46.03,
+                "score": 46.0,
                 "status": "available",
                 "actual": {
                   "games": 3337,
@@ -205148,7 +205280,7 @@
               {
                 "rank": 9,
                 "number": 224,
-                "score": 38.94,
+                "score": 38.92,
                 "status": "available",
                 "actual": {
                   "games": 9417,
@@ -205161,7 +205293,7 @@
               {
                 "rank": 10,
                 "number": 228,
-                "score": 38.06,
+                "score": 38.04,
                 "status": "available",
                 "actual": {
                   "games": 2862,
@@ -205173,15 +205305,8 @@
               },
               {
                 "rank": 11,
-                "number": 219,
-                "score": 37.21,
-                "status": "pending_results",
-                "actual": null
-              },
-              {
-                "rank": 12,
                 "number": 232,
-                "score": 35.19,
+                "score": 35.17,
                 "status": "available",
                 "actual": {
                   "games": 2416,
@@ -205192,9 +205317,9 @@
                 }
               },
               {
-                "rank": 13,
+                "rank": 12,
                 "number": 223,
-                "score": 33.35,
+                "score": 33.33,
                 "status": "available",
                 "actual": {
                   "games": 6250,
@@ -205205,9 +205330,9 @@
                 }
               },
               {
-                "rank": 14,
+                "rank": 13,
                 "number": 234,
-                "score": 33.16,
+                "score": 33.14,
                 "status": "available",
                 "actual": {
                   "games": 6728,
@@ -205218,9 +205343,9 @@
                 }
               },
               {
-                "rank": 15,
+                "rank": 14,
                 "number": 229,
-                "score": 30.53,
+                "score": 30.51,
                 "status": "available",
                 "actual": {
                   "games": 6471,
@@ -205231,9 +205356,9 @@
                 }
               },
               {
-                "rank": 16,
+                "rank": 15,
                 "number": 235,
-                "score": 29.53,
+                "score": 29.51,
                 "status": "available",
                 "actual": {
                   "games": 4573,
@@ -205244,9 +205369,9 @@
                 }
               },
               {
-                "rank": 17,
+                "rank": 16,
                 "number": 231,
-                "score": 28.42,
+                "score": 28.4,
                 "status": "available",
                 "actual": {
                   "games": 5065,
@@ -205257,9 +205382,9 @@
                 }
               },
               {
-                "rank": 18,
+                "rank": 17,
                 "number": 237,
-                "score": 28.32,
+                "score": 28.3,
                 "status": "available",
                 "actual": {
                   "games": 8091,
@@ -205270,9 +205395,9 @@
                 }
               },
               {
-                "rank": 19,
+                "rank": 18,
                 "number": 230,
-                "score": 21.53,
+                "score": 21.52,
                 "status": "available",
                 "actual": {
                   "games": 7422,
@@ -205282,7 +205407,8 @@
                   "source_url": "https://min-repo.com/3468096/?kishu=%E3%83%8F%E3%83%83%E3%83%94%E3%83%BC%E3%82%B8%E3%83%A3%E3%82%B0%E3%83%A9%E3%83%BC%EF%BC%B6%EF%BC%A9%EF%BC%A9%EF%BC%A9"
                 }
               }
-            ]
+            ],
+            "eligible_mean_difference": 1267.94
           },
           "girls": {
             "status": "complete",
@@ -205663,7 +205789,7 @@
             "eligible_mean_difference": 331.67
           }
         },
-        "status": "pending"
+        "status": "complete"
       }
     ],
     "note": "Positive difference is an outcome proxy, not proof of a high setting."
@@ -205719,7 +205845,7 @@
     },
     "2026-10-26": {
       "status": "partial",
-      "attempted_on": "2026-11-13"
+      "attempted_on": "2026-11-14"
     },
     "2026-10-08": {
       "status": "complete",
@@ -205999,7 +206125,7 @@
     },
     "2026-11-10": {
       "status": "partial",
-      "attempted_on": "2026-11-13"
+      "attempted_on": "2026-11-14"
     }
   },
   "history_backfill": {
@@ -206291,18 +206417,16 @@
   "history_coverage": {
     "as_of_date": "2026-11-13",
     "window_days": 90,
-    "complete_days": 85,
-    "partial_days": 5,
+    "complete_days": 86,
+    "partial_days": 4,
     "missing_days": 0,
     "days": [
       {
         "date": "2026-11-12",
-        "status": "partial",
-        "expected_rows": 150,
+        "status": "complete",
+        "expected_rows": 149,
         "verified_rows": 149,
-        "incomplete_models": [
-          "happy8"
-        ]
+        "incomplete_models": []
       },
       {
         "date": "2026-11-11",

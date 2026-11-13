@@ -370,6 +370,11 @@ def run(base=BASE, now=None):
         compare_myj_ranks(base, config, records, now, newly_saved_snapshot)
     except Exception as exc:
         print(json.dumps({'myj_rank_research_status': 'error', 'error': str(exc)}))
+    try:
+        from special_day_trial import run as compare_special_day
+        compare_special_day(base, config, records, now, forecast if forecast.get('display_status') == 'locked' else None)
+    except Exception as exc:
+        print(json.dumps({'special_day_trial_status': 'error', 'error': str(exc)}))
     return data
 
 

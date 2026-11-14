@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-14T00:37:17.621211+00:00",
+  "updated_at": "2026-11-14T01:28:01.809348+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-14T00:37:17.621211+00:00"
+      "checked_at": "2026-11-14T01:28:01.809348+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T00:37:17.621211+00:00"
+      "checked_at": "2026-11-14T01:28:01.809348+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T00:37:17.621211+00:00"
+      "checked_at": "2026-11-14T01:28:01.809348+00:00"
     }
   },
   "layout": {
@@ -148117,8 +148117,8 @@
     }
   ],
   "machine_collection": {
-    "status": "blocked",
-    "attempted_at": "2026-11-14T00:37:23.376493+00:00",
+    "status": "partial",
+    "attempted_at": "2026-11-14T01:28:04.434488+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148130,6 +148130,34 @@
         "status": "complete",
         "rows": 40,
         "expected_rows": 40,
+        "missing_numbers": []
+      },
+      "gogo3": {
+        "status": "complete",
+        "rows": 26,
+        "expected_rows": 26,
+        "missing_numbers": []
+      },
+      "funky2": {
+        "status": "complete",
+        "rows": 11,
+        "expected_rows": 11,
+        "missing_numbers": []
+      },
+      "happy8": {
+        "status": "error",
+        "reason": "Duplicate number or installation layout mismatch"
+      },
+      "girls": {
+        "status": "complete",
+        "rows": 9,
+        "expected_rows": 9,
+        "missing_numbers": []
+      },
+      "mr": {
+        "status": "complete",
+        "rows": 6,
+        "expected_rows": 6,
         "missing_numbers": []
       }
     },
@@ -148143,9 +148171,277 @@
     },
     "report_date": "2026-11-13",
     "report_url": "https://min-repo.com/3468642/",
-    "progress_saves": 3,
-    "progress_record_count": 79,
-    "reason": "HTTP 500; no retry or bypass"
+    "progress_saves": 7,
+    "progress_record_count": 131,
+    "backfill": {
+      "2026-11-12": {
+        "status": "cached"
+      },
+      "2026-11-11": {
+        "status": "cached"
+      },
+      "2026-11-09": {
+        "status": "cached"
+      },
+      "2026-11-08": {
+        "status": "cached"
+      },
+      "2026-11-07": {
+        "status": "cached"
+      },
+      "2026-11-06": {
+        "status": "cached"
+      },
+      "2026-11-05": {
+        "status": "cached"
+      },
+      "2026-11-04": {
+        "status": "cached"
+      },
+      "2026-11-03": {
+        "status": "cached"
+      },
+      "2026-11-02": {
+        "status": "cached"
+      },
+      "2026-11-01": {
+        "status": "cached"
+      },
+      "2026-10-31": {
+        "status": "cached"
+      },
+      "2026-10-30": {
+        "status": "cached"
+      },
+      "2026-10-29": {
+        "status": "cached"
+      },
+      "2026-10-28": {
+        "status": "cached"
+      },
+      "2026-10-27": {
+        "status": "cached"
+      },
+      "2026-10-25": {
+        "status": "cached"
+      },
+      "2026-10-24": {
+        "status": "cached"
+      },
+      "2026-10-23": {
+        "status": "cached"
+      },
+      "2026-10-21": {
+        "status": "cached"
+      },
+      "2026-10-20": {
+        "status": "cached"
+      },
+      "2026-11-10": {
+        "status": "cooldown"
+      },
+      "2026-10-26": {
+        "status": "cooldown"
+      },
+      "2026-10-22": {
+        "status": "cooldown"
+      },
+      "2026-10-19": {
+        "status": "cached"
+      },
+      "2026-10-18": {
+        "status": "cached"
+      },
+      "2026-10-17": {
+        "status": "cached"
+      },
+      "2026-10-16": {
+        "status": "cached"
+      },
+      "2026-10-15": {
+        "status": "cached"
+      },
+      "2026-10-14": {
+        "status": "cached"
+      },
+      "2026-10-13": {
+        "status": "cached"
+      },
+      "2026-10-12": {
+        "status": "cached"
+      },
+      "2026-10-11": {
+        "status": "cached"
+      },
+      "2026-10-10": {
+        "status": "cached"
+      },
+      "2026-10-09": {
+        "status": "cached"
+      },
+      "2026-10-08": {
+        "status": "cached"
+      },
+      "2026-10-07": {
+        "status": "cached"
+      },
+      "2026-10-06": {
+        "status": "cached"
+      },
+      "2026-10-05": {
+        "status": "cached"
+      },
+      "2026-10-04": {
+        "status": "cached"
+      },
+      "2026-10-03": {
+        "status": "cached"
+      },
+      "2026-10-02": {
+        "status": "cached"
+      },
+      "2026-10-01": {
+        "status": "cached"
+      },
+      "2026-09-30": {
+        "status": "cached"
+      },
+      "2026-09-29": {
+        "status": "cached"
+      },
+      "2026-09-28": {
+        "status": "cached"
+      },
+      "2026-09-27": {
+        "status": "cached"
+      },
+      "2026-09-26": {
+        "status": "cached"
+      },
+      "2026-09-25": {
+        "status": "cached"
+      },
+      "2026-09-24": {
+        "status": "cooldown"
+      },
+      "2026-09-23": {
+        "status": "cached"
+      },
+      "2026-09-22": {
+        "status": "cached"
+      },
+      "2026-09-21": {
+        "status": "cached"
+      },
+      "2026-09-20": {
+        "status": "cached"
+      },
+      "2026-09-19": {
+        "status": "cached"
+      },
+      "2026-09-18": {
+        "status": "cached"
+      },
+      "2026-09-17": {
+        "status": "cached"
+      },
+      "2026-09-16": {
+        "status": "cached"
+      },
+      "2026-09-15": {
+        "status": "cached"
+      },
+      "2026-09-14": {
+        "status": "cached"
+      },
+      "2026-09-13": {
+        "status": "cached"
+      },
+      "2026-09-12": {
+        "status": "cached"
+      },
+      "2026-09-11": {
+        "status": "cached"
+      },
+      "2026-09-10": {
+        "status": "cached"
+      },
+      "2026-09-09": {
+        "status": "cached"
+      },
+      "2026-09-08": {
+        "status": "cached"
+      },
+      "2026-09-07": {
+        "status": "cached"
+      },
+      "2026-09-06": {
+        "status": "cached"
+      },
+      "2026-09-05": {
+        "status": "cached"
+      },
+      "2026-09-04": {
+        "status": "cached"
+      },
+      "2026-09-03": {
+        "status": "cached"
+      },
+      "2026-09-02": {
+        "status": "cached"
+      },
+      "2026-09-01": {
+        "status": "cached"
+      },
+      "2026-08-31": {
+        "status": "cached"
+      },
+      "2026-08-30": {
+        "status": "cached"
+      },
+      "2026-08-29": {
+        "status": "cached"
+      },
+      "2026-08-28": {
+        "status": "cached"
+      },
+      "2026-08-27": {
+        "status": "cached"
+      },
+      "2026-08-26": {
+        "status": "cached"
+      },
+      "2026-08-25": {
+        "status": "cached"
+      },
+      "2026-08-24": {
+        "status": "cached"
+      },
+      "2026-08-23": {
+        "status": "cached"
+      },
+      "2026-08-22": {
+        "status": "cached"
+      },
+      "2026-08-21": {
+        "status": "cached"
+      },
+      "2026-08-20": {
+        "status": "cached"
+      },
+      "2026-08-19": {
+        "status": "cached"
+      },
+      "2026-08-18": {
+        "status": "cached"
+      },
+      "2026-08-17": {
+        "status": "cached"
+      },
+      "2026-08-16": {
+        "status": "cached"
+      }
+    }
   },
   "forecast": {
     "version": "experimental-v1",

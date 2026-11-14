@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-14T02:54:38.725688+00:00",
+  "updated_at": "2026-11-14T14:33:52.822439+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-14T02:54:38.725688+00:00"
+      "checked_at": "2026-11-14T14:33:52.822439+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T02:54:38.725688+00:00"
+      "checked_at": "2026-11-14T14:33:52.822439+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T02:54:38.725688+00:00"
+      "checked_at": "2026-11-14T14:33:52.822439+00:00"
     }
   },
   "layout": {
@@ -148117,89 +148117,368 @@
     }
   ],
   "machine_collection": {
-    "status": "error",
-    "attempted_at": "2026-11-14T02:54:42.355790+00:00",
-    "models": {},
+    "status": "partial",
+    "attempted_at": "2026-11-14T14:33:55.374673+00:00",
+    "models": {
+      "myj6": {
+        "status": "complete",
+        "rows": 39,
+        "expected_rows": 39,
+        "missing_numbers": []
+      },
+      "neoim": {
+        "status": "complete",
+        "rows": 40,
+        "expected_rows": 40,
+        "missing_numbers": []
+      },
+      "gogo3": {
+        "status": "complete",
+        "rows": 26,
+        "expected_rows": 26,
+        "missing_numbers": []
+      },
+      "funky2": {
+        "status": "complete",
+        "rows": 11,
+        "expected_rows": 11,
+        "missing_numbers": []
+      },
+      "happy8": {
+        "status": "error",
+        "reason": "Duplicate number or installation layout mismatch"
+      },
+      "girls": {
+        "status": "complete",
+        "rows": 9,
+        "expected_rows": 9,
+        "missing_numbers": []
+      },
+      "mr": {
+        "status": "complete",
+        "rows": 6,
+        "expected_rows": 6,
+        "missing_numbers": []
+      }
+    },
     "backfill_only": false,
     "history_window": {
       "days": 90,
-      "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-16",
+      "discovered_report_days": 89,
+      "earliest_discovered": "2026-08-17",
       "latest_discovered": "2026-11-13",
       "note": "Discovered reports are not proof of complete machine results"
     },
     "report_date": "2026-11-13",
     "report_url": "https://min-repo.com/3468642/",
-    "diagnostic": {
-      "url": "https://min-repo.com/3468642/",
-      "title": "",
-      "body_excerpt": "",
-      "request_failures": [
-        {
-          "url": "https://www.google-analytics.com/g/collect",
-          "error": "net::ERR_ABORTED"
-        },
-        {
-          "url": "https://pagead2.googlesyndication.com/pagead/ping",
-          "error": "net::ERR_ABORTED"
-        },
-        {
-          "url": "https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2",
-          "error": "net::ERR_FAILED"
-        },
-        {
-          "url": "https://pagead2.googlesyndication.com/pagead/ping",
-          "error": "net::ERR_ABORTED"
-        },
-        {
-          "url": "https://securepubads.g.doubleclick.net/pcs/view",
-          "error": "net::ERR_ABORTED"
-        }
-      ],
-      "javascript_errors": [
-        "Failed to execute 'browsingTopics' on 'Document': document.browsingTopics() is deprecated and has been removed."
-      ],
-      "console_errors": [
-        "Access to fetch at 'https://aladdin.genieesspv.jp/yie/ld/api/ad_call/v2?zoneid=1599948&cb=42272446017&charset=UTF-8&loc=https%3A%2F%2Fmin-repo.com%2Ftag%2F%25E6%25A5%25BD%25E5%259C%2592%25E4%25B8%258A%25E6%2596%25B0%25E5%25B1%258B%25E5%25BA%2597%2F&ct0=&referer=&topframe=1&cur=JPY&requestid=49ac2902-4767-41db-ba59-cb0717dcaef2&ua=Mozilla%2F5.0%20(X11%3B%20Linux%20x86_64)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20HeadlessChrome%2F153.0.8010.12%20Safari%2F537.36&tpaf=1&cks=1&ib=0&tmpval",
-        "Failed to load resource: net::ERR_FAILED"
-      ],
-      "document": {
-        "bytes": 409,
-        "script_count": 1,
-        "ajax_bootstrap": true,
-        "content_type": "text/html; charset=UTF-8"
+    "progress_saves": 11,
+    "progress_record_count": 150,
+    "backfill": {
+      "2026-11-12": {
+        "status": "cached"
       },
-      "site_responses": [
-        {
-          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
-          "status": 200
-        },
-        {
-          "url": "https://min-repo.com/3468642/",
-          "status": 200
-        },
-        {
-          "url": "https://min-repo.com/wp-admin/admin-ajax.php",
-          "status": 200
-        },
-        {
-          "url": "https://min-repo.com/3468642/",
-          "status": 200
-        },
-        {
-          "url": "https://min-repo.com/3468642/",
-          "status": 200
+      "2026-11-11": {
+        "status": "cached"
+      },
+      "2026-11-09": {
+        "status": "cached"
+      },
+      "2026-11-08": {
+        "status": "cached"
+      },
+      "2026-11-07": {
+        "status": "cached"
+      },
+      "2026-11-06": {
+        "status": "cached"
+      },
+      "2026-11-05": {
+        "status": "cached"
+      },
+      "2026-11-04": {
+        "status": "cached"
+      },
+      "2026-11-03": {
+        "status": "cached"
+      },
+      "2026-11-02": {
+        "status": "cached"
+      },
+      "2026-11-01": {
+        "status": "cached"
+      },
+      "2026-10-31": {
+        "status": "cached"
+      },
+      "2026-10-30": {
+        "status": "cached"
+      },
+      "2026-10-29": {
+        "status": "cached"
+      },
+      "2026-10-28": {
+        "status": "cached"
+      },
+      "2026-10-27": {
+        "status": "cached"
+      },
+      "2026-10-25": {
+        "status": "cached"
+      },
+      "2026-10-24": {
+        "status": "cached"
+      },
+      "2026-10-23": {
+        "status": "cached"
+      },
+      "2026-10-21": {
+        "status": "cached"
+      },
+      "2026-10-20": {
+        "status": "cached"
+      },
+      "2026-11-10": {
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "unavailable",
+            "reason": "Model link not found"
+          }
         }
-      ]
-    },
-    "reason": "Page.wait_for_function: Timeout 45000ms exceeded.",
-    "progress_saves": 1,
-    "progress_record_count": 0
+      },
+      "2026-10-26": {
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "partial",
+            "rows": 19,
+            "expected_rows": 39,
+            "missing_numbers": [
+              2201,
+              2202,
+              2203,
+              2204,
+              2205,
+              2206,
+              2207,
+              2208,
+              2209,
+              2210,
+              2211,
+              2212,
+              2213,
+              2214,
+              2215,
+              2216,
+              2217,
+              2218,
+              2219,
+              2220
+            ]
+          }
+        }
+      },
+      "2026-10-22": {
+        "status": "deferred"
+      },
+      "2026-10-19": {
+        "status": "cached"
+      },
+      "2026-10-18": {
+        "status": "cached"
+      },
+      "2026-10-17": {
+        "status": "cached"
+      },
+      "2026-10-16": {
+        "status": "cached"
+      },
+      "2026-10-15": {
+        "status": "cached"
+      },
+      "2026-10-14": {
+        "status": "cached"
+      },
+      "2026-10-13": {
+        "status": "cached"
+      },
+      "2026-10-12": {
+        "status": "cached"
+      },
+      "2026-10-11": {
+        "status": "cached"
+      },
+      "2026-10-10": {
+        "status": "cached"
+      },
+      "2026-10-09": {
+        "status": "cached"
+      },
+      "2026-10-08": {
+        "status": "cached"
+      },
+      "2026-10-07": {
+        "status": "cached"
+      },
+      "2026-10-06": {
+        "status": "cached"
+      },
+      "2026-10-05": {
+        "status": "cached"
+      },
+      "2026-10-04": {
+        "status": "cached"
+      },
+      "2026-10-03": {
+        "status": "cached"
+      },
+      "2026-10-02": {
+        "status": "cached"
+      },
+      "2026-10-01": {
+        "status": "cached"
+      },
+      "2026-09-30": {
+        "status": "cached"
+      },
+      "2026-09-29": {
+        "status": "cached"
+      },
+      "2026-09-28": {
+        "status": "cached"
+      },
+      "2026-09-27": {
+        "status": "cached"
+      },
+      "2026-09-26": {
+        "status": "cached"
+      },
+      "2026-09-25": {
+        "status": "cached"
+      },
+      "2026-09-24": {
+        "status": "deferred"
+      },
+      "2026-09-23": {
+        "status": "cached"
+      },
+      "2026-09-22": {
+        "status": "cached"
+      },
+      "2026-09-21": {
+        "status": "cached"
+      },
+      "2026-09-20": {
+        "status": "cached"
+      },
+      "2026-09-19": {
+        "status": "cached"
+      },
+      "2026-09-18": {
+        "status": "cached"
+      },
+      "2026-09-17": {
+        "status": "cached"
+      },
+      "2026-09-16": {
+        "status": "cached"
+      },
+      "2026-09-15": {
+        "status": "cached"
+      },
+      "2026-09-14": {
+        "status": "cached"
+      },
+      "2026-09-13": {
+        "status": "cached"
+      },
+      "2026-09-12": {
+        "status": "cached"
+      },
+      "2026-09-11": {
+        "status": "cached"
+      },
+      "2026-09-10": {
+        "status": "cached"
+      },
+      "2026-09-09": {
+        "status": "cached"
+      },
+      "2026-09-08": {
+        "status": "cached"
+      },
+      "2026-09-07": {
+        "status": "cached"
+      },
+      "2026-09-06": {
+        "status": "cached"
+      },
+      "2026-09-05": {
+        "status": "cached"
+      },
+      "2026-09-04": {
+        "status": "cached"
+      },
+      "2026-09-03": {
+        "status": "cached"
+      },
+      "2026-09-02": {
+        "status": "cached"
+      },
+      "2026-09-01": {
+        "status": "cached"
+      },
+      "2026-08-31": {
+        "status": "cached"
+      },
+      "2026-08-30": {
+        "status": "cached"
+      },
+      "2026-08-29": {
+        "status": "cached"
+      },
+      "2026-08-28": {
+        "status": "cached"
+      },
+      "2026-08-27": {
+        "status": "cached"
+      },
+      "2026-08-26": {
+        "status": "cached"
+      },
+      "2026-08-25": {
+        "status": "cached"
+      },
+      "2026-08-24": {
+        "status": "cached"
+      },
+      "2026-08-23": {
+        "status": "cached"
+      },
+      "2026-08-22": {
+        "status": "cached"
+      },
+      "2026-08-21": {
+        "status": "cached"
+      },
+      "2026-08-20": {
+        "status": "cached"
+      },
+      "2026-08-19": {
+        "status": "cached"
+      },
+      "2026-08-18": {
+        "status": "cached"
+      },
+      "2026-08-17": {
+        "status": "cached"
+      }
+    }
   },
   "forecast": {
     "version": "experimental-v1",
-    "date": "2026-11-14",
-    "created_at": "2026-11-14T05:03:57.466705+09:00",
+    "date": "2026-11-15",
+    "created_at": "2026-11-14T14:34:45.737869+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -150650,7 +150929,18 @@
         ]
       },
       "happy8": {
-        "status": "waiting_for_results"
+        "status": "stale_data",
+        "history_days": 7,
+        "latest_source_date": "2026-11-12",
+        "selection": {
+          "paired_days": 9,
+          "minimum_days": 30,
+          "status": "insufficient_evaluation",
+          "strategy": "balanced"
+        },
+        "strategies": {},
+        "rankings": {},
+        "eligible_numbers": []
       },
       "girls": {
         "status": "ready",
@@ -150930,12 +151220,7 @@
         ]
       }
     },
-    "snapshot_id": "091ce09cdacfed33284deea6b70050f7ba4e677b17567398024031e9f5531f5c",
-    "display_status": "locked",
-    "delivery": {
-      "deadline_jst": "2026-11-14T08:30:00+09:00",
-      "generated_before_deadline": true
-    }
+    "display_status": "preview"
   },
   "evaluation": {
     "policy_version": "experimental-v1",
@@ -175060,6 +175345,439 @@
               }
             ],
             "eligible_mean_difference": 331.67
+          }
+        },
+        "status": "pending"
+      },
+      {
+        "version": "experimental-v1",
+        "kind": "prospective",
+        "date": "2026-11-14",
+        "snapshot_id": "091ce09cdacfed33284deea6b70050f7ba4e677b17567398024031e9f5531f5c",
+        "models": {
+          "myj6": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 2203,
+                "score": 75.51,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 2,
+                "number": 2218,
+                "score": 73.76,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 3,
+                "number": 2215,
+                "score": 57.25,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 4,
+                "number": 2234,
+                "score": 53.4,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 5,
+                "number": 2225,
+                "score": 50.91,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 6,
+                "number": 2207,
+                "score": 50.34,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 7,
+                "number": 2211,
+                "score": 47.76,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 8,
+                "number": 2221,
+                "score": 46.55,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 9,
+                "number": 2232,
+                "score": 43.19,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 10,
+                "number": 2217,
+                "score": 43.16,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 11,
+                "number": 2220,
+                "score": 40.68,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 12,
+                "number": 2205,
+                "score": 39.92,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 13,
+                "number": 2219,
+                "score": 39.49,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 14,
+                "number": 2222,
+                "score": 39.35,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 15,
+                "number": 2233,
+                "score": 38.65,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 16,
+                "number": 2236,
+                "score": 37.72,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 17,
+                "number": 2238,
+                "score": 36.36,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 18,
+                "number": 2223,
+                "score": 35.9,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 19,
+                "number": 2213,
+                "score": 35.61,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 20,
+                "number": 2237,
+                "score": 34.03,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 21,
+                "number": 2202,
+                "score": 33.38,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 22,
+                "number": 2239,
+                "score": 32.41,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 23,
+                "number": 2201,
+                "score": 31.24,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 24,
+                "number": 2229,
+                "score": 28.54,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 25,
+                "number": 2227,
+                "score": 26.95,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
+          },
+          "neoim": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 2121,
+                "score": 50.97,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 2,
+                "number": 2130,
+                "score": 47.73,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 3,
+                "number": 2101,
+                "score": 45.84,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 4,
+                "number": 2139,
+                "score": 43.79,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 5,
+                "number": 2103,
+                "score": 40.75,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 6,
+                "number": 2134,
+                "score": 37.29,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 7,
+                "number": 2123,
+                "score": 37.03,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 8,
+                "number": 2108,
+                "score": 34.43,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 9,
+                "number": 2117,
+                "score": 33.2,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 10,
+                "number": 2106,
+                "score": 32.09,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 11,
+                "number": 2125,
+                "score": 29.14,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
+          },
+          "gogo3": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 114,
+                "score": 60.26,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 2,
+                "number": 121,
+                "score": 56.9,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 3,
+                "number": 135,
+                "score": 54.98,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 4,
+                "number": 112,
+                "score": 51.11,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 5,
+                "number": 130,
+                "score": 45.55,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 6,
+                "number": 126,
+                "score": 45.48,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 7,
+                "number": 133,
+                "score": 44.45,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 8,
+                "number": 119,
+                "score": 44.14,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 9,
+                "number": 136,
+                "score": 40.69,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 10,
+                "number": 123,
+                "score": 39.06,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 11,
+                "number": 117,
+                "score": 38.14,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
+          },
+          "funky2": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 101,
+                "score": 56.36,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 2,
+                "number": 102,
+                "score": 40.24,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 3,
+                "number": 105,
+                "score": 29.93,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 4,
+                "number": 107,
+                "score": 29.53,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
+          },
+          "happy8": {
+            "status": "no_prediction",
+            "strategies": {}
+          },
+          "girls": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 203,
+                "score": 61.24,
+                "status": "pending_results",
+                "actual": null
+              },
+              {
+                "rank": 2,
+                "number": 208,
+                "score": 29.94,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
+          },
+          "mr": {
+            "status": "pending_results",
+            "strategies": {},
+            "selected_strategy": "balanced",
+            "prediction_results": [
+              {
+                "rank": 1,
+                "number": 215,
+                "score": 42.14,
+                "status": "pending_results",
+                "actual": null
+              }
+            ]
           }
         },
         "status": "pending"
@@ -204315,7 +205033,7 @@
     },
     "2026-10-26": {
       "status": "partial",
-      "attempted_on": "2026-11-14"
+      "attempted_on": "2026-11-15"
     },
     "2026-10-08": {
       "status": "complete",
@@ -204595,7 +205313,7 @@
     },
     "2026-11-10": {
       "status": "partial",
-      "attempted_on": "2026-11-14"
+      "attempted_on": "2026-11-15"
     }
   },
   "history_backfill": {

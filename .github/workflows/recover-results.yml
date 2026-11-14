@@ -1,6 +1,9 @@
 name: recover results
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '41 18 * * *' # 03:41 JST: retry incomplete overnight settlement
+    - cron: '28 22 * * *' # 07:28 JST: recover before the morning deadline
   push:
     branches: [main]
     paths: [.github/workflows/recover-results.yml]
@@ -19,15 +22,50 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+      - name: Check whether recovery is needed
+        id: recovery
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          RECOVERY_SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timedelta
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          today = datetime.now(ZoneInfo('Asia/Tokyo')).date()
+          previous = str(today - timedelta(days=1))
+          history = Path('history')
+          answer = history / 'evaluations' / (previous + '.json')
+          saved = history / 'forecasts' / (str(today) + '.json')
+          if os.environ['EVENT_NAME'] != 'schedule':
+              needed = True
+          elif os.environ['RECOVERY_SCHEDULE'] == '41 18 * * *':
+              forecast = history / 'forecasts' / (previous + '.json')
+              needed = forecast.exists() and (
+                  not answer.exists() or json.loads(answer.read_text())['status'] != 'complete')
+          else:
+              needed = not saved.exists() or any(
+                  model['status'] == 'waiting_for_results'
+                  for model in json.loads(saved.read_text())['models'].values())
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
+              print(f'needed={str(needed).lower()}', file=output)
+          PY
       - uses: actions/setup-python@v5
+        if: steps.recovery.outputs.needed == 'true'
         with:
           python-version: "3.11"
       - uses: actions/setup-node@v4
+        if: steps.recovery.outputs.needed == 'true'
         with:
           node-version: "22"
       - name: Install dependencies
+        if: steps.recovery.outputs.needed == 'true'
         run: python -m pip install -r requirements.txt
       - name: Verify collector and evaluation
+        if: steps.recovery.outputs.needed == 'true'
         run: |
           python -m unittest test_machine_collector test_collection_runner test_forecast_engine test_answer_status test_count_tracking -v
           node test_frontend.cjs
@@ -36,27 +74,32 @@ jobs:
           node test_grape_estimator.cjs
           node test_grape_frontend.cjs
       - name: Install Chromium
+        if: steps.recovery.outputs.needed == 'true'
         timeout-minutes: 2
         run: python -m playwright install chromium --only-shell
       - name: Collect Min-repo results
+        if: steps.recovery.outputs.needed == 'true'
         timeout-minutes: 5
         run: python run_collection.py
       - name: Evaluate preserved morning forecasts
+        if: steps.recovery.outputs.needed == 'true'
         run: |
           python forecast_engine.py
           python check_answers.py
           python track_count_predictions.py
       - name: Save recovered results and evidence
+        if: steps.recovery.outputs.needed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data.json history answer_status.json
+          git add machines.json data.json history answer_status.json
           if ! git diff --cached --quiet; then
             git commit -m "Recover machine results and settle preserved forecasts"
             git pull --rebase origin "$GITHUB_REF_NAME"
             git push origin "HEAD:$GITHUB_REF_NAME"
           fi
       - name: Report actual recovery status
+        if: steps.recovery.outputs.needed == 'true'
         run: |
           python - <<'PY'
           import json
@@ -64,6 +107,4 @@ jobs:
           data = json.loads(Path('data.json').read_text())
           status = json.loads(Path('answer_status.json').read_text())
           print(json.dumps({'collection': data.get('machine_collection'), 'answer':status},ensure_ascii=False))
-          if status['status'] != 'complete':
-              raise SystemExit('Results remain incomplete; inspect saved collection evidence')
           PY

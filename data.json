@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-14T17:33:53.275064+00:00",
+  "updated_at": "2026-11-14T19:24:42.499966+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-14T17:33:53.275064+00:00"
+      "checked_at": "2026-11-14T19:24:42.499966+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T17:33:53.275064+00:00"
+      "checked_at": "2026-11-14T19:24:42.499966+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-14T17:33:53.275064+00:00"
+      "checked_at": "2026-11-14T19:24:42.499966+00:00"
     }
   },
   "layout": {
@@ -173,6 +173,7 @@
         "model_id": "happy8",
         "name": "ハッピージャグラーVIII",
         "numbers": [
+          219,
           220,
           221,
           222,
@@ -192,7 +193,7 @@
           236,
           237
         ],
-        "valid_from": "2026-11-12",
+        "valid_from": "2026-11-14",
         "valid_until": null
       },
       {
@@ -148118,7 +148119,7 @@
   ],
   "machine_collection": {
     "status": "complete",
-    "attempted_at": "2026-11-14T17:33:55.531254+00:00",
+    "attempted_at": "2026-11-14T19:24:44.653930+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148173,41 +148174,9 @@
     },
     "report_date": "2026-11-14",
     "report_url": "https://min-repo.com/3470729/",
-    "progress_saves": 10,
+    "progress_saves": 8,
     "progress_record_count": 150,
-    "layout_changes": {
-      "happy8": [
-        219,
-        220,
-        221,
-        222,
-        223,
-        224,
-        225,
-        226,
-        227,
-        228,
-        229,
-        230,
-        231,
-        232,
-        233,
-        234,
-        235,
-        236,
-        237
-      ]
-    },
     "backfill": {
-      "2026-11-13": {
-        "status": "partial",
-        "models": {
-          "happy8": {
-            "status": "error",
-            "reason": "Duplicate number or installation layout mismatch"
-          }
-        }
-      },
       "2026-11-12": {
         "status": "cached"
       },
@@ -148270,6 +148239,9 @@
       },
       "2026-10-20": {
         "status": "cached"
+      },
+      "2026-11-13": {
+        "status": "cooldown"
       },
       "2026-11-10": {
         "status": "cooldown"
@@ -148477,7 +148449,7 @@
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-15",
-    "created_at": "2026-11-14T17:34:37.940686+00:00",
+    "created_at": "2026-11-14T19:25:20.083093+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,

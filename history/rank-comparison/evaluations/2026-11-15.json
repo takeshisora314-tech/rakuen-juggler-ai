@@ -2,193 +2,2585 @@
   "version": "prospective-rank-pair-v1",
   "date": "2026-11-15",
   "snapshot_id": "da181511b0aac47c0701e5840074449128385a2058201e083e4c4f1495d8bcfe",
-  "checked_at": "2026-11-15T15:34:49.064814+00:00",
+  "checked_at": "2026-11-15T17:34:46.598131+00:00",
   "models": {
     "myj6": {
-      "status": "pending_results",
-      "missing_numbers": [
-        2201,
-        2202,
-        2203,
-        2204,
-        2205,
-        2206,
-        2207,
-        2208,
-        2209,
-        2210,
-        2211,
-        2212,
-        2213,
-        2214,
-        2215,
-        2216,
-        2217,
-        2218,
-        2219,
-        2220,
-        2221,
-        2222,
-        2223,
-        2224,
-        2225,
-        2226,
-        2227,
-        2228,
-        2229,
-        2230,
-        2231,
-        2232,
-        2233,
-        2234,
-        2235,
-        2236,
-        2237,
-        2238,
-        2239
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 39,
+        "positive_count": 18,
+        "positive_rate": 0.46153846153846156,
+        "total_difference": 923,
+        "mean_difference": 23.666666666666668,
+        "mean_lift_vs_all": 0.0
+      },
+      "actual_sha256": "627087c3ca024a2e3d84d141a4df609bc2b49c01b548b6b3a094cb955a971e1b",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": 740,
+            "mean_difference": 246.66666666666666,
+            "mean_lift_vs_all": 223.0
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 2221,
+              "games": 9149,
+              "bb": 38,
+              "rb": 27,
+              "difference": 185
+            },
+            {
+              "rank": 2,
+              "number": 2218,
+              "games": 8524,
+              "bb": 35,
+              "rb": 18,
+              "difference": -139
+            },
+            {
+              "rank": 3,
+              "number": 2236,
+              "games": 7320,
+              "bb": 29,
+              "rb": 27,
+              "difference": 694
+            },
+            {
+              "rank": 4,
+              "number": 2220,
+              "games": 7217,
+              "bb": 15,
+              "rb": 15,
+              "difference": -3519
+            },
+            {
+              "rank": 5,
+              "number": 2203,
+              "games": 6338,
+              "bb": 16,
+              "rb": 15,
+              "difference": -1991
+            },
+            {
+              "rank": 6,
+              "number": 2217,
+              "games": 7333,
+              "bb": 27,
+              "rb": 23,
+              "difference": -93
+            },
+            {
+              "rank": 7,
+              "number": 2224,
+              "games": 6321,
+              "bb": 13,
+              "rb": 20,
+              "difference": -2407
+            },
+            {
+              "rank": 8,
+              "number": 2214,
+              "games": 9460,
+              "bb": 35,
+              "rb": 31,
+              "difference": 370
+            },
+            {
+              "rank": 9,
+              "number": 2222,
+              "games": 6135,
+              "bb": 22,
+              "rb": 12,
+              "difference": -1019
+            },
+            {
+              "rank": 10,
+              "number": 2232,
+              "games": 6036,
+              "bb": 20,
+              "rb": 12,
+              "difference": -1111
+            },
+            {
+              "rank": 11,
+              "number": 2223,
+              "games": 6935,
+              "bb": 26,
+              "rb": 19,
+              "difference": -324
+            },
+            {
+              "rank": 12,
+              "number": 2226,
+              "games": 5575,
+              "bb": 12,
+              "rb": 15,
+              "difference": -2130
+            },
+            {
+              "rank": 13,
+              "number": 2234,
+              "games": 8745,
+              "bb": 32,
+              "rb": 32,
+              "difference": 926
+            },
+            {
+              "rank": 14,
+              "number": 2212,
+              "games": 9550,
+              "bb": 47,
+              "rb": 35,
+              "difference": 3472
+            },
+            {
+              "rank": 15,
+              "number": 2215,
+              "games": 8025,
+              "bb": 44,
+              "rb": 30,
+              "difference": 4259
+            },
+            {
+              "rank": 16,
+              "number": 2210,
+              "games": 8234,
+              "bb": 38,
+              "rb": 22,
+              "difference": 1296
+            },
+            {
+              "rank": 17,
+              "number": 2225,
+              "games": 7211,
+              "bb": 36,
+              "rb": 19,
+              "difference": 1806
+            },
+            {
+              "rank": 18,
+              "number": 2206,
+              "games": 8792,
+              "bb": 32,
+              "rb": 28,
+              "difference": 46
+            },
+            {
+              "rank": 19,
+              "number": 2202,
+              "games": 7614,
+              "bb": 30,
+              "rb": 19,
+              "difference": 139
+            },
+            {
+              "rank": 20,
+              "number": 2219,
+              "games": 5723,
+              "bb": 20,
+              "rb": 12,
+              "difference": -787
+            },
+            {
+              "rank": 21,
+              "number": 2237,
+              "games": 9590,
+              "bb": 31,
+              "rb": 40,
+              "difference": 509
+            },
+            {
+              "rank": 22,
+              "number": 2228,
+              "games": 5872,
+              "bb": 20,
+              "rb": 10,
+              "difference": -1250
+            },
+            {
+              "rank": 23,
+              "number": 2207,
+              "games": 4911,
+              "bb": 15,
+              "rb": 7,
+              "difference": -1852
+            },
+            {
+              "rank": 24,
+              "number": 2238,
+              "games": 5667,
+              "bb": 20,
+              "rb": 10,
+              "difference": -972
+            },
+            {
+              "rank": 25,
+              "number": 2211,
+              "games": 7185,
+              "bb": 31,
+              "rb": 14,
+              "difference": 278
+            },
+            {
+              "rank": 26,
+              "number": 2204,
+              "games": 7013,
+              "bb": 29,
+              "rb": 14,
+              "difference": -324
+            },
+            {
+              "rank": 27,
+              "number": 2235,
+              "games": 9331,
+              "bb": 44,
+              "rb": 35,
+              "difference": 3333
+            },
+            {
+              "rank": 28,
+              "number": 2239,
+              "games": 7323,
+              "bb": 22,
+              "rb": 25,
+              "difference": -972
+            },
+            {
+              "rank": 29,
+              "number": 2233,
+              "games": 9719,
+              "bb": 41,
+              "rb": 30,
+              "difference": 1667
+            },
+            {
+              "rank": 30,
+              "number": 2231,
+              "games": 6226,
+              "bb": 20,
+              "rb": 17,
+              "difference": -1343
+            },
+            {
+              "rank": 31,
+              "number": 2216,
+              "games": 8806,
+              "bb": 43,
+              "rb": 34,
+              "difference": 3009
+            },
+            {
+              "rank": 32,
+              "number": 2213,
+              "games": 8915,
+              "bb": 43,
+              "rb": 36,
+              "difference": 3704
+            },
+            {
+              "rank": 33,
+              "number": 2205,
+              "games": 5040,
+              "bb": 18,
+              "rb": 13,
+              "difference": -833
+            },
+            {
+              "rank": 34,
+              "number": 2229,
+              "games": 7531,
+              "bb": 31,
+              "rb": 21,
+              "difference": 648
+            },
+            {
+              "rank": 35,
+              "number": 2230,
+              "games": 7629,
+              "bb": 24,
+              "rb": 23,
+              "difference": -1204
+            },
+            {
+              "rank": 36,
+              "number": 2208,
+              "games": 4954,
+              "bb": 18,
+              "rb": 6,
+              "difference": -1111
+            },
+            {
+              "rank": 37,
+              "number": 2209,
+              "games": 6128,
+              "bb": 25,
+              "rb": 15,
+              "difference": 139
+            },
+            {
+              "rank": 38,
+              "number": 2227,
+              "games": 6898,
+              "bb": 20,
+              "rb": 22,
+              "difference": -1296
+            },
+            {
+              "rank": 39,
+              "number": 2201,
+              "games": 7064,
+              "bb": 26,
+              "rb": 14,
+              "difference": -880
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": 740,
+            "mean_difference": 246.66666666666666,
+            "mean_lift_vs_all": 223.0
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 2221,
+              "games": 9149,
+              "bb": 38,
+              "rb": 27,
+              "difference": 185
+            },
+            {
+              "rank": 2,
+              "number": 2218,
+              "games": 8524,
+              "bb": 35,
+              "rb": 18,
+              "difference": -139
+            },
+            {
+              "rank": 3,
+              "number": 2236,
+              "games": 7320,
+              "bb": 29,
+              "rb": 27,
+              "difference": 694
+            },
+            {
+              "rank": 4,
+              "number": 2220,
+              "games": 7217,
+              "bb": 15,
+              "rb": 15,
+              "difference": -3519
+            },
+            {
+              "rank": 5,
+              "number": 2203,
+              "games": 6338,
+              "bb": 16,
+              "rb": 15,
+              "difference": -1991
+            },
+            {
+              "rank": 6,
+              "number": 2217,
+              "games": 7333,
+              "bb": 27,
+              "rb": 23,
+              "difference": -93
+            },
+            {
+              "rank": 7,
+              "number": 2224,
+              "games": 6321,
+              "bb": 13,
+              "rb": 20,
+              "difference": -2407
+            },
+            {
+              "rank": 8,
+              "number": 2214,
+              "games": 9460,
+              "bb": 35,
+              "rb": 31,
+              "difference": 370
+            },
+            {
+              "rank": 9,
+              "number": 2232,
+              "games": 6036,
+              "bb": 20,
+              "rb": 12,
+              "difference": -1111
+            },
+            {
+              "rank": 10,
+              "number": 2222,
+              "games": 6135,
+              "bb": 22,
+              "rb": 12,
+              "difference": -1019
+            },
+            {
+              "rank": 11,
+              "number": 2215,
+              "games": 8025,
+              "bb": 44,
+              "rb": 30,
+              "difference": 4259
+            },
+            {
+              "rank": 12,
+              "number": 2223,
+              "games": 6935,
+              "bb": 26,
+              "rb": 19,
+              "difference": -324
+            },
+            {
+              "rank": 13,
+              "number": 2212,
+              "games": 9550,
+              "bb": 47,
+              "rb": 35,
+              "difference": 3472
+            },
+            {
+              "rank": 14,
+              "number": 2226,
+              "games": 5575,
+              "bb": 12,
+              "rb": 15,
+              "difference": -2130
+            },
+            {
+              "rank": 15,
+              "number": 2234,
+              "games": 8745,
+              "bb": 32,
+              "rb": 32,
+              "difference": 926
+            },
+            {
+              "rank": 16,
+              "number": 2202,
+              "games": 7614,
+              "bb": 30,
+              "rb": 19,
+              "difference": 139
+            },
+            {
+              "rank": 17,
+              "number": 2237,
+              "games": 9590,
+              "bb": 31,
+              "rb": 40,
+              "difference": 509
+            },
+            {
+              "rank": 18,
+              "number": 2211,
+              "games": 7185,
+              "bb": 31,
+              "rb": 14,
+              "difference": 278
+            },
+            {
+              "rank": 19,
+              "number": 2210,
+              "games": 8234,
+              "bb": 38,
+              "rb": 22,
+              "difference": 1296
+            },
+            {
+              "rank": 20,
+              "number": 2206,
+              "games": 8792,
+              "bb": 32,
+              "rb": 28,
+              "difference": 46
+            },
+            {
+              "rank": 21,
+              "number": 2228,
+              "games": 5872,
+              "bb": 20,
+              "rb": 10,
+              "difference": -1250
+            },
+            {
+              "rank": 22,
+              "number": 2225,
+              "games": 7211,
+              "bb": 36,
+              "rb": 19,
+              "difference": 1806
+            },
+            {
+              "rank": 23,
+              "number": 2238,
+              "games": 5667,
+              "bb": 20,
+              "rb": 10,
+              "difference": -972
+            },
+            {
+              "rank": 24,
+              "number": 2233,
+              "games": 9719,
+              "bb": 41,
+              "rb": 30,
+              "difference": 1667
+            },
+            {
+              "rank": 25,
+              "number": 2235,
+              "games": 9331,
+              "bb": 44,
+              "rb": 35,
+              "difference": 3333
+            },
+            {
+              "rank": 26,
+              "number": 2204,
+              "games": 7013,
+              "bb": 29,
+              "rb": 14,
+              "difference": -324
+            },
+            {
+              "rank": 27,
+              "number": 2207,
+              "games": 4911,
+              "bb": 15,
+              "rb": 7,
+              "difference": -1852
+            },
+            {
+              "rank": 28,
+              "number": 2239,
+              "games": 7323,
+              "bb": 22,
+              "rb": 25,
+              "difference": -972
+            },
+            {
+              "rank": 29,
+              "number": 2219,
+              "games": 5723,
+              "bb": 20,
+              "rb": 12,
+              "difference": -787
+            },
+            {
+              "rank": 30,
+              "number": 2229,
+              "games": 7531,
+              "bb": 31,
+              "rb": 21,
+              "difference": 648
+            },
+            {
+              "rank": 31,
+              "number": 2205,
+              "games": 5040,
+              "bb": 18,
+              "rb": 13,
+              "difference": -833
+            },
+            {
+              "rank": 32,
+              "number": 2216,
+              "games": 8806,
+              "bb": 43,
+              "rb": 34,
+              "difference": 3009
+            },
+            {
+              "rank": 33,
+              "number": 2231,
+              "games": 6226,
+              "bb": 20,
+              "rb": 17,
+              "difference": -1343
+            },
+            {
+              "rank": 34,
+              "number": 2213,
+              "games": 8915,
+              "bb": 43,
+              "rb": 36,
+              "difference": 3704
+            },
+            {
+              "rank": 35,
+              "number": 2209,
+              "games": 6128,
+              "bb": 25,
+              "rb": 15,
+              "difference": 139
+            },
+            {
+              "rank": 36,
+              "number": 2230,
+              "games": 7629,
+              "bb": 24,
+              "rb": 23,
+              "difference": -1204
+            },
+            {
+              "rank": 37,
+              "number": 2208,
+              "games": 4954,
+              "bb": 18,
+              "rb": 6,
+              "difference": -1111
+            },
+            {
+              "rank": 38,
+              "number": 2201,
+              "games": 7064,
+              "bb": 26,
+              "rb": 14,
+              "difference": -880
+            },
+            {
+              "rank": 39,
+              "number": 2227,
+              "games": 6898,
+              "bb": 20,
+              "rb": 22,
+              "difference": -1296
+            }
+          ]
+        }
+      }
     },
     "neoim": {
-      "status": "pending_results",
-      "missing_numbers": [
-        2101,
-        2102,
-        2103,
-        2104,
-        2105,
-        2106,
-        2107,
-        2108,
-        2109,
-        2110,
-        2111,
-        2112,
-        2113,
-        2114,
-        2115,
-        2116,
-        2117,
-        2118,
-        2119,
-        2120,
-        2121,
-        2122,
-        2123,
-        2124,
-        2125,
-        2126,
-        2127,
-        2128,
-        2129,
-        2130,
-        2131,
-        2132,
-        2133,
-        2134,
-        2135,
-        2136,
-        2137,
-        2138,
-        2139,
-        3501
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 40,
+        "positive_count": 20,
+        "positive_rate": 0.5,
+        "total_difference": 5832,
+        "mean_difference": 145.8,
+        "mean_lift_vs_all": 0.0
+      },
+      "actual_sha256": "a6dbf911cb8a4cfd7af48fdcd523c197ce013d1e8fe75315717dcee619766868",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": 1251,
+            "mean_difference": 417,
+            "mean_lift_vs_all": 271.2
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 2131,
+              "games": 7932,
+              "bb": 38,
+              "rb": 15,
+              "difference": 1343
+            },
+            {
+              "rank": 2,
+              "number": 2101,
+              "games": 7824,
+              "bb": 31,
+              "rb": 30,
+              "difference": 1019
+            },
+            {
+              "rank": 3,
+              "number": 2108,
+              "games": 6206,
+              "bb": 17,
+              "rb": 16,
+              "difference": -1111
+            },
+            {
+              "rank": 4,
+              "number": 2111,
+              "games": 6349,
+              "bb": 15,
+              "rb": 13,
+              "difference": -3056
+            },
+            {
+              "rank": 5,
+              "number": 2136,
+              "games": 6443,
+              "bb": 20,
+              "rb": 13,
+              "difference": -1620
+            },
+            {
+              "rank": 6,
+              "number": 2109,
+              "games": 7575,
+              "bb": 31,
+              "rb": 17,
+              "difference": 278
+            },
+            {
+              "rank": 7,
+              "number": 2119,
+              "games": 7600,
+              "bb": 24,
+              "rb": 21,
+              "difference": -1157
+            },
+            {
+              "rank": 8,
+              "number": 2130,
+              "games": 5846,
+              "bb": 16,
+              "rb": 14,
+              "difference": -1852
+            },
+            {
+              "rank": 9,
+              "number": 2138,
+              "games": 7270,
+              "bb": 28,
+              "rb": 20,
+              "difference": 509
+            },
+            {
+              "rank": 10,
+              "number": 2137,
+              "games": 8463,
+              "bb": 44,
+              "rb": 21,
+              "difference": 3148
+            },
+            {
+              "rank": 11,
+              "number": 2102,
+              "games": 8999,
+              "bb": 33,
+              "rb": 43,
+              "difference": 1343
+            },
+            {
+              "rank": 12,
+              "number": 2115,
+              "games": 6034,
+              "bb": 19,
+              "rb": 9,
+              "difference": -1528
+            },
+            {
+              "rank": 13,
+              "number": 2133,
+              "games": 6014,
+              "bb": 22,
+              "rb": 14,
+              "difference": -602
+            },
+            {
+              "rank": 14,
+              "number": 2121,
+              "games": 8952,
+              "bb": 31,
+              "rb": 41,
+              "difference": 926
+            },
+            {
+              "rank": 15,
+              "number": 2128,
+              "games": 5714,
+              "bb": 16,
+              "rb": 16,
+              "difference": -1806
+            },
+            {
+              "rank": 16,
+              "number": 2114,
+              "games": 5378,
+              "bb": 12,
+              "rb": 7,
+              "difference": -3056
+            },
+            {
+              "rank": 17,
+              "number": 2107,
+              "games": 7924,
+              "bb": 33,
+              "rb": 19,
+              "difference": 370
+            },
+            {
+              "rank": 18,
+              "number": 2126,
+              "games": 8568,
+              "bb": 49,
+              "rb": 26,
+              "difference": 4444
+            },
+            {
+              "rank": 19,
+              "number": 2120,
+              "games": 9583,
+              "bb": 40,
+              "rb": 50,
+              "difference": 2870
+            },
+            {
+              "rank": 20,
+              "number": 2129,
+              "games": 5314,
+              "bb": 18,
+              "rb": 12,
+              "difference": -509
+            },
+            {
+              "rank": 21,
+              "number": 2104,
+              "games": 9294,
+              "bb": 32,
+              "rb": 34,
+              "difference": 139
+            },
+            {
+              "rank": 22,
+              "number": 2122,
+              "games": 7591,
+              "bb": 36,
+              "rb": 23,
+              "difference": 2222
+            },
+            {
+              "rank": 23,
+              "number": 2118,
+              "games": 7069,
+              "bb": 26,
+              "rb": 14,
+              "difference": -509
+            },
+            {
+              "rank": 24,
+              "number": 2134,
+              "games": 7607,
+              "bb": 28,
+              "rb": 22,
+              "difference": -509
+            },
+            {
+              "rank": 25,
+              "number": 2124,
+              "games": 7480,
+              "bb": 29,
+              "rb": 31,
+              "difference": 1204
+            },
+            {
+              "rank": 26,
+              "number": 2116,
+              "games": 6226,
+              "bb": 20,
+              "rb": 14,
+              "difference": -1296
+            },
+            {
+              "rank": 27,
+              "number": 2123,
+              "games": 10000,
+              "bb": 47,
+              "rb": 51,
+              "difference": 4537
+            },
+            {
+              "rank": 28,
+              "number": 2125,
+              "games": 5089,
+              "bb": 21,
+              "rb": 9,
+              "difference": -93
+            },
+            {
+              "rank": 29,
+              "number": 2117,
+              "games": 5894,
+              "bb": 23,
+              "rb": 14,
+              "difference": 231
+            },
+            {
+              "rank": 30,
+              "number": 2106,
+              "games": 5761,
+              "bb": 19,
+              "rb": 11,
+              "difference": -1019
+            },
+            {
+              "rank": 31,
+              "number": 2105,
+              "games": 8254,
+              "bb": 25,
+              "rb": 31,
+              "difference": -648
+            },
+            {
+              "rank": 32,
+              "number": 2135,
+              "games": 5558,
+              "bb": 14,
+              "rb": 13,
+              "difference": -2222
+            },
+            {
+              "rank": 33,
+              "number": 2110,
+              "games": 8461,
+              "bb": 35,
+              "rb": 22,
+              "difference": 231
+            },
+            {
+              "rank": 34,
+              "number": 2139,
+              "games": 6213,
+              "bb": 20,
+              "rb": 17,
+              "difference": -1065
+            },
+            {
+              "rank": 35,
+              "number": 2113,
+              "games": 7375,
+              "bb": 35,
+              "rb": 15,
+              "difference": 741
+            },
+            {
+              "rank": 36,
+              "number": 2112,
+              "games": 6756,
+              "bb": 19,
+              "rb": 19,
+              "difference": -1389
+            },
+            {
+              "rank": 37,
+              "number": 2103,
+              "games": 9439,
+              "bb": 50,
+              "rb": 31,
+              "difference": 4028
+            },
+            {
+              "rank": 38,
+              "number": 2127,
+              "games": 8519,
+              "bb": 38,
+              "rb": 27,
+              "difference": 1481
+            },
+            {
+              "rank": 39,
+              "number": 2132,
+              "games": 8113,
+              "bb": 37,
+              "rb": 17,
+              "difference": 741
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": 742,
+            "mean_difference": 247.33333333333334,
+            "mean_lift_vs_all": 101.53333333333333
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 2131,
+              "games": 7932,
+              "bb": 38,
+              "rb": 15,
+              "difference": 1343
+            },
+            {
+              "rank": 2,
+              "number": 2101,
+              "games": 7824,
+              "bb": 31,
+              "rb": 30,
+              "difference": 1019
+            },
+            {
+              "rank": 3,
+              "number": 2136,
+              "games": 6443,
+              "bb": 20,
+              "rb": 13,
+              "difference": -1620
+            },
+            {
+              "rank": 4,
+              "number": 2108,
+              "games": 6206,
+              "bb": 17,
+              "rb": 16,
+              "difference": -1111
+            },
+            {
+              "rank": 5,
+              "number": 2109,
+              "games": 7575,
+              "bb": 31,
+              "rb": 17,
+              "difference": 278
+            },
+            {
+              "rank": 6,
+              "number": 2119,
+              "games": 7600,
+              "bb": 24,
+              "rb": 21,
+              "difference": -1157
+            },
+            {
+              "rank": 7,
+              "number": 2111,
+              "games": 6349,
+              "bb": 15,
+              "rb": 13,
+              "difference": -3056
+            },
+            {
+              "rank": 8,
+              "number": 2138,
+              "games": 7270,
+              "bb": 28,
+              "rb": 20,
+              "difference": 509
+            },
+            {
+              "rank": 9,
+              "number": 2102,
+              "games": 8999,
+              "bb": 33,
+              "rb": 43,
+              "difference": 1343
+            },
+            {
+              "rank": 10,
+              "number": 2130,
+              "games": 5846,
+              "bb": 16,
+              "rb": 14,
+              "difference": -1852
+            },
+            {
+              "rank": 11,
+              "number": 2137,
+              "games": 8463,
+              "bb": 44,
+              "rb": 21,
+              "difference": 3148
+            },
+            {
+              "rank": 12,
+              "number": 2128,
+              "games": 5714,
+              "bb": 16,
+              "rb": 16,
+              "difference": -1806
+            },
+            {
+              "rank": 13,
+              "number": 2104,
+              "games": 9294,
+              "bb": 32,
+              "rb": 34,
+              "difference": 139
+            },
+            {
+              "rank": 14,
+              "number": 2121,
+              "games": 8952,
+              "bb": 31,
+              "rb": 41,
+              "difference": 926
+            },
+            {
+              "rank": 15,
+              "number": 2129,
+              "games": 5314,
+              "bb": 18,
+              "rb": 12,
+              "difference": -509
+            },
+            {
+              "rank": 16,
+              "number": 2133,
+              "games": 6014,
+              "bb": 22,
+              "rb": 14,
+              "difference": -602
+            },
+            {
+              "rank": 17,
+              "number": 2115,
+              "games": 6034,
+              "bb": 19,
+              "rb": 9,
+              "difference": -1528
+            },
+            {
+              "rank": 18,
+              "number": 2126,
+              "games": 8568,
+              "bb": 49,
+              "rb": 26,
+              "difference": 4444
+            },
+            {
+              "rank": 19,
+              "number": 2122,
+              "games": 7591,
+              "bb": 36,
+              "rb": 23,
+              "difference": 2222
+            },
+            {
+              "rank": 20,
+              "number": 2134,
+              "games": 7607,
+              "bb": 28,
+              "rb": 22,
+              "difference": -509
+            },
+            {
+              "rank": 21,
+              "number": 2120,
+              "games": 9583,
+              "bb": 40,
+              "rb": 50,
+              "difference": 2870
+            },
+            {
+              "rank": 22,
+              "number": 2118,
+              "games": 7069,
+              "bb": 26,
+              "rb": 14,
+              "difference": -509
+            },
+            {
+              "rank": 23,
+              "number": 2107,
+              "games": 7924,
+              "bb": 33,
+              "rb": 19,
+              "difference": 370
+            },
+            {
+              "rank": 24,
+              "number": 2114,
+              "games": 5378,
+              "bb": 12,
+              "rb": 7,
+              "difference": -3056
+            },
+            {
+              "rank": 25,
+              "number": 2123,
+              "games": 10000,
+              "bb": 47,
+              "rb": 51,
+              "difference": 4537
+            },
+            {
+              "rank": 26,
+              "number": 2124,
+              "games": 7480,
+              "bb": 29,
+              "rb": 31,
+              "difference": 1204
+            },
+            {
+              "rank": 27,
+              "number": 2116,
+              "games": 6226,
+              "bb": 20,
+              "rb": 14,
+              "difference": -1296
+            },
+            {
+              "rank": 28,
+              "number": 2125,
+              "games": 5089,
+              "bb": 21,
+              "rb": 9,
+              "difference": -93
+            },
+            {
+              "rank": 29,
+              "number": 2117,
+              "games": 5894,
+              "bb": 23,
+              "rb": 14,
+              "difference": 231
+            },
+            {
+              "rank": 30,
+              "number": 2135,
+              "games": 5558,
+              "bb": 14,
+              "rb": 13,
+              "difference": -2222
+            },
+            {
+              "rank": 31,
+              "number": 2139,
+              "games": 6213,
+              "bb": 20,
+              "rb": 17,
+              "difference": -1065
+            },
+            {
+              "rank": 32,
+              "number": 2105,
+              "games": 8254,
+              "bb": 25,
+              "rb": 31,
+              "difference": -648
+            },
+            {
+              "rank": 33,
+              "number": 2106,
+              "games": 5761,
+              "bb": 19,
+              "rb": 11,
+              "difference": -1019
+            },
+            {
+              "rank": 34,
+              "number": 2110,
+              "games": 8461,
+              "bb": 35,
+              "rb": 22,
+              "difference": 231
+            },
+            {
+              "rank": 35,
+              "number": 2112,
+              "games": 6756,
+              "bb": 19,
+              "rb": 19,
+              "difference": -1389
+            },
+            {
+              "rank": 36,
+              "number": 2113,
+              "games": 7375,
+              "bb": 35,
+              "rb": 15,
+              "difference": 741
+            },
+            {
+              "rank": 37,
+              "number": 2103,
+              "games": 9439,
+              "bb": 50,
+              "rb": 31,
+              "difference": 4028
+            },
+            {
+              "rank": 38,
+              "number": 2127,
+              "games": 8519,
+              "bb": 38,
+              "rb": 27,
+              "difference": 1481
+            },
+            {
+              "rank": 39,
+              "number": 2132,
+              "games": 8113,
+              "bb": 37,
+              "rb": 17,
+              "difference": 741
+            }
+          ]
+        }
+      }
     },
     "gogo3": {
-      "status": "pending_results",
-      "missing_numbers": [
-        112,
-        113,
-        114,
-        115,
-        116,
-        117,
-        118,
-        119,
-        120,
-        121,
-        122,
-        123,
-        124,
-        125,
-        126,
-        127,
-        128,
-        129,
-        130,
-        131,
-        132,
-        133,
-        134,
-        135,
-        136,
-        137
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 26,
+        "positive_count": 13,
+        "positive_rate": 0.5,
+        "total_difference": 6942,
+        "mean_difference": 267,
+        "mean_lift_vs_all": 0
+      },
+      "actual_sha256": "9bb3d664969a965dec45a2b987f49e8b600a6a3c848b13ee2f8d7809e77f19dc",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": 4445,
+            "mean_difference": 1481.6666666666667,
+            "mean_lift_vs_all": 1214.6666666666667
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 125,
+              "games": 8371,
+              "bb": 39,
+              "rb": 38,
+              "difference": 3056
+            },
+            {
+              "rank": 2,
+              "number": 114,
+              "games": 9208,
+              "bb": 38,
+              "rb": 40,
+              "difference": 1435
+            },
+            {
+              "rank": 3,
+              "number": 112,
+              "games": 8299,
+              "bb": 33,
+              "rb": 26,
+              "difference": -46
+            },
+            {
+              "rank": 4,
+              "number": 130,
+              "games": 9087,
+              "bb": 52,
+              "rb": 24,
+              "difference": 3796
+            },
+            {
+              "rank": 5,
+              "number": 134,
+              "games": 6491,
+              "bb": 32,
+              "rb": 14,
+              "difference": 694
+            },
+            {
+              "rank": 6,
+              "number": 133,
+              "games": 6760,
+              "bb": 28,
+              "rb": 19,
+              "difference": -93
+            },
+            {
+              "rank": 7,
+              "number": 120,
+              "games": 8208,
+              "bb": 33,
+              "rb": 30,
+              "difference": 694
+            },
+            {
+              "rank": 8,
+              "number": 124,
+              "games": 8364,
+              "bb": 29,
+              "rb": 33,
+              "difference": -648
+            },
+            {
+              "rank": 9,
+              "number": 135,
+              "games": 6071,
+              "bb": 21,
+              "rb": 22,
+              "difference": -463
+            },
+            {
+              "rank": 10,
+              "number": 122,
+              "games": 6021,
+              "bb": 21,
+              "rb": 9,
+              "difference": -1898
+            },
+            {
+              "rank": 11,
+              "number": 131,
+              "games": 8017,
+              "bb": 30,
+              "rb": 23,
+              "difference": -93
+            },
+            {
+              "rank": 12,
+              "number": 119,
+              "games": 7869,
+              "bb": 34,
+              "rb": 21,
+              "difference": 602
+            },
+            {
+              "rank": 13,
+              "number": 136,
+              "games": 5475,
+              "bb": 20,
+              "rb": 9,
+              "difference": -1343
+            },
+            {
+              "rank": 14,
+              "number": 121,
+              "games": 7771,
+              "bb": 32,
+              "rb": 27,
+              "difference": 278
+            },
+            {
+              "rank": 15,
+              "number": 123,
+              "games": 3377,
+              "bb": 7,
+              "rb": 8,
+              "difference": -1806
+            },
+            {
+              "rank": 16,
+              "number": 118,
+              "games": 4738,
+              "bb": 18,
+              "rb": 7,
+              "difference": -972
+            },
+            {
+              "rank": 17,
+              "number": 117,
+              "games": 5120,
+              "bb": 30,
+              "rb": 17,
+              "difference": 2407
+            },
+            {
+              "rank": 18,
+              "number": 116,
+              "games": 6682,
+              "bb": 25,
+              "rb": 20,
+              "difference": -417
+            },
+            {
+              "rank": 19,
+              "number": 127,
+              "games": 8743,
+              "bb": 37,
+              "rb": 42,
+              "difference": 2685
+            },
+            {
+              "rank": 20,
+              "number": 132,
+              "games": 5697,
+              "bb": 19,
+              "rb": 20,
+              "difference": -787
+            },
+            {
+              "rank": 21,
+              "number": 113,
+              "games": 6362,
+              "bb": 21,
+              "rb": 15,
+              "difference": -1435
+            },
+            {
+              "rank": 22,
+              "number": 137,
+              "games": 7410,
+              "bb": 31,
+              "rb": 26,
+              "difference": 972
+            },
+            {
+              "rank": 23,
+              "number": 128,
+              "games": 7621,
+              "bb": 31,
+              "rb": 25,
+              "difference": 463
+            },
+            {
+              "rank": 24,
+              "number": 129,
+              "games": 8106,
+              "bb": 29,
+              "rb": 34,
+              "difference": 278
+            },
+            {
+              "rank": 25,
+              "number": 115,
+              "games": 7649,
+              "bb": 28,
+              "rb": 26,
+              "difference": -463
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 3,
+            "positive_rate": 1,
+            "total_difference": 8287,
+            "mean_difference": 2762.3333333333335,
+            "mean_lift_vs_all": 2495.3333333333335
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 125,
+              "games": 8371,
+              "bb": 39,
+              "rb": 38,
+              "difference": 3056
+            },
+            {
+              "rank": 2,
+              "number": 114,
+              "games": 9208,
+              "bb": 38,
+              "rb": 40,
+              "difference": 1435
+            },
+            {
+              "rank": 3,
+              "number": 130,
+              "games": 9087,
+              "bb": 52,
+              "rb": 24,
+              "difference": 3796
+            },
+            {
+              "rank": 4,
+              "number": 112,
+              "games": 8299,
+              "bb": 33,
+              "rb": 26,
+              "difference": -46
+            },
+            {
+              "rank": 5,
+              "number": 134,
+              "games": 6491,
+              "bb": 32,
+              "rb": 14,
+              "difference": 694
+            },
+            {
+              "rank": 6,
+              "number": 120,
+              "games": 8208,
+              "bb": 33,
+              "rb": 30,
+              "difference": 694
+            },
+            {
+              "rank": 7,
+              "number": 124,
+              "games": 8364,
+              "bb": 29,
+              "rb": 33,
+              "difference": -648
+            },
+            {
+              "rank": 8,
+              "number": 133,
+              "games": 6760,
+              "bb": 28,
+              "rb": 19,
+              "difference": -93
+            },
+            {
+              "rank": 9,
+              "number": 135,
+              "games": 6071,
+              "bb": 21,
+              "rb": 22,
+              "difference": -463
+            },
+            {
+              "rank": 10,
+              "number": 122,
+              "games": 6021,
+              "bb": 21,
+              "rb": 9,
+              "difference": -1898
+            },
+            {
+              "rank": 11,
+              "number": 131,
+              "games": 8017,
+              "bb": 30,
+              "rb": 23,
+              "difference": -93
+            },
+            {
+              "rank": 12,
+              "number": 117,
+              "games": 5120,
+              "bb": 30,
+              "rb": 17,
+              "difference": 2407
+            },
+            {
+              "rank": 13,
+              "number": 121,
+              "games": 7771,
+              "bb": 32,
+              "rb": 27,
+              "difference": 278
+            },
+            {
+              "rank": 14,
+              "number": 119,
+              "games": 7869,
+              "bb": 34,
+              "rb": 21,
+              "difference": 602
+            },
+            {
+              "rank": 15,
+              "number": 118,
+              "games": 4738,
+              "bb": 18,
+              "rb": 7,
+              "difference": -972
+            },
+            {
+              "rank": 16,
+              "number": 136,
+              "games": 5475,
+              "bb": 20,
+              "rb": 9,
+              "difference": -1343
+            },
+            {
+              "rank": 17,
+              "number": 123,
+              "games": 3377,
+              "bb": 7,
+              "rb": 8,
+              "difference": -1806
+            },
+            {
+              "rank": 18,
+              "number": 116,
+              "games": 6682,
+              "bb": 25,
+              "rb": 20,
+              "difference": -417
+            },
+            {
+              "rank": 19,
+              "number": 127,
+              "games": 8743,
+              "bb": 37,
+              "rb": 42,
+              "difference": 2685
+            },
+            {
+              "rank": 20,
+              "number": 113,
+              "games": 6362,
+              "bb": 21,
+              "rb": 15,
+              "difference": -1435
+            },
+            {
+              "rank": 21,
+              "number": 132,
+              "games": 5697,
+              "bb": 19,
+              "rb": 20,
+              "difference": -787
+            },
+            {
+              "rank": 22,
+              "number": 137,
+              "games": 7410,
+              "bb": 31,
+              "rb": 26,
+              "difference": 972
+            },
+            {
+              "rank": 23,
+              "number": 115,
+              "games": 7649,
+              "bb": 28,
+              "rb": 26,
+              "difference": -463
+            },
+            {
+              "rank": 24,
+              "number": 128,
+              "games": 7621,
+              "bb": 31,
+              "rb": 25,
+              "difference": 463
+            },
+            {
+              "rank": 25,
+              "number": 129,
+              "games": 8106,
+              "bb": 29,
+              "rb": 34,
+              "difference": 278
+            }
+          ]
+        }
+      }
     },
     "funky2": {
-      "status": "pending_results",
-      "missing_numbers": [
-        101,
-        102,
-        103,
-        104,
-        105,
-        106,
-        107,
-        108,
-        109,
-        110,
-        111
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 11,
+        "positive_count": 5,
+        "positive_rate": 0.45454545454545453,
+        "total_difference": -2036,
+        "mean_difference": -185.0909090909091,
+        "mean_lift_vs_all": 0.0
+      },
+      "actual_sha256": "5b64d7ec54fe8c221a54958bc9cee64fb8b9bbb4b2f179fb9ddfc2f5ee448c3f",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 1,
+            "positive_rate": 0.3333333333333333,
+            "total_difference": -2361,
+            "mean_difference": -787,
+            "mean_lift_vs_all": -601.9090909090909
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 101,
+              "games": 6976,
+              "bb": 22,
+              "rb": 16,
+              "difference": -1528
+            },
+            {
+              "rank": 2,
+              "number": 109,
+              "games": 6878,
+              "bb": 28,
+              "rb": 17,
+              "difference": 278
+            },
+            {
+              "rank": 3,
+              "number": 108,
+              "games": 6446,
+              "bb": 20,
+              "rb": 21,
+              "difference": -1111
+            },
+            {
+              "rank": 4,
+              "number": 107,
+              "games": 7213,
+              "bb": 27,
+              "rb": 21,
+              "difference": -417
+            },
+            {
+              "rank": 5,
+              "number": 102,
+              "games": 5202,
+              "bb": 16,
+              "rb": 19,
+              "difference": -694
+            },
+            {
+              "rank": 6,
+              "number": 103,
+              "games": 7206,
+              "bb": 30,
+              "rb": 18,
+              "difference": 556
+            },
+            {
+              "rank": 7,
+              "number": 111,
+              "games": 7829,
+              "bb": 30,
+              "rb": 25,
+              "difference": 139
+            },
+            {
+              "rank": 8,
+              "number": 104,
+              "games": 6883,
+              "bb": 27,
+              "rb": 19,
+              "difference": 278
+            },
+            {
+              "rank": 9,
+              "number": 106,
+              "games": 6760,
+              "bb": 20,
+              "rb": 18,
+              "difference": -1898
+            },
+            {
+              "rank": 10,
+              "number": 110,
+              "games": 8983,
+              "bb": 44,
+              "rb": 31,
+              "difference": 2870
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 1,
+            "positive_rate": 0.3333333333333333,
+            "total_difference": -1944,
+            "mean_difference": -648,
+            "mean_lift_vs_all": -462.9090909090909
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 101,
+              "games": 6976,
+              "bb": 22,
+              "rb": 16,
+              "difference": -1528
+            },
+            {
+              "rank": 2,
+              "number": 102,
+              "games": 5202,
+              "bb": 16,
+              "rb": 19,
+              "difference": -694
+            },
+            {
+              "rank": 3,
+              "number": 109,
+              "games": 6878,
+              "bb": 28,
+              "rb": 17,
+              "difference": 278
+            },
+            {
+              "rank": 4,
+              "number": 108,
+              "games": 6446,
+              "bb": 20,
+              "rb": 21,
+              "difference": -1111
+            },
+            {
+              "rank": 5,
+              "number": 103,
+              "games": 7206,
+              "bb": 30,
+              "rb": 18,
+              "difference": 556
+            },
+            {
+              "rank": 6,
+              "number": 111,
+              "games": 7829,
+              "bb": 30,
+              "rb": 25,
+              "difference": 139
+            },
+            {
+              "rank": 7,
+              "number": 107,
+              "games": 7213,
+              "bb": 27,
+              "rb": 21,
+              "difference": -417
+            },
+            {
+              "rank": 8,
+              "number": 104,
+              "games": 6883,
+              "bb": 27,
+              "rb": 19,
+              "difference": 278
+            },
+            {
+              "rank": 9,
+              "number": 106,
+              "games": 6760,
+              "bb": 20,
+              "rb": 18,
+              "difference": -1898
+            },
+            {
+              "rank": 10,
+              "number": 110,
+              "games": 8983,
+              "bb": 44,
+              "rb": 31,
+              "difference": 2870
+            }
+          ]
+        }
+      }
     },
     "happy8": {
-      "status": "pending_results",
-      "missing_numbers": [
-        219,
-        220,
-        221,
-        222,
-        223,
-        224,
-        225,
-        226,
-        227,
-        228,
-        229,
-        230,
-        231,
-        232,
-        233,
-        234,
-        235,
-        236,
-        237
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 19,
+        "positive_count": 11,
+        "positive_rate": 0.5789473684210527,
+        "total_difference": -4030,
+        "mean_difference": -212.10526315789474,
+        "mean_lift_vs_all": 0.0
+      },
+      "actual_sha256": "9d60fc1f215efeabc7ee8ea43f3c1869bf41e1af400d7cef5d78866ce6d0576f",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 2,
+            "positive_rate": 0.6666666666666666,
+            "total_difference": -509,
+            "mean_difference": -169.66666666666666,
+            "mean_lift_vs_all": 42.43859649122808
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 227,
+              "games": 6321,
+              "bb": 18,
+              "rb": 16,
+              "difference": -1898
+            },
+            {
+              "rank": 2,
+              "number": 221,
+              "games": 9560,
+              "bb": 38,
+              "rb": 36,
+              "difference": 1204
+            },
+            {
+              "rank": 3,
+              "number": 233,
+              "games": 7721,
+              "bb": 29,
+              "rb": 26,
+              "difference": 185
+            },
+            {
+              "rank": 4,
+              "number": 232,
+              "games": 4535,
+              "bb": 18,
+              "rb": 9,
+              "difference": -278
+            },
+            {
+              "rank": 5,
+              "number": 234,
+              "games": 4438,
+              "bb": 13,
+              "rb": 10,
+              "difference": -1343
+            },
+            {
+              "rank": 6,
+              "number": 220,
+              "games": 8734,
+              "bb": 37,
+              "rb": 31,
+              "difference": 1667
+            },
+            {
+              "rank": 7,
+              "number": 228,
+              "games": 7328,
+              "bb": 27,
+              "rb": 26,
+              "difference": 370
+            },
+            {
+              "rank": 8,
+              "number": 222,
+              "games": 4881,
+              "bb": 10,
+              "rb": 14,
+              "difference": -1991
+            },
+            {
+              "rank": 9,
+              "number": 231,
+              "games": 7139,
+              "bb": 32,
+              "rb": 25,
+              "difference": 1481
+            },
+            {
+              "rank": 10,
+              "number": 224,
+              "games": 4433,
+              "bb": 13,
+              "rb": 8,
+              "difference": -1204
+            },
+            {
+              "rank": 11,
+              "number": 235,
+              "games": 8224,
+              "bb": 31,
+              "rb": 26,
+              "difference": 278
+            },
+            {
+              "rank": 12,
+              "number": 219,
+              "games": 6292,
+              "bb": 19,
+              "rb": 12,
+              "difference": -1852
+            },
+            {
+              "rank": 13,
+              "number": 226,
+              "games": 5388,
+              "bb": 13,
+              "rb": 15,
+              "difference": -1620
+            },
+            {
+              "rank": 14,
+              "number": 237,
+              "games": 7896,
+              "bb": 28,
+              "rb": 25,
+              "difference": 185
+            },
+            {
+              "rank": 15,
+              "number": 230,
+              "games": 5477,
+              "bb": 16,
+              "rb": 12,
+              "difference": -1528
+            },
+            {
+              "rank": 16,
+              "number": 229,
+              "games": 6084,
+              "bb": 23,
+              "rb": 20,
+              "difference": 231
+            },
+            {
+              "rank": 17,
+              "number": 236,
+              "games": 6000,
+              "bb": 22,
+              "rb": 16,
+              "difference": 46
+            },
+            {
+              "rank": 18,
+              "number": 223,
+              "games": 9764,
+              "bb": 36,
+              "rb": 37,
+              "difference": 1157
+            },
+            {
+              "rank": 19,
+              "number": 225,
+              "games": 9093,
+              "bb": 34,
+              "rb": 33,
+              "difference": 880
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 1,
+            "positive_rate": 0.3333333333333333,
+            "total_difference": -695,
+            "mean_difference": -231.66666666666666,
+            "mean_lift_vs_all": -19.561403508771917
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 227,
+              "games": 6321,
+              "bb": 18,
+              "rb": 16,
+              "difference": -1898
+            },
+            {
+              "rank": 2,
+              "number": 232,
+              "games": 4535,
+              "bb": 18,
+              "rb": 9,
+              "difference": -278
+            },
+            {
+              "rank": 3,
+              "number": 231,
+              "games": 7139,
+              "bb": 32,
+              "rb": 25,
+              "difference": 1481
+            },
+            {
+              "rank": 4,
+              "number": 221,
+              "games": 9560,
+              "bb": 38,
+              "rb": 36,
+              "difference": 1204
+            },
+            {
+              "rank": 5,
+              "number": 233,
+              "games": 7721,
+              "bb": 29,
+              "rb": 26,
+              "difference": 185
+            },
+            {
+              "rank": 6,
+              "number": 228,
+              "games": 7328,
+              "bb": 27,
+              "rb": 26,
+              "difference": 370
+            },
+            {
+              "rank": 7,
+              "number": 220,
+              "games": 8734,
+              "bb": 37,
+              "rb": 31,
+              "difference": 1667
+            },
+            {
+              "rank": 8,
+              "number": 234,
+              "games": 4438,
+              "bb": 13,
+              "rb": 10,
+              "difference": -1343
+            },
+            {
+              "rank": 9,
+              "number": 222,
+              "games": 4881,
+              "bb": 10,
+              "rb": 14,
+              "difference": -1991
+            },
+            {
+              "rank": 10,
+              "number": 224,
+              "games": 4433,
+              "bb": 13,
+              "rb": 8,
+              "difference": -1204
+            },
+            {
+              "rank": 11,
+              "number": 219,
+              "games": 6292,
+              "bb": 19,
+              "rb": 12,
+              "difference": -1852
+            },
+            {
+              "rank": 12,
+              "number": 235,
+              "games": 8224,
+              "bb": 31,
+              "rb": 26,
+              "difference": 278
+            },
+            {
+              "rank": 13,
+              "number": 230,
+              "games": 5477,
+              "bb": 16,
+              "rb": 12,
+              "difference": -1528
+            },
+            {
+              "rank": 14,
+              "number": 237,
+              "games": 7896,
+              "bb": 28,
+              "rb": 25,
+              "difference": 185
+            },
+            {
+              "rank": 15,
+              "number": 236,
+              "games": 6000,
+              "bb": 22,
+              "rb": 16,
+              "difference": 46
+            },
+            {
+              "rank": 16,
+              "number": 223,
+              "games": 9764,
+              "bb": 36,
+              "rb": 37,
+              "difference": 1157
+            },
+            {
+              "rank": 17,
+              "number": 226,
+              "games": 5388,
+              "bb": 13,
+              "rb": 15,
+              "difference": -1620
+            },
+            {
+              "rank": 18,
+              "number": 229,
+              "games": 6084,
+              "bb": 23,
+              "rb": 20,
+              "difference": 231
+            },
+            {
+              "rank": 19,
+              "number": 225,
+              "games": 9093,
+              "bb": 34,
+              "rb": 33,
+              "difference": 880
+            }
+          ]
+        }
+      }
     },
     "girls": {
-      "status": "pending_results",
-      "missing_numbers": [
-        201,
-        202,
-        203,
-        204,
-        205,
-        206,
-        207,
-        208,
-        209
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 9,
+        "positive_count": 6,
+        "positive_rate": 0.6666666666666666,
+        "total_difference": 11988,
+        "mean_difference": 1332,
+        "mean_lift_vs_all": 0
+      },
+      "actual_sha256": "a35ba50c015157a5841ed145ef93bedd1858c859a2099048220dbc9075ade95e",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 0,
+            "positive_rate": 0,
+            "total_difference": -1482,
+            "mean_difference": -494,
+            "mean_lift_vs_all": -1826
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 203,
+              "games": 4221,
+              "bb": 17,
+              "rb": 9,
+              "difference": -185
+            },
+            {
+              "rank": 2,
+              "number": 201,
+              "games": 7880,
+              "bb": 24,
+              "rb": 28,
+              "difference": -880
+            },
+            {
+              "rank": 3,
+              "number": 205,
+              "games": 3902,
+              "bb": 15,
+              "rb": 9,
+              "difference": -417
+            },
+            {
+              "rank": 4,
+              "number": 209,
+              "games": 7247,
+              "bb": 38,
+              "rb": 27,
+              "difference": 2731
+            },
+            {
+              "rank": 5,
+              "number": 207,
+              "games": 9621,
+              "bb": 46,
+              "rb": 39,
+              "difference": 3333
+            },
+            {
+              "rank": 6,
+              "number": 208,
+              "games": 7216,
+              "bb": 36,
+              "rb": 26,
+              "difference": 2685
+            },
+            {
+              "rank": 7,
+              "number": 204,
+              "games": 7464,
+              "bb": 36,
+              "rb": 24,
+              "difference": 1944
+            },
+            {
+              "rank": 8,
+              "number": 206,
+              "games": 7887,
+              "bb": 28,
+              "rb": 30,
+              "difference": 370
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 0,
+            "positive_rate": 0,
+            "total_difference": -1482,
+            "mean_difference": -494,
+            "mean_lift_vs_all": -1826
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 203,
+              "games": 4221,
+              "bb": 17,
+              "rb": 9,
+              "difference": -185
+            },
+            {
+              "rank": 2,
+              "number": 201,
+              "games": 7880,
+              "bb": 24,
+              "rb": 28,
+              "difference": -880
+            },
+            {
+              "rank": 3,
+              "number": 205,
+              "games": 3902,
+              "bb": 15,
+              "rb": 9,
+              "difference": -417
+            },
+            {
+              "rank": 4,
+              "number": 208,
+              "games": 7216,
+              "bb": 36,
+              "rb": 26,
+              "difference": 2685
+            },
+            {
+              "rank": 5,
+              "number": 209,
+              "games": 7247,
+              "bb": 38,
+              "rb": 27,
+              "difference": 2731
+            },
+            {
+              "rank": 6,
+              "number": 207,
+              "games": 9621,
+              "bb": 46,
+              "rb": 39,
+              "difference": 3333
+            },
+            {
+              "rank": 7,
+              "number": 204,
+              "games": 7464,
+              "bb": 36,
+              "rb": 24,
+              "difference": 1944
+            },
+            {
+              "rank": 8,
+              "number": 206,
+              "games": 7887,
+              "bb": 28,
+              "rb": 30,
+              "difference": 370
+            }
+          ]
+        }
+      }
     },
     "mr": {
-      "status": "pending_results",
-      "missing_numbers": [
-        210,
-        211,
-        212,
-        213,
-        214,
-        215
-      ]
+      "status": "complete",
+      "settled_at": "2026-11-15T17:34:46.598131+00:00",
+      "all_installed": {
+        "count": 6,
+        "positive_count": 6,
+        "positive_rate": 1,
+        "total_difference": 12268,
+        "mean_difference": 2044.6666666666667,
+        "mean_lift_vs_all": 0.0
+      },
+      "actual_sha256": "948be3db5777a94836323fd4ce5beac821cf83becf69812fc722bebffafcc84d",
+      "methods": {
+        "baseline": {
+          "top3": {
+            "count": 3,
+            "positive_count": 3,
+            "positive_rate": 1,
+            "total_difference": 6713,
+            "mean_difference": 2237.6666666666665,
+            "mean_lift_vs_all": 192.99999999999977
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 211,
+              "games": 8571,
+              "bb": 31,
+              "rb": 43,
+              "difference": 2176
+            },
+            {
+              "rank": 2,
+              "number": 212,
+              "games": 9800,
+              "bb": 39,
+              "rb": 34,
+              "difference": 2083
+            },
+            {
+              "rank": 3,
+              "number": 215,
+              "games": 9405,
+              "bb": 41,
+              "rb": 36,
+              "difference": 2454
+            },
+            {
+              "rank": 4,
+              "number": 213,
+              "games": 9726,
+              "bb": 40,
+              "rb": 34,
+              "difference": 1481
+            }
+          ]
+        },
+        "candidate": {
+          "top3": {
+            "count": 3,
+            "positive_count": 3,
+            "positive_rate": 1,
+            "total_difference": 6713,
+            "mean_difference": 2237.6666666666665,
+            "mean_lift_vs_all": 192.99999999999977
+          },
+          "by_rank": [
+            {
+              "rank": 1,
+              "number": 211,
+              "games": 8571,
+              "bb": 31,
+              "rb": 43,
+              "difference": 2176
+            },
+            {
+              "rank": 2,
+              "number": 212,
+              "games": 9800,
+              "bb": 39,
+              "rb": 34,
+              "difference": 2083
+            },
+            {
+              "rank": 3,
+              "number": 215,
+              "games": 9405,
+              "bb": 41,
+              "rb": 36,
+              "difference": 2454
+            },
+            {
+              "rank": 4,
+              "number": 213,
+              "games": 9726,
+              "bb": 40,
+              "rb": 34,
+              "difference": 1481
+            }
+          ]
+        }
+      }
     }
   },
-  "evaluation_id": "203ca81f1aa51ed05af68b57386c3921cfa399ac25578b91a5f608a3636cd4c6"
+  "evaluation_id": "eceada5e7238fb544563008737cfff192fc01f5d45a332f827b08c9f55b0ebfb"
 }

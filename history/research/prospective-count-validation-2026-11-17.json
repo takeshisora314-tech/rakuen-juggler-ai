@@ -1,0 +1,290 @@
+{
+  "kind": "frozen_prospective_count_validation",
+  "as_of": "2026-11-17",
+  "calibrated": false,
+  "changes_live_strategy": false,
+  "minimum_completed_days_per_model": 30,
+  "completed_dates": [
+    "2026-11-01",
+    "2026-11-04",
+    "2026-11-05",
+    "2026-11-06",
+    "2026-11-07",
+    "2026-11-08",
+    "2026-11-09",
+    "2026-11-15"
+  ],
+  "models": {
+    "funky2": {
+      "completed_days": 10,
+      "scored_rows": 59,
+      "excluded_rows": 51,
+      "days_remaining_to_minimum": 20,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": -0.10424271987778573,
+          "mean_row_gain_vs_equal": 0.0022204638132891407,
+          "days_above_equal": 6,
+          "days_below_equal": 4
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.12185655898888355,
+          "mean_row_gain_vs_equal": -0.18273004328729006,
+          "days_above_equal": 2,
+          "days_below_equal": 8
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": -0.015859305886196662,
+          "mean_row_gain_vs_equal": 0.05642618974262483,
+          "days_above_equal": 8,
+          "days_below_equal": 2
+        }
+      }
+    },
+    "girls": {
+      "completed_days": 10,
+      "scored_rows": 42,
+      "excluded_rows": 48,
+      "days_remaining_to_minimum": 20,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": 0.01270327403684739,
+          "mean_row_gain_vs_equal": -0.05880245899379485,
+          "days_above_equal": 5,
+          "days_below_equal": 5
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.15494499289440844,
+          "mean_row_gain_vs_equal": -0.1409527562605157,
+          "days_above_equal": 2,
+          "days_below_equal": 8
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": 0.02368419124260157,
+          "mean_row_gain_vs_equal": 0.017033044263395754,
+          "days_above_equal": 8,
+          "days_below_equal": 2
+        }
+      }
+    },
+    "gogo3": {
+      "completed_days": 10,
+      "scored_rows": 194,
+      "excluded_rows": 66,
+      "days_remaining_to_minimum": 20,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": -0.05886862716749723,
+          "mean_row_gain_vs_equal": -0.09384750187849376,
+          "days_above_equal": 3,
+          "days_below_equal": 7
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.13044873420822345,
+          "mean_row_gain_vs_equal": -0.12226073149725011,
+          "days_above_equal": 0,
+          "days_below_equal": 10
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": 0.03911834291275227,
+          "mean_row_gain_vs_equal": 0.030225985849658105,
+          "days_above_equal": 7,
+          "days_below_equal": 3
+        }
+      }
+    },
+    "happy8": {
+      "completed_days": 9,
+      "scored_rows": 107,
+      "excluded_rows": 64,
+      "days_remaining_to_minimum": 21,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": -0.016327966542017416,
+          "mean_row_gain_vs_equal": -0.0021872631624083043,
+          "days_above_equal": 3,
+          "days_below_equal": 6
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.16603566769517808,
+          "mean_row_gain_vs_equal": -0.19844979713938138,
+          "days_above_equal": 0,
+          "days_below_equal": 9
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": 0.03787015697275001,
+          "mean_row_gain_vs_equal": 0.02680856305833681,
+          "days_above_equal": 8,
+          "days_below_equal": 1
+        }
+      }
+    },
+    "mr": {
+      "completed_days": 9,
+      "scored_rows": 31,
+      "excluded_rows": 23,
+      "days_remaining_to_minimum": 21,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": -0.17775916130519576,
+          "mean_row_gain_vs_equal": -0.2782683090364068,
+          "days_above_equal": 3,
+          "days_below_equal": 6
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.06889921187222144,
+          "mean_row_gain_vs_equal": -0.037427058971118955,
+          "days_above_equal": 4,
+          "days_below_equal": 5
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": -0.006569531006648453,
+          "mean_row_gain_vs_equal": -0.036181368842837985,
+          "days_above_equal": 4,
+          "days_below_equal": 5
+        }
+      }
+    },
+    "myj5": {
+      "completed_days": 7,
+      "scored_rows": 112,
+      "excluded_rows": 21,
+      "days_remaining_to_minimum": 23,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": 0.025381653154414936,
+          "mean_row_gain_vs_equal": 0.02017365834587922,
+          "days_above_equal": 4,
+          "days_below_equal": 3
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.2909007596091669,
+          "mean_row_gain_vs_equal": -0.2961578116290133,
+          "days_above_equal": 0,
+          "days_below_equal": 7
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": 0.0733050467588018,
+          "mean_row_gain_vs_equal": 0.06765087797379052,
+          "days_above_equal": 5,
+          "days_below_equal": 2
+        }
+      }
+    },
+    "myj6": {
+      "completed_days": 10,
+      "scored_rows": 221,
+      "excluded_rows": 17,
+      "days_remaining_to_minimum": 20,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": 0.12924385958146695,
+          "mean_row_gain_vs_equal": 0.11302647648605087,
+          "days_above_equal": 8,
+          "days_below_equal": 2
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.3621080182131616,
+          "mean_row_gain_vs_equal": -0.3553422259127088,
+          "days_above_equal": 0,
+          "days_below_equal": 10
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": 0.13428580160258158,
+          "mean_row_gain_vs_equal": 0.12651514459437455,
+          "days_above_equal": 10,
+          "days_below_equal": 0
+        }
+      }
+    },
+    "neoim": {
+      "completed_days": 10,
+      "scored_rows": 237,
+      "excluded_rows": 163,
+      "days_remaining_to_minimum": 20,
+      "validation_status": "insufficient_prospective_days",
+      "methods": {
+        "equal": {
+          "mean_daily_gain_vs_equal": 0.0,
+          "mean_row_gain_vs_equal": 0.0,
+          "days_above_equal": 0,
+          "days_below_equal": 0
+        },
+        "low_heavy": {
+          "mean_daily_gain_vs_equal": -0.22984932916516918,
+          "mean_row_gain_vs_equal": -0.26437236139978315,
+          "days_above_equal": 2,
+          "days_below_equal": 8
+        },
+        "high_heavy": {
+          "mean_daily_gain_vs_equal": -0.10030441668289028,
+          "mean_row_gain_vs_equal": -0.1056157390447034,
+          "days_above_equal": 2,
+          "days_below_equal": 8
+        },
+        "rolling_mixture": {
+          "mean_daily_gain_vs_equal": -0.014451777701652003,
+          "mean_row_gain_vs_equal": -0.0391585867331535,
+          "days_above_equal": 4,
+          "days_below_equal": 6
+        }
+      }
+    }
+  },
+  "interpretation": [
+    "Higher conditional BB/RB log score is better; compare the same scored rows.",
+    "Daily and row-weighted gains are separate; partial dates and same-day results are excluded.",
+    "Thirty completed dates is a minimum review gate, not proof or automatic adoption.",
+    "No verified setting labels: count fit is not setting 4-6 accuracy, win rate or profit.",
+    "Normal-game semantics, constant setting and factory-rate assumptions remain conditional."
+  ]
+}

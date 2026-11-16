@@ -375,6 +375,12 @@ def run(base=BASE, now=None):
         compare_special_day(base, config, records, now, forecast if forecast.get('display_status') == 'locked' else None)
     except Exception as exc:
         print(json.dumps({'special_day_trial_status': 'error', 'error': str(exc)}))
+    try:
+        from myj_rank_research import run_expanded_low_play
+        locked = forecast if forecast.get('display_status') == 'locked' else None
+        run_expanded_low_play(base, config, records, now, locked)
+    except Exception as exc:
+        print(json.dumps({'expanded_low_play_status': 'error', 'error': str(exc)}))
     return data
 
 

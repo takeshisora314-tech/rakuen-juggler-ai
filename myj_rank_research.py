@@ -6,6 +6,7 @@ from datetime import date, datetime, timedelta
 from statistics import mean
 from zoneinfo import ZoneInfo
 
+from morning_window import in_morning_window
 from collect_sources import BASE, layout_on, write_json
 from forecast_engine import (
     POLICY, WEIGHTS, make_forecast, record_index, save_snapshot, snapshot_id, valid_record,
@@ -22,7 +23,7 @@ def read(path):
     return json.loads(path.read_text(encoding='utf-8'))
 
 
-def rankings(snapshot, config, records):
+def rankings(snapshot, config, records, *, max_low_play_games=LOW_PLAY_MAX_GAMES, models=MODELS):
     """Hold the public top three fixed and test two independent changes below them."""
     day = date.fromisoformat(snapshot['date'])
     previous = str(day - timedelta(days=1))
@@ -30,7 +31,7 @@ def rankings(snapshot, config, records):
     result = {}
     for installed in layout_on(config, day):
         model = installed['model_id']
-        if model not in MODELS:
+        if model not in models:
             continue
         published = snapshot['models'].get(model, {})
         strategy = published.get('selection', {}).get('strategy')
@@ -58,7 +59,7 @@ def rankings(snapshot, config, records):
         extras = []
         for number in sorted(numbers - {r['number'] for r in baseline}):
             latest, *older = by_number[number]
-            if not 0 < latest['games'] <= LOW_PLAY_MAX_GAMES or latest['difference'] >= 0:
+            if not 0 < latest['games'] <= max_low_play_games or latest['difference'] >= 0:
                 continue
             trusted = [r for r in older if r['games'] >= POLICY['min_daily_games']]
             games = sum(r['games'] for r in trusted)
@@ -186,6 +187,37 @@ def run(base, config, records, now, new_snapshot=None):
               'archived_baseline': summarize(archived_baselines(base), index, config, local),
               'prospective_variants': summarize(frozen, index, config, local)}
     write_json(root / 'status.json', status)
+
+
+def run_expanded_low_play(base, config, records, now, forecast=None):
+    """Keep the 1–2999G trial separate from the existing 1–1000G trial."""
+    local = now.astimezone(ZoneInfo(config['timezone']))
+    day = str(local.date())
+    version = 'myj6-low-play-2999-v1'
+    root = base / 'history' / 'myj-rank-research' / version
+    path = root / 'forecasts' / (day + '.json')
+    if forecast and forecast['date'] == day and in_morning_window(local) and not path.exists():
+        model = forecast['models'].get('myj6', {})
+        created = model.get('created_at', forecast['created_at'])
+        if created == now.isoformat():
+            variants = rankings(forecast, config, records, max_low_play_games=2999, models=('myj6',))
+            variant = variants.get('myj6')
+            if variant and set(variant['numbers']) == set(range(2201, 2240)) and len(variant['baseline']) == 10:
+                save_snapshot(path, {'date': day, 'version': version, 'created_at': created,
+                                     'live_snapshot_id': forecast['snapshot_id'], 'models': variants})
+
+    frozen = []
+    for file in sorted((root / 'forecasts').glob('*.json')):
+        saved = read(file)
+        if snapshot_id(saved) != saved.get('snapshot_id'):
+            raise ValueError('Expanded low-play snapshot integrity mismatch')
+        frozen.append(saved)
+    index = record_index(archived_records(base))
+    index.update(record_index(r for r in records if r['model_id'] == 'myj6'))
+    results = summarize(frozen, index, config, local)['myj6']
+    for key in ('paired_4_to_10', 'by_rank'):
+        del results[key]['penalty']
+    write_json(root / 'status.json', {'version': version, 'as_of': day, 'myj6': results})
 
 
 def main():

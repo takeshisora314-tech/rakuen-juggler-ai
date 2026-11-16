@@ -1,0 +1,2857 @@
+{
+  "version": "experimental-v1",
+  "date": "2026-11-17",
+  "created_at": "2026-11-17T05:03:53.398169+09:00",
+  "kind": "prospective",
+  "policy": {
+    "min_history_days": 3,
+    "min_daily_games": 3000,
+    "min_total_games": 12000,
+    "max_source_age_days": 2,
+    "comparison_days": 30,
+    "switch_min_lift_gain": 100,
+    "forecast_lock_from_jst_hour": 5,
+    "forecast_lock_before_jst_hour": 7,
+    "extended_deadline_from": "2026-11-04",
+    "extended_deadline_jst": "08:30"
+  },
+  "models": {
+    "myj6": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 14,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 2214,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4969,
+            "latest_difference": -1620,
+            "three_day_difference": -3889,
+            "history_games": 41009,
+            "history_rb": 122,
+            "rb_denominator": 336.1,
+            "score": 82.05
+          },
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 81.25
+          },
+          {
+            "number": 2218,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3641,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 40038,
+            "history_rb": 112,
+            "rb_denominator": 357.5,
+            "score": 79.32
+          }
+        ],
+        "dip": [
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 94.32
+          },
+          {
+            "number": 2218,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3641,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 40038,
+            "history_rb": 112,
+            "rb_denominator": 357.5,
+            "score": 93.77
+          },
+          {
+            "number": 2220,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5542,
+            "latest_difference": -694,
+            "three_day_difference": -6898,
+            "history_games": 48882,
+            "history_rb": 128,
+            "rb_denominator": 381.9,
+            "score": 93.03
+          }
+        ],
+        "rb": [
+          {
+            "number": 2237,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7285,
+            "latest_difference": -1528,
+            "three_day_difference": -2176,
+            "history_games": 45788,
+            "history_rb": 146,
+            "rb_denominator": 313.6,
+            "score": 66.68
+          },
+          {
+            "number": 2214,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4969,
+            "latest_difference": -1620,
+            "three_day_difference": -3889,
+            "history_games": 41009,
+            "history_rb": 122,
+            "rb_denominator": 336.1,
+            "score": 66.05
+          },
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 62.82
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 2214,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4969,
+            "latest_difference": -1620,
+            "three_day_difference": -3889,
+            "history_games": 41009,
+            "history_rb": 122,
+            "rb_denominator": 336.1,
+            "score": 82.05
+          },
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 81.25
+          },
+          {
+            "number": 2218,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3641,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 40038,
+            "history_rb": 112,
+            "rb_denominator": 357.5,
+            "score": 79.32
+          },
+          {
+            "number": 2220,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5542,
+            "latest_difference": -694,
+            "three_day_difference": -6898,
+            "history_games": 48882,
+            "history_rb": 128,
+            "rb_denominator": 381.9,
+            "score": 75.61
+          },
+          {
+            "number": 2227,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6028,
+            "latest_difference": -231,
+            "three_day_difference": -4721,
+            "history_games": 38724,
+            "history_rb": 99,
+            "rb_denominator": 391.2,
+            "score": 74.46
+          },
+          {
+            "number": 2203,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 6910,
+            "latest_difference": 46,
+            "three_day_difference": -3936,
+            "history_games": 48523,
+            "history_rb": 123,
+            "rb_denominator": 394.5,
+            "score": 73.09
+          },
+          {
+            "number": 2217,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5044,
+            "latest_difference": -1898,
+            "three_day_difference": -3750,
+            "history_games": 42997,
+            "history_rb": 104,
+            "rb_denominator": 413.4,
+            "score": 68.62
+          },
+          {
+            "number": 2237,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7285,
+            "latest_difference": -1528,
+            "three_day_difference": -2176,
+            "history_games": 45788,
+            "history_rb": 146,
+            "rb_denominator": 313.6,
+            "score": 67.38
+          },
+          {
+            "number": 2231,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3382,
+            "latest_difference": 185,
+            "three_day_difference": -2454,
+            "history_games": 34577,
+            "history_rb": 102,
+            "rb_denominator": 339.0,
+            "score": 65.37
+          },
+          {
+            "number": 2211,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3296,
+            "latest_difference": -741,
+            "three_day_difference": -1019,
+            "history_games": 42126,
+            "history_rb": 123,
+            "rb_denominator": 342.5,
+            "score": 48.59
+          },
+          {
+            "number": 2201,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4477,
+            "latest_difference": -463,
+            "three_day_difference": -1621,
+            "history_games": 48634,
+            "history_rb": 118,
+            "rb_denominator": 412.2,
+            "score": 44.69
+          },
+          {
+            "number": 2206,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6054,
+            "latest_difference": -926,
+            "three_day_difference": 416,
+            "history_games": 48266,
+            "history_rb": 157,
+            "rb_denominator": 307.4,
+            "score": 44.31
+          },
+          {
+            "number": 2235,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5197,
+            "latest_difference": 278,
+            "three_day_difference": 3796,
+            "history_games": 38405,
+            "history_rb": 125,
+            "rb_denominator": 307.2,
+            "score": 44.2
+          },
+          {
+            "number": 2222,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4251,
+            "latest_difference": 231,
+            "three_day_difference": 647,
+            "history_games": 44014,
+            "history_rb": 143,
+            "rb_denominator": 307.8,
+            "score": 44.17
+          },
+          {
+            "number": 2212,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4218,
+            "latest_difference": -185,
+            "three_day_difference": 2268,
+            "history_games": 45936,
+            "history_rb": 149,
+            "rb_denominator": 308.3,
+            "score": 44.09
+          },
+          {
+            "number": 2221,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 10107,
+            "latest_difference": 4583,
+            "three_day_difference": 4583,
+            "history_games": 50422,
+            "history_rb": 162,
+            "rb_denominator": 311.2,
+            "score": 43.48
+          },
+          {
+            "number": 2223,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6079,
+            "latest_difference": 602,
+            "three_day_difference": 5047,
+            "history_games": 41229,
+            "history_rb": 132,
+            "rb_denominator": 312.3,
+            "score": 43.12
+          },
+          {
+            "number": 2232,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7649,
+            "latest_difference": 1157,
+            "three_day_difference": 463,
+            "history_games": 45056,
+            "history_rb": 141,
+            "rb_denominator": 319.5,
+            "score": 41.62
+          },
+          {
+            "number": 2226,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 7566,
+            "latest_difference": 1065,
+            "three_day_difference": 139,
+            "history_games": 39644,
+            "history_rb": 124,
+            "rb_denominator": 319.7,
+            "score": 41.53
+          },
+          {
+            "number": 2207,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7152,
+            "latest_difference": 602,
+            "three_day_difference": 2593,
+            "history_games": 41692,
+            "history_rb": 128,
+            "rb_denominator": 325.7,
+            "score": 40.33
+          },
+          {
+            "number": 2239,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5293,
+            "latest_difference": 231,
+            "three_day_difference": 1481,
+            "history_games": 40226,
+            "history_rb": 120,
+            "rb_denominator": 335.2,
+            "score": 38.47
+          },
+          {
+            "number": 2219,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3201,
+            "latest_difference": -694,
+            "three_day_difference": 186,
+            "history_games": 43962,
+            "history_rb": 131,
+            "rb_denominator": 335.6,
+            "score": 38.41
+          },
+          {
+            "number": 2204,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4657,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 36967,
+            "history_rb": 96,
+            "rb_denominator": 385.1,
+            "score": 35.56
+          },
+          {
+            "number": 2209,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3779,
+            "latest_difference": 833,
+            "three_day_difference": 4398,
+            "history_games": 36744,
+            "history_rb": 104,
+            "rb_denominator": 353.3,
+            "score": 35.26
+          },
+          {
+            "number": 2238,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3510,
+            "latest_difference": 93,
+            "three_day_difference": 1251,
+            "history_games": 40197,
+            "history_rb": 111,
+            "rb_denominator": 362.1,
+            "score": 33.77
+          }
+        ],
+        "dip": [
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 94.32
+          },
+          {
+            "number": 2218,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3641,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 40038,
+            "history_rb": 112,
+            "rb_denominator": 357.5,
+            "score": 93.77
+          },
+          {
+            "number": 2220,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5542,
+            "latest_difference": -694,
+            "three_day_difference": -6898,
+            "history_games": 48882,
+            "history_rb": 128,
+            "rb_denominator": 381.9,
+            "score": 93.03
+          },
+          {
+            "number": 2214,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4969,
+            "latest_difference": -1620,
+            "three_day_difference": -3889,
+            "history_games": 41009,
+            "history_rb": 122,
+            "rb_denominator": 336.1,
+            "score": 93.01
+          },
+          {
+            "number": 2227,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6028,
+            "latest_difference": -231,
+            "three_day_difference": -4721,
+            "history_games": 38724,
+            "history_rb": 99,
+            "rb_denominator": 391.2,
+            "score": 92.7
+          },
+          {
+            "number": 2203,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 6910,
+            "latest_difference": 46,
+            "three_day_difference": -3936,
+            "history_games": 48523,
+            "history_rb": 123,
+            "rb_denominator": 394.5,
+            "score": 91.24
+          },
+          {
+            "number": 2217,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5044,
+            "latest_difference": -1898,
+            "three_day_difference": -3750,
+            "history_games": 42997,
+            "history_rb": 104,
+            "rb_denominator": 413.4,
+            "score": 86.84
+          },
+          {
+            "number": 2231,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3382,
+            "latest_difference": 185,
+            "three_day_difference": -2454,
+            "history_games": 34577,
+            "history_rb": 102,
+            "rb_denominator": 339.0,
+            "score": 64.16
+          },
+          {
+            "number": 2237,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7285,
+            "latest_difference": -1528,
+            "three_day_difference": -2176,
+            "history_games": 45788,
+            "history_rb": 146,
+            "rb_denominator": 313.6,
+            "score": 60.06
+          },
+          {
+            "number": 2201,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4477,
+            "latest_difference": -463,
+            "three_day_difference": -1621,
+            "history_games": 48634,
+            "history_rb": 118,
+            "rb_denominator": 412.2,
+            "score": 44.27
+          },
+          {
+            "number": 2211,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3296,
+            "latest_difference": -741,
+            "three_day_difference": -1019,
+            "history_games": 42126,
+            "history_rb": 123,
+            "rb_denominator": 342.5,
+            "score": 35.27
+          },
+          {
+            "number": 2204,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4657,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 36967,
+            "history_rb": 96,
+            "rb_denominator": 385.1,
+            "score": 22.22
+          },
+          {
+            "number": 2206,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6054,
+            "latest_difference": -926,
+            "three_day_difference": 416,
+            "history_games": 48266,
+            "history_rb": 157,
+            "rb_denominator": 307.4,
+            "score": 16.95
+          },
+          {
+            "number": 2222,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4251,
+            "latest_difference": 231,
+            "three_day_difference": 647,
+            "history_games": 44014,
+            "history_rb": 143,
+            "rb_denominator": 307.8,
+            "score": 16.91
+          },
+          {
+            "number": 2235,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5197,
+            "latest_difference": 278,
+            "three_day_difference": 3796,
+            "history_games": 38405,
+            "history_rb": 125,
+            "rb_denominator": 307.2,
+            "score": 16.91
+          },
+          {
+            "number": 2212,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4218,
+            "latest_difference": -185,
+            "three_day_difference": 2268,
+            "history_games": 45936,
+            "history_rb": 149,
+            "rb_denominator": 308.3,
+            "score": 16.88
+          },
+          {
+            "number": 2221,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 10107,
+            "latest_difference": 4583,
+            "three_day_difference": 4583,
+            "history_games": 50422,
+            "history_rb": 162,
+            "rb_denominator": 311.2,
+            "score": 16.71
+          },
+          {
+            "number": 2223,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6079,
+            "latest_difference": 602,
+            "three_day_difference": 5047,
+            "history_games": 41229,
+            "history_rb": 132,
+            "rb_denominator": 312.3,
+            "score": 16.61
+          },
+          {
+            "number": 2232,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7649,
+            "latest_difference": 1157,
+            "three_day_difference": 463,
+            "history_games": 45056,
+            "history_rb": 141,
+            "rb_denominator": 319.5,
+            "score": 16.18
+          },
+          {
+            "number": 2226,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 7566,
+            "latest_difference": 1065,
+            "three_day_difference": 139,
+            "history_games": 39644,
+            "history_rb": 124,
+            "rb_denominator": 319.7,
+            "score": 16.15
+          },
+          {
+            "number": 2207,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7152,
+            "latest_difference": 602,
+            "three_day_difference": 2593,
+            "history_games": 41692,
+            "history_rb": 128,
+            "rb_denominator": 325.7,
+            "score": 15.81
+          },
+          {
+            "number": 2239,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5293,
+            "latest_difference": 231,
+            "three_day_difference": 1481,
+            "history_games": 40226,
+            "history_rb": 120,
+            "rb_denominator": 335.2,
+            "score": 15.28
+          },
+          {
+            "number": 2219,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3201,
+            "latest_difference": -694,
+            "three_day_difference": 186,
+            "history_games": 43962,
+            "history_rb": 131,
+            "rb_denominator": 335.6,
+            "score": 15.26
+          },
+          {
+            "number": 2209,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3779,
+            "latest_difference": 833,
+            "three_day_difference": 4398,
+            "history_games": 36744,
+            "history_rb": 104,
+            "rb_denominator": 353.3,
+            "score": 14.36
+          },
+          {
+            "number": 2238,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3510,
+            "latest_difference": 93,
+            "three_day_difference": 1251,
+            "history_games": 40197,
+            "history_rb": 111,
+            "rb_denominator": 362.1,
+            "score": 13.94
+          }
+        ],
+        "rb": [
+          {
+            "number": 2237,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7285,
+            "latest_difference": -1528,
+            "three_day_difference": -2176,
+            "history_games": 45788,
+            "history_rb": 146,
+            "rb_denominator": 313.6,
+            "score": 66.68
+          },
+          {
+            "number": 2214,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4969,
+            "latest_difference": -1620,
+            "three_day_difference": -3889,
+            "history_games": 41009,
+            "history_rb": 122,
+            "rb_denominator": 336.1,
+            "score": 66.05
+          },
+          {
+            "number": 2230,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4449,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 34289,
+            "history_rb": 99,
+            "rb_denominator": 346.4,
+            "score": 62.82
+          },
+          {
+            "number": 2218,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3641,
+            "latest_difference": -1157,
+            "three_day_difference": -3981,
+            "history_games": 40038,
+            "history_rb": 112,
+            "rb_denominator": 357.5,
+            "score": 58.98
+          },
+          {
+            "number": 2206,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6054,
+            "latest_difference": -926,
+            "three_day_difference": 416,
+            "history_games": 48266,
+            "history_rb": 157,
+            "rb_denominator": 307.4,
+            "score": 58.63
+          },
+          {
+            "number": 2235,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5197,
+            "latest_difference": 278,
+            "three_day_difference": 3796,
+            "history_games": 38405,
+            "history_rb": 125,
+            "rb_denominator": 307.2,
+            "score": 58.39
+          },
+          {
+            "number": 2222,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4251,
+            "latest_difference": 231,
+            "three_day_difference": 647,
+            "history_games": 44014,
+            "history_rb": 143,
+            "rb_denominator": 307.8,
+            "score": 58.34
+          },
+          {
+            "number": 2212,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4218,
+            "latest_difference": -185,
+            "three_day_difference": 2268,
+            "history_games": 45936,
+            "history_rb": 149,
+            "rb_denominator": 308.3,
+            "score": 58.17
+          },
+          {
+            "number": 2231,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3382,
+            "latest_difference": 185,
+            "three_day_difference": -2454,
+            "history_games": 34577,
+            "history_rb": 102,
+            "rb_denominator": 339.0,
+            "score": 57.8
+          },
+          {
+            "number": 2221,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 10107,
+            "latest_difference": 4583,
+            "three_day_difference": 4583,
+            "history_games": 50422,
+            "history_rb": 162,
+            "rb_denominator": 311.2,
+            "score": 56.95
+          },
+          {
+            "number": 2223,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6079,
+            "latest_difference": 602,
+            "three_day_difference": 5047,
+            "history_games": 41229,
+            "history_rb": 132,
+            "rb_denominator": 312.3,
+            "score": 56.24
+          },
+          {
+            "number": 2232,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7649,
+            "latest_difference": 1157,
+            "three_day_difference": 463,
+            "history_games": 45056,
+            "history_rb": 141,
+            "rb_denominator": 319.5,
+            "score": 53.25
+          },
+          {
+            "number": 2226,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 7566,
+            "latest_difference": 1065,
+            "three_day_difference": 139,
+            "history_games": 39644,
+            "history_rb": 124,
+            "rb_denominator": 319.7,
+            "score": 53.07
+          },
+          {
+            "number": 2220,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5542,
+            "latest_difference": -694,
+            "three_day_difference": -6898,
+            "history_games": 48882,
+            "history_rb": 128,
+            "rb_denominator": 381.9,
+            "score": 51.22
+          },
+          {
+            "number": 2207,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7152,
+            "latest_difference": 602,
+            "three_day_difference": 2593,
+            "history_games": 41692,
+            "history_rb": 128,
+            "rb_denominator": 325.7,
+            "score": 50.66
+          },
+          {
+            "number": 2211,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3296,
+            "latest_difference": -741,
+            "three_day_difference": -1019,
+            "history_games": 42126,
+            "history_rb": 123,
+            "rb_denominator": 342.5,
+            "score": 49.35
+          },
+          {
+            "number": 2227,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 6028,
+            "latest_difference": -231,
+            "three_day_difference": -4721,
+            "history_games": 38724,
+            "history_rb": 99,
+            "rb_denominator": 391.2,
+            "score": 48.93
+          },
+          {
+            "number": 2203,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 6910,
+            "latest_difference": 46,
+            "three_day_difference": -3936,
+            "history_games": 48523,
+            "history_rb": 123,
+            "rb_denominator": 394.5,
+            "score": 47.29
+          },
+          {
+            "number": 2239,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5293,
+            "latest_difference": 231,
+            "three_day_difference": 1481,
+            "history_games": 40226,
+            "history_rb": 120,
+            "rb_denominator": 335.2,
+            "score": 46.95
+          },
+          {
+            "number": 2219,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 3201,
+            "latest_difference": -694,
+            "three_day_difference": 186,
+            "history_games": 43962,
+            "history_rb": 131,
+            "rb_denominator": 335.6,
+            "score": 46.82
+          },
+          {
+            "number": 2217,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 5044,
+            "latest_difference": -1898,
+            "three_day_difference": -3750,
+            "history_games": 42997,
+            "history_rb": 104,
+            "rb_denominator": 413.4,
+            "score": 41.61
+          },
+          {
+            "number": 2209,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3779,
+            "latest_difference": 833,
+            "three_day_difference": 4398,
+            "history_games": 36744,
+            "history_rb": 104,
+            "rb_denominator": 353.3,
+            "score": 40.52
+          },
+          {
+            "number": 2238,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3510,
+            "latest_difference": 93,
+            "three_day_difference": 1251,
+            "history_games": 40197,
+            "history_rb": 111,
+            "rb_denominator": 362.1,
+            "score": 37.55
+          },
+          {
+            "number": 2204,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4657,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 36967,
+            "history_rb": 96,
+            "rb_denominator": 385.1,
+            "score": 33.03
+          },
+          {
+            "number": 2201,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4477,
+            "latest_difference": -463,
+            "three_day_difference": -1621,
+            "history_games": 48634,
+            "history_rb": 118,
+            "rb_denominator": 412.2,
+            "score": 31.02
+          }
+        ]
+      },
+      "eligible_numbers": [
+        2201,
+        2203,
+        2204,
+        2206,
+        2207,
+        2209,
+        2211,
+        2212,
+        2214,
+        2217,
+        2218,
+        2219,
+        2220,
+        2221,
+        2222,
+        2223,
+        2226,
+        2227,
+        2230,
+        2231,
+        2232,
+        2235,
+        2237,
+        2238,
+        2239
+      ]
+    },
+    "neoim": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 14,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 93.24
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 84.16
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 75.0
+          }
+        ],
+        "dip": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 91.54
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 78.84
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 74.68
+          }
+        ],
+        "rb": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 93.28
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 85.66
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 68.94
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 93.24
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 84.16
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 75.0
+          },
+          {
+            "number": 2104,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 1019,
+            "three_day_difference": -1064,
+            "history_games": 30710,
+            "history_rb": 94,
+            "rb_denominator": 326.7,
+            "score": 52.36
+          },
+          {
+            "number": 2134,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3675,
+            "latest_difference": -972,
+            "three_day_difference": -1064,
+            "history_games": 33690,
+            "history_rb": 100,
+            "rb_denominator": 336.9,
+            "score": 50.46
+          },
+          {
+            "number": 2119,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5272,
+            "latest_difference": 278,
+            "three_day_difference": -1481,
+            "history_games": 26753,
+            "history_rb": 74,
+            "rb_denominator": 361.5,
+            "score": 48.87
+          },
+          {
+            "number": 2101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3923,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 35591,
+            "history_rb": 97,
+            "rb_denominator": 366.9,
+            "score": 38.6
+          },
+          {
+            "number": 2127,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5684,
+            "latest_difference": 231,
+            "three_day_difference": 2314,
+            "history_games": 26991,
+            "history_rb": 81,
+            "rb_denominator": 333.2,
+            "score": 37.12
+          },
+          {
+            "number": 2112,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3915,
+            "latest_difference": 648,
+            "three_day_difference": -278,
+            "history_games": 30174,
+            "history_rb": 80,
+            "rb_denominator": 377.2,
+            "score": 35.09
+          },
+          {
+            "number": 2139,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5368,
+            "latest_difference": 185,
+            "three_day_difference": -232,
+            "history_games": 32460,
+            "history_rb": 82,
+            "rb_denominator": 395.9,
+            "score": 31.92
+          },
+          {
+            "number": 2132,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3212,
+            "latest_difference": -926,
+            "three_day_difference": -416,
+            "history_games": 24453,
+            "history_rb": 59,
+            "rb_denominator": 414.5,
+            "score": 28.37
+          }
+        ],
+        "dip": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 91.54
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 78.84
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 74.68
+          },
+          {
+            "number": 2119,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5272,
+            "latest_difference": 278,
+            "three_day_difference": -1481,
+            "history_games": 26753,
+            "history_rb": 74,
+            "rb_denominator": 361.5,
+            "score": 42.65
+          },
+          {
+            "number": 2104,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 1019,
+            "three_day_difference": -1064,
+            "history_games": 30710,
+            "history_rb": 94,
+            "rb_denominator": 326.7,
+            "score": 37.11
+          },
+          {
+            "number": 2134,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3675,
+            "latest_difference": -972,
+            "three_day_difference": -1064,
+            "history_games": 33690,
+            "history_rb": 100,
+            "rb_denominator": 336.9,
+            "score": 36.56
+          },
+          {
+            "number": 2101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3923,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 35591,
+            "history_rb": 97,
+            "rb_denominator": 366.9,
+            "score": 23.09
+          },
+          {
+            "number": 2112,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3915,
+            "latest_difference": 648,
+            "three_day_difference": -278,
+            "history_games": 30174,
+            "history_rb": 80,
+            "rb_denominator": 377.2,
+            "score": 18.98
+          },
+          {
+            "number": 2132,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3212,
+            "latest_difference": -926,
+            "three_day_difference": -416,
+            "history_games": 24453,
+            "history_rb": 59,
+            "rb_denominator": 414.5,
+            "score": 18.58
+          },
+          {
+            "number": 2139,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5368,
+            "latest_difference": 185,
+            "three_day_difference": -232,
+            "history_games": 32460,
+            "history_rb": 82,
+            "rb_denominator": 395.9,
+            "score": 17.3
+          },
+          {
+            "number": 2127,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5684,
+            "latest_difference": 231,
+            "three_day_difference": 2314,
+            "history_games": 26991,
+            "history_rb": 81,
+            "rb_denominator": 333.2,
+            "score": 14.46
+          }
+        ],
+        "rb": [
+          {
+            "number": 2111,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3914,
+            "latest_difference": -509,
+            "three_day_difference": -3611,
+            "history_games": 31776,
+            "history_rb": 116,
+            "rb_denominator": 273.9,
+            "score": 93.28
+          },
+          {
+            "number": 2130,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 4935,
+            "latest_difference": -231,
+            "three_day_difference": -3009,
+            "history_games": 34247,
+            "history_rb": 121,
+            "rb_denominator": 283.0,
+            "score": 85.66
+          },
+          {
+            "number": 2114,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5918,
+            "latest_difference": 1343,
+            "three_day_difference": -2917,
+            "history_games": 34026,
+            "history_rb": 107,
+            "rb_denominator": 318.0,
+            "score": 68.94
+          },
+          {
+            "number": 2104,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 1019,
+            "three_day_difference": -1064,
+            "history_games": 30710,
+            "history_rb": 94,
+            "rb_denominator": 326.7,
+            "score": 56.1
+          },
+          {
+            "number": 2134,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3675,
+            "latest_difference": -972,
+            "three_day_difference": -1064,
+            "history_games": 33690,
+            "history_rb": 100,
+            "rb_denominator": 336.9,
+            "score": 52.3
+          },
+          {
+            "number": 2127,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5684,
+            "latest_difference": 231,
+            "three_day_difference": 2314,
+            "history_games": 26991,
+            "history_rb": 81,
+            "rb_denominator": 333.2,
+            "score": 47.24
+          },
+          {
+            "number": 2119,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5272,
+            "latest_difference": 278,
+            "three_day_difference": -1481,
+            "history_games": 26753,
+            "history_rb": 74,
+            "rb_denominator": 361.5,
+            "score": 45.08
+          },
+          {
+            "number": 2101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3923,
+            "latest_difference": -463,
+            "three_day_difference": -463,
+            "history_games": 35591,
+            "history_rb": 97,
+            "rb_denominator": 366.9,
+            "score": 39.11
+          },
+          {
+            "number": 2112,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3915,
+            "latest_difference": 648,
+            "three_day_difference": -278,
+            "history_games": 30174,
+            "history_rb": 80,
+            "rb_denominator": 377.2,
+            "score": 35.31
+          },
+          {
+            "number": 2139,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 5368,
+            "latest_difference": 185,
+            "three_day_difference": -232,
+            "history_games": 32460,
+            "history_rb": 82,
+            "rb_denominator": 395.9,
+            "score": 29.77
+          },
+          {
+            "number": 2132,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3212,
+            "latest_difference": -926,
+            "three_day_difference": -416,
+            "history_games": 24453,
+            "history_rb": 59,
+            "rb_denominator": 414.5,
+            "score": 25.02
+          }
+        ]
+      },
+      "eligible_numbers": [
+        2101,
+        2104,
+        2111,
+        2112,
+        2114,
+        2119,
+        2127,
+        2130,
+        2132,
+        2134,
+        2139
+      ]
+    },
+    "gogo3": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 14,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 63.57
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 44.66
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 44.2
+          }
+        ],
+        "dip": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 54.05
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 23.91
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 17.05
+          }
+        ],
+        "rb": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 65.77
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 59.32
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 51.11
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 63.57
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 44.66
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 44.2
+          },
+          {
+            "number": 131,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5775,
+            "latest_difference": 324,
+            "three_day_difference": 92,
+            "history_games": 28943,
+            "history_rb": 95,
+            "rb_denominator": 304.7,
+            "score": 38.41
+          }
+        ],
+        "dip": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 54.05
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 23.91
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 17.05
+          },
+          {
+            "number": 131,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5775,
+            "latest_difference": 324,
+            "three_day_difference": 92,
+            "history_games": 28943,
+            "history_rb": 95,
+            "rb_denominator": 304.7,
+            "score": 15.11
+          }
+        ],
+        "rb": [
+          {
+            "number": 122,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 4337,
+            "latest_difference": -46,
+            "three_day_difference": -1898,
+            "history_games": 28161,
+            "history_rb": 99,
+            "rb_denominator": 284.5,
+            "score": 65.77
+          },
+          {
+            "number": 119,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4644,
+            "latest_difference": 278,
+            "three_day_difference": 1343,
+            "history_games": 46374,
+            "history_rb": 165,
+            "rb_denominator": 281.1,
+            "score": 59.32
+          },
+          {
+            "number": 120,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3112,
+            "latest_difference": 602,
+            "three_day_difference": -417,
+            "history_games": 33319,
+            "history_rb": 110,
+            "rb_denominator": 302.9,
+            "score": 51.11
+          },
+          {
+            "number": 131,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5775,
+            "latest_difference": 324,
+            "three_day_difference": 92,
+            "history_games": 28943,
+            "history_rb": 95,
+            "rb_denominator": 304.7,
+            "score": 47.88
+          }
+        ]
+      },
+      "eligible_numbers": [
+        119,
+        120,
+        122,
+        131
+      ]
+    },
+    "funky2": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 11,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 75.05
+          },
+          {
+            "number": 106,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4911,
+            "latest_difference": 139,
+            "three_day_difference": -2453,
+            "history_games": 24703,
+            "history_rb": 62,
+            "rb_denominator": 398.4,
+            "score": 59.09
+          },
+          {
+            "number": 102,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8023,
+            "latest_difference": 46,
+            "three_day_difference": -1204,
+            "history_games": 32375,
+            "history_rb": 85,
+            "rb_denominator": 380.9,
+            "score": 51.14
+          }
+        ],
+        "dip": [
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 90.19
+          },
+          {
+            "number": 106,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4911,
+            "latest_difference": 139,
+            "three_day_difference": -2453,
+            "history_games": 24703,
+            "history_rb": 62,
+            "rb_denominator": 398.4,
+            "score": 61.59
+          },
+          {
+            "number": 102,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8023,
+            "latest_difference": 46,
+            "three_day_difference": -1204,
+            "history_games": 32375,
+            "history_rb": 85,
+            "rb_denominator": 380.9,
+            "score": 39.11
+          }
+        ],
+        "rb": [
+          {
+            "number": 107,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 8920,
+            "latest_difference": 1620,
+            "three_day_difference": 740,
+            "history_games": 36404,
+            "history_rb": 116,
+            "rb_denominator": 313.8,
+            "score": 71.54
+          },
+          {
+            "number": 111,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 8052,
+            "latest_difference": 417,
+            "three_day_difference": 602,
+            "history_games": 30594,
+            "history_rb": 97,
+            "rb_denominator": 315.4,
+            "score": 70.21
+          },
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 57.78
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 75.05
+          },
+          {
+            "number": 106,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4911,
+            "latest_difference": 139,
+            "three_day_difference": -2453,
+            "history_games": 24703,
+            "history_rb": 62,
+            "rb_denominator": 398.4,
+            "score": 59.09
+          },
+          {
+            "number": 102,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8023,
+            "latest_difference": 46,
+            "three_day_difference": -1204,
+            "history_games": 32375,
+            "history_rb": 85,
+            "rb_denominator": 380.9,
+            "score": 51.14
+          },
+          {
+            "number": 107,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 8920,
+            "latest_difference": 1620,
+            "three_day_difference": 740,
+            "history_games": 36404,
+            "history_rb": 116,
+            "rb_denominator": 313.8,
+            "score": 50.77
+          },
+          {
+            "number": 111,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 8052,
+            "latest_difference": 417,
+            "three_day_difference": 602,
+            "history_games": 30594,
+            "history_rb": 97,
+            "rb_denominator": 315.4,
+            "score": 50.11
+          },
+          {
+            "number": 109,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 6599,
+            "latest_difference": -1620,
+            "three_day_difference": -185,
+            "history_games": 29616,
+            "history_rb": 81,
+            "rb_denominator": 365.6,
+            "score": 41.92
+          },
+          {
+            "number": 104,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8297,
+            "latest_difference": 1620,
+            "three_day_difference": 5833,
+            "history_games": 40049,
+            "history_rb": 108,
+            "rb_denominator": 370.8,
+            "score": 39.29
+          },
+          {
+            "number": 101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7326,
+            "latest_difference": 1065,
+            "three_day_difference": 417,
+            "history_games": 36122,
+            "history_rb": 94,
+            "rb_denominator": 384.3,
+            "score": 37.05
+          },
+          {
+            "number": 110,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3391,
+            "latest_difference": -1852,
+            "three_day_difference": 1203,
+            "history_games": 29146,
+            "history_rb": 73,
+            "rb_denominator": 399.3,
+            "score": 34.27
+          },
+          {
+            "number": 103,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 7661,
+            "latest_difference": 2176,
+            "three_day_difference": 1621,
+            "history_games": 28009,
+            "history_rb": 66,
+            "rb_denominator": 424.4,
+            "score": 30.17
+          },
+          {
+            "number": 105,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": -741,
+            "three_day_difference": -185,
+            "history_games": 25210,
+            "history_rb": 56,
+            "rb_denominator": 450.2,
+            "score": 27.48
+          }
+        ],
+        "dip": [
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 90.19
+          },
+          {
+            "number": 106,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4911,
+            "latest_difference": 139,
+            "three_day_difference": -2453,
+            "history_games": 24703,
+            "history_rb": 62,
+            "rb_denominator": 398.4,
+            "score": 61.59
+          },
+          {
+            "number": 102,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8023,
+            "latest_difference": 46,
+            "three_day_difference": -1204,
+            "history_games": 32375,
+            "history_rb": 85,
+            "rb_denominator": 380.9,
+            "score": 39.11
+          },
+          {
+            "number": 109,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 6599,
+            "latest_difference": -1620,
+            "three_day_difference": -185,
+            "history_games": 29616,
+            "history_rb": 81,
+            "rb_denominator": 365.6,
+            "score": 19.31
+          },
+          {
+            "number": 107,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 8920,
+            "latest_difference": 1620,
+            "three_day_difference": 740,
+            "history_games": 36404,
+            "history_rb": 116,
+            "rb_denominator": 313.8,
+            "score": 18.79
+          },
+          {
+            "number": 111,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 8052,
+            "latest_difference": 417,
+            "three_day_difference": 602,
+            "history_games": 30594,
+            "history_rb": 97,
+            "rb_denominator": 315.4,
+            "score": 18.6
+          },
+          {
+            "number": 104,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8297,
+            "latest_difference": 1620,
+            "three_day_difference": 5833,
+            "history_games": 40049,
+            "history_rb": 108,
+            "rb_denominator": 370.8,
+            "score": 15.51
+          },
+          {
+            "number": 101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7326,
+            "latest_difference": 1065,
+            "three_day_difference": 417,
+            "history_games": 36122,
+            "history_rb": 94,
+            "rb_denominator": 384.3,
+            "score": 14.87
+          },
+          {
+            "number": 105,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": -741,
+            "three_day_difference": -185,
+            "history_games": 25210,
+            "history_rb": 56,
+            "rb_denominator": 450.2,
+            "score": 14.56
+          },
+          {
+            "number": 110,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3391,
+            "latest_difference": -1852,
+            "three_day_difference": 1203,
+            "history_games": 29146,
+            "history_rb": 73,
+            "rb_denominator": 399.3,
+            "score": 13.96
+          },
+          {
+            "number": 103,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 7661,
+            "latest_difference": 2176,
+            "three_day_difference": 1621,
+            "history_games": 28009,
+            "history_rb": 66,
+            "rb_denominator": 424.4,
+            "score": 12.62
+          }
+        ],
+        "rb": [
+          {
+            "number": 107,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 8920,
+            "latest_difference": 1620,
+            "three_day_difference": 740,
+            "history_games": 36404,
+            "history_rb": 116,
+            "rb_denominator": 313.8,
+            "score": 71.54
+          },
+          {
+            "number": 111,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 8052,
+            "latest_difference": 417,
+            "three_day_difference": 602,
+            "history_games": 30594,
+            "history_rb": 97,
+            "rb_denominator": 315.4,
+            "score": 70.21
+          },
+          {
+            "number": 108,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 5767,
+            "latest_difference": -1713,
+            "three_day_difference": -3889,
+            "history_games": 24265,
+            "history_rb": 61,
+            "rb_denominator": 397.8,
+            "score": 57.78
+          },
+          {
+            "number": 102,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8023,
+            "latest_difference": 46,
+            "three_day_difference": -1204,
+            "history_games": 32375,
+            "history_rb": 85,
+            "rb_denominator": 380.9,
+            "score": 51.21
+          },
+          {
+            "number": 109,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 6599,
+            "latest_difference": -1620,
+            "three_day_difference": -185,
+            "history_games": 29616,
+            "history_rb": 81,
+            "rb_denominator": 365.6,
+            "score": 50.99
+          },
+          {
+            "number": 106,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4911,
+            "latest_difference": 139,
+            "three_day_difference": -2453,
+            "history_games": 24703,
+            "history_rb": 62,
+            "rb_denominator": 398.4,
+            "score": 50.55
+          },
+          {
+            "number": 104,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 8297,
+            "latest_difference": 1620,
+            "three_day_difference": 5833,
+            "history_games": 40049,
+            "history_rb": 108,
+            "rb_denominator": 370.8,
+            "score": 48.58
+          },
+          {
+            "number": 101,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 7326,
+            "latest_difference": 1065,
+            "three_day_difference": 417,
+            "history_games": 36122,
+            "history_rb": 94,
+            "rb_denominator": 384.3,
+            "score": 44.11
+          },
+          {
+            "number": 110,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 3391,
+            "latest_difference": -1852,
+            "three_day_difference": 1203,
+            "history_games": 29146,
+            "history_rb": 73,
+            "rb_denominator": 399.3,
+            "score": 39.4
+          },
+          {
+            "number": 103,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 7661,
+            "latest_difference": 2176,
+            "three_day_difference": 1621,
+            "history_games": 28009,
+            "history_rb": 66,
+            "rb_denominator": 424.4,
+            "score": 32.33
+          },
+          {
+            "number": 105,
+            "history_days": 5,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": -741,
+            "three_day_difference": -185,
+            "history_games": 25210,
+            "history_rb": 56,
+            "rb_denominator": 450.2,
+            "score": 26.5
+          }
+        ]
+      },
+      "eligible_numbers": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111
+      ]
+    },
+    "happy8": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 11,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 74.83
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 55.7
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 50.24
+          }
+        ],
+        "dip": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 80.86
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 39.62
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 38.08
+          }
+        ],
+        "rb": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 62.11
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 61.15
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 50.22
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 74.83
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 55.7
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 50.24
+          },
+          {
+            "number": 237,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 880,
+            "three_day_difference": 648,
+            "history_games": 45512,
+            "history_rb": 146,
+            "rb_denominator": 311.7,
+            "score": 37.72
+          }
+        ],
+        "dip": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 80.86
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 39.62
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 38.08
+          },
+          {
+            "number": 237,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 880,
+            "three_day_difference": 648,
+            "history_games": 45512,
+            "history_rb": 146,
+            "rb_denominator": 311.7,
+            "score": 15.06
+          }
+        ],
+        "rb": [
+          {
+            "number": 224,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 5390,
+            "latest_difference": -417,
+            "three_day_difference": -3288,
+            "history_games": 38891,
+            "history_rb": 125,
+            "rb_denominator": 311.1,
+            "score": 62.11
+          },
+          {
+            "number": 233,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3221,
+            "latest_difference": -185,
+            "three_day_difference": -1157,
+            "history_games": 39266,
+            "history_rb": 136,
+            "rb_denominator": 288.7,
+            "score": 61.15
+          },
+          {
+            "number": 230,
+            "history_days": 6,
+            "latest_date": "2026-11-16",
+            "latest_games": 3525,
+            "latest_difference": -324,
+            "three_day_difference": -1158,
+            "history_games": 38968,
+            "history_rb": 124,
+            "rb_denominator": 314.3,
+            "score": 50.22
+          },
+          {
+            "number": 237,
+            "history_days": 7,
+            "latest_date": "2026-11-16",
+            "latest_games": 4828,
+            "latest_difference": 880,
+            "three_day_difference": 648,
+            "history_games": 45512,
+            "history_rb": 146,
+            "rb_denominator": 311.7,
+            "score": 45.44
+          }
+        ]
+      },
+      "eligible_numbers": [
+        224,
+        230,
+        233,
+        237
+      ]
+    },
+    "girls": {
+      "status": "ready",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 9,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {
+        "balanced": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 28.94
+          }
+        ],
+        "dip": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 11.8
+          }
+        ],
+        "rb": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 33.17
+          }
+        ]
+      },
+      "rankings": {
+        "balanced": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 28.94
+          }
+        ],
+        "dip": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 11.8
+          }
+        ],
+        "rb": [
+          {
+            "number": 206,
+            "history_days": 4,
+            "latest_date": "2026-11-16",
+            "latest_games": 3519,
+            "latest_difference": 463,
+            "three_day_difference": 1852,
+            "history_games": 24702,
+            "history_rb": 74,
+            "rb_denominator": 333.8,
+            "score": 33.17
+          }
+        ]
+      },
+      "eligible_numbers": [
+        206
+      ]
+    },
+    "mr": {
+      "status": "insufficient_eligible_machines",
+      "history_days": 7,
+      "latest_source_date": "2026-11-16",
+      "selection": {
+        "paired_days": 7,
+        "minimum_days": 30,
+        "status": "insufficient_evaluation",
+        "strategy": "balanced"
+      },
+      "strategies": {},
+      "rankings": {},
+      "eligible_numbers": []
+    }
+  },
+  "snapshot_id": "e1a0c093f51dc2f13639a0a7b8a351064564b25082b581410fbdc6fda6544dcc"
+}

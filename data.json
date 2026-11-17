@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-17T17:33:56.197102+00:00",
+  "updated_at": "2026-11-17T22:04:05.335794+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-17T17:33:56.197102+00:00"
+      "checked_at": "2026-11-17T22:04:05.335794+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-17T17:33:56.197102+00:00"
+      "checked_at": "2026-11-17T22:04:05.335794+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-17T17:33:56.197102+00:00"
+      "checked_at": "2026-11-17T22:04:05.335794+00:00"
     }
   },
   "layout": {
@@ -146469,7 +146469,7 @@
   ],
   "machine_collection": {
     "status": "complete",
-    "attempted_at": "2026-11-17T17:33:58.512688+00:00",
+    "attempted_at": "2026-11-17T22:04:08.009522+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -146524,8 +146524,8 @@
     },
     "report_date": "2026-11-16",
     "report_url": "https://min-repo.com/3474364/",
-    "progress_saves": 12,
-    "progress_record_count": 187,
+    "progress_saves": 10,
+    "progress_record_count": 168,
     "backfill": {
       "2026-11-15": {
         "status": "cached"
@@ -146603,49 +146603,10 @@
         "status": "cooldown"
       },
       "2026-10-26": {
-        "status": "partial",
-        "models": {
-          "myj5": {
-            "status": "partial",
-            "rows": 19,
-            "expected_rows": 39,
-            "missing_numbers": [
-              2201,
-              2202,
-              2203,
-              2204,
-              2205,
-              2206,
-              2207,
-              2208,
-              2209,
-              2210,
-              2211,
-              2212,
-              2213,
-              2214,
-              2215,
-              2216,
-              2217,
-              2218,
-              2219,
-              2220
-            ]
-          }
-        }
+        "status": "cooldown"
       },
       "2026-10-22": {
-        "status": "partial",
-        "models": {
-          "happy8": {
-            "status": "partial",
-            "rows": 18,
-            "expected_rows": 19,
-            "missing_numbers": [
-              219
-            ]
-          }
-        }
+        "status": "cooldown"
       },
       "2026-10-19": {
         "status": "cached"
@@ -146723,7 +146684,17 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "deferred"
+        "status": "partial",
+        "models": {
+          "happy8": {
+            "status": "partial",
+            "rows": 18,
+            "expected_rows": 19,
+            "missing_numbers": [
+              219
+            ]
+          }
+        }
       },
       "2026-09-23": {
         "status": "cached"
@@ -146835,7 +146806,7 @@
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-18",
-    "created_at": "2026-11-18T06:33:52.223395+09:00",
+    "created_at": "2026-11-17T22:04:54.986674+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -207100,7 +207071,7 @@
     },
     "2026-09-24": {
       "status": "partial",
-      "attempted_on": "2026-11-17"
+      "attempted_on": "2026-11-18"
     },
     "2026-09-23": {
       "status": "complete",

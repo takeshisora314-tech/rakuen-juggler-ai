@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-19T03:58:41.270164+00:00",
+  "updated_at": "2026-11-19T14:33:54.925849+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-19T03:58:41.270164+00:00"
+      "checked_at": "2026-11-19T14:33:54.925849+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-19T03:58:41.270164+00:00"
+      "checked_at": "2026-11-19T14:33:54.925849+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-19T03:58:41.270164+00:00"
+      "checked_at": "2026-11-19T14:33:54.925849+00:00"
     }
   },
   "layout": {
@@ -148119,7 +148119,7 @@
   ],
   "machine_collection": {
     "status": "complete",
-    "attempted_at": "2026-11-19T03:58:43.701098+00:00",
+    "attempted_at": "2026-11-19T14:33:57.904767+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148167,14 +148167,14 @@
     "backfill_only": false,
     "history_window": {
       "days": 90,
-      "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-21",
+      "discovered_report_days": 89,
+      "earliest_discovered": "2026-08-22",
       "latest_discovered": "2026-11-18",
       "note": "Discovered reports are not proof of complete machine results"
     },
     "report_date": "2026-11-18",
     "report_url": "https://min-repo.com/3479764/",
-    "progress_saves": 8,
+    "progress_saves": 12,
     "progress_record_count": 150,
     "backfill": {
       "2026-11-17": {
@@ -148253,16 +148253,28 @@
         "status": "cached"
       },
       "2026-11-13": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "happy8": {
+            "status": "error",
+            "reason": "Duplicate number or installation layout mismatch"
+          }
+        }
       },
       "2026-11-10": {
-        "status": "cooldown"
+        "status": "partial",
+        "models": {
+          "myj5": {
+            "status": "unavailable",
+            "reason": "Model link not found"
+          }
+        }
       },
       "2026-10-26": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-10-22": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-10-19": {
         "status": "cached"
@@ -148340,7 +148352,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "cooldown"
+        "status": "deferred"
       },
       "2026-09-23": {
         "status": "cached"
@@ -148440,16 +148452,13 @@
       },
       "2026-08-22": {
         "status": "cached"
-      },
-      "2026-08-21": {
-        "status": "cached"
       }
     }
   },
   "forecast": {
     "version": "experimental-v1",
     "date": "2026-11-20",
-    "created_at": "2026-11-19T03:59:19.962752+00:00",
+    "created_at": "2026-11-19T14:34:52.497134+00:00",
     "kind": "prospective",
     "policy": {
       "min_history_days": 3,
@@ -210700,11 +210709,11 @@
     },
     "2026-11-10": {
       "status": "partial",
-      "attempted_on": "2026-11-19"
+      "attempted_on": "2026-11-20"
     },
     "2026-11-13": {
       "status": "partial",
-      "attempted_on": "2026-11-19"
+      "attempted_on": "2026-11-20"
     }
   },
   "history_backfill": {

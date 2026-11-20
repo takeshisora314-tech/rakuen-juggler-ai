@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-20T23:14:10.182818+00:00",
+  "updated_at": "2026-11-20T23:24:13.195956+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-20T23:14:10.182818+00:00"
+      "checked_at": "2026-11-20T23:24:13.195956+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-20T23:14:10.182818+00:00"
+      "checked_at": "2026-11-20T23:24:13.195956+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-20T23:14:10.182818+00:00"
+      "checked_at": "2026-11-20T23:24:13.195956+00:00"
     }
   },
   "layout": {
@@ -148118,41 +148118,13 @@
     }
   ],
   "machine_collection": {
-    "status": "blocked",
-    "attempted_at": "2026-11-20T23:14:17.473308+00:00",
-    "models": {
-      "myj6": {
-        "status": "complete",
-        "rows": 39,
-        "expected_rows": 39,
-        "missing_numbers": []
-      },
-      "neoim": {
-        "status": "complete",
-        "rows": 40,
-        "expected_rows": 40,
-        "missing_numbers": []
-      },
-      "gogo3": {
-        "status": "complete",
-        "rows": 26,
-        "expected_rows": 26,
-        "missing_numbers": []
-      }
-    },
+    "status": "error",
+    "attempted_at": "2026-11-20T23:24:15.875538+00:00",
+    "models": {},
     "backfill_only": false,
-    "history_window": {
-      "days": 90,
-      "discovered_report_days": 90,
-      "earliest_discovered": "2026-08-23",
-      "latest_discovered": "2026-11-20",
-      "note": "Discovered reports are not proof of complete machine results"
-    },
-    "report_date": "2026-11-20",
-    "report_url": "https://min-repo.com/3482184/",
-    "progress_saves": 4,
-    "progress_record_count": 105,
-    "reason": "HTTP 500; no retry or bypass"
+    "reason": "Response.text: Protocol error (Network.getResponseBody): No resource with given identifier found\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+    "progress_saves": 1,
+    "progress_record_count": 0
   },
   "forecast": {
     "version": "experimental-v1",

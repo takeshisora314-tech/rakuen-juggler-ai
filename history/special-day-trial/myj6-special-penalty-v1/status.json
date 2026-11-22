@@ -1,10 +1,8 @@
 {
   "version": "myj6-special-penalty-v1",
   "as_of": "2026-11-23",
-  "evaluated_days": 1,
-  "pending_days": [
-    "2026-11-22"
-  ],
+  "evaluated_days": 2,
+  "pending_days": [],
   "days": {
     "2026-11-15": {
       "special_days": [
@@ -23,20 +21,38 @@
         "mean_difference": -1356.142857142857,
         "lift_vs_all": -1379.8095238095239
       }
+    },
+    "2026-11-22": {
+      "special_days": [
+        "ゾロ目"
+      ],
+      "all_machine_mean": -48.717948717948715,
+      "baseline": {
+        "count": 7,
+        "positive_rate": 0.42857142857142855,
+        "mean_difference": 13.142857142857142,
+        "lift_vs_all": 61.86080586080587
+      },
+      "candidate": {
+        "count": 7,
+        "positive_rate": 0.42857142857142855,
+        "mean_difference": 13.142857142857142,
+        "lift_vs_all": 61.86080586080587
+      }
     }
   },
   "ranks_4_to_10": {
     "baseline": {
-      "count": 7,
-      "positive_rate": 0.14285714285714285,
-      "mean_difference": -1395.7142857142858,
-      "lift_vs_all": -1419.3809523809523
+      "count": 14,
+      "positive_rate": 0.2857142857142857,
+      "mean_difference": -691.2857142857143,
+      "lift_vs_all": -678.7600732600732
     },
     "candidate": {
-      "count": 7,
-      "positive_rate": 0.14285714285714285,
-      "mean_difference": -1356.142857142857,
-      "lift_vs_all": -1379.8095238095239
+      "count": 14,
+      "positive_rate": 0.2857142857142857,
+      "mean_difference": -671.5,
+      "lift_vs_all": -658.974358974359
     }
   }
 }

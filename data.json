@@ -215039,7 +215039,7 @@
   },
   "history_backfill": {
     "status": "partial",
-    "attempted_at": "2026-11-22T17:20:11.693315+00:00",
+    "attempted_at": "2026-11-22T23:45:28.916278+00:00",
     "models": {},
     "backfill_only": true,
     "history_window": {
@@ -215227,17 +215227,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "partial",
-        "models": {
-          "happy8": {
-            "status": "partial",
-            "rows": 18,
-            "expected_rows": 19,
-            "missing_numbers": [
-              219
-            ]
-          }
-        }
+        "status": "cooldown"
       },
       "2026-09-23": {
         "status": "cached"
@@ -215330,8 +215320,8 @@
         "status": "cached"
       }
     },
-    "progress_saves": 3,
-    "progress_record_count": 18
+    "progress_saves": 1,
+    "progress_record_count": 0
   },
   "history_coverage": {
     "as_of_date": "2026-11-23",

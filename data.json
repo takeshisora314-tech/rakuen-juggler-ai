@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-23T00:34:02.460268+00:00",
+  "updated_at": "2026-11-23T01:46:28.441449+00:00",
   "sources": {
     "min-repo": {
-      "ok": false,
-      "status": 500,
-      "checked_at": "2026-11-23T00:34:02.460268+00:00"
+      "ok": true,
+      "status": 200,
+      "checked_at": "2026-11-23T01:46:28.441449+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-23T00:34:02.460268+00:00"
+      "checked_at": "2026-11-23T01:46:28.441449+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-23T00:34:02.460268+00:00"
+      "checked_at": "2026-11-23T01:46:28.441449+00:00"
     }
   },
   "layout": {
@@ -148118,11 +148118,35 @@
     }
   ],
   "machine_collection": {
-    "status": "blocked",
-    "attempted_at": "2026-11-23T00:34:04.204584+00:00",
+    "status": "error",
+    "attempted_at": "2026-11-23T01:46:30.190692+00:00",
     "models": {},
     "backfill_only": false,
-    "reason": "HTTP 500; no retry or bypass",
+    "diagnostic": {
+      "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+      "title": "",
+      "body_excerpt": "",
+      "request_failures": [],
+      "javascript_errors": [],
+      "console_errors": [],
+      "document": {
+        "bytes": 0,
+        "script_count": 0,
+        "ajax_bootstrap": false,
+        "content_type": "text/html; charset=UTF-8"
+      },
+      "site_responses": [
+        {
+          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+          "status": 200
+        },
+        {
+          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
+          "status": 200
+        }
+      ]
+    },
+    "reason": "Page.wait_for_function: Timeout 45000ms exceeded.",
     "progress_saves": 1,
     "progress_record_count": 0
   },

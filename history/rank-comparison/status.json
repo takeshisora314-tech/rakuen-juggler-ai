@@ -881,55 +881,56 @@
           "model_id": "funky2",
           "signature": "e490a9cce3efe94e477c53ebe25cd640a1f9341c88c0c03f2103a6243334e6f3",
           "baseline_strategy": "balanced",
-          "completed_days": 5,
+          "completed_days": 6,
           "dates": [
             "2026-11-17",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-23"
+            "2026-11-23",
+            "2026-11-24"
           ],
           "methods": {
             "baseline": {
               "top3": {
-                "count": 15,
-                "positive_count": 8,
-                "positive_rate": 0.5333333333333333,
-                "mean_difference": 348.8,
-                "mean_lift_vs_all": 72.74545454545452
+                "count": 18,
+                "positive_count": 9,
+                "positive_rate": 0.5,
+                "mean_difference": 264.94444444444446,
+                "mean_lift_vs_all": 48.24747474747473
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1204,
-                  "mean_difference": 240.8,
-                  "mean_lift_vs_all": -35.25454545454545
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 1389,
+                  "mean_difference": 231.5,
+                  "mean_lift_vs_all": 14.803030303030283
                 },
                 "2": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -2918,
-                  "mean_difference": -583.6,
-                  "mean_lift_vs_all": -859.6545454545455
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -3196,
+                  "mean_difference": -532.6666666666666,
+                  "mean_lift_vs_all": -749.3636363636364
                 },
                 "3": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 4,
-                  "positive_rate": 0.8,
-                  "total_difference": 6946,
-                  "mean_difference": 1389.2,
-                  "mean_lift_vs_all": 1113.1454545454546
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 6576,
+                  "mean_difference": 1096,
+                  "mean_lift_vs_all": 879.3030303030303
                 },
                 "4": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -556,
-                  "mean_difference": -111.2,
-                  "mean_lift_vs_all": -387.25454545454545
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -973,
+                  "mean_difference": -162.16666666666666,
+                  "mean_lift_vs_all": -378.8636363636364
                 },
                 "5": {
                   "count": 5,
@@ -991,44 +992,44 @@
             },
             "candidate": {
               "top3": {
-                "count": 15,
-                "positive_count": 7,
-                "positive_rate": 0.4666666666666667,
-                "mean_difference": 191.33333333333334,
-                "mean_lift_vs_all": -84.72121212121213
+                "count": 18,
+                "positive_count": 8,
+                "positive_rate": 0.4444444444444444,
+                "mean_difference": 131.11111111111111,
+                "mean_lift_vs_all": -85.5858585858586
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1204,
-                  "mean_difference": 240.8,
-                  "mean_lift_vs_all": -35.25454545454545
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 1389,
+                  "mean_difference": 231.5,
+                  "mean_lift_vs_all": 14.803030303030283
                 },
                 "2": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -2918,
-                  "mean_difference": -583.6,
-                  "mean_lift_vs_all": -859.6545454545455
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -3196,
+                  "mean_difference": -532.6666666666666,
+                  "mean_lift_vs_all": -749.3636363636364
                 },
                 "3": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 4584,
-                  "mean_difference": 916.8,
-                  "mean_lift_vs_all": 640.7454545454545
+                  "positive_rate": 0.5,
+                  "total_difference": 4167,
+                  "mean_difference": 694.5,
+                  "mean_lift_vs_all": 477.80303030303025
                 },
                 "4": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 4537,
-                  "mean_difference": 907.4,
-                  "mean_lift_vs_all": 631.3454545454545
+                  "positive_rate": 0.5,
+                  "total_difference": 4167,
+                  "mean_difference": 694.5,
+                  "mean_lift_vs_all": 477.80303030303025
                 },
                 "5": {
                   "count": 5,
@@ -1090,14 +1091,14 @@
             }
           },
           "minimum_days": 30,
-          "days_remaining": 25,
+          "days_remaining": 24,
           "status": "insufficient_completed_days",
           "paired_comparison": {
-            "mean_difference_gain": -157.46666666666664,
+            "mean_difference_gain": -133.83333333333331,
             "median_daily_gain": 0.0,
-            "positive_rate_change": -0.06666666666666665,
+            "positive_rate_change": -0.05555555555555558,
             "days_better": 1,
-            "days_worse": 1,
+            "days_worse": 2,
             "minimum_daily_gain": -864.3333333333333,
             "maximum_daily_gain": 77
           }
@@ -1735,6 +1736,147 @@
             "days_worse": 0,
             "minimum_daily_gain": 0.0,
             "maximum_daily_gain": 0.0
+          }
+        },
+        {
+          "model_id": "girls",
+          "signature": "e490a9cce3efe94e477c53ebe25cd640a1f9341c88c0c03f2103a6243334e6f3",
+          "baseline_strategy": "balanced",
+          "completed_days": 1,
+          "dates": [
+            "2026-11-24"
+          ],
+          "methods": {
+            "baseline": {
+              "top3": {
+                "count": 3,
+                "positive_count": 1,
+                "positive_rate": 0.3333333333333333,
+                "mean_difference": 910.6666666666666,
+                "mean_lift_vs_all": 843.6666666666666
+              },
+              "by_rank": {
+                "1": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -231,
+                  "mean_difference": -231,
+                  "mean_lift_vs_all": -298
+                },
+                "2": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -833,
+                  "mean_difference": -833,
+                  "mean_lift_vs_all": -900
+                },
+                "3": {
+                  "count": 1,
+                  "positive_count": 1,
+                  "positive_rate": 1,
+                  "total_difference": 3796,
+                  "mean_difference": 3796,
+                  "mean_lift_vs_all": 3729
+                },
+                "4": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -833,
+                  "mean_difference": -833,
+                  "mean_lift_vs_all": -900
+                },
+                "5": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -370,
+                  "mean_difference": -370,
+                  "mean_lift_vs_all": -437
+                },
+                "6": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -1250,
+                  "mean_difference": -1250,
+                  "mean_lift_vs_all": -1317
+                }
+              }
+            },
+            "candidate": {
+              "top3": {
+                "count": 3,
+                "positive_count": 0,
+                "positive_rate": 0.0,
+                "mean_difference": -632.3333333333334,
+                "mean_lift_vs_all": -699.3333333333334
+              },
+              "by_rank": {
+                "1": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -231,
+                  "mean_difference": -231,
+                  "mean_lift_vs_all": -298
+                },
+                "2": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -833,
+                  "mean_difference": -833,
+                  "mean_lift_vs_all": -900
+                },
+                "3": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -833,
+                  "mean_difference": -833,
+                  "mean_lift_vs_all": -900
+                },
+                "4": {
+                  "count": 1,
+                  "positive_count": 1,
+                  "positive_rate": 1,
+                  "total_difference": 3796,
+                  "mean_difference": 3796,
+                  "mean_lift_vs_all": 3729
+                },
+                "5": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -370,
+                  "mean_difference": -370,
+                  "mean_lift_vs_all": -437
+                },
+                "6": {
+                  "count": 1,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -1250,
+                  "mean_difference": -1250,
+                  "mean_lift_vs_all": -1317
+                }
+              }
+            }
+          },
+          "minimum_days": 30,
+          "days_remaining": 29,
+          "status": "insufficient_completed_days",
+          "paired_comparison": {
+            "mean_difference_gain": -1543.0,
+            "median_daily_gain": -1543.0,
+            "positive_rate_change": -0.3333333333333333,
+            "days_better": 0,
+            "days_worse": 1,
+            "minimum_daily_gain": -1543.0,
+            "maximum_daily_gain": -1543.0
           }
         }
       ]
@@ -3800,135 +3942,136 @@
           "model_id": "gogo3",
           "signature": "e490a9cce3efe94e477c53ebe25cd640a1f9341c88c0c03f2103a6243334e6f3",
           "baseline_strategy": "balanced",
-          "completed_days": 5,
+          "completed_days": 6,
           "dates": [
             "2026-11-17",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-23"
+            "2026-11-23",
+            "2026-11-24"
           ],
           "methods": {
             "baseline": {
               "top3": {
-                "count": 15,
+                "count": 18,
                 "positive_count": 5,
-                "positive_rate": 0.3333333333333333,
-                "mean_difference": 30.8,
-                "mean_lift_vs_all": 181.74615384615382
+                "positive_rate": 0.2777777777777778,
+                "mean_difference": -28.333333333333332,
+                "mean_lift_vs_all": 147.91025641025638
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -787,
-                  "mean_difference": -157.4,
-                  "mean_lift_vs_all": -6.453846153846143
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -833,
+                  "mean_difference": -138.83333333333334,
+                  "mean_lift_vs_all": 37.41025641025641
                 },
                 "2": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 463,
-                  "mean_difference": 92.6,
-                  "mean_lift_vs_all": 243.54615384615386
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 139,
+                  "mean_difference": 23.166666666666668,
+                  "mean_lift_vs_all": 199.4102564102564
                 },
                 "3": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 786,
-                  "mean_difference": 157.2,
-                  "mean_lift_vs_all": 308.1461538461539
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 184,
+                  "mean_difference": 30.666666666666668,
+                  "mean_lift_vs_all": 206.9102564102564
                 },
                 "4": {
+                  "count": 5,
+                  "positive_count": 3,
+                  "positive_rate": 0.6,
+                  "total_difference": -555,
+                  "mean_difference": -111,
+                  "mean_lift_vs_all": 45.2923076923077
+                },
+                "5": {
+                  "count": 4,
+                  "positive_count": 3,
+                  "positive_rate": 0.75,
+                  "total_difference": 2731,
+                  "mean_difference": 682.75,
+                  "mean_lift_vs_all": 871.9038461538462
+                },
+                "6": {
+                  "count": 4,
+                  "positive_count": 0,
+                  "positive_rate": 0,
+                  "total_difference": -3426,
+                  "mean_difference": -856.5,
+                  "mean_lift_vs_all": -667.3461538461538
+                },
+                "7": {
+                  "count": 4,
+                  "positive_count": 1,
+                  "positive_rate": 0.25,
+                  "total_difference": -3473,
+                  "mean_difference": -868.25,
+                  "mean_lift_vs_all": -679.0961538461538
+                },
+                "8": {
                   "count": 4,
                   "positive_count": 2,
                   "positive_rate": 0.5,
-                  "total_difference": -601,
-                  "mean_difference": -150.25,
-                  "mean_lift_vs_all": -30.567307692307693
+                  "total_difference": -370,
+                  "mean_difference": -92.5,
+                  "mean_lift_vs_all": 96.65384615384616
                 },
-                "5": {
-                  "count": 3,
+                "9": {
+                  "count": 4,
                   "positive_count": 2,
-                  "positive_rate": 0.6666666666666666,
-                  "total_difference": 1805,
-                  "mean_difference": 601.6666666666666,
-                  "mean_lift_vs_all": 752.9615384615385
+                  "positive_rate": 0.5,
+                  "total_difference": -1481,
+                  "mean_difference": -370.25,
+                  "mean_lift_vs_all": -181.09615384615384
                 },
-                "6": {
-                  "count": 3,
-                  "positive_count": 0,
-                  "positive_rate": 0,
-                  "total_difference": -2732,
-                  "mean_difference": -910.6666666666666,
-                  "mean_lift_vs_all": -759.3717948717948
-                },
-                "7": {
+                "10": {
                   "count": 3,
                   "positive_count": 1,
                   "positive_rate": 0.3333333333333333,
-                  "total_difference": -2732,
-                  "mean_difference": -910.6666666666666,
-                  "mean_lift_vs_all": -759.3717948717948
-                },
-                "8": {
-                  "count": 3,
-                  "positive_count": 2,
-                  "positive_rate": 0.6666666666666666,
-                  "total_difference": 695,
-                  "mean_difference": 231.66666666666666,
-                  "mean_lift_vs_all": 382.96153846153845
-                },
-                "9": {
-                  "count": 3,
-                  "positive_count": 2,
-                  "positive_rate": 0.6666666666666666,
-                  "total_difference": -1296,
-                  "mean_difference": -432,
-                  "mean_lift_vs_all": -280.7051282051282
-                },
-                "10": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 232,
-                  "mean_difference": 116,
-                  "mean_lift_vs_all": 229.8846153846154
+                  "total_difference": -324,
+                  "mean_difference": -108,
+                  "mean_lift_vs_all": 68.83333333333334
                 },
                 "11": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1065,
-                  "mean_difference": 532.5,
-                  "mean_lift_vs_all": 646.3846153846154
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 880,
+                  "mean_difference": 293.3333333333333,
+                  "mean_lift_vs_all": 470.16666666666663
                 },
                 "12": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1389,
-                  "mean_difference": 694.5,
-                  "mean_lift_vs_all": 808.3846153846154
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -46,
+                  "mean_difference": -15.333333333333334,
+                  "mean_lift_vs_all": 161.5
                 },
                 "13": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -694,
-                  "mean_difference": -347,
-                  "mean_lift_vs_all": -233.1153846153846
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -277,
+                  "mean_difference": -92.33333333333333,
+                  "mean_lift_vs_all": 84.50000000000001
                 },
                 "14": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -879,
-                  "mean_difference": -439.5,
-                  "mean_lift_vs_all": -325.61538461538464
+                  "total_difference": -1342,
+                  "mean_difference": -447.3333333333333,
+                  "mean_lift_vs_all": -270.5
                 },
                 "15": {
                   "count": 2,
@@ -3950,124 +4093,124 @@
             },
             "candidate": {
               "top3": {
-                "count": 15,
+                "count": 18,
                 "positive_count": 5,
-                "positive_rate": 0.3333333333333333,
-                "mean_difference": -30.866666666666667,
-                "mean_lift_vs_all": 120.07948717948715
+                "positive_rate": 0.2777777777777778,
+                "mean_difference": -79.72222222222223,
+                "mean_lift_vs_all": 96.5213675213675
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -787,
-                  "mean_difference": -157.4,
-                  "mean_lift_vs_all": -6.453846153846143
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -833,
+                  "mean_difference": -138.83333333333334,
+                  "mean_lift_vs_all": 37.41025641025641
                 },
                 "2": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -462,
-                  "mean_difference": -92.4,
-                  "mean_lift_vs_all": 58.54615384615386
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -786,
+                  "mean_difference": -131,
+                  "mean_lift_vs_all": 45.24358974358975
                 },
                 "3": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 184,
+                  "mean_difference": 30.666666666666668,
+                  "mean_lift_vs_all": 206.9102564102564
+                },
+                "4": {
                   "count": 5,
                   "positive_count": 2,
                   "positive_rate": 0.4,
-                  "total_difference": 786,
-                  "mean_difference": 157.2,
-                  "mean_lift_vs_all": 308.1461538461539
+                  "total_difference": 416,
+                  "mean_difference": 83.2,
+                  "mean_lift_vs_all": 239.4923076923077
                 },
-                "4": {
+                "5": {
+                  "count": 4,
+                  "positive_count": 2,
+                  "positive_rate": 0.5,
+                  "total_difference": -1991,
+                  "mean_difference": -497.75,
+                  "mean_lift_vs_all": -308.5961538461538
+                },
+                "6": {
                   "count": 4,
                   "positive_count": 1,
                   "positive_rate": 0.25,
-                  "total_difference": -510,
-                  "mean_difference": -127.5,
-                  "mean_lift_vs_all": -7.817307692307693
-                },
-                "5": {
-                  "count": 3,
-                  "positive_count": 1,
-                  "positive_rate": 0.3333333333333333,
-                  "total_difference": -2037,
-                  "mean_difference": -679,
-                  "mean_lift_vs_all": -527.7051282051282
-                },
-                "6": {
-                  "count": 3,
-                  "positive_count": 1,
-                  "positive_rate": 0.3333333333333333,
-                  "total_difference": -1574,
-                  "mean_difference": -524.6666666666666,
-                  "mean_lift_vs_all": -373.3717948717948
+                  "total_difference": -2268,
+                  "mean_difference": -567,
+                  "mean_lift_vs_all": -377.8461538461538
                 },
                 "7": {
-                  "count": 3,
+                  "count": 4,
                   "positive_count": 1,
-                  "positive_rate": 0.3333333333333333,
-                  "total_difference": -787,
-                  "mean_difference": -262.3333333333333,
-                  "mean_lift_vs_all": -111.03846153846152
+                  "positive_rate": 0.25,
+                  "total_difference": -1528,
+                  "mean_difference": -382,
+                  "mean_lift_vs_all": -192.84615384615384
                 },
                 "8": {
-                  "count": 3,
+                  "count": 4,
                   "positive_count": 3,
-                  "positive_rate": 1,
-                  "total_difference": 2268,
-                  "mean_difference": 756,
-                  "mean_lift_vs_all": 907.2948717948718
+                  "positive_rate": 0.75,
+                  "total_difference": 1203,
+                  "mean_difference": 300.75,
+                  "mean_lift_vs_all": 489.9038461538462
                 },
                 "9": {
+                  "count": 4,
+                  "positive_count": 1,
+                  "positive_rate": 0.25,
+                  "total_difference": -1388,
+                  "mean_difference": -347,
+                  "mean_lift_vs_all": -157.84615384615384
+                },
+                "10": {
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -1296,
+                  "mean_difference": -432,
+                  "mean_lift_vs_all": -255.16666666666666
+                },
+                "11": {
                   "count": 3,
                   "positive_count": 1,
                   "positive_rate": 0.3333333333333333,
-                  "total_difference": -1203,
-                  "mean_difference": -401,
-                  "mean_lift_vs_all": -249.7051282051282
-                },
-                "10": {
-                  "count": 2,
-                  "positive_count": 2,
-                  "positive_rate": 1,
-                  "total_difference": 139,
-                  "mean_difference": 69.5,
-                  "mean_lift_vs_all": 183.3846153846154
-                },
-                "11": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1389,
-                  "mean_difference": 694.5,
-                  "mean_lift_vs_all": 808.3846153846154
+                  "total_difference": 1204,
+                  "mean_difference": 401.3333333333333,
+                  "mean_lift_vs_all": 578.1666666666666
                 },
                 "12": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -694,
-                  "mean_difference": -347,
-                  "mean_lift_vs_all": -233.1153846153846
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1250,
+                  "mean_difference": -416.6666666666667,
+                  "mean_lift_vs_all": -239.83333333333334
                 },
                 "13": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1065,
-                  "mean_difference": 532.5,
-                  "mean_lift_vs_all": 646.3846153846154
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 1482,
+                  "mean_difference": 494,
+                  "mean_lift_vs_all": 670.8333333333334
                 },
                 "14": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -694,
-                  "mean_difference": -347,
-                  "mean_lift_vs_all": -233.1153846153846
+                  "total_difference": -1157,
+                  "mean_difference": -385.6666666666667,
+                  "mean_lift_vs_all": -208.83333333333334
                 },
                 "15": {
                   "count": 2,
@@ -4089,10 +4232,10 @@
             }
           },
           "minimum_days": 30,
-          "days_remaining": 25,
+          "days_remaining": 24,
           "status": "insufficient_completed_days",
           "paired_comparison": {
-            "mean_difference_gain": -61.666666666666664,
+            "mean_difference_gain": -51.388888888888886,
             "median_daily_gain": 0.0,
             "positive_rate_change": 0.0,
             "days_better": 0,
@@ -8478,295 +8621,296 @@
           "model_id": "myj6",
           "signature": "e490a9cce3efe94e477c53ebe25cd640a1f9341c88c0c03f2103a6243334e6f3",
           "baseline_strategy": "balanced",
-          "completed_days": 5,
+          "completed_days": 6,
           "dates": [
             "2026-11-17",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-23"
+            "2026-11-23",
+            "2026-11-24"
           ],
           "methods": {
             "baseline": {
               "top3": {
-                "count": 15,
-                "positive_count": 3,
-                "positive_rate": 0.2,
-                "mean_difference": -814.8,
-                "mean_lift_vs_all": -615.8358974358974
+                "count": 18,
+                "positive_count": 5,
+                "positive_rate": 0.2777777777777778,
+                "mean_difference": -632.6666666666666,
+                "mean_lift_vs_all": -455.1880341880342
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -5694,
-                  "mean_difference": -1138.8,
-                  "mean_lift_vs_all": -939.8358974358973
+                  "total_difference": -6018,
+                  "mean_difference": -1003,
+                  "mean_lift_vs_all": -825.5213675213676
                 },
                 "2": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -2917,
-                  "mean_difference": -583.4,
-                  "mean_lift_vs_all": -384.4358974358974
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": -2824,
+                  "mean_difference": -470.6666666666667,
+                  "mean_lift_vs_all": -293.1880341880342
                 },
                 "3": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3611,
-                  "mean_difference": -722.2,
-                  "mean_lift_vs_all": -523.2358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2546,
+                  "mean_difference": -424.3333333333333,
+                  "mean_lift_vs_all": -246.85470085470084
                 },
                 "4": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3427,
-                  "mean_difference": -685.4,
-                  "mean_lift_vs_all": -486.4358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2270,
+                  "mean_difference": -378.3333333333333,
+                  "mean_lift_vs_all": -200.85470085470084
                 },
                 "5": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 1295,
-                  "mean_difference": 259,
-                  "mean_lift_vs_all": 457.9641025641026
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 3564,
+                  "mean_difference": 594,
+                  "mean_lift_vs_all": 771.4786324786324
                 },
                 "6": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -879,
-                  "mean_difference": -175.8,
-                  "mean_lift_vs_all": 23.164102564102564
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": -277,
+                  "mean_difference": -46.166666666666664,
+                  "mean_lift_vs_all": 131.31196581196582
                 },
                 "7": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 47,
-                  "mean_difference": 9.4,
-                  "mean_lift_vs_all": 208.36410256410258
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 741,
+                  "mean_difference": 123.5,
+                  "mean_lift_vs_all": 300.97863247863245
                 },
                 "8": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -1065,
-                  "mean_difference": -213,
-                  "mean_lift_vs_all": -14.035897435897425
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1296,
+                  "mean_difference": -216,
+                  "mean_lift_vs_all": -38.52136752136752
                 },
                 "9": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 231,
-                  "mean_difference": 46.2,
-                  "mean_lift_vs_all": 245.16410256410256
+                  "positive_rate": 0.5,
+                  "total_difference": -47,
+                  "mean_difference": -7.833333333333333,
+                  "mean_lift_vs_all": 169.64529914529913
                 },
                 "10": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -3194,
-                  "mean_difference": -638.8,
-                  "mean_lift_vs_all": -439.8358974358974
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -3333,
+                  "mean_difference": -555.5,
+                  "mean_lift_vs_all": -378.02136752136755
                 },
                 "11": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 971,
-                  "mean_difference": 194.2,
-                  "mean_lift_vs_all": 393.16410256410256
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 693,
+                  "mean_difference": 115.5,
+                  "mean_lift_vs_all": 292.97863247863245
                 },
                 "12": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 4583,
-                  "mean_difference": 916.6,
-                  "mean_lift_vs_all": 1115.5641025641025
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 6018,
+                  "mean_difference": 1003,
+                  "mean_lift_vs_all": 1180.4786324786326
                 },
                 "13": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1063,
-                  "mean_difference": 212.6,
-                  "mean_lift_vs_all": 411.56410256410254
+                  "positive_rate": 0.5,
+                  "total_difference": 137,
+                  "mean_difference": 22.833333333333332,
+                  "mean_lift_vs_all": 200.31196581196582
                 },
                 "14": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -2685,
-                  "mean_difference": -537,
-                  "mean_lift_vs_all": -338.0358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1111,
+                  "mean_difference": -185.16666666666666,
+                  "mean_lift_vs_all": -7.68803418803418
                 },
                 "15": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 835,
-                  "mean_difference": 167,
-                  "mean_lift_vs_all": 365.9641025641026
+                  "positive_rate": 0.5,
+                  "total_difference": 696,
+                  "mean_difference": 116,
+                  "mean_lift_vs_all": 293.47863247863245
                 },
                 "16": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 3147,
-                  "mean_difference": 629.4,
-                  "mean_lift_vs_all": 828.3641025641025
+                  "positive_rate": 0.5,
+                  "total_difference": 1527,
+                  "mean_difference": 254.5,
+                  "mean_lift_vs_all": 431.97863247863245
                 },
                 "17": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 325,
-                  "mean_difference": 65,
-                  "mean_lift_vs_all": 263.9641025641026
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -508,
+                  "mean_difference": -84.66666666666667,
+                  "mean_lift_vs_all": 92.8119658119658
                 },
                 "18": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 649,
-                  "mean_difference": 129.8,
-                  "mean_lift_vs_all": 328.7641025641026
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 695,
+                  "mean_difference": 115.83333333333333,
+                  "mean_lift_vs_all": 293.3119658119658
                 },
                 "19": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 5603,
-                  "mean_difference": 1120.6,
-                  "mean_lift_vs_all": 1319.5641025641025
+                  "positive_rate": 0.5,
+                  "total_difference": 5186,
+                  "mean_difference": 864.3333333333334,
+                  "mean_lift_vs_all": 1041.8119658119658
                 },
                 "20": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -2823,
-                  "mean_difference": -564.6,
-                  "mean_lift_vs_all": -365.63589743589745
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -3379,
+                  "mean_difference": -563.1666666666666,
+                  "mean_lift_vs_all": -385.6880341880342
                 },
                 "21": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -3473,
+                  "mean_difference": -578.8333333333334,
+                  "mean_lift_vs_all": -401.3547008547009
+                },
+                "22": {
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 93,
+                  "mean_difference": 15.5,
+                  "mean_lift_vs_all": 192.97863247863248
+                },
+                "23": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1805,
+                  "mean_difference": -300.8333333333333,
+                  "mean_lift_vs_all": -123.35470085470084
+                },
+                "24": {
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 1342,
+                  "mean_difference": 223.66666666666666,
+                  "mean_lift_vs_all": 401.14529914529913
+                },
+                "25": {
                   "count": 5,
                   "positive_count": 1,
                   "positive_rate": 0.2,
-                  "total_difference": -4029,
-                  "mean_difference": -805.8,
-                  "mean_lift_vs_all": -606.8358974358973
-                },
-                "22": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 139,
-                  "mean_difference": 27.8,
-                  "mean_lift_vs_all": 226.7641025641026
-                },
-                "23": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -1620,
-                  "mean_difference": -324,
-                  "mean_lift_vs_all": -125.03589743589743
-                },
-                "24": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 786,
-                  "mean_difference": 157.2,
-                  "mean_lift_vs_all": 356.16410256410256
-                },
-                "25": {
-                  "count": 4,
-                  "positive_count": 1,
-                  "positive_rate": 0.25,
-                  "total_difference": -4167,
-                  "mean_difference": -1041.75,
-                  "mean_lift_vs_all": -819.1602564102564
+                  "total_difference": -5648,
+                  "mean_difference": -1129.6,
+                  "mean_lift_vs_all": -937.5179487179487
                 },
                 "26": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 417,
-                  "mean_difference": 208.5,
-                  "mean_lift_vs_all": 301.12820512820514
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -324,
+                  "mean_difference": -108,
+                  "mean_lift_vs_all": -22.897435897435898
                 },
                 "27": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 2,
-                  "positive_rate": 1,
-                  "total_difference": 1666,
-                  "mean_difference": 833,
-                  "mean_lift_vs_all": 925.6282051282051
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -186,
+                  "mean_difference": -62,
+                  "mean_lift_vs_all": 23.102564102564102
                 },
                 "28": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 185,
-                  "mean_difference": 92.5,
-                  "mean_lift_vs_all": 185.12820512820514
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -602,
+                  "mean_difference": -200.66666666666666,
+                  "mean_lift_vs_all": -115.56410256410255
                 },
                 "29": {
-                  "count": 2,
-                  "positive_count": 0,
-                  "positive_rate": 0,
-                  "total_difference": -2176,
-                  "mean_difference": -1088,
-                  "mean_lift_vs_all": -995.3717948717949
+                  "count": 3,
+                  "positive_count": 1,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -880,
+                  "mean_difference": -293.3333333333333,
+                  "mean_lift_vs_all": -208.23076923076923
                 },
                 "30": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -602,
-                  "mean_difference": -301,
-                  "mean_lift_vs_all": -208.37179487179486
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1065,
+                  "mean_difference": -355,
+                  "mean_lift_vs_all": -269.8974358974359
                 },
                 "31": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 879,
-                  "mean_difference": 439.5,
-                  "mean_lift_vs_all": 532.1282051282051
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -834,
+                  "mean_difference": -278,
+                  "mean_lift_vs_all": -192.8974358974359
                 },
                 "32": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 0,
-                  "mean_difference": 0,
-                  "mean_lift_vs_all": 92.62820512820514
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 46,
+                  "mean_difference": 15.333333333333334,
+                  "mean_lift_vs_all": 100.43589743589743
                 },
                 "33": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -1111,
-                  "mean_difference": -555.5,
-                  "mean_lift_vs_all": -462.87179487179486
+                  "total_difference": -1991,
+                  "mean_difference": -663.6666666666666,
+                  "mean_lift_vs_all": -578.5641025641025
                 },
                 "34": {
-                  "count": 2,
-                  "positive_count": 0,
-                  "positive_rate": 0,
-                  "total_difference": -2500,
-                  "mean_difference": -1250,
-                  "mean_lift_vs_all": -1157.371794871795
+                  "count": 3,
+                  "positive_count": 1,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1435,
+                  "mean_difference": -478.3333333333333,
+                  "mean_lift_vs_all": -393.2307692307692
                 },
                 "35": {
                   "count": 2,
@@ -8812,284 +8956,284 @@
             },
             "candidate": {
               "top3": {
-                "count": 15,
-                "positive_count": 3,
-                "positive_rate": 0.2,
-                "mean_difference": -799.4,
-                "mean_lift_vs_all": -600.4358974358973
+                "count": 18,
+                "positive_count": 5,
+                "positive_rate": 0.2777777777777778,
+                "mean_difference": -614.7222222222222,
+                "mean_lift_vs_all": -437.2435897435897
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -5741,
-                  "mean_difference": -1148.2,
-                  "mean_lift_vs_all": -949.2358974358974
+                  "total_difference": -6065,
+                  "mean_difference": -1010.8333333333334,
+                  "mean_lift_vs_all": -833.3547008547009
                 },
                 "2": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -2870,
-                  "mean_difference": -574,
-                  "mean_lift_vs_all": -375.0358974358974
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": -2777,
+                  "mean_difference": -462.8333333333333,
+                  "mean_lift_vs_all": -285.3547008547008
                 },
                 "3": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3380,
-                  "mean_difference": -676,
-                  "mean_lift_vs_all": -477.0358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2223,
+                  "mean_difference": -370.5,
+                  "mean_lift_vs_all": -193.02136752136752
                 },
                 "4": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -1435,
-                  "mean_difference": -287,
-                  "mean_lift_vs_all": -88.03589743589743
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -370,
+                  "mean_difference": -61.666666666666664,
+                  "mean_lift_vs_all": 115.81196581196582
                 },
                 "5": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3241,
-                  "mean_difference": -648.2,
-                  "mean_lift_vs_all": -449.23589743589747
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -972,
+                  "mean_difference": -162,
+                  "mean_lift_vs_all": 15.478632478632477
                 },
                 "6": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3055,
-                  "mean_difference": -611,
-                  "mean_lift_vs_all": -412.0358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2361,
+                  "mean_difference": -393.5,
+                  "mean_lift_vs_all": -216.02136752136752
                 },
                 "7": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 786,
-                  "mean_difference": 157.2,
-                  "mean_lift_vs_all": 356.16410256410256
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 1388,
+                  "mean_difference": 231.33333333333334,
+                  "mean_lift_vs_all": 408.8119658119658
                 },
                 "8": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1621,
-                  "mean_difference": 324.2,
-                  "mean_lift_vs_all": 523.1641025641026
+                  "positive_rate": 0.5,
+                  "total_difference": 1482,
+                  "mean_difference": 247,
+                  "mean_lift_vs_all": 424.47863247863245
                 },
                 "9": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 4,
-                  "positive_rate": 0.8,
-                  "total_difference": 6665,
-                  "mean_difference": 1333,
-                  "mean_lift_vs_all": 1531.9641025641026
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 6387,
+                  "mean_difference": 1064.5,
+                  "mean_lift_vs_all": 1241.9786324786326
                 },
                 "10": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -2315,
-                  "mean_difference": -463,
-                  "mean_lift_vs_all": -264.0358974358974
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2546,
+                  "mean_difference": -424.3333333333333,
+                  "mean_lift_vs_all": -246.85470085470084
                 },
                 "11": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -1112,
-                  "mean_difference": -222.4,
-                  "mean_lift_vs_all": -23.43589743589743
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1390,
+                  "mean_difference": -231.66666666666666,
+                  "mean_lift_vs_all": -54.18803418803418
                 },
                 "12": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -695,
-                  "mean_difference": -139,
-                  "mean_lift_vs_all": 59.964102564102575
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 879,
+                  "mean_difference": 146.5,
+                  "mean_lift_vs_all": 323.97863247863245
                 },
                 "13": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 370,
-                  "mean_difference": 74,
-                  "mean_lift_vs_all": 272.9641025641026
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 1805,
+                  "mean_difference": 300.8333333333333,
+                  "mean_lift_vs_all": 478.3119658119658
                 },
                 "14": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -138,
-                  "mean_difference": -27.6,
-                  "mean_lift_vs_all": 171.36410256410258
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1064,
+                  "mean_difference": -177.33333333333334,
+                  "mean_lift_vs_all": 0.14529914529913412
                 },
                 "15": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 47,
-                  "mean_difference": 9.4,
-                  "mean_lift_vs_all": 208.36410256410258
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -92,
+                  "mean_difference": -15.333333333333334,
+                  "mean_lift_vs_all": 162.14529914529913
                 },
                 "16": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1110,
-                  "mean_difference": 222,
-                  "mean_lift_vs_all": 420.9641025641026
+                  "positive_rate": 0.5,
+                  "total_difference": 554,
+                  "mean_difference": 92.33333333333333,
+                  "mean_lift_vs_all": 269.8119658119658
                 },
                 "17": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 1482,
-                  "mean_difference": 296.4,
-                  "mean_lift_vs_all": 495.36410256410255
+                  "positive_rate": 0.5,
+                  "total_difference": 1065,
+                  "mean_difference": 177.5,
+                  "mean_lift_vs_all": 354.97863247863245
                 },
                 "18": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 5278,
-                  "mean_difference": 1055.6,
-                  "mean_lift_vs_all": 1254.5641025641025
+                  "positive_rate": 0.5,
+                  "total_difference": 3658,
+                  "mean_difference": 609.6666666666666,
+                  "mean_lift_vs_all": 787.1452991452991
                 },
                 "19": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -879,
-                  "mean_difference": -175.8,
-                  "mean_lift_vs_all": 23.164102564102564
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2731,
+                  "mean_difference": -455.1666666666667,
+                  "mean_lift_vs_all": -277.6880341880342
                 },
                 "20": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -3380,
-                  "mean_difference": -676,
-                  "mean_lift_vs_all": -477.0358974358974
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -3334,
+                  "mean_difference": -555.6666666666666,
+                  "mean_lift_vs_all": -378.1880341880342
                 },
                 "21": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": -370,
-                  "mean_difference": -74,
-                  "mean_lift_vs_all": 124.96410256410257
+                  "positive_rate": 0.5,
+                  "total_difference": -1203,
+                  "mean_difference": -200.5,
+                  "mean_lift_vs_all": -23.021367521367523
                 },
                 "22": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1712,
+                  "mean_difference": -285.3333333333333,
+                  "mean_lift_vs_all": -107.85470085470084
+                },
+                "23": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -462,
+                  "mean_difference": -77,
+                  "mean_lift_vs_all": 100.47863247863248
+                },
+                "24": {
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -463,
+                  "mean_difference": -77.16666666666667,
+                  "mean_lift_vs_all": 100.3119658119658
+                },
+                "25": {
                   "count": 5,
                   "positive_count": 2,
                   "positive_rate": 0.4,
-                  "total_difference": -1527,
-                  "mean_difference": -305.4,
-                  "mean_lift_vs_all": -106.4358974358974
-                },
-                "23": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -1018,
-                  "mean_difference": -203.6,
-                  "mean_lift_vs_all": -4.635897435897419
-                },
-                "24": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": -1019,
-                  "mean_difference": -203.8,
-                  "mean_lift_vs_all": -4.8358974358974365
-                },
-                "25": {
-                  "count": 4,
-                  "positive_count": 2,
-                  "positive_rate": 0.5,
-                  "total_difference": -2732,
-                  "mean_difference": -683,
-                  "mean_lift_vs_all": -460.4102564102564
+                  "total_difference": -3473,
+                  "mean_difference": -694.6,
+                  "mean_lift_vs_all": -502.51794871794874
                 },
                 "26": {
-                  "count": 2,
-                  "positive_count": 2,
+                  "count": 3,
+                  "positive_count": 3,
                   "positive_rate": 1,
-                  "total_difference": 2777,
-                  "mean_difference": 1388.5,
-                  "mean_lift_vs_all": 1481.128205128205
+                  "total_difference": 4073,
+                  "mean_difference": 1357.6666666666667,
+                  "mean_lift_vs_all": 1442.769230769231
                 },
                 "27": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 371,
-                  "mean_difference": 185.5,
-                  "mean_lift_vs_all": 278.12820512820514
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -416,
+                  "mean_difference": -138.66666666666666,
+                  "mean_lift_vs_all": -53.564102564102555
                 },
                 "28": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -787,
-                  "mean_difference": -393.5,
-                  "mean_lift_vs_all": -300.87179487179486
+                  "total_difference": -833,
+                  "mean_difference": -277.6666666666667,
+                  "mean_lift_vs_all": -192.5641025641026
                 },
                 "29": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -47,
-                  "mean_difference": -23.5,
-                  "mean_lift_vs_all": 69.12820512820514
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1528,
+                  "mean_difference": -509.3333333333333,
+                  "mean_lift_vs_all": -424.2307692307692
                 },
                 "30": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 2,
-                  "positive_rate": 1,
-                  "total_difference": 416,
-                  "mean_difference": 208,
-                  "mean_lift_vs_all": 300.62820512820514
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -47,
+                  "mean_difference": -15.666666666666666,
+                  "mean_lift_vs_all": 69.43589743589743
                 },
                 "31": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -3519,
-                  "mean_difference": -1759.5,
-                  "mean_lift_vs_all": -1666.871794871795
+                  "total_difference": -4399,
+                  "mean_difference": -1466.3333333333333,
+                  "mean_lift_vs_all": -1381.230769230769
                 },
                 "32": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -787,
-                  "mean_difference": -393.5,
-                  "mean_lift_vs_all": -300.87179487179486
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -741,
+                  "mean_difference": -247,
+                  "mean_lift_vs_all": -161.8974358974359
                 },
                 "33": {
-                  "count": 2,
-                  "positive_count": 0,
-                  "positive_rate": 0,
-                  "total_difference": -2176,
-                  "mean_difference": -1088,
-                  "mean_lift_vs_all": -995.3717948717949
+                  "count": 3,
+                  "positive_count": 1,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1111,
+                  "mean_difference": -370.3333333333333,
+                  "mean_lift_vs_all": -285.2307692307692
                 },
                 "34": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 972,
-                  "mean_difference": 486,
-                  "mean_lift_vs_all": 578.6282051282051
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -741,
+                  "mean_difference": -247,
+                  "mean_lift_vs_all": -161.8974358974359
                 },
                 "35": {
                   "count": 2,
@@ -9135,13 +9279,13 @@
             }
           },
           "minimum_days": 30,
-          "days_remaining": 25,
+          "days_remaining": 24,
           "status": "insufficient_completed_days",
           "paired_comparison": {
-            "mean_difference_gain": 15.4,
-            "median_daily_gain": 0,
+            "mean_difference_gain": 17.944444444444446,
+            "median_daily_gain": 0.0,
             "positive_rate_change": 0.0,
-            "days_better": 1,
+            "days_better": 2,
             "days_worse": 0,
             "minimum_daily_gain": 0.0,
             "maximum_daily_gain": 77.0
@@ -11722,175 +11866,176 @@
           "model_id": "neoim",
           "signature": "e490a9cce3efe94e477c53ebe25cd640a1f9341c88c0c03f2103a6243334e6f3",
           "baseline_strategy": "balanced",
-          "completed_days": 5,
+          "completed_days": 6,
           "dates": [
             "2026-11-17",
             "2026-11-20",
             "2026-11-21",
             "2026-11-22",
-            "2026-11-23"
+            "2026-11-23",
+            "2026-11-24"
           ],
           "methods": {
             "baseline": {
               "top3": {
-                "count": 15,
-                "positive_count": 5,
+                "count": 18,
+                "positive_count": 6,
                 "positive_rate": 0.3333333333333333,
-                "mean_difference": -80.26666666666667,
-                "mean_lift_vs_all": 118.80833333333334
+                "mean_difference": -95.22222222222223,
+                "mean_lift_vs_all": 87.26527777777778
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 648,
-                  "mean_difference": 129.6,
-                  "mean_lift_vs_all": 328.67499999999995
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 370,
+                  "mean_difference": 61.666666666666664,
+                  "mean_lift_vs_all": 244.15416666666664
                 },
                 "2": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -1574,
-                  "mean_difference": -314.8,
-                  "mean_lift_vs_all": -115.72500000000002
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1528,
+                  "mean_difference": -254.66666666666666,
+                  "mean_lift_vs_all": -72.17916666666667
                 },
                 "3": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -278,
-                  "mean_difference": -55.6,
-                  "mean_lift_vs_all": 143.475
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -556,
+                  "mean_difference": -92.66666666666667,
+                  "mean_lift_vs_all": 89.82083333333331
                 },
                 "4": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 3472,
-                  "mean_difference": 694.4,
-                  "mean_lift_vs_all": 893.4749999999999
+                  "positive_rate": 0.5,
+                  "total_difference": 2407,
+                  "mean_difference": 401.1666666666667,
+                  "mean_lift_vs_all": 583.6541666666667
                 },
                 "5": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 972,
-                  "mean_difference": 194.4,
-                  "mean_lift_vs_all": 393.475
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 602,
+                  "mean_difference": 100.33333333333333,
+                  "mean_lift_vs_all": 282.8208333333333
                 },
                 "6": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -2964,
-                  "mean_difference": -592.8,
-                  "mean_lift_vs_all": -393.72499999999997
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": -1344,
+                  "mean_difference": -224,
+                  "mean_lift_vs_all": -41.51250000000002
                 },
                 "7": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -925,
-                  "mean_difference": -185,
-                  "mean_lift_vs_all": 14.074999999999989
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1666,
+                  "mean_difference": -277.6666666666667,
+                  "mean_lift_vs_all": -95.1791666666667
                 },
                 "8": {
+                  "count": 6,
+                  "positive_count": 1,
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -2268,
+                  "mean_difference": -378,
+                  "mean_lift_vs_all": -195.51250000000002
+                },
+                "9": {
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 0,
+                  "mean_difference": 0,
+                  "mean_lift_vs_all": 182.48749999999998
+                },
+                "10": {
+                  "count": 5,
+                  "positive_count": 5,
+                  "positive_rate": 1,
+                  "total_difference": 3751,
+                  "mean_difference": 750.2,
+                  "mean_lift_vs_all": 889.57
+                },
+                "11": {
                   "count": 5,
                   "positive_count": 1,
                   "positive_rate": 0.2,
-                  "total_difference": -1944,
-                  "mean_difference": -388.8,
-                  "mean_lift_vs_all": -189.72500000000002
-                },
-                "9": {
-                  "count": 5,
-                  "positive_count": 3,
-                  "positive_rate": 0.6,
-                  "total_difference": 509,
-                  "mean_difference": 101.8,
-                  "mean_lift_vs_all": 300.875
-                },
-                "10": {
-                  "count": 4,
-                  "positive_count": 4,
-                  "positive_rate": 1,
-                  "total_difference": 3705,
-                  "mean_difference": 926.25,
-                  "mean_lift_vs_all": 1075.575
-                },
-                "11": {
-                  "count": 4,
-                  "positive_count": 1,
-                  "positive_rate": 0.25,
-                  "total_difference": -2129,
-                  "mean_difference": -532.25,
-                  "mean_lift_vs_all": -382.925
+                  "total_difference": -2870,
+                  "mean_difference": -574,
+                  "mean_lift_vs_all": -434.63
                 },
                 "12": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -1759,
-                  "mean_difference": -879.5,
-                  "mean_lift_vs_all": -908.4375
+                  "total_difference": -1990,
+                  "mean_difference": -663.3333333333334,
+                  "mean_lift_vs_all": -649.4416666666667
                 },
                 "13": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 2,
-                  "positive_rate": 1,
-                  "total_difference": 1019,
-                  "mean_difference": 509.5,
-                  "mean_lift_vs_all": 480.5625
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 973,
+                  "mean_difference": 324.3333333333333,
+                  "mean_lift_vs_all": 338.22499999999997
                 },
                 "14": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1620,
-                  "mean_difference": 810,
-                  "mean_lift_vs_all": 781.0625
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 2037,
+                  "mean_difference": 679,
+                  "mean_lift_vs_all": 692.8916666666667
                 },
                 "15": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -972,
-                  "mean_difference": -486,
-                  "mean_lift_vs_all": -514.9375
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": -879,
+                  "mean_difference": -293,
+                  "mean_lift_vs_all": -279.10833333333335
                 },
                 "16": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -509,
-                  "mean_difference": -254.5,
-                  "mean_lift_vs_all": -283.4375
+                  "total_difference": -1250,
+                  "mean_difference": -416.6666666666667,
+                  "mean_lift_vs_all": -402.77500000000003
                 },
                 "17": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -1111,
-                  "mean_difference": -555.5,
-                  "mean_lift_vs_all": -584.4375
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1389,
+                  "mean_difference": -463,
+                  "mean_lift_vs_all": -449.10833333333335
                 },
                 "18": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -694,
-                  "mean_difference": -347,
-                  "mean_lift_vs_all": -375.9375
+                  "total_difference": -1342,
+                  "mean_difference": -447.3333333333333,
+                  "mean_lift_vs_all": -433.44166666666666
                 },
                 "19": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -1528,
-                  "mean_difference": -764,
-                  "mean_lift_vs_all": -792.9375
+                  "total_difference": -1667,
+                  "mean_difference": -555.6666666666666,
+                  "mean_lift_vs_all": -541.775
                 },
                 "20": {
                   "count": 2,
@@ -11984,164 +12129,164 @@
             },
             "candidate": {
               "top3": {
-                "count": 15,
+                "count": 18,
                 "positive_count": 5,
-                "positive_rate": 0.3333333333333333,
-                "mean_difference": -108.0,
-                "mean_lift_vs_all": 91.075
+                "positive_rate": 0.2777777777777778,
+                "mean_difference": -144.0,
+                "mean_lift_vs_all": 38.487500000000004
               },
               "by_rank": {
                 "1": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 648,
-                  "mean_difference": 129.6,
-                  "mean_lift_vs_all": 328.67499999999995
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 370,
+                  "mean_difference": 61.666666666666664,
+                  "mean_lift_vs_all": 244.15416666666664
                 },
                 "2": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -1574,
-                  "mean_difference": -314.8,
-                  "mean_lift_vs_all": -115.72500000000002
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -1898,
+                  "mean_difference": -316.3333333333333,
+                  "mean_lift_vs_all": -133.84583333333333
                 },
                 "3": {
-                  "count": 5,
+                  "count": 6,
                   "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -694,
-                  "mean_difference": -138.8,
-                  "mean_lift_vs_all": 60.27499999999998
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1064,
+                  "mean_difference": -177.33333333333334,
+                  "mean_lift_vs_all": 5.15416666666664
                 },
                 "4": {
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 3657,
+                  "mean_difference": 609.5,
+                  "mean_lift_vs_all": 791.9875
+                },
+                "5": {
+                  "count": 6,
+                  "positive_count": 3,
+                  "positive_rate": 0.5,
+                  "total_difference": 1295,
+                  "mean_difference": 215.83333333333334,
+                  "mean_lift_vs_all": 398.3208333333333
+                },
+                "6": {
+                  "count": 6,
+                  "positive_count": 4,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 2777,
+                  "mean_difference": 462.8333333333333,
+                  "mean_lift_vs_all": 645.3208333333333
+                },
+                "7": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2593,
+                  "mean_difference": -432.1666666666667,
+                  "mean_lift_vs_all": -249.6791666666667
+                },
+                "8": {
+                  "count": 6,
+                  "positive_count": 1,
+                  "positive_rate": 0.16666666666666666,
+                  "total_difference": -3241,
+                  "mean_difference": -540.1666666666666,
+                  "mean_lift_vs_all": -357.6791666666667
+                },
+                "9": {
+                  "count": 6,
+                  "positive_count": 2,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -2731,
+                  "mean_difference": -455.1666666666667,
+                  "mean_lift_vs_all": -272.6791666666667
+                },
+                "10": {
                   "count": 5,
                   "positive_count": 3,
                   "positive_rate": 0.6,
-                  "total_difference": 2037,
-                  "mean_difference": 407.4,
-                  "mean_lift_vs_all": 606.4749999999999
-                },
-                "5": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": 1249,
-                  "mean_difference": 249.8,
-                  "mean_lift_vs_all": 448.875
-                },
-                "6": {
-                  "count": 5,
-                  "positive_count": 4,
-                  "positive_rate": 0.8,
-                  "total_difference": 3055,
-                  "mean_difference": 611,
-                  "mean_lift_vs_all": 810.075
-                },
-                "7": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -2639,
-                  "mean_difference": -527.8,
-                  "mean_lift_vs_all": -328.72499999999997
-                },
-                "8": {
-                  "count": 5,
-                  "positive_count": 1,
-                  "positive_rate": 0.2,
-                  "total_difference": -2176,
-                  "mean_difference": -435.2,
-                  "mean_lift_vs_all": -236.125
-                },
-                "9": {
-                  "count": 5,
-                  "positive_count": 2,
-                  "positive_rate": 0.4,
-                  "total_difference": -1990,
-                  "mean_difference": -398,
-                  "mean_lift_vs_all": -198.925
-                },
-                "10": {
-                  "count": 4,
-                  "positive_count": 3,
-                  "positive_rate": 0.75,
-                  "total_difference": 279,
-                  "mean_difference": 69.75,
-                  "mean_lift_vs_all": 219.075
+                  "total_difference": -462,
+                  "mean_difference": -92.4,
+                  "mean_lift_vs_all": 46.97
                 },
                 "11": {
-                  "count": 4,
+                  "count": 5,
                   "positive_count": 3,
-                  "positive_rate": 0.75,
-                  "total_difference": 2316,
-                  "mean_difference": 579,
-                  "mean_lift_vs_all": 728.325
+                  "positive_rate": 0.6,
+                  "total_difference": 1807,
+                  "mean_difference": 361.4,
+                  "mean_lift_vs_all": 500.77
                 },
                 "12": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 1065,
-                  "mean_difference": 532.5,
-                  "mean_lift_vs_all": 503.5625
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 834,
+                  "mean_difference": 278,
+                  "mean_lift_vs_all": 291.89166666666665
                 },
                 "13": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -972,
-                  "mean_difference": -486,
-                  "mean_lift_vs_all": -514.9375
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1018,
+                  "mean_difference": -339.3333333333333,
+                  "mean_lift_vs_all": -325.44166666666666
                 },
                 "14": {
-                  "count": 2,
-                  "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": 0,
-                  "mean_difference": 0,
-                  "mean_lift_vs_all": -28.9375
+                  "count": 3,
+                  "positive_count": 2,
+                  "positive_rate": 0.6666666666666666,
+                  "total_difference": 93,
+                  "mean_difference": 31,
+                  "mean_lift_vs_all": 44.891666666666666
                 },
                 "15": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -1435,
-                  "mean_difference": -717.5,
-                  "mean_lift_vs_all": -746.4375
+                  "total_difference": -1713,
+                  "mean_difference": -571,
+                  "mean_lift_vs_all": -557.1083333333333
                 },
                 "16": {
-                  "count": 2,
-                  "positive_count": 0,
-                  "positive_rate": 0,
-                  "total_difference": -278,
-                  "mean_difference": -139,
-                  "mean_lift_vs_all": -167.9375
+                  "count": 3,
+                  "positive_count": 1,
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": 139,
+                  "mean_difference": 46.333333333333336,
+                  "mean_lift_vs_all": 60.225
                 },
                 "17": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 1,
-                  "positive_rate": 0.5,
-                  "total_difference": -1111,
-                  "mean_difference": -555.5,
-                  "mean_lift_vs_all": -584.4375
+                  "positive_rate": 0.3333333333333333,
+                  "total_difference": -1852,
+                  "mean_difference": -617.3333333333334,
+                  "mean_lift_vs_all": -603.4416666666667
                 },
                 "18": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -509,
-                  "mean_difference": -254.5,
-                  "mean_lift_vs_all": -283.4375
+                  "total_difference": -1157,
+                  "mean_difference": -385.6666666666667,
+                  "mean_lift_vs_all": -371.77500000000003
                 },
                 "19": {
-                  "count": 2,
+                  "count": 3,
                   "positive_count": 0,
                   "positive_rate": 0,
-                  "total_difference": -1435,
-                  "mean_difference": -717.5,
-                  "mean_lift_vs_all": -746.4375
+                  "total_difference": -1574,
+                  "mean_difference": -524.6666666666666,
+                  "mean_lift_vs_all": -510.775
                 },
                 "20": {
                   "count": 2,
@@ -12235,15 +12380,15 @@
             }
           },
           "minimum_days": 30,
-          "days_remaining": 25,
+          "days_remaining": 24,
           "status": "insufficient_completed_days",
           "paired_comparison": {
-            "mean_difference_gain": -27.73333333333333,
+            "mean_difference_gain": -48.77777777777778,
             "median_daily_gain": 0.0,
-            "positive_rate_change": 0.0,
+            "positive_rate_change": -0.055555555555555525,
             "days_better": 0,
-            "days_worse": 1,
-            "minimum_daily_gain": -138.66666666666666,
+            "days_worse": 2,
+            "minimum_daily_gain": -154,
             "maximum_daily_gain": 0
           }
         }
@@ -12257,7 +12402,7 @@
     "All-machine lift averages daily baselines; zero difference is not positive.",
     "Thirty days triggers human review only; daily profit is not verified setting accuracy."
   ],
-  "checked_at": "2026-11-24T15:35:50.422349+00:00",
+  "checked_at": "2026-11-24T17:34:49.428365+00:00",
   "captured_days": 17,
   "pending": [
     {
@@ -12402,33 +12547,8 @@
     },
     {
       "date": "2026-11-24",
-      "model_id": "myj6",
-      "status": "pending_results"
-    },
-    {
-      "date": "2026-11-24",
-      "model_id": "neoim",
-      "status": "pending_results"
-    },
-    {
-      "date": "2026-11-24",
-      "model_id": "gogo3",
-      "status": "pending_results"
-    },
-    {
-      "date": "2026-11-24",
-      "model_id": "funky2",
-      "status": "pending_results"
-    },
-    {
-      "date": "2026-11-24",
       "model_id": "happy8",
       "status": "no_paired_prediction"
-    },
-    {
-      "date": "2026-11-24",
-      "model_id": "girls",
-      "status": "pending_results"
     },
     {
       "date": "2026-11-24",

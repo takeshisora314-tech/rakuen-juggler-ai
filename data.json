@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-25T22:04:00.984589+00:00",
+  "updated_at": "2026-11-25T22:33:59.220283+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-25T22:04:00.984589+00:00"
+      "checked_at": "2026-11-25T22:33:59.220283+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-25T22:04:00.984589+00:00"
+      "checked_at": "2026-11-25T22:33:59.220283+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-25T22:04:00.984589+00:00"
+      "checked_at": "2026-11-25T22:33:59.220283+00:00"
     }
   },
   "layout": {
@@ -148119,7 +148119,7 @@
   ],
   "machine_collection": {
     "status": "complete",
-    "attempted_at": "2026-11-25T22:04:04.386216+00:00",
+    "attempted_at": "2026-11-25T22:34:04.778045+00:00",
     "models": {
       "myj6": {
         "status": "complete",
@@ -148174,8 +148174,8 @@
     },
     "report_date": "2026-11-25",
     "report_url": "https://min-repo.com/3491924/",
-    "progress_saves": 10,
-    "progress_record_count": 168,
+    "progress_saves": 8,
+    "progress_record_count": 150,
     "backfill": {
       "2026-11-24": {
         "status": "cached"
@@ -148361,17 +148361,7 @@
         "status": "cached"
       },
       "2026-09-24": {
-        "status": "partial",
-        "models": {
-          "happy8": {
-            "status": "partial",
-            "rows": 18,
-            "expected_rows": 19,
-            "missing_numbers": [
-              219
-            ]
-          }
-        }
+        "status": "cooldown"
       },
       "2026-09-23": {
         "status": "cached"

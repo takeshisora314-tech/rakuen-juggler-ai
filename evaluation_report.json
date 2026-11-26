@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "policy_version": "experimental-v1",
-  "as_of_date": "2026-11-26",
-  "window_start": "2026-08-28",
-  "window_end_exclusive": "2026-11-26",
+  "as_of_date": "2026-11-27",
+  "window_start": "2026-08-29",
+  "window_end_exclusive": "2026-11-27",
   "calendar_days": 90,
-  "input_records_sha256": "25ecdf5344a25fe57b0836f8a7676a80111b635189a078a013403c37976e2eed",
+  "input_records_sha256": "775bbf075622c28ce702fb36c5624ab124a1b0bc126b4a55753de9df5708bbb8",
   "config_sha256": "232e8522edc6c7a07e0ac58ff801eb50f6a44101908399ae7f785882ca906f4a",
-  "record_count": 13444,
+  "record_count": 13294,
   "prospective": {
     "kind": "prospective",
     "ambiguous_dates_excluded": 0,
@@ -15,7 +15,8 @@
       "myj6": {
         "status_counts": {
           "no_prediction": 1,
-          "complete": 21
+          "complete": 21,
+          "pending_results": 1
         },
         "paired_days": 21,
         "first_date": "2026-10-31",
@@ -51,7 +52,7 @@
         "status_counts": {
           "complete": 10,
           "pending_results": 1,
-          "inactive": 11
+          "inactive": 12
         },
         "paired_days": 10,
         "first_date": "2026-10-27",
@@ -86,7 +87,8 @@
       "neoim": {
         "status_counts": {
           "no_prediction": 1,
-          "complete": 21
+          "complete": 21,
+          "pending_results": 1
         },
         "paired_days": 21,
         "first_date": "2026-10-31",
@@ -121,7 +123,8 @@
       "gogo3": {
         "status_counts": {
           "no_prediction": 1,
-          "complete": 21
+          "complete": 21,
+          "pending_results": 1
         },
         "paired_days": 21,
         "first_date": "2026-10-31",
@@ -157,7 +160,8 @@
         "status_counts": {
           "no_prediction": 2,
           "complete": 17,
-          "invalid_metrics": 3
+          "invalid_metrics": 3,
+          "pending_results": 1
         },
         "paired_days": 17,
         "first_date": "2026-11-01",
@@ -194,7 +198,7 @@
           "no_prediction": 2,
           "complete": 15,
           "invalid_metrics": 4,
-          "pending_results": 1
+          "pending_results": 2
         },
         "paired_days": 15,
         "first_date": "2026-10-31",
@@ -230,7 +234,8 @@
         "status_counts": {
           "no_prediction": 2,
           "complete": 11,
-          "invalid_metrics": 9
+          "invalid_metrics": 9,
+          "pending_results": 1
         },
         "paired_days": 11,
         "first_date": "2026-11-01",
@@ -266,7 +271,8 @@
         "status_counts": {
           "no_prediction": 5,
           "complete": 7,
-          "invalid_metrics": 10
+          "invalid_metrics": 10,
+          "pending_results": 1
         },
         "paired_days": 7,
         "first_date": "2026-11-01",
@@ -306,9 +312,10 @@
     "models": {
       "myj6": {
         "status_counts": {
-          "inactive": 60,
+          "inactive": 59,
           "no_prediction": 3,
-          "complete": 27
+          "complete": 27,
+          "pending_results": 1
         },
         "paired_days": 27,
         "first_date": "2026-10-30",
@@ -343,106 +350,108 @@
       "myj5": {
         "status_counts": {
           "no_prediction": 3,
-          "complete": 70,
+          "complete": 69,
           "pending_results": 2,
-          "inactive": 15
+          "inactive": 16
         },
-        "paired_days": 70,
-        "first_date": "2026-08-31",
+        "paired_days": 69,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-09",
         "strategies": {
           "balanced": {
-            "count": 210,
+            "count": 207,
             "positive_count": 94,
-            "positive_rate": 0.44761904761904764,
-            "mean_difference": 10.37,
-            "lift_vs_eligible_mean": 69.71,
+            "positive_rate": 0.45410628019323673,
+            "mean_difference": 2.92,
+            "lift_vs_eligible_mean": 55.3,
             "low_play_count": 36
           },
           "dip": {
-            "count": 210,
-            "positive_count": 94,
-            "positive_rate": 0.44761904761904764,
-            "mean_difference": 84.03,
-            "lift_vs_eligible_mean": 143.38,
+            "count": 207,
+            "positive_count": 93,
+            "positive_rate": 0.4492753623188406,
+            "mean_difference": 95.54,
+            "lift_vs_eligible_mean": 147.91,
             "low_play_count": 35
           },
           "rb": {
-            "count": 210,
-            "positive_count": 89,
-            "positive_rate": 0.4238095238095238,
-            "mean_difference": 26.88,
-            "lift_vs_eligible_mean": 86.22,
-            "low_play_count": 48
+            "count": 207,
+            "positive_count": 85,
+            "positive_rate": 0.4106280193236715,
+            "mean_difference": 10.5,
+            "lift_vs_eligible_mean": 62.87,
+            "low_play_count": 50
           }
         }
       },
       "neoim": {
         "status_counts": {
           "no_prediction": 3,
-          "complete": 87
+          "complete": 86,
+          "pending_results": 1
         },
-        "paired_days": 87,
-        "first_date": "2026-08-31",
+        "paired_days": 86,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-25",
         "strategies": {
           "balanced": {
-            "count": 261,
-            "positive_count": 120,
-            "positive_rate": 0.45977011494252873,
-            "mean_difference": 171.86,
-            "lift_vs_eligible_mean": 117.7,
+            "count": 258,
+            "positive_count": 119,
+            "positive_rate": 0.46124031007751937,
+            "mean_difference": 167.22,
+            "lift_vs_eligible_mean": 130.73,
             "low_play_count": 87
           },
           "dip": {
-            "count": 261,
-            "positive_count": 128,
-            "positive_rate": 0.4904214559386973,
-            "mean_difference": 203.98,
-            "lift_vs_eligible_mean": 149.82,
+            "count": 258,
+            "positive_count": 126,
+            "positive_rate": 0.4883720930232558,
+            "mean_difference": 182.66,
+            "lift_vs_eligible_mean": 146.17,
             "low_play_count": 85
           },
           "rb": {
-            "count": 261,
-            "positive_count": 109,
-            "positive_rate": 0.41762452107279696,
-            "mean_difference": 109.09,
-            "lift_vs_eligible_mean": 54.93,
-            "low_play_count": 93
+            "count": 258,
+            "positive_count": 106,
+            "positive_rate": 0.4108527131782946,
+            "mean_difference": 84.15,
+            "lift_vs_eligible_mean": 47.66,
+            "low_play_count": 95
           }
         }
       },
       "gogo3": {
         "status_counts": {
           "no_prediction": 3,
-          "complete": 87
+          "complete": 86,
+          "pending_results": 1
         },
-        "paired_days": 87,
-        "first_date": "2026-08-31",
+        "paired_days": 86,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-25",
         "strategies": {
           "balanced": {
-            "count": 261,
-            "positive_count": 114,
-            "positive_rate": 0.4367816091954023,
-            "mean_difference": 56.91,
-            "lift_vs_eligible_mean": 35.1,
-            "low_play_count": 66
+            "count": 258,
+            "positive_count": 113,
+            "positive_rate": 0.437984496124031,
+            "mean_difference": 68.16,
+            "lift_vs_eligible_mean": 45.16,
+            "low_play_count": 64
           },
           "dip": {
-            "count": 261,
-            "positive_count": 116,
-            "positive_rate": 0.4444444444444444,
-            "mean_difference": 73.95,
-            "lift_vs_eligible_mean": 52.14,
-            "low_play_count": 68
+            "count": 258,
+            "positive_count": 114,
+            "positive_rate": 0.4418604651162791,
+            "mean_difference": 70.69,
+            "lift_vs_eligible_mean": 47.69,
+            "low_play_count": 67
           },
           "rb": {
-            "count": 261,
-            "positive_count": 114,
-            "positive_rate": 0.4367816091954023,
-            "mean_difference": 46.28,
-            "lift_vs_eligible_mean": 24.47,
+            "count": 258,
+            "positive_count": 111,
+            "positive_rate": 0.43023255813953487,
+            "mean_difference": 49.69,
+            "lift_vs_eligible_mean": 26.69,
             "low_play_count": 71
           }
         }
@@ -450,72 +459,73 @@
       "funky2": {
         "status_counts": {
           "no_prediction": 4,
-          "complete": 72,
-          "invalid_metrics": 14
+          "complete": 70,
+          "invalid_metrics": 15,
+          "pending_results": 1
         },
-        "paired_days": 72,
-        "first_date": "2026-08-31",
+        "paired_days": 70,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-24",
         "strategies": {
           "balanced": {
-            "count": 216,
+            "count": 210,
             "positive_count": 89,
-            "positive_rate": 0.41203703703703703,
-            "mean_difference": -15.24,
-            "lift_vs_eligible_mean": 35.62,
-            "low_play_count": 70
+            "positive_rate": 0.4238095238095238,
+            "mean_difference": -0.69,
+            "lift_vs_eligible_mean": 45.39,
+            "low_play_count": 68
           },
           "dip": {
-            "count": 216,
-            "positive_count": 85,
-            "positive_rate": 0.39351851851851855,
-            "mean_difference": -16.93,
-            "lift_vs_eligible_mean": 33.92,
-            "low_play_count": 74
+            "count": 210,
+            "positive_count": 84,
+            "positive_rate": 0.4,
+            "mean_difference": -0.89,
+            "lift_vs_eligible_mean": 45.19,
+            "low_play_count": 71
           },
           "rb": {
-            "count": 216,
-            "positive_count": 91,
-            "positive_rate": 0.4212962962962963,
-            "mean_difference": 44.16,
-            "lift_vs_eligible_mean": 95.02,
-            "low_play_count": 73
+            "count": 210,
+            "positive_count": 90,
+            "positive_rate": 0.42857142857142855,
+            "mean_difference": 58.42,
+            "lift_vs_eligible_mean": 104.5,
+            "low_play_count": 70
           }
         }
       },
       "happy8": {
         "status_counts": {
           "no_prediction": 4,
-          "complete": 77,
+          "complete": 76,
           "invalid_metrics": 8,
-          "pending_results": 1
+          "pending_results": 2
         },
-        "paired_days": 77,
-        "first_date": "2026-08-31",
+        "paired_days": 76,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-25",
         "strategies": {
           "balanced": {
-            "count": 231,
-            "positive_count": 88,
-            "positive_rate": 0.38095238095238093,
-            "mean_difference": 21.84,
-            "lift_vs_eligible_mean": 58.56,
-            "low_play_count": 73
+            "count": 228,
+            "positive_count": 85,
+            "positive_rate": 0.37280701754385964,
+            "mean_difference": 17.05,
+            "lift_vs_eligible_mean": 54.46,
+            "low_play_count": 74
           },
           "dip": {
-            "count": 231,
-            "positive_count": 89,
-            "positive_rate": 0.3852813852813853,
-            "mean_difference": 40.68,
-            "lift_vs_eligible_mean": 77.41,
+            "count": 228,
+            "positive_count": 87,
+            "positive_rate": 0.3815789473684211,
+            "mean_difference": 42.04,
+            "lift_vs_eligible_mean": 79.45,
             "low_play_count": 76
           },
           "rb": {
-            "count": 231,
-            "positive_count": 87,
-            "positive_rate": 0.37662337662337664,
-            "mean_difference": -10.04,
-            "lift_vs_eligible_mean": 26.68,
+            "count": 228,
+            "positive_count": 84,
+            "positive_rate": 0.3684210526315789,
+            "mean_difference": -19.1,
+            "lift_vs_eligible_mean": 18.31,
             "low_play_count": 82
           }
         }
@@ -523,71 +533,73 @@
       "girls": {
         "status_counts": {
           "no_prediction": 7,
-          "complete": 54,
-          "invalid_metrics": 29
+          "complete": 53,
+          "invalid_metrics": 29,
+          "pending_results": 1
         },
-        "paired_days": 54,
-        "first_date": "2026-08-31",
+        "paired_days": 53,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-25",
         "strategies": {
           "balanced": {
-            "count": 162,
-            "positive_count": 60,
-            "positive_rate": 0.37037037037037035,
-            "mean_difference": 59.19,
-            "lift_vs_eligible_mean": 61.96,
-            "low_play_count": 55
+            "count": 159,
+            "positive_count": 58,
+            "positive_rate": 0.36477987421383645,
+            "mean_difference": 50.4,
+            "lift_vs_eligible_mean": 53.72,
+            "low_play_count": 54
           },
           "dip": {
-            "count": 162,
-            "positive_count": 63,
-            "positive_rate": 0.3888888888888889,
-            "mean_difference": 115.78,
-            "lift_vs_eligible_mean": 118.55,
-            "low_play_count": 55
+            "count": 159,
+            "positive_count": 61,
+            "positive_rate": 0.3836477987421384,
+            "mean_difference": 108.06,
+            "lift_vs_eligible_mean": 111.38,
+            "low_play_count": 54
           },
           "rb": {
-            "count": 162,
+            "count": 159,
             "positive_count": 58,
-            "positive_rate": 0.35802469135802467,
-            "mean_difference": 7.74,
-            "lift_vs_eligible_mean": 10.52,
-            "low_play_count": 59
+            "positive_rate": 0.36477987421383645,
+            "mean_difference": 20.12,
+            "lift_vs_eligible_mean": 23.43,
+            "low_play_count": 58
           }
         }
       },
       "mr": {
         "status_counts": {
           "no_prediction": 15,
-          "complete": 33,
-          "invalid_metrics": 42
+          "complete": 32,
+          "invalid_metrics": 42,
+          "pending_results": 1
         },
-        "paired_days": 33,
-        "first_date": "2026-08-31",
+        "paired_days": 32,
+        "first_date": "2026-09-01",
         "last_date": "2026-11-16",
         "strategies": {
           "balanced": {
-            "count": 99,
-            "positive_count": 42,
-            "positive_rate": 0.42424242424242425,
-            "mean_difference": 271.67,
-            "lift_vs_eligible_mean": 32.66,
-            "low_play_count": 38
+            "count": 96,
+            "positive_count": 40,
+            "positive_rate": 0.4166666666666667,
+            "mean_difference": 252.19,
+            "lift_vs_eligible_mean": 11.4,
+            "low_play_count": 39
           },
           "dip": {
-            "count": 99,
-            "positive_count": 39,
-            "positive_rate": 0.3939393939393939,
-            "mean_difference": 184.24,
-            "lift_vs_eligible_mean": -54.76,
-            "low_play_count": 38
+            "count": 96,
+            "positive_count": 37,
+            "positive_rate": 0.3854166666666667,
+            "mean_difference": 197.23,
+            "lift_vs_eligible_mean": -43.56,
+            "low_play_count": 39
           },
           "rb": {
-            "count": 99,
-            "positive_count": 43,
-            "positive_rate": 0.43434343434343436,
-            "mean_difference": 291.3,
-            "lift_vs_eligible_mean": 52.3,
+            "count": 96,
+            "positive_count": 40,
+            "positive_rate": 0.4166666666666667,
+            "mean_difference": 269.06,
+            "lift_vs_eligible_mean": 28.28,
             "low_play_count": 44
           }
         }

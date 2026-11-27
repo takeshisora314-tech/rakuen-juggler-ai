@@ -1,20 +1,20 @@
 {
-  "updated_at": "2026-11-27T23:04:20.658876+00:00",
+  "updated_at": "2026-11-27T23:14:10.232755+00:00",
   "sources": {
     "min-repo": {
       "ok": true,
       "status": 200,
-      "checked_at": "2026-11-27T23:04:20.658876+00:00"
+      "checked_at": "2026-11-27T23:14:10.232755+00:00"
     },
     "ana-slo": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-27T23:04:20.658876+00:00"
+      "checked_at": "2026-11-27T23:14:10.232755+00:00"
     },
     "d-delta": {
       "ok": false,
       "status": 403,
-      "checked_at": "2026-11-27T23:04:20.658876+00:00"
+      "checked_at": "2026-11-27T23:14:10.232755+00:00"
     }
   },
   "layout": {
@@ -148118,37 +148118,47 @@
     }
   ],
   "machine_collection": {
-    "status": "error",
-    "attempted_at": "2026-11-27T23:04:22.115813+00:00",
-    "models": {},
-    "backfill_only": false,
-    "diagnostic": {
-      "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
-      "title": "",
-      "body_excerpt": "",
-      "request_failures": [],
-      "javascript_errors": [],
-      "console_errors": [],
-      "document": {
-        "bytes": 0,
-        "script_count": 0,
-        "ajax_bootstrap": false,
-        "content_type": "text/html; charset=UTF-8"
+    "status": "blocked",
+    "attempted_at": "2026-11-27T23:14:16.439889+00:00",
+    "models": {
+      "myj6": {
+        "status": "complete",
+        "rows": 39,
+        "expected_rows": 39,
+        "missing_numbers": []
       },
-      "site_responses": [
-        {
-          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
-          "status": 200
-        },
-        {
-          "url": "https://min-repo.com/tag/%E6%A5%BD%E5%9C%92%E4%B8%8A%E6%96%B0%E5%B1%8B%E5%BA%97/",
-          "status": 200
-        }
-      ]
+      "neoim": {
+        "status": "complete",
+        "rows": 40,
+        "expected_rows": 40,
+        "missing_numbers": []
+      },
+      "gogo3": {
+        "status": "complete",
+        "rows": 26,
+        "expected_rows": 26,
+        "missing_numbers": []
+      },
+      "funky2": {
+        "status": "complete",
+        "rows": 11,
+        "expected_rows": 11,
+        "missing_numbers": []
+      }
     },
-    "reason": "Page.wait_for_function: Timeout 45000ms exceeded.",
-    "progress_saves": 1,
-    "progress_record_count": 0
+    "backfill_only": false,
+    "history_window": {
+      "days": 90,
+      "discovered_report_days": 90,
+      "earliest_discovered": "2026-08-30",
+      "latest_discovered": "2026-11-27",
+      "note": "Discovered reports are not proof of complete machine results"
+    },
+    "report_date": "2026-11-27",
+    "report_url": "https://min-repo.com/3495852/",
+    "progress_saves": 5,
+    "progress_record_count": 116,
+    "reason": "HTTP 500; no retry or bypass"
   },
   "forecast": {
     "version": "experimental-v1",

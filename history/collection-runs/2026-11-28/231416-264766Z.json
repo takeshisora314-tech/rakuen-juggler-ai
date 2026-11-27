@@ -1,0 +1,50 @@
+{
+  "started_at": "2026-11-27T23:14:16.264766+00:00",
+  "finished_at": "2026-11-27T23:15:05.046186+00:00",
+  "mode": "daily",
+  "process_failed": false,
+  "result": {
+    "status": "blocked",
+    "attempted_at": "2026-11-27T23:14:16.439889+00:00",
+    "models": {
+      "myj6": {
+        "status": "complete",
+        "rows": 39,
+        "expected_rows": 39,
+        "missing_numbers": []
+      },
+      "neoim": {
+        "status": "complete",
+        "rows": 40,
+        "expected_rows": 40,
+        "missing_numbers": []
+      },
+      "gogo3": {
+        "status": "complete",
+        "rows": 26,
+        "expected_rows": 26,
+        "missing_numbers": []
+      },
+      "funky2": {
+        "status": "complete",
+        "rows": 11,
+        "expected_rows": 11,
+        "missing_numbers": []
+      }
+    },
+    "backfill_only": false,
+    "history_window": {
+      "days": 90,
+      "discovered_report_days": 90,
+      "earliest_discovered": "2026-08-30",
+      "latest_discovered": "2026-11-27",
+      "note": "Discovered reports are not proof of complete machine results"
+    },
+    "report_date": "2026-11-27",
+    "report_url": "https://min-repo.com/3495852/",
+    "progress_saves": 5,
+    "progress_record_count": 116,
+    "reason": "HTTP 500; no retry or bypass"
+  },
+  "saved_record_count": 13444
+}
